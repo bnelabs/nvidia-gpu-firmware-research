@@ -1,5 +1,16 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 2d: spec-accurate BIT decode; PERF chain fully walked; table leads (Europe/Istanbul)
+- Official BIT spec pulled; parser rewritten: header {0xB8FF, BIT\0, BCD, hdr=12, tok=6, 17, cksum},
+  token {id, ver, size BE, ptr BE}; UEFI pointer-adjustment rule (+0x16600) validated on all
+  PERF tables; Voltage tables need no adjustment.
+- PERF_PTRS v2: 58 fields decoded by name (Power/Thermal/Fan/Voltage/LowPower/Overclocking).
+- **PowerControlTable pointer NULL on Ampere** — power policy moved to GSP era (matches
+  CLK/FAN/VOLT absence from open SDK).
+- Table-content leads ([VERIFY]): OverclockingTable 1,920 MHz ceiling candidate; PowerSensors
+  8 sensors + INA3221-style config; FanCoolerTable RPM values 500/2000/2949/5000.
+- README repo map + SOURCES updated (official BIT spec added). Commits 7d7e798, 21-total.
+
 ## 2026-10-15 — wave 2c: vBIOS BIT parser working; cross-SKU diffs done (Europe/Istanbul)
 - scripts/parse_vbios_bit.py: self-calibrating BIT parser (auto-carve NVGI wrapper, PCIR,
   token table). Debug lessons: hdr=16B, BE loc/size, stream ends at non-token byte.
