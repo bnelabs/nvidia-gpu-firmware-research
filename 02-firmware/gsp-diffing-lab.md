@@ -73,6 +73,23 @@ Headline findings:
 5. `rm.bindata.bin`, `gsp_cpu_{dma,replayable_fault,non_replayable_fault}` — bindata archive
    format + CPU fault-handling telemetry names.
 
+## 6. Kernel archive table — partial decode (2026-10-15, round 10)
+
+Entry layout (stride 160 B, first entry @ payload 0x69014, name at +16, then u64 descriptors):
+- VA1 `0xffffffff92fff000` + VA2 `0xffffffffa3000000` — match **every kernel ELF's LOAD VAs**
+  (all 7 kernels: EXEC, entry `0xffffffff93000000`, statically linked, **stripped**, RVC).
+- Descriptor fields per entry: (offset, size, count) triples + small ints — loader patch tables;
+  exact semantics live in `nouveau_firmware_layout.ods` [VERIFY next].
+- All 8 early embedded ELFs are **distinct binaries** (md5s recorded; 7 kernels + 1 other,
+  the 8th @0x1C6000 has a different entry point 0x10027cc — likely libos/bootloader [VERIFY]).
+- Working hypothesis: storage order = adjacent table order = `ga10x, gh100, gb10x, gb10y,
+  gb20x, gb20y, gr10x` → `kernel_gr10x.elf` = ELF @payload 0x192000. Validation pending ODS
+  decode (or diff vs the 570 container, which only has gb10x/gb20x kernels — a kernel present
+  in 615 but absent in 570 pins the new-family additions).
+- Note: a second name list earlier in the payload (~16 KB) lists the same kernels in REVERSE
+  (newest-first: gr10x…ga10x) — two tables, two orders; the one adjacent to the ELF blob is
+  the loader table [VERIFY].
+
 ## Next steps (P2, updated)
 
 - [ ] Extract `kernel_gr10x.elf` + `kernel_gb20x.elf` via the archive directory (parse name→
