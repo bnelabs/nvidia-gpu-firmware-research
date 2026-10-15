@@ -1,5 +1,19 @@
 # Research log (append-only)
 
+## 2026-10-16 — wave 3b: packets A+B+C executed on branch work/packet-a-tracing (Europe/Istanbul)
+- Corpus re-validated with reviewer-fixed parser (4/4 EVGA samples, 67 mapped fields each).
+- **Packet A**: sniffer2 (hardened tracer: exact NVOS54 shape, separate errno/RM-status,
+  errno preserved, bounded captures, full provenance) + 13/13 acceptance tests, branch pushed.
+- **Packet B**: nvml_pstate_probe (dlopen NVML) — getter returns ordinal 0x8 (P8 idle, ×5
+  stable, matches nvidia-smi); getter path = ONE client-level control 0x00000d01 (12B);
+  getters 2–5 issue no ioctls (NVML in-process cache). Evidence hashed; response encoding open
+  → queued for libnvidia-ml.so.1 offline decode (REA when engines up).
+- **Packet C**: inventory_firmware.py — JSON inventories (sha256, sections bounds-checked,
+  embedded-ELF candidates, Perforce provenance r535/r537_41 → r570/r570_00 → r615/r616_69);
+  12 complete kernel ELFs extracted by computed size (7 family kernels + 17.3MB RM payload);
+  all 12 md5-distinct; arch→index mapping stays hypothetical per review.
+- REA engines (hopper/ghidra/ida) still pending; radare2 interim.
+
 ## 2026-10-15 — wave 3a: correction (0x14a ≠ pstate), idle-state capture, REA discovered (Europe/Istanbul)
 - **Self-correction**: 0x2080014a is a UUID/identity getter (pre/post sniffer diff exposed the
   selector-vs-value confusion); true NVML pstate source back to OPEN. rmctl probe relabeled.
