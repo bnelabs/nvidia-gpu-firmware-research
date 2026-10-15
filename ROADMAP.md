@@ -59,3 +59,17 @@ Detailed findings and acceptance criteria: [REVIEW.md](REVIEW.md).
 
 Completion requires reproducible artifacts and explicit uncertainty, not merely a plausible
 field value or successful ioctl. Continue offline work while bench hardware is unavailable.
+
+## Final status — 2026-10-16 (30-round session complete)
+
+Delivered and merged-or-in-review (PR #3):
+- Packets A (hardened tracer + 13 tests), B (NVML pstate path traced to 0x00000d01 with
+  in-process cache proven), C (offline JSON inventory + 17 kernel ELFs + loader provenance),
+  D first pass (PowerPolicy/FanPolicy per-SKU bytes), bounded milestone (source-pinned
+  GA102 telemetry decoder + offline fixture + tests).
+- Corrections absorbed: one-hot P-state enum, 0x2080014a retraction, open-gpu-doc coverage,
+  Codex review fixes (ELF ph offsets, RM-status semantics, unknown-bit preservation).
+- REA-gated queue (when engines come up): libnvidia-ml.so.1 decode (0x00000d01 response),
+  archive directory-walk decode (535-era family mapping), matched-routine functional diff.
+- Bench-gated queue (needs hardware): vBIOS mod sandbox, Set-control capture, flash+recovery drill.
+- Production rig: read-only throughout; zero mutations; inference never disturbed.
