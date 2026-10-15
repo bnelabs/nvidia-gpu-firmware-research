@@ -1,5 +1,22 @@
 # rmctl prototype notes — calling RM controls from userspace (source-grounded)
 
+## Probe #3 divergence finding (2026-10-15, rmctl v0.5)
+
+`NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE` (0x20802068, open SDK) returns **0x4 (P4)**
+consistently (5/5 runs) while `nvidia-smi --query-gpu=pstate` simultaneously reports **P2**
+on the same GPU under stable inference load. Not a race.
+
+Hypotheses (to discriminate on the bench):
+1. NVML reports the **virtual P-state** (vBIOS carries a `VirtualPStateTable` — confirmed in
+   vbios-lab.md PERF walk) while 0x20802068 returns a physical/legacy P-state.
+2. NVML uses a different control for pstate (bpftrace the NVML call to pin the command ID).
+3. The 0x20802068 semantics changed in the GSP era (field repurposed / cached differently).
+
+Lesson: an open-SDK control existing ≠ matching the NVML-reported semantics. Cross-check every
+probe against nvidia-smi before trusting it.
+
+---
+
 ## ✅ WORKING RECIPE (rmctl v0.3, verified live on the rig 2026-10-15)
 
 The full client/alloc/control chain works unprivileged from a plain C binary. The four

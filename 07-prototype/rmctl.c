@@ -35,6 +35,7 @@
 #include "class/cl2080.h"
 #include "ctrl/ctrl2080/ctrl2080gsp.h"
 #include "ctrl/ctrl2080/ctrl2080clk.h"
+#include "ctrl/ctrl2080/ctrl2080perf.h"
 
 /* escape numbers (nv_escape.h) + ioctl encoding — the kernel validates
  * _IOC_TYPE==NV_IOCTL_MAGIC('F') and the exact _IOC_SIZE per escape
@@ -179,6 +180,25 @@ int main(void)
             printf("  pmumon.samplesReturned  : %u (last gpcClk=%u KHz)\n",
                    pm.super.numSamples,
                    pm.super.numSamples ? pm.samples[pm.super.numSamples - 1].activeGpcClkFreqKHz : 0);
+    }
+    /* 6) READ-ONLY probe #3: current P-state (open SDK: ctrl2080perf.h) */
+    {
+        NV2080_CTRL_PERF_GET_CURRENT_PSTATE_PARAMS ps;
+        memset(&ps, 0, sizeof(ps));
+        NVOS54_PARAMETERS c3;
+        memset(&c3, 0, sizeof(c3));
+        c3.hClient    = hClient;
+        c3.hObject    = hSub;
+        c3.cmd        = NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE; /* 0x20802068 */
+        c3.flags      = NVOS54_FLAGS_NONE;
+        c3.params     = &ps;
+        c3.paramsSize = sizeof(ps);
+        if (ioctl(ctl, RCTL_IOCTL(RCTL_ESC_CONTROL, NVOS54_PARAMETERS), &c3) != 0)
+            perror("ioctl(PERF_GET_CURRENT_PSTATE)");
+        else if (c3.status != 0)
+            fprintf(stderr, "PERF_GET_CURRENT_PSTATE status=0x%x\n", c3.status);
+        else
+            printf("  perf.currPstate         : 0x%x (P%u)\n", ps.currPstate, ps.currPstate);
     }
     rc = 0;
 
