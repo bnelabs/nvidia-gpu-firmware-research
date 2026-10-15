@@ -200,39 +200,9 @@ int main(void)
         else
             printf("  perf.currPstate         : 0x%x (P%u)\n", ps.currPstate, ps.currPstate);
     }
-    /* 7) READ-ONLY probe #4: CLOSED control 0x2080014a — NVML's actual pstate source.
-     *    Response (sniffer-verified): pstate u32 @+4, GPU UUID @+12. 268-byte params.
-     *    Zeroed request returns pstate=0 (unfilled); pre-filling the GPU UUID at +12
-     *    makes the response match NVML (verified round 20). UUID = raw 16 bytes. */
-    {
-        static unsigned char ps14a[268];
-        memset(ps14a, 0, sizeof(ps14a));
-        {
-            /* raw UUID bytes for this GPU (from /proc/.../information + NVML) */
-            const unsigned char uuid[16] = {
-                0x8a, 0x9c, 0x05, 0xb3, 0xfe, 0xa1, 0x4d, 0x89,
-                0x51, 0x13, 0xb5, 0x6a, 0xcb, 0xb1, 0xeb, 0xa9
-            };
-            memcpy(ps14a + 12, uuid, 16);
-        }
-        NVOS54_PARAMETERS c4;
-        memset(&c4, 0, sizeof(c4));
-        c4.hClient    = hClient;
-        c4.hObject    = hSub;
-        c4.cmd        = 0x2080014a;
-        c4.flags      = NVOS54_FLAGS_NONE;
-        c4.params     = ps14a;
-        c4.paramsSize = sizeof(ps14a);
-        if (ioctl(ctl, RCTL_IOCTL(RCTL_ESC_CONTROL, NVOS54_PARAMETERS), &c4) != 0)
-            perror("ioctl(0x2080014a)");
-        else if (c4.status != 0)
-            fprintf(stderr, "0x2080014a status=0x%x\n", c4.status);
-        else {
-            unsigned pst;
-            memcpy(&pst, ps14a + 4, 4);
-            printf("  pstate (0x2080014a)     : P%u\n", pst);
-        }
-    }
+    /* 0x2080014a is an identity query, not a P-state source. The previous
+     * probe printed an input selector as P-state and embedded a host UUID.
+     * Removed pending a validated NVML P-state response contract. */
     /* 8) READ-ONLY probe #5: CLOSED control 0x2080a61d — 12B power response
      *    (sniffer-verified: u32 mW @+4, e.g. 370000 = 370 W on this board). */
     {
@@ -253,7 +223,7 @@ int main(void)
         else {
             unsigned mw;
             memcpy(&mw, pw + 4, 4);
-            printf("  power (0x2080a61d)      : %u mW (%u.%03u W)  raw=%02x%02x%02x%02x %02x%02x%02x%02x %02x%02x%02x%02x\n",
+            printf("  power candidate (+4)    : %u mW (%u.%03u W)  raw=%02x%02x%02x%02x %02x%02x%02x%02x %02x%02x%02x%02x\n",
                    mw, mw / 1000, mw % 1000,
                    pw[0], pw[1], pw[2], pw[3], pw[4], pw[5], pw[6], pw[7],
                    pw[8], pw[9], pw[10], pw[11]);
