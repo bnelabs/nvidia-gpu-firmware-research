@@ -1,5 +1,16 @@
 # Research log (append-only)
 
+# Research log (append-only)
+
+## 2026-10-16 — wave 3h: PR #3 Codex review — 4 findings fixed (Europe/Istanbul)
+- P1 inventory: ELF64 e_phentsize/e_phnum were read from e_flags (offsets 40/42 vs correct
+  54/56) -> "validated" labels untrustworthy. Fixed; inventories regenerated - honest counts:
+  615 container 12/13 validated + 1 ph_error (false-positive magic match surfaced).
+- P1 sniffer2: RM status no longer reported after a FAILED ioctl (stale input field).
+- P2 decode_telemetry: unknown GSP feature bits preserved as raw entries ("unknown stays raw").
+- P2 nvml_pstate_probe: nvmlErrorString(result) called with the return code; init/handle "ok".
+- 13 sniffer tests + 11 offline tests green; commit bfc2214 on PR #3 branch.
+
 ## 2026-10-16 — wave 3g: PR #3 opened for lead review (Europe/Istanbul)
 - Branch work/packet-a-tracing cleaned: build artifacts ignored (rebuild-from-source policy),
   stale v1 sniffer binary removed; 13+11 tests green from clean state.
