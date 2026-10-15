@@ -1,5 +1,34 @@
 # rmctl prototype notes — calling RM controls from userspace (source-grounded)
 
+## ✅ WORKING RECIPE (rmctl v0.3, verified live on the rig 2026-10-15)
+
+The full client/alloc/control chain works unprivileged from a plain C binary. The four
+non-obvious details that cost a debugging round-trip (all empirically confirmed):
+
+1. **Ioctl encoding matters**: RM escapes are issued as `_IOWR(NV_IOCTL_MAGIC /* 'F' */, esc, struct)`
+   — the kernel validates `_IOC_TYPE` and the **exact `_IOC_SIZE`** per escape
+   (`nv.c: nv_ioctls_table` + `rm_validate_ioctls`). A raw escape number → `EINVAL`.
+2. **ALLOC uses `NVOS64_PARAMETERS` (48 B)**, not NVOS21 — confirmed via `strace nvidia-smi`
+   (`_IOC(RW, 0x46, 0x2b, 0x30)`). `pRightsRequested=NULL`, `flags=NVOS64_FLAGS_NONE`.
+3. **All allocs go on `/dev/nvidiactl`** — including `NV01_DEVICE_0`; the GPU is selected by
+   `NV0080_ALLOC_PARAMETERS.deviceId` (0 = first GPU). Allocating device objects on
+   `/dev/nvidia0` returns `EINVAL`.
+4. **Version handshake**: `NV_ESC_CHECK_VERSION_STR` (0xD2, 72 B) with `cmd='2'` (QUERY) makes
+   RM return its version string. `cmd='1'` (RELAXED) still compares the client string up to the
+   first `.` — an empty client string is REJECTED (RmPerformVersionCheck, osapi.c).
+
+Verified probe result (read-only `NV2080_CTRL_CMD_GSP_GET_FEATURES` 0x20803601):
+`bValid=1, bDefaultGspRmGpu=1, gspFeatures=0x1, firmwareVersion="615.71.09"` — matches
+`nvidia-smi -q -x` `<gsp_firmware_version>` and the on-disk `gsp_ga10x.bin` (SHA-256 in
+06-ground-truth). Three independent sources agree.
+
+Debug method that cracked it: `strace -e trace=openat,ioctl nvidia-smi -q ...` side-by-side
+with the same trace of our own binary — compare `_IOC(type, nr, size)` triples exactly.
+
+---
+
+# Original notes (pre-verification)
+
 All paths verified against `vendor/open-gpu-kernel-modules` (default branch, commit `ca2d03e`,
 version 615.78.08 — same r615 branch as the rig's 615.71.09; tag `v615.71.09` does not exist
 upstream). Vendor tree is gitignored; re-fetch with:

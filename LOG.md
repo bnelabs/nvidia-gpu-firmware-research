@@ -1,5 +1,17 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 1c: 🎯 rmctl v0.3 WORKS END-TO-END (Europe/Istanbul)
+- Built a from-scratch userspace RM client (07-prototype/rmctl.c, public headers only) and ran
+  it READ-ONLY against the production rig: version handshake → client/device/subdevice alloc →
+  NV2080_CTRL_CMD_GSP_GET_FEATURES. Result: gsp.bValid=1, bDefaultGspRmGpu=1,
+  firmwareVersion="615.71.09" — cross-validated with nvidia-smi XML + on-disk gsp_ga10x.bin.
+- Working recipe documented in 07-prototype/rmctl-notes.md: _IOWR('F', esc, struct) encoding,
+  NVOS64 for ALLOC (48 B), all allocs on nvidiactl (deviceId selects GPU), version QUERY cmd='2'.
+- Debug method: strace diffing of nvidia-smi vs our binary (ioctl _IOC triples).
+- Impact: Technique T3 is now PROVEN, not just plausible — the documented RM control surface
+  (ctrl2080{fan,perf,power,thermal,volt,clk}) is reachable from userspace with no patching.
+  Next (P3): enumerate read-only controls (clocks/thermal/infoROM) into an rmctl query mode.
+
 ## 2026-10-15 — wave 1b: firmware + kernel files landed; rmctl v0.1 compiles (Europe/Istanbul)
 - Delivered: 02-firmware/gsp-firmware.md (2,675 words), 02-firmware/vbios.md (~3,530),
   03-low-level-access/kernel-drivers-and-registers.md (2,801), 04-tools/tools-inventory.md (32 tools).
