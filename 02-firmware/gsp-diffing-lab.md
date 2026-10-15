@@ -82,10 +82,10 @@ Entry layout (stride 160 B, first entry @ payload 0x69014, name at +16, then u64
   exact semantics live in `nouveau_firmware_layout.ods` [VERIFY next].
 - All 8 early embedded ELFs are **distinct binaries** (md5s recorded; 7 kernels + 1 other,
   the 8th @0x1C6000 has a different entry point 0x10027cc — likely libos/bootloader [VERIFY]).
-- Working hypothesis: storage order = adjacent table order = `ga10x, gh100, gb10x, gb10y,
-  gb20x, gb20y, gr10x` → `kernel_gr10x.elf` = ELF @payload 0x192000. Validation pending ODS
-  decode (or diff vs the 570 container, which only has gb10x/gb20x kernels — a kernel present
-  in 615 but absent in 570 pins the new-family additions).
+- **Validation attempt (2026-10-15, round 11): md5 matching FAILS** — zero common hashes between
+  570's 6 early ELFs and 615's 8, i.e. **GSP kernels are rebuilt for every driver release**
+  (firmware churns with each driver, even for unchanged chip families). Mapping validation must
+  go through the ODS layout decode [VERIFY — gr10x @0x192000 remains a hypothesis, not a fact].
 - Note: a second name list earlier in the payload (~16 KB) lists the same kernels in REVERSE
   (newest-first: gr10x…ga10x) — two tables, two orders; the one adjacent to the ELF blob is
   the loader table [VERIFY].
