@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-16 — wave 3e: loader family mapping SOURCE-DECODED (Europe/Istanbul)
+- nv-firmware-chip-family-select.h (@ca2d03e): get_chip_family() — GB10Y/GB20Y impl splits,
+  **RUBIN_GR1XX → GR10X explicit loader selection**; firmware tasks enum (INIT/RM/INTR/VGPU/
+  MNOC/DEBUG/ROOT/RM_STATE_MONITOR).
+- Status upgrade: kernel_<family>.elf names = source-decoded anchors. Withheld: consumer-SKU
+  claims, storage-order of extracted kernels (directory-walk decode still [VERIFY]).
+- REA engines still down (11 missing in doctor); ODS layout doc unpacked (nvfw_bin_hdr /
+  HS-header v2 / FMC ELF formats documented). Commit 511eb4d.
+
 ## 2026-10-16 — wave 3d: GSP kernel census + matched-routine groundwork (Europe/Istanbul)
 - Full extraction of 615's 12 embedded ELFs; census: kernels 01–07 = per-arch Libos kernels
   (17–18 libos strings, sizes 184–213 KB, md5-distinct), kernel-10 = 17.3 MB GSP-RM payload.
