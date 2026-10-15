@@ -58,6 +58,27 @@ Corpus (hashes committed): EVGA 3090 variants `94.02.42.00.{0B,0F,44}` + EVGA 30
 3. TechPowerUp download note: TPU serves an HTML form for `?download` (no direct GET) — corpus
    growth from TPU needs the form flow or a browser; GitHub-hosted corpora are script-friendly.
 
+## 6. Spec-accurate BIT decode + PERF chain walk (2026-10-15, round 14)
+
+Parser rewritten per the official [BIOS-Information-Table spec](https://download.nvidia.com/open-gpu-doc/BIOS-Information-Table/1/BIOS-Information-Table.html):
+
+- Header (12 B): `[u16 ID=0xB8FF][BIT\0][u16 BCD=0x0100][u8 hdr=12][u8 tok=6][u8 entries=17][u8 cksum]`
+  — our earlier "16-byte header / BE locations" reading was wrong: token = **{u8 id; u8 ver; u16 size BE; u16 ptr BE}** (version and pointer positions swapped vs my first guess).
+- All 17 tokens decoded by name (I2C, BIOSDATA v2, CLOCK v2, DFP, NVINIT, MEMORY v2, NOP,
+  **PERF v2 (232 B)**, STRING v2, TMDS, DISPLAY, VIRTUAL, MXM, DP, **FALCON_DATA v2**, UEFI, + undocumented 0x69).
+- **PERF_PTRS v2 walked** (58 u32 fields): Performance/MemoryClock/MemoryTweak/Thermal*/Power*/
+  Fan*/Voltage*/LowPower*/Overclocking tables all located.
+- **UEFI pointer-adjustment rule validated**: pointers > legacy length (0xFE00) get + UEFI length
+  (0x16600); every adjusted table then starts with a sane structured header (e.g. PowerPolicy
+  `30 2c 47 14…`, ThermalDevice `10 04 0b 12…`). Voltage tables (ptr < legacy) need NO adjustment.
+- **Notable: PowerControlTable pointer is NULL on this Ampere image** ([3] = 0) — power policy
+  lives in PowerPolicyTable/PowerSensorsTable/PowerTopologyTable; consistent with power
+  management having moved into the GSP (see gsp-firmware.md).
+- Raw u32 scan for watt-like values (300k–470k) is too noisy to pin limits; exact power-limit
+  fields need the dedicated PERF-tables spec (open-gpu-doc) — next round.
+- One exact **350000 (350 W)** u32 found @file 0x3c9e0 (region between UEFI end and adjusted
+  PERF area) — candidate default-power-limit encoding in mW [VERIFY].
+
 ## Next
 - [ ] Dump+decode the P/PERF table substructure per spec (power limits, clk/vf curve entries)
 - [ ] Fetch the FE 3090 ROM (TPU 231642) + partner variants → partner-diff the P tables
