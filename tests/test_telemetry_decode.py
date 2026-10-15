@@ -23,8 +23,9 @@ class TestTelemetryDecode(unittest.TestCase):
         self.assertEqual(decode_pstate(0), "raw(0x0)")
 
     def test_gsp_features(self):
+        # unknown bits are PRESERVED as raw entries ("unknown fields stay raw")
         self.assertEqual(decode_gsp_features(1), ["UVM_ENABLED"])
-        self.assertEqual(decode_gsp_features(3), ["UVM_ENABLED"])
+        self.assertEqual(decode_gsp_features(3), ["UVM_ENABLED", "unknown_bit1"])
         self.assertEqual(decode_gsp_features(0), [])
 
     def test_fixture_end_to_end(self):

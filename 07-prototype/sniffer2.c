@@ -82,7 +82,10 @@ void sniff_capture_post(sniff_record *r, void *arg, int saved_errno)
         return;
     if (r->params_ptr && r->full_size) {
         memcpy(r->post, (const void *)(uintptr_t)r->params_ptr, r->captured);
-        memcpy((unsigned char *)&r->rm_status, (const unsigned char *)arg + 28, 4);
+        /* RM status is only meaningful when the ioctl itself succeeded;
+         * after a failed syscall the +28 field is the caller's stale input. */
+        if (saved_errno == 0)
+            memcpy((unsigned char *)&r->rm_status, (const unsigned char *)arg + 28, 4);
         r->changed = memcmp(r->pre, r->post, r->captured) != 0;
         if (r->changed) {
             r->diff_off = 0;

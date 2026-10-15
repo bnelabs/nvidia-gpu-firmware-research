@@ -16,7 +16,18 @@ def decode_pstate(raw: int) -> str:
 
 
 def decode_gsp_features(mask: int) -> list:
-    return [name for bit, name in GSP_FEATURE_BITS.items() if mask & (1 << bit)]
+    # Known bits get names; unknown bits are PRESERVED as raw entries
+    # (RESEARCH-DIRECTION.md: unknown fields stay raw).
+    known_bits = set()
+    out = []
+    for bit, name in GSP_FEATURE_BITS.items():
+        if mask & (1 << bit):
+            out.append(name)
+            known_bits.add(bit)
+    for bit in range(mask.bit_length()):
+        if mask & (1 << bit) and bit not in known_bits:
+            out.append(f"unknown_bit{bit}")
+    return out
 
 
 def decode(fixture: dict) -> dict:

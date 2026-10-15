@@ -75,20 +75,25 @@ def scan_embedded_elfs(data: bytes):
                     e_type, e_type)
                 cand["entry"] = e_entry
                 try:
-                    e_phoff, e_phentsize, e_phnum = struct.unpack_from("<QHH", d, 0x20)
-                    phs, bounds_ok = [], True
-                    for i in range(min(e_phnum, 16)):
-                        ph = e_phoff + i * e_phentsize
-                        if ph + 56 > len(d):
-                            bounds_ok = False
-                            break
-                        p_type, p_flags, p_off, p_va, _, p_filesz, p_memsz = \
-                            struct.unpack_from("<IIQQQQQ", d, ph)
-                        phs.append({"type": p_type, "va": p_va,
-                                    "filesz": p_filesz, "memsz": p_memsz})
-                    cand["program_headers"] = phs
-                    cand["ph_in_bounds"] = bounds_ok
-                    ok = bounds_ok
+                    # ELF64: e_phoff@32 (8B), e_phentsize@54, e_phnum@56
+                    e_phoff, = struct.unpack_from("<Q", d, 32)
+                    e_phentsize, e_phnum = struct.unpack_from("<HH", d, 54)
+                    if e_phentsize < 56:
+                        cand["ph_error"] = f"implausible e_phentsize={e_phentsize}"
+                    else:
+                        phs, bounds_ok = [], True
+                        for i in range(min(e_phnum, 16)):
+                            ph = e_phoff + i * e_phentsize
+                            if ph + 56 > len(d):
+                                bounds_ok = False
+                                break
+                            p_type, p_flags, p_off, p_va, _, p_filesz, p_memsz = \
+                                struct.unpack_from("<IIQQQQQ", d, ph)
+                            phs.append({"type": p_type, "va": p_va,
+                                        "filesz": p_filesz, "memsz": p_memsz})
+                        cand["program_headers"] = phs
+                        cand["ph_in_bounds"] = bounds_ok
+                        ok = bounds_ok
                 except struct.error:
                     cand["ph_error"] = True
         cand["status"] = "validated" if ok else "header-only"

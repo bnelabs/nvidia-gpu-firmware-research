@@ -17,7 +17,7 @@
 typedef int (*fn_void)(void);
 typedef int (*fn_handle_idx)(unsigned, void **);
 typedef int (*fn_get_pstate)(void *, unsigned *);
-typedef const char *(*fn_errstr)(void);
+typedef const char *(*fn_errstr)(int);
 typedef int (*fn_dev_str)(void *, char *, unsigned);
 
 static void marker(const char *m)
@@ -47,13 +47,13 @@ int main(void)
 
     marker("INIT-START");
     int r = nvmlInit_v2();
-    printf("init: %d (%s)\n", r, r ? errorString() : "ok");
+    printf("init: %d (%s)\n", r, r ? errorString(r) : "ok");
     marker("INIT-END");
     if (r) return 1;
 
     void *dev = NULL;
     r = getHandleByIdx(0, &dev);
-    printf("handle: %d (%s)\n", r, r ? errorString() : "ok");
+    printf("handle: %d (%s)\n", r, r ? errorString(r) : "ok");
     char name[96] = {0}, uuid[96] = {0};
     if (!r && getName)  getName(dev, name, sizeof(name));
     if (!r && getUuid)  getUuid(dev, uuid, sizeof(uuid));
