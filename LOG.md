@@ -1,5 +1,16 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 1a: generation-matrix agent complete (Europe/Istanbul)
+- All 7 files landed in 01-generations/ (matrix + pascal/turing/ampere/ada/blackwell/rubin), cited to 2024–2026 sources.
+- Key facts absorbed into SOURCES.md: per-arch GSP images (ga10x covers Ampere AND Ada),
+  NVreg_EnableGpuFirmware=0 only Turing→Ada, Blackwell open-KMD-only, official vBIOS BIT spec
+  is public, OMGVflash/NVflashk broke vBIOS signature enforcement (Turing→Ada; no GB2xx bypass),
+  nova-core falcon boot-chain docs, LHR timeline, R580 = last Pascal branch, NVK no-GSP path,
+  Rubin VR200/CPX confirmed + consumer RTX 60 rumor (H1 2027).
+- New RE tool for inventory: NV-GSP-Bootloader (extracts ELF/bin from gsp_ga10x.bin).
+- .gitignore fixed: SHA256SUMS.all / MANIFEST now committed; binaries still ignored.
+- Pending agents: gsp-firmware, vbios (in progress), kernel+tools, userspace, prior-art.
+
 ## 2026-10-15 — wave 0.5: P2/P3 groundwork while wave-1 agents run (Europe/Istanbul)
 - **Sudo obtained from user for READ-ONLY root captures only** (never stored in repo; never
   used for any GPU mutation). Root dump added full 4 KiB PCI config space: Resizable BAR,

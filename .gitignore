@@ -15,4 +15,6 @@ __pycache__/
 # Vendored source trees & collected firmware binaries (hashes are committed instead)
 vendor/
 firmware-store/
+!firmware-store/**/SHA256SUMS*
+!firmware-store/**/MANIFEST*
 *.deb
