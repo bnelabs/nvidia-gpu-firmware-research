@@ -1,0 +1,11 @@
+Model: 		 NVIDIA GeForce RTX 3090
+IRQ:   		 191
+GPU UUID: 	 GPU-8a9c05b3-fea1-4d89-5113-b56acbb1eba9
+Video BIOS: 	 94.02.42.00.f4
+Bus Type: 	 PCIe
+DMA Size: 	 47 bits
+DMA Mask: 	 0x7fffffffffff
+Bus Location: 	 0000:06:00.0
+Device Minor: 	 0
+GPU Firmware: 	 615.71.09
+GPU Excluded:	 No

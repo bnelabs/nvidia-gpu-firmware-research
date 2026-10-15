@@ -1,0 +1,8 @@
+c420726d2c76c55f028a59f67ebd7a906563ef807c945bb3baa9e88c36bf334b  /lib/firmware/nvidia/615.71.09/gsp_ga10x.bin
+-rw-r--r-- 1 root root 27043992 Sep  5 00:06 /lib/firmware/nvidia/615.71.09/gsp_ga10x.bin
+78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909  /lib/firmware/nvidia/615.71.09/gsp_tu10x.bin
+-rw-r--r-- 1 root root 22897536 Sep  5 00:06 /lib/firmware/nvidia/615.71.09/gsp_tu10x.bin
+c420726d2c76c55f028a59f67ebd7a906563ef807c945bb3baa9e88c36bf334b  /usr/lib/firmware/nvidia/615.71.09/gsp_ga10x.bin
+-rw-r--r-- 1 root root 27043992 Sep  5 00:06 /usr/lib/firmware/nvidia/615.71.09/gsp_ga10x.bin
+78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909  /usr/lib/firmware/nvidia/615.71.09/gsp_tu10x.bin
+-rw-r--r-- 1 root root 22897536 Sep  5 00:06 /usr/lib/firmware/nvidia/615.71.09/gsp_tu10x.bin

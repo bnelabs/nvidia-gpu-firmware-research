@@ -1,0 +1,2 @@
+name, driver_version, vbios_version, pstate, temperature.gpu, power.draw [W], power.limit [W], power.max_limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pcie.link.gen.current, pcie.link.width.current, fan.speed [%]
+NVIDIA GeForce RTX 3090, 615.71.09, 94.02.42.00.F4, P8, 43, 23.70 W, 370.00 W, 450.00 W, 210 MHz, 405 MHz, 1, 4, 0 %

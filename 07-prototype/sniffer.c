@@ -1,19 +1,20 @@
 /*
- * sniffer.c — LD_PRELOAD interceptor that decodes NVML's RM-control calls.
+ * sniffer.c — LD_PRELOAD interceptor decoding NVML's RM-control calls (v2).
  * READ-ONLY observation of the caller's own ioctls; mutates nothing.
  *
- * Usage: LD_PRELOAD=./sniffer.so nvidia-smi --query-gpu=pstate --format=csv,noheader
+ * For every successful RM_CONTROL (escape 0x2A, NVOS54 size 0x20) with a params
+ * payload ≤ 32 KiB: captures the params buffer BEFORE the call, compares with
+ * AFTER, and reports the first differing byte (= where the response landed).
  *
- * Decodes NVOS54_PARAMETERS (size 0x20): hClient@0 hObject@4 cmd@8 flags@12
- * params@16 paramsSize@20 status@24 — logged on RM_CONTROL (escape 0x2A) success.
+ * Usage: LD_PRELOAD=./sniffer.so nvidia-smi --query-gpu=pstate --format=csv,noheader
  */
 #define _GNU_SOURCE
 #include <dlfcn.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
-#include <sys/types.h>
 #include <unistd.h>
 
 static int (*real_ioctl)(int fd, unsigned long cmd, ...);
@@ -28,35 +29,46 @@ int ioctl(int fd, unsigned long cmd, ...)
     void *arg = va_arg(ap, void *);
     va_end(ap);
 
+    /* ---- pre-capture (before the call) ---- */
+    void *params = NULL;
+    unsigned psize = 0, ctrl = 0, hObject = 0;
+    unsigned char *pre = NULL;
+    if (arg && ((cmd >> 8) & 0xff) == 'F' && (cmd & 0xff) != 0x2b &&
+        ((cmd >> 16) & 0x3fff) <= 0x8000) {
+        unsigned nr = cmd & 0xff;
+        unsigned sz = (cmd >> 16) & 0x3fff;
+        /* RM_CONTROL (0x2a) decodes as NVOS54; other escapes: dump raw buffer */
+        if (nr == 0x2a) {
+            memcpy(&hObject, (unsigned char *)arg + 4, 4);
+            memcpy(&ctrl, (unsigned char *)arg + 8, 4);
+            memcpy(&params, (unsigned char *)arg + 16, 8);
+            memcpy(&psize, (unsigned char *)arg + 24, 4);
+        } else {
+            ctrl = 0x10000 | nr;             /* tag non-RM escapes */
+            params = arg;
+            psize = sz;
+        }
+        if (params && psize && psize <= 0x8000) {
+            pre = malloc(psize);
+            if (pre)
+                memcpy(pre, params, psize);
+        }
+    }
+
     int r = real_ioctl(fd, cmd, arg);
 
-    unsigned magic = (cmd >> 8) & 0xff;
-    unsigned nr = cmd & 0xff;
-    unsigned size = (cmd >> 16) & 0x3fff;
-
-    if (r == 0 && magic == 'F' && nr == 0x2a && size == 0x20) {
-        unsigned hclient, hObject, ctrl, flags, psize, status;
-        unsigned long params;
-        unsigned char buf[0x20];
-        memcpy(buf, arg, sizeof(buf));
-        memcpy(&hclient, buf + 0, 4);
-        memcpy(&hObject, buf + 4, 4);
-        memcpy(&ctrl, buf + 8, 4);
-        memcpy(&flags, buf + 12, 4);
-        memcpy(&params, buf + 16, 8);
-        memcpy(&psize, buf + 24, 4);
-        memcpy(&status, buf + 28, 4);
-        dprintf(2, "[sniffer pid=%d] RM_CONTROL cmd=0x%08x obj=0x%x paramsSize=%u params@%p\n",
-                getpid(), ctrl, hObject, psize, (void *)params);
-        /* dump first 32 bytes of the params payload if readable-ish */
-        if (params && psize && psize <= 0x10000) {
-            unsigned char pbuf[32] = {0};
-            unsigned n = psize < 32 ? psize : 32;
-            memcpy(pbuf, (void *)params, n);
-            dprintf(2, "[sniffer]   params: ");
-            for (unsigned i = 0; i < n; i++) dprintf(2, "%02x", pbuf[i]);
-            dprintf(2, "\n");
+    /* ---- post-capture & full diff report ---- */
+    if (r == 0 && pre) {
+        unsigned ndiff = 0;
+        dprintf(2, "[sniffer pid=%d] cmd=0x%08x psize=%u diffs:", getpid(), ctrl, psize);
+        for (unsigned i = 0; i < psize; i++) {
+            if (pre[i] != ((unsigned char *)params)[i]) {
+                dprintf(2, " +%u:%02x->%02x", i, pre[i], ((unsigned char *)params)[i]);
+                if (++ndiff >= 24) { dprintf(2, " …"); break; }
+            }
         }
+        dprintf(2, "\n");
+        free(pre);
     }
     return r;
 }

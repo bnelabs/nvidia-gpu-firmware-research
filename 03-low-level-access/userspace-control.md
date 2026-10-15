@@ -315,8 +315,9 @@ controls isolated against a bare `nvidia-smi -L` baseline.
 
 **Pattern: NVML's real-time telemetry runs on closed control families** (0x2080a6xx power,
 0x208090xx clocks, 0x208085xx fan, 0x20810108 subdevice-wide) — the open SDK headers document a
-different (setup-time/legacy) subset. P-state specifically comes from closed `0x2080014a`
-(params: pstate u32 @+4, keyed by GPU UUID @+12). Write-path (Set) IDs presumably mirror these
+different (setup-time/legacy) subset. P-state does NOT come from open-SDK 0x20802068 (NVML never calls it);
+`0x2080014a` proved to be a UUID/identity getter (CORRECTED round 20 — the earlier
+pstate claim was a selector coincidence). True pstate source: open question. Write-path (Set) IDs presumably mirror these
 families — to be captured on the bench only (§8 bpftrace probe).
 
 **Power-value encoding confirmed (round 19)**: `0x2080a61d` returns a 12-byte response

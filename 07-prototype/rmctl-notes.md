@@ -1,23 +1,20 @@
 # rmctl prototype notes — calling RM controls from userspace (source-grounded)
 
-## Probe #3 divergence SOLVED (2026-10-15, LD_PRELOAD sniffer)
+## 0x2080014a identity CORRECTED (2026-10-15, pre/post sniffer diff — round 20)
 
-- **NVML reads pstate via CLOSED control `0x2080014a`** (absent from open SDK headers):
-  268-byte params, current pstate as u32 at offset +4 (verified: payload byte 0x02 = "P2"
-  exactly when nvidia-smi printed P2), keyed by GPU UUID at +12.
-- It NEVER calls the open-SDK `NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE` (0x20802068), which
-  returned P4 on the same GPU — i.e., the documented control reports a *different* perf-state
-  notion (physical/legacy) than the NVML-visible one (virtual/effective).
-- Method: `07-prototype/sniffer.c` — LD_PRELOAD ioctl interceptor that decodes every
-  NVOS54 (RM_CONTROL 0x2A, size 0x20) payload: cmd @+8, params ptr @+16, paramsSize @+24.
-  **Struct offsets matter: with the 8-byte-aligned pointer, paramsSize is at +24, NOT +20.**
-- Other NVML calls observed during a pstate query: 0x20801701 (MC_GET_ARCH_INFO),
-  0x20800406 (TIMER_GET_GPU_CPU_TIME_CORRELATION_INFO), 0x0000xxxx client-level controls,
-  and other closed IDs — the open/closed boundary is now *empirically mapped* per call.
-- Implication for rmctl: documented controls are trustworthy for what they document, but
-  matching NVML's reported values may require closed control IDs (0x2080014a for pstate).
+The wave-2f "pstate via 0x2080014a" claim was **WRONG** — exposed by the pre/post sniffer:
+- PRE-call buffer: `{0, 2, 16, UUID…}` — the `02` at +4 is an **input selector** (not the P2
+  value; the GPU coincidentally sat at P2 during the first observation), and the UUID is
+  NVML's **input**, echoed by RM with length 16 at +8.
+- Full 268-byte POST buffer contains **no pstate at all** — this control is a UUID/identity
+  getter (selector 2 = UUID).
+- **The true pstate source is still open**: no RM control in the pstate query session returned
+  a ≤15 value in any diffed payload (≤32 KiB); no procfs read either. Leading hypotheses:
+  NVML derives pstate client-side from clocks/limits, or uses a >32 KiB payload, or the
+  nvidia-caps device channels. rmctl probe #4 relabeled accordingly.
+- Sniffer v2 now does pre/post first-diff for ALL 'F'-magic ioctls ≤32 KiB (generic).
 
-## Probe #3 divergence finding (2026-10-15, rmctl v0.5) — superseded by the SOLVED section above
+## Probe #3 divergence finding (2026-10-15, rmctl v0.5) — status: OPEN (see correction above)
 
 `NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE` (0x20802068, open SDK) returns **0x4 (P4)**
 consistently (5/5 runs) while `nvidia-smi --query-gpu=pstate` simultaneously reports **P2**
