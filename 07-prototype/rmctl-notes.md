@@ -1,6 +1,23 @@
 # rmctl prototype notes — calling RM controls from userspace (source-grounded)
 
-## Probe #3 divergence finding (2026-10-15, rmctl v0.5)
+## Probe #3 divergence SOLVED (2026-10-15, LD_PRELOAD sniffer)
+
+- **NVML reads pstate via CLOSED control `0x2080014a`** (absent from open SDK headers):
+  268-byte params, current pstate as u32 at offset +4 (verified: payload byte 0x02 = "P2"
+  exactly when nvidia-smi printed P2), keyed by GPU UUID at +12.
+- It NEVER calls the open-SDK `NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE` (0x20802068), which
+  returned P4 on the same GPU — i.e., the documented control reports a *different* perf-state
+  notion (physical/legacy) than the NVML-visible one (virtual/effective).
+- Method: `07-prototype/sniffer.c` — LD_PRELOAD ioctl interceptor that decodes every
+  NVOS54 (RM_CONTROL 0x2A, size 0x20) payload: cmd @+8, params ptr @+16, paramsSize @+24.
+  **Struct offsets matter: with the 8-byte-aligned pointer, paramsSize is at +24, NOT +20.**
+- Other NVML calls observed during a pstate query: 0x20801701 (MC_GET_ARCH_INFO),
+  0x20800406 (TIMER_GET_GPU_CPU_TIME_CORRELATION_INFO), 0x0000xxxx client-level controls,
+  and other closed IDs — the open/closed boundary is now *empirically mapped* per call.
+- Implication for rmctl: documented controls are trustworthy for what they document, but
+  matching NVML's reported values may require closed control IDs (0x2080014a for pstate).
+
+## Probe #3 divergence finding (2026-10-15, rmctl v0.5) — superseded by the SOLVED section above
 
 `NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE` (0x20802068, open SDK) returns **0x4 (P4)**
 consistently (5/5 runs) while `nvidia-smi --query-gpu=pstate` simultaneously reports **P2**
