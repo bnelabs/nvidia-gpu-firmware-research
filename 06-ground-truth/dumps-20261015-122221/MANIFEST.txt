@@ -1,0 +1,2 @@
+capture 2026-10-15T12:22:21+03:00 host=ubuntuserver
+capture done 2026-10-15T12:22:21+03:00

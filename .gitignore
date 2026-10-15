@@ -1,0 +1,13 @@
+# Firmware binaries & driver packages: store URL + sha256 in docs instead (copyright)
+*.bin
+*.rom
+*.exe
+*.7z
+*.run
+*.iso
+*.img
+
+# Scratch
+tmp/
+__pycache__/
+*.pyc
