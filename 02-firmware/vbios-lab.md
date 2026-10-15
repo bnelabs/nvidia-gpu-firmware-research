@@ -38,6 +38,26 @@
    target of community guides. Now locatable *by name* — enabling proper structured edits via
    the official spec (SOURCES: NVIDIA BIOS-Information-Table).
 
+## 5. Variant & cross-SKU diffs (2026-10-15, round 13)
+
+Corpus (hashes committed): EVGA 3090 variants `94.02.42.00.{0B,0F,44}` + EVGA 3080
+`94.02.26.40.BE` (all 999,424 B, from the bmgjet repo).
+
+1. **Same-family EVGA variants are nearly identical**: across `0B/0F/44`, every named BIT table
+   differs by ≤1 byte; total ROM-region diff = 172 bytes (clusters at 0x92ce, 0x9442, 0x960c,
+   0x9650-0x965f, 0x18fff, 0x8706b, 0x8cf0c, 0x8d9xx, 0x8f3ff, 0xf201b-0xf20a9 [143 B block]).
+   → EVGA point-releases change metadata/small config, NOT the P/PERF table.
+   **Partner-diff for power-limit hunting needs cross-AIB samples, not point releases.**
+2. **Cross-SKU (3090 vs 3080, same GA102)**: BIT layout *identical* (same offsets/sizes/versions)
+   — the format is stable across the family. Differences live in the data:
+   - P table first u32: 3090 `0x000693fc` vs 3080 `0x000684d2` (semantics TBD — clock/
+     capability-ish values)
+   - B (BIOSDATA) and M (MEMORY) carry per-board bytes (`04 74 3f 18 7e fd 84 20 85` vs
+     `04 a4 3f 48 7e 52 85 70 85`)
+   - PCIR device: `0x2204` (3090) vs `0x2206` (3080) ✓
+3. TechPowerUp download note: TPU serves an HTML form for `?download` (no direct GET) — corpus
+   growth from TPU needs the form flow or a browser; GitHub-hosted corpora are script-friendly.
+
 ## Next
 - [ ] Dump+decode the P/PERF table substructure per spec (power limits, clk/vf curve entries)
 - [ ] Fetch the FE 3090 ROM (TPU 231642) + partner variants → partner-diff the P tables
