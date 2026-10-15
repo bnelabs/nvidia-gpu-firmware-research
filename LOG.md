@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 2b: kernel archive table decoded ~80%; 7 distinct per-arch kernels (Europe/Istanbul)
+- Entries (stride 160 B @ payload 0x69014): name + VA descriptors matching kernel LOAD VAs
+  (0xffffffff92fff000 / 0xa3000000); loader patch triples; exact semantics in layout ODS [VERIFY].
+- 8 embedded ELFs md5-fingerprinted: 7 unique per-arch kernels (ga10x…gr10x hypothesized order,
+  ELF @0x192000 = gr10x candidate) + 1 different image (0x1C6000, entry 0x10027cc).
+- Validation path: decode via nouveau_firmware_layout.ods, or diff vs 570 container (only
+  gb10x/gb20x kernels → new families pin the mapping).
+- gsp-diffing-lab.md §5–6 updated; commits 892eed2, 3b4ad3b.
+
 ## 2026-10-15 — wave 2a: GSP container decoded; Rubin signatures found in shipping firmware (Europe/Istanbul)
 - Corpus: 535.113.01 (38.0 MB) + 570.144 (63.6 MB) from linux-firmware + rig's 615.71.09 (27.0 MB).
 - **gsp_*.bin = tiny outer ELF wrapper** (.fwimage raw RISC-V / .fwversion self-id / .fwsignature_<arch>).
