@@ -41,3 +41,21 @@ Matched-routine baseline: the Libos `sbi.c` assertion call site exists in 615-ke
 (string @paddr 0xc230). 535 counterpart image not yet identified — blocked on the mapping
 above. r2 (6.0.7) analysis + REA decompiler output are to be treated as hypotheses per
 RESEARCH-DIRECTION.md.
+
+## Loader-side family mapping — SOURCE-DECODED (2026-10-16, round 26)
+
+`vendor/open-gpu-kernel-modules/src/nvidia/arch/nvalloc/common/inc/nv-firmware-chip-family-select.h`
+(pinned commit ca2d03e) — `nv_firmware_get_chip_family(gpuArch, gpuImpl)`:
+- Turing → TU10X/TU11X; Ampere → GA100/GA10X; Ada → AD10X; Hopper → GH100
+- Blackwell GB1XX: impl == GB10B → **GB10Y** else GB10X; GB2XX: impl >= GB20B → **GB20Y** else GB20X
+- **RUBIN_GR1XX → GR10X** — the loader explicitly selects a GR10X firmware family
+
+Status upgrade: family names in the container archive (`kernel_<family>.elf`) are now
+**source-decoded** anchors (not just observed strings). Still [VERIFY]: the storage-order
+hypothesis for the 7 extracted kernel ELFs (needs the archive directory-walk code — the
+container-internal table at payload ~16 KB — or the closed loader half), and this proves
+family-level firmware packaging exists, NOT a shipping consumer Rubin SKU.
+
+Also source-decoded: firmware "tasks" packaged per family — INIT, RM, INTR, VGPU, MNOC,
+DEBUG, ROOT, RM_STATE_MONITOR (`nv_firmware_task_t`) — matching the multi-ELF structure
+we extracted (kernel + RM + small task images).
