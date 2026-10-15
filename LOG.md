@@ -1,5 +1,16 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 2a: GSP container decoded; Rubin signatures found in shipping firmware (Europe/Istanbul)
+- Corpus: 535.113.01 (38.0 MB) + 570.144 (63.6 MB) from linux-firmware + rig's 615.71.09 (27.0 MB).
+- **gsp_*.bin = tiny outer ELF wrapper** (.fwimage raw RISC-V / .fwversion self-id / .fwsignature_<arch>).
+- Signature timeline: ga10x+ad10x+gh100 (535) → +gb10x/gb20x (570) → +gb10y/gb20y/**gr10x** (615).
+  → 615's single file services Ampere→**Rubin**; first hard artifact for the RTX-60 watchlist.
+- Symtab leaks Perforce path //dvs/p4/build/sw_rel/gpu_drv/r615/r616_69/...; .fwimage carries
+  Libos v3.1.0 / nvriscv-2.0 assertion strings (microkernel identified).
+- objcopy lacks RISC-V here → byte-exact dd recipe documented; `file` heuristic misfires (documented).
+- Official container docs located in-tree: nouveau/extract-firmware-nouveau.py + layout ODS.
+- 02-firmware/gsp-diffing-lab.md written; next: unpack sub-archives per ODS, functional diff.
+
 ## 2026-10-15 — wave 1e: userspace-control.md authored by parent; WAVE 1 COMPLETE (Europe/Istanbul)
 - Userspace agent silent 4+ hours with no file → declared stalled; parent authored
   03-low-level-access/userspace-control.md from wave-1 verified material + rig facts
