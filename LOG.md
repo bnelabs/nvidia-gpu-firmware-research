@@ -1,5 +1,13 @@
 # Research log (append-only)
 
+## 2026-10-16 — wave 3c: packet D first pass — table-attributed variant diffs (Europe/Istanbul)
+- EVGA 0B/0F/44 diff clusters attributed to decoded tables via the fixed parser's adjusted map.
+- **PowerPolicyTable +0xc4: u32 mW 450,000 (0B/44) vs 520,000 (0F)** — per-variant power value
+  (hypothesis); FanPolicyTable per-SKU duty/RPM bytes; OverclockingTable 1 byte unknown.
+- mW encoding corroborated independently by live RM path (0x2080a61d = 370,000).
+- All readings = hypothesis pending versioned table definitions; raw bytes in vbios-lab.md §8.
+- Commit 0921ccb on work/packet-a-tracing.
+
 ## 2026-10-16 — wave 3b: packets A+B+C executed on branch work/packet-a-tracing (Europe/Istanbul)
 - Corpus re-validated with reviewer-fixed parser (4/4 EVGA samples, 67 mapped fields each).
 - **Packet A**: sniffer2 (hardened tracer: exact NVOS54 shape, separate errno/RM-status,
