@@ -21,13 +21,13 @@
 - [ ] Extend: more driver branches via .run extraction; cross-AIB vBIOS samples (TPU form flow)
 - [ ] P/PERF subtable deep decode (PowerPolicy/Overclocking structures) — needs PERF-tables spec
 
-## P3 — Command surface tooling (read-side done; bench items pending)
+## P3 — Command surface tooling (partial; telemetry semantics remain open)
 - [x] `rmctl` v0.5 WORKS: version handshake → object chain → GSP features → PMUMON telemetry
       (250-sample ring) → PSTATE probe; all unprivileged, read-only, cross-checked
 - [x] **sniffer.c** — LD_PRELOAD NVOS54 decoder: NVML→control-ID map built empirically
-      (power 0x2080a6xx, clocks 0x208090xx, fan 0x208085xx, pstate 0x2080014a — all closed);
-      PSTATE divergence solved (0x20802068 ≠ NVML path)
-- [ ] rmctl query mode: implement the empirical closed-control reads (0x2080a618 draw, 0x0014a pstate)
+      (power 0x2080a6xx, clocks 0x208090xx, fan 0x208085xx; query correlation only);
+      0x2080014a identity query disproves earlier P-state attribution
+- [ ] rmctl query mode: validate closed-control response schemas before adding query modes; P-state source OPEN
 - [ ] Write-path (Set) control-ID capture — **bench only** (never mutate the production rig)
 - [x] RPC tracer recipe: kprobe/ftrace path closed on stock build (tracing-notes.md); strace +
       LD_PRELOAD sniffer are the working tracers
@@ -39,3 +39,22 @@
 
 ## P5 — Writeups
 - [ ] Per-generation control playbooks; bricking & recovery runbook; responsible disclosure notes
+
+## Lead review — next execution order (2026-10-16)
+
+Detailed findings and acceptance criteria: [REVIEW.md](REVIEW.md).
+
+1. **Offline correctness first:** BIT/PCIR parser fixes and regression tests; repeat all
+   corpus diffs with corrected offsets before assigning table meanings.
+2. **Repair tracing evidence:** exact NVOS54 ABI validation, RM status, errno preservation,
+   bounded capture, per-call provenance, synthetic tests; then isolated NVML getter traces.
+3. **Resolve P-state:** distinguish initialization, actual getter, caching and shared-memory
+   reads; retain raw input/output captures. An unchanged input selector is not a measurement.
+4. **Validate power:** compare paired NVML readings, selectors, timestamps and complete
+   payloads across natural operating variation. 370000 alone does not prove a power limit.
+5. **GSP structural RE:** pinned source commit + firmware hash, reproducible section/archive
+   inventory, architecture mappings validated by loader consumers, then function-level diffs.
+6. **Bench experiments:** remain blocked until spare hardware and recovery procedure exist.
+
+Completion requires reproducible artifacts and explicit uncertainty, not merely a plausible
+field value or successful ioctl. Continue offline work while bench hardware is unavailable.

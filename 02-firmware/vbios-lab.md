@@ -1,5 +1,16 @@
 # vBIOS lab — BIT directory parsed (2026-10-15)
 
+## Current interpretation (reviewed 2026-10-16)
+
+Sections 1–5 below preserve early, superseded notes: the 16-byte header and big-endian
+claims are incorrect. Section 6 also incorrectly labels 16-bit token fields BE: the parser
+uses **little-endian** size and pointer fields. Current parser validates the header checksum,
+uses the header PCIR pointer and image lengths, and applies the UEFI adjustment to targets.
+All four local corpus ROMs pass `--perf`; seven synthetic regression tests pass offline.
+Re-run earlier table comparisons before relying on their conclusions. A NULL legacy
+PowerControlTable pointer does not establish where runtime power policy executes.
+The named PERF prefix has 40 fields; remaining entries are reported as unknown `fieldN`.
+
 ## Corpus
 - `evga-3090-94.02.42.00.0F.rom` (999,424 B) — EVGA RTX 3090, same BIOS family as the rig's
   `94.02.42.00.F4`. Source: [bmgjet/EVGA-Bios-Unpacker](https://github.com/bmgjet/EVGA-Bios-Unpacker)

@@ -306,7 +306,7 @@ controls isolated against a bare `nvidia-smi -L` baseline.
 
 | Query | Query-specific RM controls | Class (inferred) | In open SDK? |
 |---|---|---|---|
-| baseline (`-L`) | 0x00000201/02/05/14/15/16/1b/79/89, 0x00800289, 0x20800102/0110, **0x2080014a** (pstate!), 0x20800406, 0x20801701 | client setup + identity | most closed; 0x20800406 = TIMER_GET_GPU_CPU_TIME_CORR, 0x20801701 = MC_GET_ARCH_INFO |
+| baseline (`-L`) | 0x00000201/02/05/14/15/16/1b/79/89, 0x00800289, 0x20800102/0110, **0x2080014a** (identity; P-state attribution retracted), 0x20800406, 0x20801701 | client setup + identity | most closed; 0x20800406 = TIMER_GET_GPU_CPU_TIME_CORR, 0x20801701 = MC_GET_ARCH_INFO |
 | power.draw/limit/max | **0x2080a612, 0x2080a618, 0x2080a61d**, 0x20810108, 0x0080028e/94, 0x00de0001, 0x00000d01 | PMGR power live readings + limits | ❌ all closed |
 | clocks.gr/mem | **0x20809009, 0x20809064**, 0x20810108 | CLK live readings | ❌ all closed |
 | temperature.gpu | *none beyond baseline* | (temp rides the baseline call set) | — |

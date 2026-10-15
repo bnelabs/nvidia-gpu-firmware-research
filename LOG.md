@@ -163,3 +163,12 @@
   5. 01-generations/* (matrix + pascal/turing/ampere/ada/blackwell/rubin)
   6. 05-security-research/* (prior-art, legal-and-safety)
 - Next: passive ground-truth capture, wave-0 commit, private GitHub push; then integrate wave 1.
+
+## 2026-10-16 — lead review: evidence correction and offline parser validation
+- Review isolated at base c7691c4, separate checkout/branch to preserve the active worker.
+- Removed rmctl's disproven 0x2080014a P-state probe and embedded GPU UUID.
+- Fixed BIT parser's missing UEFI adjustment, PCIR pointer traversal, checksum and bounds
+  checks; corrected LE documentation and added explicit CLI errors/version checks.
+- Seven synthetic tests pass; all four existing EVGA 3090/3080 ROMs parse with --perf.
+- ROADMAP and userspace mapping corrected; REVIEW.md establishes next experiment gates.
+- No GPU commands, tracing, device access, resets or hardware mutations performed.
