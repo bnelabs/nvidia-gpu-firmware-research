@@ -319,6 +319,13 @@ different (setup-time/legacy) subset. P-state specifically comes from closed `0x
 (params: pstate u32 @+4, keyed by GPU UUID @+12). Write-path (Set) IDs presumably mirror these
 families — to be captured on the bench only (§8 bpftrace probe).
 
+**Power-value encoding confirmed (round 19)**: `0x2080a61d` returns a 12-byte response
+containing u32 **370,000 = 370 W in mW** at offset +4 (board is an EVGA-class 3090; 370 W is
+its per-rail/enforced limit candidate — the rig's *total* limit reads 420 W via NVML, so the
+a61d value is per-rail or class-specific [VERIFY with structured dump]). `0x2080a618` (large
+buffer) carries live-draw-scale values (`0x0004f019` ≈ 322 W observed mid-query). Conclusion:
+power quantities travel as **mW u32** in the 0x2080a6xx family.
+
 ## Open questions
 
 - [VERIFY] Exact `NV2080_CTRL_CMD_*` IDs for `SetPowerManagementLimit_v2`, `SetGpuLockedClocks`,
