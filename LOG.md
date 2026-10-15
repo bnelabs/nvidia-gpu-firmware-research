@@ -1,5 +1,16 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 3a: correction (0x14a ≠ pstate), idle-state capture, REA discovered (Europe/Istanbul)
+- **Self-correction**: 0x2080014a is a UUID/identity getter (pre/post sniffer diff exposed the
+  selector-vs-value confusion); true NVML pstate source back to OPEN. rmctl probe relabeled.
+- Rig transitioned to IDLE (P8, 210 MHz, limit dropped 420→370 W — dynamic P-state-coupled
+  limit confirmed): idle-state ground-truth snapshot captured (dumps-20261015-231706).
+- **Tooling decision (user-delegated)**: REA framework (rea-agents v6.5.0, CLI+MCP: Hopper/Ghidra/
+  IDA bridges) discovered in npx cache; doctor shows engines pending (hopper/ghidra/ida not yet
+  up — user says servers start shortly). radare2 6.0.7 installed as interim lightweight RE.
+- Next: REA engine check → RISC-V GSP kernel analysis (kernel_ga10x/gr10x ELFs) via whichever
+  engine comes up; pstate-origin hunt continues (client-side derivation hypothesis).
+
 ## 2026-10-15 — wave 2g: empirical NVML→control-ID map (Europe/Istanbul)
 - Sniffer run against power/clocks/temp/fan queries; query-specific controls isolated vs baseline.
 - **Pattern: NVML live telemetry = closed families** — power 0x2080a612/a618/a61d (PMGR),
