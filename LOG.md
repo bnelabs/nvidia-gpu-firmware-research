@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-16 — wave 3f: ✅ bounded milestone MET — telemetry decoder + fixtures (Europe/Istanbul)
+- rmctl pstate decode fixed (one-hot enum, Pn=2^n @ca2d03e): 0x100 = **P8, matches nvidia-smi**.
+- decode_telemetry.py + fixture (idle capture, full provenance) + 4 unit tests; 11 offline
+  tests green total (4 telemetry + 7 vbios).
+- RESEARCH-DIRECTION.md default milestone **met**: "reproducible, source-pinned, read-only
+  GA102 telemetry decoder with offline fixtures". Commit 83f6869 on work/packet-a-tracing.
+- Remaining (per review, non-blocking): libnvidia-ml decode (REA), matched-routine diff,
+  bench-gated work.
+
 ## 2026-10-16 — wave 3e: loader family mapping SOURCE-DECODED (Europe/Istanbul)
 - nv-firmware-chip-family-select.h (@ca2d03e): get_chip_family() — GB10Y/GB20Y impl splits,
   **RUBIN_GR1XX → GR10X explicit loader selection**; firmware tasks enum (INIT/RM/INTR/VGPU/
