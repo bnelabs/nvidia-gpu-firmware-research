@@ -1,5 +1,21 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 0.5: P2/P3 groundwork while wave-1 agents run (Europe/Istanbul)
+- **Sudo obtained from user for READ-ONLY root captures only** (never stored in repo; never
+  used for any GPU mutation). Root dump added full 4 KiB PCI config space: Resizable BAR,
+  Secondary PCIe, 16 GT/s PHY caps now in 06-ground-truth/dumps-*-root/.
+- `nvidia-smi -q -x` exposes `<gsp_firmware_version>615.71.09</gsp_firmware_version>` —
+  GSP firmware version is directly queryable (fact recorded).
+- `scripts/fetch_gsp.sh` written + tested (local pass): GSP images collected to
+  firmware-store/gsp/ with SHA256SUMS.all committed (binaries gitignored).
+- open-gpu-kernel-modules shallow-cloned to vendor/ (default branch = 615.78.08; tag
+  v615.71.09 absent upstream). Source mining produced 07-prototype/rmctl-notes.md:
+  - `NV_ESC_RM_CONTROL = 0x2A` (nv_escape.h) + `NVOS54_PARAMETERS` (nvos.h) → rmctl recipe.
+  - ctrl2080 {fan,perf,power,thermal,volt} headers = the public control surface.
+  - msgq library = GSP RPC transport.
+  - **`dev_gsp.h` register manuals exist per-arch INCLUDING rubin/gr100** — next-gen GSP
+    register docs already public in-tree (feeds 01-generations/rubin.md).
+
 ## 2026-10-15 — wave 0: scaffold + wave 1 launch (Europe/Istanbul)
 - Goal armed (max 30 rounds); repo scaffolded.
 - Recon: `gh` authenticated as **bnelabs** → real private GitHub repo possible.

@@ -11,3 +11,8 @@
 tmp/
 __pycache__/
 *.pyc
+
+# Vendored source trees & collected firmware binaries (hashes are committed instead)
+vendor/
+firmware-store/
+*.deb
