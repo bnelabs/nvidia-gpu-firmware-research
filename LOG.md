@@ -1,5 +1,13 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 2g: empirical NVML→control-ID map (Europe/Istanbul)
+- Sniffer run against power/clocks/temp/fan queries; query-specific controls isolated vs baseline.
+- **Pattern: NVML live telemetry = closed families** — power 0x2080a612/a618/a61d (PMGR),
+  clocks 0x20809009/0x20809064, fan 0x2080852e/2f, subdevice-wide 0x20810108 — none in open SDK.
+- temperature.gpu adds NO control (rides baseline); pstate = closed 0x2080014a (per wave 2f).
+- 0x20801801 = BUS_GET_PCI_INFO (only documented control in the observed set).
+- Map recorded in userspace-control.md §9; write-path IDs deferred to bench. Commit 214a883.
+
 ## 2026-10-15 — wave 2f: 🎯 PSTATE divergence SOLVED with LD_PRELOAD sniffer (Europe/Istanbul)
 - Built 07-prototype/sniffer.c: LD_PRELOAD ioctl interceptor decoding NVOS54 payloads
   (userspace, read-only, no root, works on closed NVML).
