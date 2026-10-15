@@ -1,5 +1,12 @@
 # Research log (append-only)
 
+## 2026-10-16 — wave 3g: PR #3 opened for lead review (Europe/Istanbul)
+- Branch work/packet-a-tracing cleaned: build artifacts ignored (rebuild-from-source policy),
+  stale v1 sniffer binary removed; 13+11 tests green from clean state.
+- **PR #3 opened** (packets A–D + bounded milestone) with full summary and open items:
+  https://github.com/bnelabs/nvidia-gpu-firmware-research/pull/3
+- REA engines still missing (hopper/ghidra/ida) — queued tasks unchanged.
+
 ## 2026-10-16 — wave 3f: ✅ bounded milestone MET — telemetry decoder + fixtures (Europe/Istanbul)
 - rmctl pstate decode fixed (one-hot enum, Pn=2^n @ca2d03e): 0x100 = **P8, matches nvidia-smi**.
 - decode_telemetry.py + fixture (idle capture, full provenance) + 4 unit tests; 11 offline
