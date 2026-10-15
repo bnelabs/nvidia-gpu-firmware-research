@@ -1,5 +1,13 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 2c: vBIOS BIT parser working; cross-SKU diffs done (Europe/Istanbul)
+- scripts/parse_vbios_bit.py: self-calibrating BIT parser (auto-carve NVGI wrapper, PCIR,
+  token table). Debug lessons: hdr=16B, BE loc/size, stream ends at non-token byte.
+- Corpus: EVGA 3090 x3 (94.02.42.00.{0B,0F,44}) + EVGA 3080 (94.02.26.40.BE); hashes committed.
+- Same-family variants: ≤1 B/table diff (172 B total ROM-side) → point releases don't touch P/PERF.
+- Cross-SKU: BIT layout identical across GA102 (3090/3080); P first-u32 + B/M carry per-SKU data.
+- Next: P/PERF substructure per official spec; cross-AIB samples (TPU needs form flow — noted).
+
 ## 2026-10-15 — wave 2b: kernel archive table decoded ~80%; 7 distinct per-arch kernels (Europe/Istanbul)
 - Entries (stride 160 B @ payload 0x69014): name + VA descriptors matching kernel LOAD VAs
   (0xffffffff92fff000 / 0xa3000000); loader patch triples; exact semantics in layout ODS [VERIFY].
