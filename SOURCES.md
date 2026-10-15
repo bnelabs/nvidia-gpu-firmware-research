@@ -3,6 +3,7 @@
 ## Primary (NVIDIA)
 - https://github.com/NVIDIA/open-gpu-kernel-modules — open kernel modules; UAPI + RM control headers; GSP RPC structs
 - https://github.com/NVIDIA/open-gpu-doc — hardware/register manuals (GA100/GA10x full; Ada/Blackwell partial)
+- https://download.nvidia.com/open-gpu-doc/BIOS-Information-Table/1/BIOS-Information-Table.html — **official vBIOS BIT spec** (header/token layout, PERF_PTRS v2 field list, UEFI pointer-adjustment rule) — basis of scripts/parse_vbios_bit.py
 - https://www.nvidia.com/en-us/drivers/ — driver packages (firmware warehouse: gsp.bin, nvflash, tools)
 
 ## Community / drivers

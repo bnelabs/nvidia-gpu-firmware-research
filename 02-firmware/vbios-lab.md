@@ -79,6 +79,21 @@ Parser rewritten per the official [BIOS-Information-Table spec](https://download
 - One exact **350000 (350 W)** u32 found @file 0x3c9e0 (region between UEFI end and adjusted
   PERF area) — candidate default-power-limit encoding in mW [VERIFY].
 
+## 7. Table-content observations (round 15 — leads, each [VERIFY] pending structure spec)
+
+- **OverclockingTable** (0xe8-size region @adj 0x8f247): header `10 07 05 02 05 02 00 01`;
+  u32 `c8 af 00 00` = 45,000 (min-clock or power floor?); @+23: u32 **0x001D4C00 = 1,920,000 KHz
+  = 1,920 MHz** — plausible OC boost ceiling (3090 stock boost 1,695); @+26: 0x81000 = 528,384
+  KHz. Structure matches the community "OC table" that OC Scanner / -lgc consume.
+- **PowerSensorsTable**: header `20 08 3d 07` — v2.0, 8 sensors, `0x073d` = 1,853 (power scale
+  mW/LSB candidate); byte fields `1e 19 78 3e` look like INA3221-style rail config (the 3090
+  monitors its 12V rails via INA3221 — cross-check with hardware telemetry [VERIFY]).
+- **FanCoolerTable**: u16 sequence `f4 01 d0 07 85 0b 88 13` = **500 / 2,000 / 2,949 / 5,000**
+  — min/max RPM + duty values; `64 00` = 100 (% duty). This is the fan-curve source the
+  driver/NVML fan controls read.
+- General: these v2 PERF subtables carry their own {version, size, entry-count} headers
+  (`10/20/30` first bytes observed) — same self-describing style as the BIT itself.
+
 ## Next
 - [ ] Dump+decode the P/PERF table substructure per spec (power limits, clk/vf curve entries)
 - [ ] Fetch the FE 3090 ROM (TPU 231642) + partner variants → partner-diff the P tables

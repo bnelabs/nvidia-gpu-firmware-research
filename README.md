@@ -42,12 +42,15 @@ Per-generation briefs: [01-generations/](01-generations/).
 ## Repo map
 ```
 01-generations/        per-gen briefs + cross-generation firmware matrix
-02-firmware/           gsp-firmware.md, vbios.md  (the two firmware pillars)
-03-low-level-access/   kernel-drivers-and-registers.md, userspace-control.md
-04-tools/              tools-inventory.md
+02-firmware/           gsp-firmware.md, vbios.md, gsp-diffing-lab.md, vbios-lab.md
+03-low-level-access/   kernel-drivers-and-registers.md, userspace-control.md, tracing-notes.md
+04-tools/              tools-inventory.md (32 tools)
 05-security-research/  prior-art.md, legal-and-safety.md
 06-ground-truth/       lab rig facts + timestamped passive dumps (text only)
-scripts/               capture_state.sh (read-only rig capture) + future tooling
+07-prototype/          rmctl.c (working RM client) + rmctl-notes.md
+scripts/               capture_state.sh, fetch_gsp.sh, fetch_gsp_history.sh,
+                       parse_vbios_bit.py (spec-accurate BIT/PERF parser)
+firmware-store/        collected firmware (binaries gitignored) + SHA256SUMS inventories
 TECHNIQUES.md          12 creative acquisition/analysis/control techniques
 ROADMAP.md             phases P0–P5 and status
 LOG.md                 append-only dated research log
