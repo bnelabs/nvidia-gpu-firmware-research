@@ -1,6 +1,10 @@
 # Lead review — 2026-10-16
 
 Reviewed base: `c7691c4cac9e2a72f3413b9946bf5d98a457813b`.
+Follow-up correction: `currPstate` uses a one-hot enum. The recorded `0x4` means P2,
+so the earlier P4/P2 discrepancy in this review is superseded. See
+[RESEARCH-DIRECTION.md](RESEARCH-DIRECTION.md). NVML's internal path remains unproven.
+
 Scope: repository code, research consistency, existing offline ROM corpus, and next-step
 experimental design. This is not an exhaustive validation of all literature claims.
 

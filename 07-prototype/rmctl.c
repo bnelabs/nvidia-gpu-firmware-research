@@ -28,6 +28,7 @@
 #include <errno.h>
 #include <sys/ioctl.h>
 
+#include "pstate_decode.h"
 #include "nvtypes.h"
 #include "nvos.h"
 #include "class/cl0000.h"
@@ -197,8 +198,13 @@ int main(void)
             perror("ioctl(PERF_GET_CURRENT_PSTATE)");
         else if (c3.status != 0)
             fprintf(stderr, "PERF_GET_CURRENT_PSTATE status=0x%x\n", c3.status);
-        else
-            printf("  perf.currPstate         : 0x%x (P%u)\n", ps.currPstate, ps.currPstate);
+        else {
+            int ordinal = rm_pstate_ordinal(ps.currPstate);
+            if (ordinal >= 0)
+                printf("  perf.currPstate         : 0x%x (P%d)\n", ps.currPstate, ordinal);
+            else
+                printf("  perf.currPstate         : 0x%x (undefined/unsupported encoding)\n", ps.currPstate);
+        }
     }
     /* 0x2080014a is an identity query, not a P-state source. The previous
      * probe printed an input selector as P-state and embedded a host UUID.
