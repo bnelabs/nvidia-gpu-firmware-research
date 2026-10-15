@@ -47,12 +47,35 @@ microkernel v3.1.0** on an nvriscv-2.0 core, with assertion strings intact (`Run
 == 0 @ ...sbi.c:%d`). Assertion/trace strings = free telemetry for behavior diffing across
 versions.
 
-## 4. Next steps (P2)
+## 5. Payload strings-diff: 535 → 615 (first functional diff)
 
-- [ ] Parse the container per `nouveau_firmware_layout.ods` (script: unpack bootloader / RM /
-      libos sub-archives; check gzip/zlib compression) → per-sub-image symbol tables
-- [ ] Run the same extraction on 535/570 payloads → first functional diff (new symbols/strings
-      per version; RPC message tables live in the RM sub-image)
-- [ ] Extend corpus via `.run` extraction (more versions per branch) — `fetch_gsp.sh` ready
-- [ ] Feed interesting symbol names into rmctl control mapping (closed CLK/FAN/VOLT families
-      live in this image — symbol names may reveal handler naming conventions)
+`strings -n 10` unique sets: 535 = 4,932; 615 = 4,163; **2,020 strings new in 615** (proper
+`LC_ALL=C sort` + `comm -13`; note: strings sets shrink because 615 reorganized/compressed
+content — diff direction still valid).
+
+Headline findings:
+
+1. **Per-arch kernel archive directory** sits near the payload start (offset ~16 KB):
+   `kernel_{ga10x,gh100,gb10x,gb10y,gb20x,gb20y,gr10x}.elf` — and the names repeat right before
+   the first embedded ELF (0x6A000). **Each chip family ships its own GSP kernel ELF inside the
+   one container** — the four embedded stripped RISC-V ELFs found at 0x6A000/0x97000/0xC9000/
+   0xFD000 are these kernels. `kernel_gr10x.elf` = a **Rubin GSP kernel image inside shipping
+   consumer firmware**.
+2. **Voltage-control vocabulary expanded 4 → 9 strings**: `OVERVOLTAGE_{IODVDD,NVVDD,MSVDD(+_0/_1)}`,
+   `EnableCoreVoltage`, `OVERVOLTAGE_LOGIC` — the GSP RM manages explicit voltage rails
+   (NVVDD/MSVDD are the core rails, IODVDD the I/O rail). Combined with mVolt+ runtime power
+   bypass (vbios.md), this is the firmware-level control vocabulary for power/voltage.
+3. Clock/fan/thermal surface: `EnableMClkSlowdown`, `MCLK_LIMIT`, `MCLK_MAX_CAPABILITY`,
+   `MIN_FAN_LEVEL`, `MXM_ACPOWER`, `NETIR_THERMAL_EVENT`.
+4. An embedded **NLS Root CA certificate (valid 2024-09-19 → 2049)** — NVIDIA Licensing Service
+   trust anchor inside GSP firmware (attestation/licensing path — fuels the secure-boot questions
+   in prior-art.md "unexplored angles").
+5. `rm.bindata.bin`, `gsp_cpu_{dma,replayable_fault,non_replayable_fault}` — bindata archive
+   format + CPU fault-handling telemetry names.
+
+## Next steps (P2, updated)
+
+- [ ] Extract `kernel_gr10x.elf` + `kernel_gb20x.elf` via the archive directory (parse name→
+      offset table at ~16 KB) → keep per-arch kernels for cross-family diff
+- [ ] Diff GSP-RM config vocabulary (bindata names) 535 vs 615 in full (the 2,020 new strings)
+- [ ] Same treatment for `.fwsignature_gr10x` blob → signature format RE (falcon auth chain)
