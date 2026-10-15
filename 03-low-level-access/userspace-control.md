@@ -299,6 +299,26 @@ prototype makes the mapping executable: any control can be issued directly from 
    identity + counters; killed by driver-version changes (512.95), not crypto enforcement —
    policy lives in the control plane, not in silicon laws.
 
+## 9. Empirical NVML → control-ID map (LD_PRELOAD sniffer, 2026-10-15, rig r615.71.09)
+
+Method: `07-prototype/sniffer.c` decodes every RM_CONTROL (NVOS54) NVML issues; query-specific
+controls isolated against a bare `nvidia-smi -L` baseline.
+
+| Query | Query-specific RM controls | Class (inferred) | In open SDK? |
+|---|---|---|---|
+| baseline (`-L`) | 0x00000201/02/05/14/15/16/1b/79/89, 0x00800289, 0x20800102/0110, **0x2080014a** (pstate!), 0x20800406, 0x20801701 | client setup + identity | most closed; 0x20800406 = TIMER_GET_GPU_CPU_TIME_CORR, 0x20801701 = MC_GET_ARCH_INFO |
+| power.draw/limit/max | **0x2080a612, 0x2080a618, 0x2080a61d**, 0x20810108, 0x0080028e/94, 0x00de0001, 0x00000d01 | PMGR power live readings + limits | ❌ all closed |
+| clocks.gr/mem | **0x20809009, 0x20809064**, 0x20810108 | CLK live readings | ❌ all closed |
+| temperature.gpu | *none beyond baseline* | (temp rides the baseline call set) | — |
+| fan.speed | **0x2080852e, 0x2080852f** | fan/cooler live readings | ❌ closed |
+| (any) | 0x20801801 | BUS_GET_PCI_INFO | ✅ documented |
+
+**Pattern: NVML's real-time telemetry runs on closed control families** (0x2080a6xx power,
+0x208090xx clocks, 0x208085xx fan, 0x20810108 subdevice-wide) — the open SDK headers document a
+different (setup-time/legacy) subset. P-state specifically comes from closed `0x2080014a`
+(params: pstate u32 @+4, keyed by GPU UUID @+12). Write-path (Set) IDs presumably mirror these
+families — to be captured on the bench only (§8 bpftrace probe).
+
 ## Open questions
 
 - [VERIFY] Exact `NV2080_CTRL_CMD_*` IDs for `SetPowerManagementLimit_v2`, `SetGpuLockedClocks`,
