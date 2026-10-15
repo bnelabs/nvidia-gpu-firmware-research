@@ -12,23 +12,30 @@
       parent-authored after one agent stalled; corrections applied: open-gpu-doc coverage,
       "Breaking Band" misattribution, unverifiable RPC-recorder claims → [VERIFY])
 
-## P2 — Firmware acquisition lab (in progress)
-- [x] `scripts/fetch_gsp.sh` — written + local pass (hashes committed: 615.71.09 ga10x/tu10x)
-- [ ] Collect gsp/ucodes images across branches r550→r615+ via .run extraction; start version-diff
-- [ ] `scripts/fetch_vbios_samples.sh` — vBIOS corpus (TechPowerUp DB + partner update zips)
-- [ ] Binary-diff experiments: gsp_ga10x.bin across driver versions (38→63.5 MB growth already
-      documented via linux-firmware); vBIOS across board partners (BIT parser route)
+## P2 — Firmware acquisition lab (largely done; extend corpus opportunistically)
+- [x] `scripts/fetch_gsp.sh` + `fetch_gsp_history.sh` (local pass + 2-version series, hashes committed)
+- [x] GSP container decoded: outer ELF wrapper, per-arch signature timeline (incl. gr10x/Rubin),
+      kernel archive table, Libos identified; md5 cross-version churn finding (rebuilt per driver)
+- [x] vBIOS corpus started (EVGA 3090 ×3 + 3080); BIT + PERF chain decoded per official spec;
+      variant/cross-SKU diffs done; power mW encoding confirmed via sniffer
+- [ ] Extend: more driver branches via .run extraction; cross-AIB vBIOS samples (TPU form flow)
+- [ ] P/PERF subtable deep decode (PowerPolicy/Overclocking structures) — needs PERF-tables spec
 
-## P3 — Command surface tooling (rmctl DONE; expand next)
-- [x] `rmctl` prototype WORKS END-TO-END (wave 1c): version handshake → object alloc →
-      NV2080_CTRL_CMD_GSP_GET_FEATURES read-only probe, unprivileged, zero patching
-- [ ] rmctl query mode: enumerate read-only controls (CLK/THERMAL/POWER reads, infoROM)
-- [ ] RPC tracer recipe: ftrace/bpftrace on open KMD symbols; evaluate GSP RPC loggers
+## P3 — Command surface tooling (read-side done; bench items pending)
+- [x] `rmctl` v0.5 WORKS: version handshake → object chain → GSP features → PMUMON telemetry
+      (250-sample ring) → PSTATE probe; all unprivileged, read-only, cross-checked
+- [x] **sniffer.c** — LD_PRELOAD NVOS54 decoder: NVML→control-ID map built empirically
+      (power 0x2080a6xx, clocks 0x208090xx, fan 0x208085xx, pstate 0x2080014a — all closed);
+      PSTATE divergence solved (0x20802068 ≠ NVML path)
+- [ ] rmctl query mode: implement the empirical closed-control reads (0x2080a618 draw, 0x0014a pstate)
+- [ ] Write-path (Set) control-ID capture — **bench only** (never mutate the production rig)
+- [x] RPC tracer recipe: kprobe/ftrace path closed on stock build (tracing-notes.md); strace +
+      LD_PRELOAD sniffer are the working tracers
 - [ ] devregs-style BAR0 register definitions (uio/vfio on unbound GPU only)
 
-## P4 — Controlled experiments (test bench only, never the production rig)
+## P4 — Controlled experiments (test bench only, never the production rig) — BLOCKED on hardware
 - [ ] vBIOS mod sandbox on spare card / VFIO+QEMU VM; flash + recovery drill (SPI clip read/write)
-- [ ] Map RM controls ↔ NVML/NVAPI effects for power/clock/fan/thermal
+- [ ] Map RM Set-controls ↔ NVML/NVAPI effects for power/clock/fan/thermal (sniffer on bench)
 
 ## P5 — Writeups
 - [ ] Per-generation control playbooks; bricking & recovery runbook; responsible disclosure notes
