@@ -2,6 +2,18 @@
 
 # Research log (append-only)
 
+## 2026-10-16 — wave 4 FINAL: session wrap (Europe/Istanbul)
+- 30-round session complete. Final state: PR #3 open (packets A-D + bounded milestone +
+  Codex fixes applied); main carries waves 0-2f + lead review merge.
+- Totals: ~57 commits across main + branch; 25+ research docs; 6 working tools/scripts
+  (rmctl, sniffer2, capture_state, fetch_gsp x2, parse_vbios_bit, inventory_firmware,
+  decode_telemetry, nvml_pstate_probe); 24 offline tests green; corpus hashed.
+- Production rig: read-only for the entire session; zero mutations; inference undisturbed
+  (load P2/420W -> idle P8/370W transition captured as evidence, not caused by us).
+- Standing queues documented in ROADMAP final-status section (REA-gated + bench-gated).
+
+# Research log (append-only)
+
 ## 2026-10-16 — wave 3h: PR #3 Codex review — 4 findings fixed (Europe/Istanbul)
 - P1 inventory: ELF64 e_phentsize/e_phnum were read from e_flags (offsets 40/42 vs correct
   54/56) -> "validated" labels untrustworthy. Fixed; inventories regenerated - honest counts:
