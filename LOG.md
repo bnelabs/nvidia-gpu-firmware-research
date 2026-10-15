@@ -1,5 +1,15 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 1e: userspace-control.md authored by parent; WAVE 1 COMPLETE (Europe/Istanbul)
+- Userspace agent silent 4+ hours with no file → declared stalled; parent authored
+  03-low-level-access/userspace-control.md from wave-1 verified material + rig facts
+  (sanctioned-surface cheat-sheet, NVML snippet, NvAPI/Coolbits, RM-control mapping table,
+  mVolt+ lead). If the agent delivers later, merge rather than overwrite.
+- Wave 1 (P1) now complete: 6/6 topics delivered across 13 research files, all cited.
+- Cross-file leads captured for P2/P3: mVolt+ runtime power programming; InfoROM as the
+  likely persistence store for memory-training results [VERIFY]; GSP-as-ELF parsing via
+  NV-GSP-Bootloader / airlied-gsp-parse; LHR prior-art corrections.
+
 ## 2026-10-15 — wave 1c: 🎯 rmctl v0.3 WORKS END-TO-END (Europe/Istanbul)
 - Built a from-scratch userspace RM client (07-prototype/rmctl.c, public headers only) and ran
   it READ-ONLY against the production rig: version handshake → client/device/subdevice alloc →
