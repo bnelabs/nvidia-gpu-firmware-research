@@ -1,5 +1,24 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 1b: firmware + kernel files landed; rmctl v0.1 compiles (Europe/Istanbul)
+- Delivered: 02-firmware/gsp-firmware.md (2,675 words), 02-firmware/vbios.md (~3,530),
+  03-low-level-access/kernel-drivers-and-registers.md (2,801), 04-tools/tools-inventory.md (32 tools).
+- **rmctl v0.1 (07-prototype/) compiled clean against vendored r615 headers** — allocates
+  client/device/subdevice, probes NV2080_CTRL_CMD_GSP_GET_FEATURES (read-only).
+- Register-doc coverage corrected (agent audit): open-gpu-doc has NO Ada/Blackwell manuals;
+  GA102 = 7 units vs GA100 = 17; README/TECHNIQUES fixed.
+- GSP naming history: gsp.bin → tu10x+ad10x @r525.53 → ga10x rename @r530.30.02; r615 adds
+  ucodes_*.bin; gsp_ga10x.bin carries Ampere+Ada+Blackwell consumer; GB202 linux-firmware =
+  bootloader+fmc only (FMC-first boot, nova era).
+- FINN interface IDs for future RPC work: CLK=0x208010, THERMAL=0x208005, POWER=0x208027.
+- Security: GPUBreach (2026) — trust boundary is driver's use of GSP-written memory (status
+  queue), not the signed RISC-V image; unfixed in 595.58.03.
+- vBIOS: mVolt+ v0.36 (Aug 2026) bypasses 50-series power limits at RUNTIME without flash —
+  power controllers are runtime-programmable beyond vBIOS tables (top research lead).
+- Official NVAPI now on GitHub (NVIDIA/nvapi); geohot/cuda_ioctl_sniffer = rmctl reference.
+- Claim corrections honored: "mstoeckl RPC recorder" and "nvgspfw" unverifiable → [VERIFY].
+- Remaining agents: userspace-control, prior-art/legal.
+
 ## 2026-10-15 — wave 1a: generation-matrix agent complete (Europe/Istanbul)
 - All 7 files landed in 01-generations/ (matrix + pascal/turing/ampere/ada/blackwell/rubin), cited to 2024–2026 sources.
 - Key facts absorbed into SOURCES.md: per-arch GSP images (ga10x covers Ampere AND Ada),

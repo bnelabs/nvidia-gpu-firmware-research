@@ -21,7 +21,9 @@ Low-level control of a modern NVIDIA card therefore decomposes into four layers:
 
 1. **vBIOS** — boot-time policy: power targets, perf tables, display/GOP, memory init straps.
 2. **GSP firmware** — the runtime brain (RISC-V): shipped as `gsp.bin` with every driver.
-3. **Registers** — BAR0/BAR1; documented in `open-gpu-doc` (GA10x fully, Ada/Blackwell partially).
+3. **Registers** — BAR0/BAR1; documented in `open-gpu-doc` (manuals exist for Volta/Turing/Ampere
+   only: GA100 broadest at 17 units, GA102 a 7-unit subset; **no Ada/Blackwell manuals published**;
+   the GSP/falcon registers live in the kernel-module tree's `swref/published/` per-arch headers).
 4. **RM control plane** — the ioctl surface `/dev/nvidiactl` + `/dev/nvidia0`, fully defined by
    the open kernel modules' headers; NVML (`nvidia-smi`) and NvAPI are just frontends to it.
 

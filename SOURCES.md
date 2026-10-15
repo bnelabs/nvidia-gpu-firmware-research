@@ -44,7 +44,35 @@ Wave-1 research agents (2026-10-15) will append verified, per-topic source lists
 - https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/559436/announcing-geforce-hotfix-driver-57275-released-38/3512589/ — 572.xx black-screen wave + 572.75 hotfix
 - https://www.techpowerup.com/350888/per-module-gddr7-temperature-reading-unlocked-on-nvidia-geforce-rtx-50-blackwell — GDDR7 per-module temp sensors unlocked
 
-### Legacy + next-gen
+### Firmware acquisition & parsing (wave 1b)
+- https://github.com/airlied/gsp-parse — GSP headers→JSON→Rust (ABI documented as unstable by NVIDIA)
+- https://github.com/NVIDIA/open-gpu-kernel-modules/tree/main/nouveau — official firmware-container extractor + layout doc
+- https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/nvidia/ga102/gsp — per-chip nouveau GSP copies (38 MB@535 → 63.5 MB@570 diffing target)
+- https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/nvidia/gb202/gsp — Blackwell: bootloader+fmc only (FMC-first boot)
+- https://docs.kernel.org/gpu/nouveau.html — GSP RPC ring protocol (cmdq/statusq, 4 KiB elements, reply policies)
+- https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.78.08/src/common/sdk/nvidia/inc/g_finn_rm_api.h — FINN interface IDs (CLK=0x208010, THERMAL=0x208005, POWER=0x208027, NVLINK=0x208030)
+
+### Control tooling (wave 1b)
+- https://github.com/NVIDIA/nvapi — OFFICIAL NvAPI headers now on GitHub
+- https://github.com/geohot/cuda_ioctl_sniffer — working raw RM client against open-tree headers (rmctl reference)
+- https://pkg.go.dev/gvisor.dev/gvisor/tools/ioctl_sniffer — gVisor NVIDIA ioctl profiler
+
+### vBIOS tooling (wave 1b)
+- https://github.com/notfromstatefarm/nvflashk — current best nvflash fork (board-ID bypass, `-6`, proven cross-flashes)
+- https://github.com/B47741/nvflash — older fork
+- https://github.com/hdlcodelab/nvidia_rom_parser — spec-based C++ vBIOS parser
+- https://github.com/evw88/VBios-Editor — community vBIOS editor
+- https://github.com/b00nz/mVolt + https://www.techpowerup.com/351867/nvidia-power-limit-bypass-rtx-5090-oc-hits-700-w-rtx-5080-up-to-680-w-no-shunt-mod-needed — RUNTIME power-limit bypass without flashing (mVolt+ v0.36, Aug 2026)
+
+### Nouveau / Nova (wave 1b)
+- https://github.com/torvalds/linux/tree/master/drivers/gpu/drm/nouveau/nvkm/subdev/gsp — mainline nvkm GSP (r535/r570 layers)
+- https://www.phoronix.com/news/NVIDIA-Nova-Linux-7.4-Changes — nova-core 7.4: GPU-info ioctl, BAR1 CPU access
+- https://rust-for-linux.com/nova-gpu-driver — Nova/VFIO plans
+
+### Security research (wave 1b)
+- https://stealthium.io/blog/gpubreach-root-cause-analysis-detection + https://gpubreach.ca/ — GPUBreach (2026): Rowhammer→status-queue injection→msgq fn-pointer overflow; unfixed in 595.58.03
+- https://www.overclock.net/threads/evga-3090-ftw-power-limit-bypass.1774611/ — canonical 30-series power-table case
+- https://docs.mrchromebox.tech/docs/support/unbricking/unbrick-ch341a — CH341A SPI unbrick reference
 - https://www.techpowerup.com/338497/nvidias-v580-driver-branch-ends-support-for-maxwell-pascal-and-volta-gpus — R580 = last Pascal branch
 - https://nouveau.freedesktop.org/ — NVK enabled for Maxwell/Pascal/Volta (Apr 2025, no-GSP path)
 - https://nvidianews.nvidia.com/news/nvidia-unveils-rubin-cpx-a-new-class-of-gpu-designed-for-massive-context-inference — Rubin CPX (128 GB GDDR7, end-2026)

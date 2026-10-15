@@ -46,10 +46,13 @@ re-implemented by nouveau (nvkm GSP). Community RPC loggers/patches exist [VERIF
 recorder by mstoeckl]. Long-term: userspace GSP RPC client on T3's structs.
 
 ## T6 · Registers from userspace — safely — 🔴/🟡 [SEED→P3]
-open-gpu-doc publishes register manuals (GA100/GA10x full; Ada/Blackwell partial [VERIFY]).
-Raw BAR0 on the *production* GPU is forbidden (RM owns the device). On an unbound spare card:
-unbind driver → bind `uio_pci_generic` (or vfio-pci) → mmap `resource0` → poke per devregs-style
-definitions. envytools lineage (nva, envydis Falcon disassembler) is the classic toolchain.
+open-gpu-doc publishes register manuals ONLY for Volta/Turing/Ampere (GA100 broadest = 17 units,
+GA102 = 7-unit subset; **no Ada/Blackwell manuals** — verified against the open-gpu-doc tree
+2026-10-15). For GSP/falcon registers, the per-arch `swref/published/*/dev_gsp.h` headers inside
+open-gpu-kernel-modules (incl. rubin/gr100) are the real documentation. Raw BAR0 on the
+*production* GPU is forbidden (RM owns the device). On an unbound spare card: unbind driver →
+bind `uio_pci_generic` (or vfio-pci) → mmap `resource0` → poke per devregs-style definitions.
+envytools lineage (nva, envydis Falcon disassembler) is the classic toolchain.
 
 ## T7 · vBIOS corpus mining & partner diffing — 🟢 [PROVEN method]
 TechPowerUp vBIOS DB + board-partner update zips = thousands of ROMs. Diff two BIOSes for the

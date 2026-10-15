@@ -4,13 +4,13 @@
 
 ## TL;DR
 
-- A vBIOS is a PCI option ROM (55AA + PCIR) wrapped around NVIDIA's BIT-directory firmware: init scripts, display, clock, memory, and power tables, plus a UEFI/GOP image; NVIDIA's own [BIOS Information Table spec](https://download.nvidia.com/open-gpu-doc/BIOS-Information-Table/1/BIOS-Information-Table.html) documents the token layout.
+- A vBIOS is a PCI option ROM (55AA + PCIR) wrapped around NVIDIA's BIT-directory firmware: init scripts, display, clock, memory, and power tables, plus a UEFI/GOP image — NVIDIA's own [BIOS Information Table spec](https://download.nvidia.com/open-gpu-doc/BIOS-Information-Table/1/BIOS-Information-Table.html) documents the token layout.
 - nvflash enforces Device-ID / Subsystem-ID / Board-ID / Hierarchy checks; the current go-to fork for bypassing them is [nvflashk](https://github.com/notfromstatefarm/nvflashk), which force-enables NVIDIA's own internal bypass — it flashes "almost any signed BIOS to almost any card."
 - **Always dump before flashing** (`nvflash -b factory.rom`); the installed ROM is the only ground-truth identity of your card.
 - Power-table edits are safest done by **diffing partner BIOSes of the same chip** via a BIT parser, not by blind hex search; community 30-series edits used partner/XOC ROMs (e.g., Kingpin 1000 W onto a Strix 3090 with a dual-BIOS switch).
 - On Blackwell the flash-free path is winning: mVolt+ v0.36 reportedly bypasses stock power limits (5090 → 700 W reports) without shunt mods or reflashing.
 - Dual-BIOS switches, an iGPU, and a CH341A + SOIC-8 clip with flashrom are the three recovery layers; "bricked" NVIDIA cards are almost always reflashable because the GPU itself can reject bad images and fall back.
-- The 2025 RTX 50 "black screen saga" was fixed by a mix of drivers (572.75 hotfix) and **vBIOS updates distributed by AIBs** (MSI Center etc.), confirmed by NVIDIA staff.
+- The 2025 RTX 50 "black screen saga" was fixed by drivers (572.75 hotfix) **plus vBIOS updates distributed by AIBs** (MSI Center etc.), confirmed by NVIDIA staff.
 - Laptop vBIOSes are OEM-fused territory (MXM data, GC6 power scripts); flashing desktop ROMs into laptops is the classic brick scenario.
 - On a production rig, **do not** use the sysfs `rom` trick — it touches the PCI device while the driver is bound; use nvflash in a maintenance session or existing dumps instead.
 - Open items: exact GDDR7 training persistence, InfoROM/training interplay, and Blackwell secure-image behavior are still [VERIFY]-grade.
@@ -41,15 +41,15 @@ The `'u'` UEFI token carries the minimum UEFI driver version, a **UEFI compatibi
 
 The format is remarkably stable: Pascal-era ROMs already use BIT with v1/v2 data structures; the spec (last updated 2018) still describes current cards. What changed across generations:
 
-- **Table volume grew**: PERF v2's pointer list (power topology, leakage, sensors, overclocking, dozens of LowPower tables) barely fits what a Pascal card needed — this matches the runtime power-management ambitions of Turing+.
+- **Table volume grew**: PERF v2's pointer list (power topology, leakage, sensors, overclocking, dozens of LowPower tables) far exceeds what a Pascal card needed, matching the runtime power-management ambitions of Turing+.
 - **Memory scripts and straps**: `'M'` v2 moved from raw reset/VREF/DQS scripts (v1, deprecated) to strap translation + memory info + partition tables + a script list, tracking the jump to GDDR6/GDDR6X/GDDR7 (Pascal GDDR5X → Blackwell GDDR7).
 - **Falcon/PMU**: `'p'` token carries PMU init-from-ROM code/data (IMEM/DMEM images), the on-GPU microcontroller firmware that the vBIOS loads at boot; v2 renamed PMU pointers to generic Falcon data ([BIT spec](https://download.nvidia.com/open-gpu-doc/BIOS-Information-Table/1/BIOS-Information-Table.html)).
-- **Boot split**: the vBIOS still owns cold-boot devinit and display init on GeForce, while the open kernel module loads GSP firmware for runtime management (our rig's `gsp-firmware-images.txt` dump shows the separate GSP blobs). The precise vBIOS/GSP split per generation is [VERIFY].
-- **Code Type 03h UEFI images** became standard from Pascal on, and image hashes/signed-blob fields (CEC OTA-signed blobs in nvflash output) show increasing signature requirements into Ampere/Ada/Blackwell ([nvflashk output](https://github.com/notfromstatefarm/nvflashk)).
+- **Boot split**: the vBIOS still owns cold-boot devinit and display init on GeForce, while the open kernel module loads GSP firmware for runtime management (our rig's `gsp-firmware-images.txt` dump shows the separate GSP blobs). The exact vBIOS/GSP split per generation is [VERIFY].
+- **Code Type 03h UEFI images** became standard from Pascal on, and image-hash/signed-blob fields in nvflash output show increasing signature requirements into Ampere/Ada/Blackwell ([nvflashk output](https://github.com/notfromstatefarm/nvflashk)).
 
 ### Laptop / MXM differences
 
-Laptop ROMs carry the `'x'` MXM token (form factors Type-I…IV, DCB modification status, MXM digital connector and DDC/Aux→CCB maps) and GC6-aware boot scripts; the subsystem IDs are OEM-specific and interact with Optimus muxes ([BIT spec](https://download.nvidia.com/open-gpu-doc/BIOS-Information-Table/1/BIOS-Information-Table.html)). Practical consequence: a Lenovo Legion owner who flashed an MSI desktop-style 3070 140 W ROM bricked the machine and had to hunt for the vBIOS SPI chip with a USB flasher ([r/LenovoLegion case](https://www.reddit.com/r/LenovoLegion/comments/z1t5pu/bricked_my_laptop_after_flashing_msi_vbios/)). Never treat laptop and desktop ROM pools as interchangeable.
+Laptop ROMs carry the `'x'` MXM token (form factors Type-I…IV, DCB modification status, MXM digital connector and DDC/Aux→CCB maps) and GC6-aware boot scripts; subsystem IDs are OEM-specific and interact with Optimus muxes ([BIT spec](https://download.nvidia.com/open-gpu-doc/BIOS-Information-Table/1/BIOS-Information-Table.html)). Practical consequence: a Legion owner who flashed an MSI desktop-style 3070 140 W ROM bricked the machine and had to hunt for the vBIOS SPI chip with a USB flasher ([r/LenovoLegion case](https://www.reddit.com/r/LenovoLegion/comments/z1t5pu/bricked_my_laptop_after_flashing_msi_vbios/)). Never treat laptop and desktop ROM pools as interchangeable.
 
 ## 2. Extraction
 
@@ -142,7 +142,7 @@ The `'M'` MEMORY token is the vBIOS's memory playbook: strap data count + **memo
 
 Two adjacent systems matter:
 
-- **InfoROM**: a separate non-volatile store on the card ("For all products with an InfoROM. Fermi™ and higher parts have non-volatile on-board memory for persisting device info, such as aggregate ECC counts…" — [cuda.core InforomInfo docs](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.system.InforomInfo.html)). nvflash reports `InfoROM Version` and even `InfoROM Backup: Present` ([nvflashk output](https://github.com/notfromstatefarm/nvflashk)) — i.e., the card maintains a backup copy of this calibration/config store.
+- **InfoROM**: a separate non-volatile store on the card — "Fermi™ and higher parts have non-volatile on-board memory for persisting device info, such as aggregate ECC counts…" ([cuda.core InforomInfo docs](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.system.InforomInfo.html)). nvflash reports `InfoROM Version` and `InfoROM Backup: Present` — the card maintains a backup copy of this calibration/config store ([nvflashk output](https://github.com/notfromstatefarm/nvflashk)).
 - **Firmware-driven memory training**: GDDR6X (Ampere) and especially GDDR7 (Blackwell, PAM3 signaling with link/ECC features) do nontrivial per-part training at boot. Community sources report Blackwell cards with lengthy first-boot training and memory-stability-driven black screens ([GDDR7 OC guide](https://digitalgamerhub.com/how-to-overclock-gddr7-memory-guide/), [gpusolutions repair guide](https://gpusolutions.net/rtx-5080-5090-black-screen-fans-100-repair-guide/)) — but the **persistence model** (whether/where training results are stored: InfoROM vs SPI flash vs retrained-every-boot) is not publicly documented and stays [VERIFY]. This also means a memory-adjacent vBIOS edit can interact with training in ways the hex editor can't see.
 
 ## 6. Bricking & recovery
@@ -154,7 +154,7 @@ nvflashk's author (with the largest recent dataset of intentional cross-flashes)
 3. **Dual-BIOS switch**: flip, boot, disable the GPU device, flip back, flash, reboot.
 4. **Second GPU + riser/slot**: flash the dead card from a working one (nvflash supports selecting the adapter).
 5. **No-POST corner case**: enabling CSM in UEFI setup usually gets the machine to POST with a mismatched chip ([README](https://github.com/notfromstatefarm/nvflashk)).
-6. **SPI reflashing (card appears fully dead)**: the vBIOS lives on a discrete SPI flash chip (typically an 8-pin SOIC W25Q-class part) on the card. A CH341A programmer with a SOIC-8 clip plus flashrom is the standard toolchain: identify, read twice and compare, then write ([MrChromebox unbricking guide](https://docs.mrchromebox.tech/docs/support/unbricking/unbrick-ch341a)):
+6. **SPI reflashing (card appears fully dead)**: the vBIOS lives on a discrete SPI flash chip (typically an 8-pin SOIC W25Q-class part) on the card. A CH341A programmer with a SOIC-8 clip plus flashrom is the standard toolchain: identify, read twice and compare, then write ([MrChromebox unbricking guide](https://docs.mrchromebox.tech/docs/support/unbricking/unbrick-ch341a); [silverpc 2025 walkthrough](https://blog.silverpc.hu/2025/10/18/bricked-your-card-a-step-by-step-recovery-guide-for-when-flashing-the-gpu-bios-failed/)):
 
 ```bash
 sudo flashrom -p ch341a_spi            # should identify the SPI part
@@ -162,8 +162,6 @@ sudo flashrom -p ch341a_spi -r r1.rom  # read...
 sudo flashrom -p ch341a_spi -r r2.rom  # ...twice, and only trust a stable read
 sudo flashrom -p ch341a_spi -w known_good.rom -N
 ```
-
-A 2025 walkthrough covering NVIDIA and AMD cards with hot-flashing and CH341A workflows is [silverpc's bricked-card guide](https://blog.silverpc.hu/2025/10/18/bricked-your-card-a-step-by-step-recovery-guide-for-when-flashing-the-gpu-bios-failed/).
 
 **Discipline**: dump-before-flash is non-negotiable — the installed ROM is the authoritative identity of your card, and "you may never find a replacement that you are certain matches perfectly" ([nvflashk README](https://github.com/notfromstatefarm/nvflashk)). Keep `--protectoff` only when writing; keep factory dumps in at least two places, including both chips on dual-BIOS cards.
 
@@ -186,7 +184,7 @@ sha256sum *.rom | tee SHA256SUMS
 # provenance: TPU page URL, submitter, board, date downloaded, source of the dump
 ```
 
-- **Watchlist (Rubin / "RTX 60")**: NVIDIA is reported to be readying Rubin-based GeForce RTX 60-series with big RT gains ([TPU, Mar 2026](https://www.techpowerup.com/347848/nvidia-readies-rubin-based-geforce-rtx-60-series-with-massive-rt-performance-gains)). Expect the same option-ROM/BIT skeleton, more runtime offload, and (given mVolt+) more firmware-signed power control; watch whether nvflash-style EEPROM flashing survives another generation.
+- **Watchlist (Rubin / "RTX 60")**: NVIDIA is reported to be readying Rubin-based GeForce RTX 60-series with big RT gains ([TPU, Mar 2026](https://www.techpowerup.com/347848/nvidia-readies-rubin-based-geforce-rtx-60-series-with-massive-rt-performance-gains)). Expect the same option-ROM/BIT skeleton, more runtime offload, and — given mVolt+ — more firmware-signed power control; watch whether nvflash-style EEPROM flashing survives another generation.
 
 ## Open questions
 
