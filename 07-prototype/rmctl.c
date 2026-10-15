@@ -34,6 +34,7 @@
 #include "class/cl0080.h"
 #include "class/cl2080.h"
 #include "ctrl/ctrl2080/ctrl2080gsp.h"
+#include "ctrl/ctrl2080/ctrl2080clk.h"
 
 /* escape numbers (nv_escape.h) + ioctl encoding — the kernel validates
  * _IOC_TYPE==NV_IOCTL_MAGIC('F') and the exact _IOC_SIZE per escape
@@ -155,6 +156,30 @@ int main(void)
     printf("  gsp.bDefaultGspRmGpu    : %d\n", feat.bDefaultGspRmGpu);
     printf("  gsp.gspFeatures         : 0x%08x\n", feat.gspFeatures);
     printf("  gsp.firmwareVersion     : %s\n", feat.firmwareVersion);
+
+    /* 5) READ-ONLY probe #2: PMUMON clock-domain samples (PMU monitoring queue;
+     *    in the OPEN SDK headers — CLK/FAN/VOLT families are NOT, they live in
+     *    the closed gsp.bin GSP RM per userspace-control.md's tree-wide grep) */
+    {
+        static NV2080_CTRL_CLK_PMUMON_CLK_DOMAINS_GET_SAMPLES_PARAMS pm;
+        memset(&pm, 0, sizeof(pm));
+        NVOS54_PARAMETERS c2;
+        memset(&c2, 0, sizeof(c2));
+        c2.hClient    = hClient;
+        c2.hObject    = hSub;
+        c2.cmd        = NV2080_CTRL_CMD_CLK_PMUMON_CLK_DOMAINS_GET_SAMPLES; /* 0x20801037 */
+        c2.flags      = NVOS54_FLAGS_NONE;
+        c2.params     = &pm;
+        c2.paramsSize = sizeof(pm);
+        if (ioctl(ctl, RCTL_IOCTL(RCTL_ESC_CONTROL, NVOS54_PARAMETERS), &c2) != 0)
+            perror("ioctl(PMUMON_GET_SAMPLES)");
+        else if (c2.status != 0)
+            fprintf(stderr, "PMUMON_GET_SAMPLES status=0x%x\n", c2.status);
+        else
+            printf("  pmumon.samplesReturned  : %u (last gpcClk=%u KHz)\n",
+                   pm.super.numSamples,
+                   pm.super.numSamples ? pm.samples[pm.super.numSamples - 1].activeGpcClkFreqKHz : 0);
+    }
     rc = 0;
 
 out:
