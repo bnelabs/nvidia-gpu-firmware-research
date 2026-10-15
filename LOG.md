@@ -1,5 +1,16 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 2f: 🎯 PSTATE divergence SOLVED with LD_PRELOAD sniffer (Europe/Istanbul)
+- Built 07-prototype/sniffer.c: LD_PRELOAD ioctl interceptor decoding NVOS54 payloads
+  (userspace, read-only, no root, works on closed NVML).
+- **NVML reads pstate via CLOSED control 0x2080014a** (pstate u32 @+4 verified = 0x02 "P2",
+  keyed by GPU UUID @+12; 268B params). It never calls open-SDK 0x20802068 (which returned
+  P4 = a different perf-state notion). Divergence resolved with hard evidence.
+- Struct-offset lesson: with the aligned NvP64 pointer, paramsSize sits at +24 (not +20).
+- Open/closed control boundary now empirically mapped per NVML call (sniffer reusable for
+  any NVML/NVAPI action → control-ID mapping — feeds the userspace-control cheat-sheet).
+- Commits b5b5bf3 (v0.5), 459a025 (solution). rmctl suite: 3 live probes, all read-only.
+
 ## 2026-10-15 — wave 2e: rmctl v0.5 + PSTATE divergence finding (Europe/Istanbul)
 - Added PERF_GET_CURRENT_PSTATE (0x20802068) probe to rmctl (open SDK, read-only).
 - **Finding: rmctl reads P4 while nvidia-smi reports P2 — 5/5 consistent, not a race.**
