@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-15 — wave 2e: rmctl v0.5 + PSTATE divergence finding (Europe/Istanbul)
+- Added PERF_GET_CURRENT_PSTATE (0x20802068) probe to rmctl (open SDK, read-only).
+- **Finding: rmctl reads P4 while nvidia-smi reports P2 — 5/5 consistent, not a race.**
+- Hypotheses: virtual-vs-physical P-state split (vBIOS VirtualPStateTable), different NVML
+  control for pstate, or GSP-era semantic drift. Bench bpftrace queued to discriminate.
+- Lesson recorded: an open-SDK control existing ≠ matching NVML semantics — always cross-check.
+- rmctl probe suite now: version handshake → object chain → GSP features → PMUMON telemetry →
+  PSTATE. Commit b5b5bf3.
+
 ## 2026-10-15 — wave 2d: spec-accurate BIT decode; PERF chain fully walked; table leads (Europe/Istanbul)
 - Official BIT spec pulled; parser rewritten: header {0xB8FF, BIT\0, BCD, hdr=12, tok=6, 17, cksum},
   token {id, ver, size BE, ptr BE}; UEFI pointer-adjustment rule (+0x16600) validated on all
