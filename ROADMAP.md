@@ -48,8 +48,9 @@ Detailed findings and acceptance criteria: [REVIEW.md](REVIEW.md).
    corpus diffs with corrected offsets before assigning table meanings.
 2. **Repair tracing evidence:** exact NVOS54 ABI validation, RM status, errno preservation,
    bounded capture, per-call provenance, synthetic tests; then isolated NVML getter traces.
-3. **Resolve P-state:** distinguish initialization, actual getter, caching and shared-memory
-   reads; retain raw input/output captures. An unchanged input selector is not a measurement.
+3. **P-state encoding corrected:** raw 0x4 = P2 (one-hot RM enum), matching the recorded
+   NVML P2. Verify decoder offline first. NVML retrieval-path RE is secondary, not required
+   to explain a discrepancy that was caused by formatting.
 4. **Validate power:** compare paired NVML readings, selectors, timestamps and complete
    payloads across natural operating variation. 370000 alone does not prove a power limit.
 5. **GSP structural RE:** pinned source commit + firmware hash, reproducible section/archive

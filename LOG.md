@@ -172,3 +172,11 @@
 - Seven synthetic tests pass; all four existing EVGA 3090/3080 ROMs parse with --perf.
 - ROADMAP and userspace mapping corrected; REVIEW.md establishes next experiment gates.
 - No GPU commands, tracing, device access, resets or hardware mutations performed.
+
+## 2026-10-16 — P-state discrepancy explained by public-header encoding
+- Checked currPstate contract at pinned vendor ca2d03e6fafd4d4b56b383497d931c25b283bfcf.
+- NV2080_CTRL_PERF_PSTATES_P2 = 0x4; rmctl incorrectly formatted raw value as P4.
+- Fixed one-hot decoding, rejecting undefined/composite/out-of-range values; added offline C test.
+- Recorded raw 0x4 agrees with NVML P2. Earlier physical/virtual split theories are unnecessary
+  for this observation. Actual NVML getter path remains unknown.
+- No live GPU operations. Strategic direction updated to prioritize semantic validation.

@@ -1,3 +1,16 @@
+# P-state encoding correction — 2026-10-16
+
+The recorded raw `0x4` is **P2**, not P4. `currPstate` explicitly uses
+`NV2080_CTRL_PERF_PSTATES` values: P0=1, P1=2, P2=4, P8=256, P15=32768.
+Source: vendor commit `ca2d03e6fafd4d4b56b383497d931c25b283bfcf`,
+`src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080perf.h`, definitions and command comment.
+The alleged P4/P2 divergence below is superseded: it was a formatting error.
+This does not establish NVML's internal retrieval path. The 0x2080014a attribution
+remains retracted. Reconfirm paired values only through an approved passive capture;
+no device access was performed for this correction.
+
+---
+
 # rmctl prototype notes — calling RM controls from userspace (source-grounded)
 
 ## 0x2080014a identity CORRECTED (2026-10-15, pre/post sniffer diff — round 20)
