@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-16 — wave 3d: GSP kernel census + matched-routine groundwork (Europe/Istanbul)
+- Full extraction of 615's 12 embedded ELFs; census: kernels 01–07 = per-arch Libos kernels
+  (17–18 libos strings, sizes 184–213 KB, md5-distinct), kernel-10 = 17.3 MB GSP-RM payload.
+- 535-era mapping open (no size match to 615 layout; 5 candidates incl. 13.7 MB RM payload) —
+  resolution via archive-directory decode (ODS + loader consumers, REA task). No size-based
+  inference committed, per review discipline.
+- Matched-routine baseline prepped: sbi.c assertion call site in 615-kernel-01 (@paddr 0xc230).
+- gsp-kernel-analysis.md added; commit 2818679 on work/packet-a-tracing.
+
 ## 2026-10-16 — wave 3c: packet D first pass — table-attributed variant diffs (Europe/Istanbul)
 - EVGA 0B/0F/44 diff clusters attributed to decoded tables via the fixed parser's adjusted map.
 - **PowerPolicyTable +0xc4: u32 mW 450,000 (0B/44) vs 520,000 (0F)** — per-variant power value
