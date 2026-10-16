@@ -1,5 +1,22 @@
 # Research log (append-only)
 
+# Research log (append-only)
+
+## 2026-10-16 — wave 5 (new goal R1): packet 1 — fixture correctness + offline isolation (Europe/Istanbul)
+- New goal set per RESEARCH-DIRECTION.md (semantic audit, fixtures, offline isolation, power
+  provenance; PR-to-main delivery).
+- Semantic decoder audit committed (03-low-level-access/semantic-audit.md) — per-metric
+  contracts; corrected to LE per reviewer parser; power-candidate row added; proposals labeled.
+- **fake_rm.c rebuilt on vendor headers** with _Static_assert ABI checks (caught NVOS64
+  status@44-tail-padding bug), open/openat interception (/dev/nvidia* -> fixture fds),
+  fail-closed unknown ops, PMUMON extent + stale-input checks, changing outputs
+  (210249/211249/212249), failure modes (FAKE_FAIL/STATUS/PMUMON_N/SENTINEL/PSTATE).
+- **Isolation proven: strace shows zero /dev/nvidia references under fixture.**
+- rmctl: PMUMON capacity check, sentinel handling, probe failures propagate to exit code.
+- Test harness hardened (mktemp, pipefail, fail-on-compile); 11 fake-RM + 11 offline green.
+- Commit 9940ab3 on work/packet-a-tracing. Next: lead review, then packet 3 (0x00000d01) or
+  packet 2 completion per LEAD-NEXT.md order.
+
 ## 2026-10-15 — wave 3a: correction (0x14a ≠ pstate), idle-state capture, REA discovered (Europe/Istanbul)
 - **Self-correction**: 0x2080014a is a UUID/identity getter (pre/post sniffer diff exposed the
   selector-vs-value confusion); true NVML pstate source back to OPEN. rmctl probe relabeled.
