@@ -38,7 +38,7 @@ Pinned header source: `open-gpu-kernel-modules` @ `ca2d03e6fafd4d4b56b383497d931
 |---|---|
 | PCIR vendor/device | u16 LE @PCIR+4; image size u16 @+0x10 ×512 B; 0 = auto [spec §PCI Data Structure] |
 | BIT header | ID 0xB8FF + "BIT\0"; hdr/tok sizes at +6/+7; entries +8; 0-checksum over HeaderSize bytes [spec] |
-| tokens | {u8 id; u8 ver; u16 size BE; u16 ptr BE}, ptr ROM-relative; **ptr > legacy-img-len ⇒ + UEFI img len** [spec rule] |
+| tokens | {u8 id; u8 ver; u16 size LE; u16 ptr LE}, ptr ROM-relative; **ptr > legacy-img-len ⇒ + UEFI img len** [spec rule; parser uses LE - verified against reviewer-fixed source] |
 | PERF_PTRS v2 fields | 58 u32 offsets in spec order (PerformanceTable … LowPowerNVLINK); NULL = absent (e.g. PowerControlTable = 0 on this Ampere image) |
 | raw pointer targets | printed as file offsets + first bytes; **no field meaning inferred from magnitude** |
 
@@ -51,12 +51,15 @@ Pinned header source: `open-gpu-kernel-modules` @ `ca2d03e6fafd4d4b56b383497d931
 | `full/captured/TRUNCATED` | capture bound SNIF_CAP_MAX=4096; full size from NVOS54+24 |
 | `first_diff@+n` | pre/post byte diff of the caller's buffer; direction INOUT per API |
 
+| `power candidate (+4)` | 0x2080a61d (CLOSED, undocumented) | 12 B: byte0-3 `01 fe 00 00`, u32 @+4 | mW **hypothesis** (370,000 observed live; fixture mirrors it) | selector unknown | - | observed-bytes + sniffer | hypothesis - needs versioned table spec or libnvidia-ml decode |
+
 ## Unknowns deliberately kept raw
 - `gspFeatures` bits ≥ 1; PMUMON sample fields beyond activeGpcClkFreqKHz; PERF v2 subtable
   internals (PowerPolicy/Overclocking bytes); 0x00000d01 response layout (NVML getter path —
   offline decode queued); everything tagged `[VERIFY]` in the labs.
 
 ## Audit result
-Every metric printed by rmctl/decode_telemetry now has a source-pinned contract; the two
-historical misprints (raw-4→"P4", 0x14a→"pstate") are corrected and retracted in LOG waves
-3a/3f + REVIEW.md. No metric is printed without either a pinned-struct source or a raw dump.
+Contracts above are **proposed until this branch merges and fixtures cover them** (REVIEW
+finding 6). Historical misprints (raw-4→"P4", 0x14a→"pstate") are corrected and retracted.
+rmctl now validates PMUMON sample counts against capacity, reports the invalid-clock sentinel
+as a sentinel, and propagates probe failures to the exit code (packet 1).

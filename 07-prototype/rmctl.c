@@ -177,10 +177,18 @@ int main(void)
             perror("ioctl(PMUMON_GET_SAMPLES)");
         else if (c2.status != 0)
             fprintf(stderr, "PMUMON_GET_SAMPLES status=0x%x\n", c2.status);
-        else
-            printf("  pmumon.samplesReturned  : %u (last gpcClk=%u KHz)\n",
-                   pm.super.numSamples,
-                   pm.super.numSamples ? pm.samples[pm.super.numSamples - 1].activeGpcClkFreqKHz : 0);
+        else {
+            unsigned ns = pm.super.numSamples;
+            if (ns > 250) { /* NV2080_CTRL_CLK_PMUMON_CLK_DOMAINS_SAMPLE_COUNT */
+                fprintf(stderr, "PMUMON numSamples=%u exceeds capacity 250\n", ns);
+                return 1;
+            }
+            unsigned last = ns ? pm.samples[ns - 1].activeGpcClkFreqKHz : 0;
+            if (last == 0xFFFFFFFFu) /* SAMPLE_INVALID sentinel: print, never as freq */
+                printf("  pmumon.samplesReturned  : %u (last sample INVALID)\n", ns);
+            else
+                printf("  pmumon.samplesReturned  : %u (last gpcClk=%u KHz)\n", ns, last);
+        }
     }
     /* 6) READ-ONLY probe #3: current P-state (open SDK: ctrl2080perf.h) */
     {
