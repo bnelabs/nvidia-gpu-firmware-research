@@ -65,3 +65,10 @@ we extracted (kernel + RM + small task images).
 - Anchor chosen: shared RM assertion `(pSingle1x->softFloor.clkPropTopIdx != NV2080_CTRL_CLK_CLK_PROP_TOP_ID_INVALID)` - present in BOTH payloads (615 @file 0xebeb00; 535 @file 0xcacb98); 1,298 strings shared overall.
 - Function census (r2 default analysis): 615 RM = 1,538 functions; 535 RM = 1,550.
 - **Blocked**: xref-to-function resolution requires the RM ELF's virtual-address mapping for .rodata (izz reports vaddr==paddr; code references use lui/addi pairs). Precise next step: program-header-based vaddr mapping, then axt per anchor - REA/IDA tooling or manual phdr walk. No function-level claim committed.
+
+## REA/IDA capability boundary + manual xref stop (2026-10-16, round 6)
+
+- REA server v6.5.0 LIVE; IDA 9.4 container bound (libnvidia-ml.so decoded successfully - x86-64). **But no REA lane admits the RISC-V RM payloads**: IDA adapter = "no verified RISC-V lane"; Ghidra lane requires EF_RISCV double-float ABI (ours is soft-float); Hopper rejects RISC-V. Capability matrix updated accordingly.
+- Manual lui/addi resolver (scripts/riscv_xref.py): found the softFloor anchor reference in the 535 payload (file 0x93ed2c, rd=x15) but 0 references in the 615 payload across 3 additional anchors + the original. Second failed approach -> stop rule applied.
+- Precise blocker named: the 615 RM payload references .rodata through an unresolved pattern (different pairing/base scheme or relocation-style). Prerequisite for the functional diff: a RISC-V-capable decompile lane (Ghidra with a soft-float language spec, or IDA RISC-V support in a future REA adapter) or manual disassembly of the reference sites.
+- No function-level diff committed; the blockage is recorded, not hidden.
