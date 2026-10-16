@@ -1,6 +1,15 @@
 # Research log (append-only)
 
-# Research log (append-only)
+## 2026-10-16 - wave 6 (goal R2): packet 3 - 0x2080a61d precise unresolved (Europe/Istanbul)
+- Discipline followed: question/hypotheses/observation/stop-rule recorded in
+  power-0x2080a61d-investigation.md before taking the observation.
+- Observation 2 (P8 idle, NVML limit 370 W): u32@+4 still 370,000 - invariant across
+  P2->P8 and limit 420<->370. State-dependence weakened.
+- Status: **precise unresolved result** (valid completion per LEAD-NEXT.md): surviving
+  hypotheses = per-rail limit / non-live scalar; units unproven.
+- Missing observation named: 0x2080a6xx response-struct layout (libnvidia-ml decode,
+  tooling-gated; a612=54 KB / a618=20 KB payloads exceed the 4 KiB sniffer bound).
+- Evidence hashed: power-query-idle-1248.log. Commit dcc8af0.
 
 ## 2026-10-16 — wave 4 FINAL: session wrap (Europe/Istanbul)
 - 30-round session complete. Final state: PR #3 open (packets A-D + bounded milestone +
