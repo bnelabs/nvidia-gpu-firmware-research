@@ -59,3 +59,9 @@ family-level firmware packaging exists, NOT a shipping consumer Rubin SKU.
 Also source-decoded: firmware "tasks" packaged per family — INIT, RM, INTR, VGPU, MNOC,
 DEBUG, ROOT, RM_STATE_MONITOR (`nv_firmware_task_t`) — matching the multi-ELF structure
 we extracted (kernel + RM + small task images).
+
+## Matched-routine diff - first attempt status (2026-10-16)
+
+- Anchor chosen: shared RM assertion `(pSingle1x->softFloor.clkPropTopIdx != NV2080_CTRL_CLK_CLK_PROP_TOP_ID_INVALID)` - present in BOTH payloads (615 @file 0xebeb00; 535 @file 0xcacb98); 1,298 strings shared overall.
+- Function census (r2 default analysis): 615 RM = 1,538 functions; 535 RM = 1,550.
+- **Blocked**: xref-to-function resolution requires the RM ELF's virtual-address mapping for .rodata (izz reports vaddr==paddr; code references use lui/addi pairs). Precise next step: program-header-based vaddr mapping, then axt per anchor - REA/IDA tooling or manual phdr walk. No function-level claim committed.
