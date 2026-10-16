@@ -1,4 +1,3 @@
-7dd71208498f8fd75a7a5bc26262541a8e650e4980cd00a366607198c61d7cd1  06-ground-truth/nvml-pstate-trace/probe-005239-interleaved.log
-add49254d881807dd52d64b2ac429a3c56f70c81ffd68c2a09bd5ed8c24ea0c4  06-ground-truth/nvml-pstate-trace/sniff-005239.log
+89b28eb135129568e5faef6292a5fc52edfb2c1e18035b9bd3953b4d62922344  06-ground-truth/nvml-pstate-trace/power-query-idle-1248.log
 7dd71208498f8fd75a7a5bc26262541a8e650e4980cd00a366607198c61d7cd1  06-ground-truth/nvml-pstate-trace/probe-005239-interleaved.log
 add49254d881807dd52d64b2ac429a3c56f70c81ffd68c2a09bd5ed8c24ea0c4  06-ground-truth/nvml-pstate-trace/sniff-005239.log
