@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-16 - wave 9 (goal R6): REA capability boundary + resolver stop (Europe/Istanbul)
+- REA/IDA session LIVE and productive for x86-64 (libnvidia-ml decoded) - but NO REA lane
+  admits the RISC-V RM payloads (IDA: no verified RISC-V lane; Ghidra: needs double-float
+  ABI; Hopper: rejects RISC-V). Capability matrix updated.
+- Manual lui/addi resolver: 535 anchor reference FOUND (0x93ed2c); 615 = 0 across 4 anchors
+  -> stop rule applied. Precise prerequisite named: RISC-V decompile lane or manual
+  disassembly of reference sites.
+- Commit 3c879bf.
+
 ## 2026-10-16 - wave 8 (goal R4): packet B COMPLETE - fallback decoded via REA/IDA (Europe/Istanbul)
 - sub_3C480 = **deviceGetClockRemappedFakePerformanceState** (name from its own error
   strings, api.c:3521-3544). Behavior source-decoded: type-2 clock query -> per-domain
