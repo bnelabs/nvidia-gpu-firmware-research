@@ -51,3 +51,21 @@ path exists) and explains why the open-SDK 0x20802068 control and NVML can disag
 P0-adjacent states.
 
 QUEUED: sub_3C480 (0x3c480) decode = the fallback source; sub_99530 (0x99530) = the gate.
+
+
+## PACKET B COMPLETE - fallback decoded: deviceGetClockRemappedFakePerformanceState (2026-10-16)
+
+sub_3C480 = **"deviceGetClockRemappedFakePerformanceState"** (name from error strings
+api.c:3521/3525/3544). Decoded behavior:
+1. dispatch fn@+40: type-2 clock query -> v22 (current clock) + v23 (domain)  [OBSERVED]
+2. dispatch fn@+320: fetch remap table -> v25=count, entries {u32 domain; u64 array}  [OBSERVED]
+3. walk table: find the domain matching v23, then the P-state index whose range contains v22
+4. *pState = that index; **no match -> *pState = 32 (0x20 sentinel)**  [source-decoded]
+
+**CONCLUSION (packet B complete)**: NVML's reported P-state is a TWO-SOURCE value:
+- primary = RM one-hot state (open-SDK 0x20802068 family, Pn=2^n)
+- when primary == P0, NVML SYNTHESIZES a state from the CURRENT CLOCK via the
+  clock-remap table ("Fake Performance State") - sentinel 32 = derivation failed.
+This fully explains the historical readings: rmctl (open-SDK) and NVML agree except where
+the clock-derived fallback applies. The "divergence" was two different definitions of
+P-state, now both decoded. No further decode needed for this question.
