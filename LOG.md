@@ -1,5 +1,15 @@
 # Research log (append-only)
 
+## 2026-10-16 - wave 7 (goal R3): functional-diff groundwork + power provenance (Europe/Istanbul)
+- REA engines still down (11 missing). Matched-routine diff first attempt: anchor found in
+  BOTH RM payloads (softFloor assertion; 1,298 shared strings; census 1538 vs 1550 functions);
+  xref-to-function BLOCKED on .rodata vaddr mapping (lui/addi references) - precise next step
+  named (phdr-based mapping or REA). No function-level claim committed.
+- power-provenance.md added: all observed power sources tabulated (NVML 420/450/420/100 busy
+  vs 370 idle; a61d 370,000 invariant; vBIOS PowerPolicy 450,000/520,000) + 4 open constraint
+  questions + discipline notes (correlation != causation).
+- Commit c626700 on work/packet-a-tracing.
+
 ## 2026-10-16 - wave 6 (goal R2): packet 3 - 0x2080a61d precise unresolved (Europe/Istanbul)
 - Discipline followed: question/hypotheses/observation/stop-rule recorded in
   power-0x2080a61d-investigation.md before taking the observation.
