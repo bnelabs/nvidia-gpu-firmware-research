@@ -1,5 +1,15 @@
 # Research log (append-only)
 
+## 2026-10-16 - wave 8 (goal R4): packet B COMPLETE - fallback decoded via REA/IDA (Europe/Istanbul)
+- sub_3C480 = **deviceGetClockRemappedFakePerformanceState** (name from its own error
+  strings, api.c:3521-3544). Behavior source-decoded: type-2 clock query -> per-domain
+  remap table (16,936 B) -> clock lookup -> P-state index; no match -> sentinel 32.
+- NVML pstate = TWO-SOURCE: RM one-hot primary (open-SDK 0x20802068 family), clock-derived
+  "fake" fallback when primary == P0. Both paths decoded - packet B question CLOSED.
+- Historical note: this explains the 0x20802068 vs NVML readings without any remaining
+  mystery; the one-hot enum decode (P2=4, P8=256) was the other half.
+- Commit f624726 on work/packet-a-tracing.
+
 ## 2026-10-16 - wave 7 (goal R3): functional-diff groundwork + power provenance (Europe/Istanbul)
 - REA engines still down (11 missing). Matched-routine diff first attempt: anchor found in
   BOTH RM payloads (softFloor assertion; 1,298 shared strings; census 1538 vs 1550 functions);
