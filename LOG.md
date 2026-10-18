@@ -1,5 +1,13 @@
 # Research log (append-only)
 
+## 2026-10-18 - wave 16 (goal E final): opaque channel mapped structurally (Europe/Istanbul)
+- Packet E delivered to its achievable boundary: call site -> entry-list response ->
+  per-entry 12B follow-ups -> parser (qsort + global store). The FIELD OFFSETS within
+  the per-entry responses = the named open item (simple encodings searched, not found;
+  needs sustained disassembly or bench differential).
+- All other goal items complete: audit, fixtures, pstate chain, power provenance,
+  functional-diff groundwork. Commit 9ed34cf.
+
 ## 2026-10-19 - wave 15 (goal F): gate decoded - pstate chain END-TO-END (Europe/Istanbul)
 - sub_99530 (0xb2 B): global feature flag (0x2D2DD4) + sub_98310 per-device classification;
   clock-remap fallback allowed iff class in {2,3,4,5}.
