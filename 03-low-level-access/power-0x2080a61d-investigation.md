@@ -69,3 +69,17 @@ api.c:3521/3525/3544). Decoded behavior:
 This fully explains the historical readings: rmctl (open-SDK) and NVML agree except where
 the clock-derived fallback applies. The "divergence" was two different definitions of
 P-state, now both decoded. No further decode needed for this question.
+
+
+## OBSERVATION 3 (2026-10-19): full a618/a612 payloads captured (sniffer bound raised to 64 KiB)
+
+- 0x2080a618 = 20,512 B complete: sparse per-domain PMGR structure (mostly zeros;
+  u16s 2832/20,000 at +0xd0; candidate 0x004C4F28 = ~5,000,000 at +0xd8 repeated)
+- 0x2080a612 = 54,352 B complete (starts 0x01, large table)
+- No plain u32 mW limit values (370,000/420,000/450,000/100,000) in either buffer
+- STATUS: a618 = the PMGR power-info structure; field decode requires the TSAPI
+  power-table definition (closed driver/GSP side) OR a bench-side differential:
+  change one limit via NVML on the BENCH and diff the buffers - that single
+  experiment pins the field offsets. Named as the follow-up observation.
+- sniffer2 capture bound now 64 KiB (SNIF_CAP_MAX); full dumps enabled for
+  0x2080a618/a612/0x214 via SNIF_DUMP_DIR.

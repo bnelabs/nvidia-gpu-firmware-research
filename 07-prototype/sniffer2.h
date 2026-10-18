@@ -18,7 +18,7 @@
 
 #include <stddef.h>
 
-#define SNIF_CAP_MAX 4096
+#define SNIF_CAP_MAX 65536
 
 typedef struct {
     unsigned seq;

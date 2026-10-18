@@ -134,6 +134,30 @@ int ioctl(int fd, unsigned long cmd, ...)
 
     sniff_capture_post(&rec, arg, saved);
 
+    /* full-buffer dump for the 384 B limit-structure control (0x214) */
+    if (rec.shape_ok && (rec.cmd == 0x2080a618 || rec.cmd == 0x2080a612 || rec.cmd == 0x00000214)) {
+        const char *dd = getenv("SNIF_DUMP_DIR");
+        if (dd) {
+            static unsigned ln = 0;
+            char path[512];
+            snprintf(path, sizeof(path), "%s/cmd-0x%08x-%u.bin", dd, rec.cmd, ++ln);
+            FILE *f = fopen(path, "wb");
+            if (f) { fwrite(rec.post, 1, 384, f); fclose(f); }
+        }
+    }
+    /* offline-decode instrument: full-buffer dump for the 12 B per-entry detail
+     * control 0x21b (client limit-entry value). Enabled via SNIF_DUMP_DIR. */
+    if (rec.shape_ok && rec.cmd == 0x0000021b && rec.captured == 12) {
+        const char *dd = getenv("SNIF_DUMP_DIR");
+        if (dd) {
+            static unsigned en = 0;
+            char path[512];
+            snprintf(path, sizeof(path), "%s/0x21b-%u.bin", dd, ++en);
+            FILE *f = fopen(path, "wb");
+            if (f) { fwrite(rec.post, 1, 12, f); fclose(f); }
+        }
+    }
+
     char line[512];
     sniff_format(&rec, line, sizeof(line));
     {
