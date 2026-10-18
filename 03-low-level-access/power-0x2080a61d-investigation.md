@@ -83,3 +83,19 @@ P-state, now both decoded. No further decode needed for this question.
   experiment pins the field offsets. Named as the follow-up observation.
 - sniffer2 capture bound now 64 KiB (SNIF_CAP_MAX); full dumps enabled for
   0x2080a618/a612/0x214 via SNIF_DUMP_DIR.
+
+
+## PACKET F COMPLETE - gate decoded (2026-10-19, REA/IDA)
+
+sub_99530 (0xb2 B, api.c:225): the clock-remap fallback gate =
+```
+if (global_2D2DD4 == 0) return 0;          // global feature-enable flag
+if (sub_98310(dev, &cls) != 0) return 0;   // per-device classification
+return (cls - 2) <= 3;                     // TRUE iff class in {2,3,4,5}
+```
+The pstate two-source chain is now END-TO-END source-decoded:
+1. primary = RM one-hot (Pn=2^n) via TSAPI
+2. gate = global flag + device class in {2..5}
+3. fallback = clock-remap lookup (sentinel 32 on failure)
+Remaining sub-decode: sub_98310's classification semantics (what class 2..5 means) -
+named as the next step if this thread continues; the chain structure itself is complete.
