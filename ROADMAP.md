@@ -73,3 +73,13 @@ Delivered and merged-or-in-review (PR #3):
   archive directory-walk decode (535-era family mapping), matched-routine functional diff.
 - Bench-gated queue (needs hardware): vBIOS mod sandbox, Set-control capture, flash+recovery drill.
 - Production rig: read-only throughout; zero mutations; inference never disturbed.
+
+## Goal E/F/G final status (2026-10-18, waves 5-16)
+- E: opaque 0x214/0x215 channel mapped structurally (call site -> entry list -> parser
+  -> global store); field offsets = named open item
+- F: pstate two-source chain END-TO-END decoded (primary one-hot -> gate {2..5} ->
+  clock-remap fallback, sentinel 32)
+- G: deferred (RISC-V lanes blocked in all REA providers; documented)
+- Power provenance: final table in power-provenance.md; a61d reclassified; 0x214 = limit
+  transport; per-entry field offsets = open item
+- PR #3: open with final summary; branch carries all waves through 16
