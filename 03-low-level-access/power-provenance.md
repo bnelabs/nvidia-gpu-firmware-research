@@ -43,3 +43,21 @@ Revised provenance:
 Also decoded from IDA (objdump-verified): the a61d handler takes a SELECTOR byte
 (0xFD/0xFC/0xFE per switch case ebx=1/2/0) in the 12-byte request and dispatches through
 the TSAPI table (fn at +0x8c) - three limit-type variants of one sub-command.
+
+
+## UPDATE 2 (2026-10-18): the 0x214 params buffer is NOT the data carrier
+
+Full-trace evidence (50-call session log): the 0x214 (384 B) control's params buffer shows
+essentially NO RM writes (first_diff@+1 = one byte) - yet NVML prints all five limit fields.
+The per-field query runs also show the 0x214 call identical regardless of which field is
+queried. Conclusion: **the client-level control family (0x0000xxxx) exchanges data through
+an opaque driver-internal channel (NVML RPC protocol), not through the ioctl params buffer**
+the way RM_CONTROL (0x2a/NVOS54) does. Param-buffer diffing - the technique that fully
+decoded the 0x2080a6xx family - cannot see client-control data by construction.
+
+Provenance state (final for this packet):
+- NVML limit fields: transported via the opaque 0x0000xxxx client-control channel
+  [observed-bytes: transport; field offsets: UNOBSERVABLE via param diffing]
+- 0x2080a61d: decoded structurally (selector + 12 B, u32 mW @+4) but NOT the limit source
+- Next decode path if ever needed: IDA analysis of NVML's 0x214/0x215 handler
+  (where it parses the opaque response) - offline, REA/IDA session capable.
