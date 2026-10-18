@@ -1,5 +1,17 @@
 # Research log (append-only)
 
+## 2026-10-16 - wave 11 (goal R8): client-control transport finding (Europe/Istanbul)
+- 50-call session trace with full provenance: the 0x214 (384 B) client control's params
+  buffer shows ~no RM writes, yet NVML prints all five limit fields -> **the client-level
+  0x0000xxxx family exchanges data via an opaque driver-internal channel (NVML RPC)**,
+  not the ioctl params buffer. Param diffing decodes the 0x2a RM_CONTROL family (proven
+  with 0x2080a6xx/0x2080014a/0x20803601) but CANNOT see client-control data.
+- Provenance finalized for the packet: limit fields = opaque 0x0000xxxx channel
+  [transport observed; fields unobservable via param diffing]; decode path if ever
+  needed = IDA analysis of NVML's 0x214/0x215 handlers (offline-capable via REA).
+- sniffer2 gained a full-buffer dump hook (0x214) as a debugging instrument.
+- Commit db654be.
+
 ## 2026-10-18 - wave 10 (goal R7): a61d handler decoded; limit provenance resolved by disproof (Europe/Istanbul)
 - IDA(objdump-verified): a61d handler = selector byte (0xFD/0xFC/0xFE for ebx 1/2/0) + 12B
   in/out via TSAPI table fn (+0x8c). Three limit-type sub-command variants.
