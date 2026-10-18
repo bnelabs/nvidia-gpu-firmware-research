@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-18 - wave 10 (goal R7): a61d handler decoded; limit provenance resolved by disproof (Europe/Istanbul)
+- IDA(objdump-verified): a61d handler = selector byte (0xFD/0xFC/0xFE for ebx 1/2/0) + 12B
+  in/out via TSAPI table fn (+0x8c). Three limit-type sub-command variants.
+- **Provenance resolved by disproof**: per-selector NVML captures show ZERO a61d calls;
+  ALL limit fields ride client-level control **0x00000214** (384 B response, one per session).
+- a61d reclassified: auxiliary init-time quantity (370,000 mW invariant, selector 0xfe
+  observed) - NOT the NVML limit source. rmctl limits decode target = 0x214 response.
+- Commit 959f9d9.
+
 ## 2026-10-16 - wave 9 (goal R6): REA capability boundary + resolver stop (Europe/Istanbul)
 - REA/IDA session LIVE and productive for x86-64 (libnvidia-ml decoded) - but NO REA lane
   admits the RISC-V RM payloads (IDA: no verified RISC-V lane; Ghidra: needs double-float
