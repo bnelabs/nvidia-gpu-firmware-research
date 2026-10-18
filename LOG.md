@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-18 - wave 13 (goal E R4): 0x214 parser function identified (Europe/Istanbul)
+- Offline objdecode path (proven method, no MCP dependency): the 0x214 call site at 0xa5b78
+  (mov ecx,0x214 + TSAPI invoker 0xa5880, 0x180 B params on client obj).
+- Response parser identified: validates status (0x57 check), parses entries, QSORTS them,
+  stores count@global+0x1269670 + table@global+0x1268434. This is the opaque-channel
+  mechanism feeding NVML's limit fields.
+- Remaining: entry layout + limit-field offsets within the 384 B response.
+- Commit 1227f23.
+
 ## 2026-10-16 - wave 12 (goal R9): PR #3 final summary posted (Europe/Istanbul)
 - PR #3 body updated via REST (gh pr edit hit a GraphQL projects deprecation bug):
   complete findings across packets A-D + bounded milestone + REA/IDA decode wave +
