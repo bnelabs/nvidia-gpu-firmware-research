@@ -1,5 +1,13 @@
 # Research log (append-only)
 
+## 2026-10-19 - wave 14 (goal R7): full power-structure captures (Europe/Istanbul)
+- sniffer2 capture bound raised to 64 KiB; full dumps of 0x2080a618 (20,512 B) and
+  0x2080a612 (54,352 B) captured via SNIF_DUMP_DIR - no truncation.
+- a618 = sparse per-domain PMGR power-info structure; no plain mW limit values.
+- STATUS: precise unresolved - field decode needs the TSAPI power-table definition
+  (closed) or a bench differential (limit change + buffer diff, one experiment).
+- Commit 87c34e8.
+
 ## 2026-10-18 - wave 13 (goal E R4): 0x214 parser function identified (Europe/Istanbul)
 - Offline objdecode path (proven method, no MCP dependency): the 0x214 call site at 0xa5b78
   (mov ecx,0x214 + TSAPI invoker 0xa5880, 0x180 B params on client obj).
