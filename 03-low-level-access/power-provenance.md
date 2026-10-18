@@ -74,3 +74,18 @@ that (a) validates the status (`cmp $0x57` = 87 = NV_ERR_INSUFFICIENT_PERMISSION
 Status: the opaque channel is now mapped to its parser; remaining work = decode the
 entry layout + the limit-field offsets within the 384 B response (next pass, same method).
 The qsort implies the entries are per-something sorted (per-domain? per-limit-type?).
+
+
+## PACKET E FINAL STATUS (2026-10-18, round 11 of goal)
+
+Delivered: the opaque channel mapped end-to-end structurally:
+- call site 0xa5b78 (mov ecx,0x214 + TSAPI invoker 0xa5880, 0x180 B params on client obj)
+- response = entry list (u32s, 0xFFFFFFFF-terminated), iterated with per-entry follow-up
+  12-byte controls (0x21b family)
+- parsed entries qsorted and stored {count @ global+0x1269670, table @ global+0x1268434}
+
+Precisely named open item: the FIELD OFFSETS of the limit values within the per-entry
+12-byte detail responses (the observed 12B payloads {06 00 ...} did not contain the
+370,000-mW values in simple encodings - the per-entry structure needs sustained
+disassembly passes or a bench differential). This is the single remaining sub-decode
+for complete power provenance.
