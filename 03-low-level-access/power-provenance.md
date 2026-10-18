@@ -24,3 +24,22 @@ enforced and measured power. All values for the lab rig (RTX 3090, UUID 8a9c05b3
 ## Discipline notes
 - Natural state variation only; temporal correlation != causation.
 - No setters used; NVML getters are read-only but may wake hardware (documented).
+
+
+## UPDATE (2026-10-18): limit provenance resolved by disproof - a61d is NOT the live source
+
+Per-selector captures (power.limit / max / default / min, each a separate nvidia-smi run under
+sniffer2) show **zero 0x2080a61d calls**. Every limit field rides the **client-level control
+0x00000214 (384 B response)** issued once per query session - all limit values arrive in that
+one structure. The a61d call fires once during init regardless of which fields are queried.
+
+Revised provenance:
+- NVML limit fields (limit/max/default/min) <- client control **0x00000214**, 384 B response
+  [observed-bytes; field offsets within the 384 B not yet decoded]
+- 0x2080a61d (12 B, u32 mW @+4 = 370,000 invariant) = auxiliary init-time quantity
+  [hypothesis: per-rail or policy scalar; NOT the NVML limit source]
+- rmctl implication: the decode target for limits is 0x00000214's response, not a61d.
+
+Also decoded from IDA (objdump-verified): the a61d handler takes a SELECTOR byte
+(0xFD/0xFC/0xFE per switch case ebx=1/2/0) in the 12-byte request and dispatches through
+the TSAPI table (fn at +0x8c) - three limit-type variants of one sub-command.
