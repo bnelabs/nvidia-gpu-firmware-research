@@ -1,5 +1,11 @@
 # Research log (append-only)
 
+## 2026-10-16 - wave 12 (goal R9): PR #3 final summary posted (Europe/Istanbul)
+- PR #3 body updated via REST (gh pr edit hit a GraphQL projects deprecation bug):
+  complete findings across packets A-D + bounded milestone + REA/IDA decode wave +
+  capability boundary (RISC-V lanes) + open items.
+- All branch work current; awaiting lead review/merge.
+
 ## 2026-10-16 - wave 11 (goal R8): client-control transport finding (Europe/Istanbul)
 - 50-call session trace with full provenance: the 0x214 (384 B) client control's params
   buffer shows ~no RM writes, yet NVML prints all five limit fields -> **the client-level
