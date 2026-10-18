@@ -1,5 +1,12 @@
 # Research log (append-only)
 
+## 2026-10-19 - wave 15 (goal F): gate decoded - pstate chain END-TO-END (Europe/Istanbul)
+- sub_99530 (0xb2 B): global feature flag (0x2D2DD4) + sub_98310 per-device classification;
+  clock-remap fallback allowed iff class in {2,3,4,5}.
+- **pstate two-source chain fully decoded**: primary (RM one-hot) -> gate -> clock-remap
+  fallback. All three stages source-decoded. Commit 848c27a.
+- Remaining: sub_98310 class semantics (optional sub-decode); packet E field offsets.
+
 ## 2026-10-19 - wave 14 (goal R7): full power-structure captures (Europe/Istanbul)
 - sniffer2 capture bound raised to 64 KiB; full dumps of 0x2080a618 (20,512 B) and
   0x2080a612 (54,352 B) captured via SNIF_DUMP_DIR - no truncation.
