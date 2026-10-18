@@ -61,3 +61,16 @@ Provenance state (final for this packet):
 - 0x2080a61d: decoded structurally (selector + 12 B, u32 mW @+4) but NOT the limit source
 - Next decode path if ever needed: IDA analysis of NVML's 0x214/0x215 handler
   (where it parses the opaque response) - offline, REA/IDA session capable.
+
+
+## PACKET E progress (2026-10-18, offline objdump decode)
+
+The 0x214 call site found (file 0xa5b78, `mov ecx,0x214` + TSAPI dispatch fn 0xa5880,
+params 0x180 bytes, on client obj): its response is parsed by a large parser function
+that (a) validates the status (`cmp $0x57` = 87 = NV_ERR_INSUFFICIENT_PERMISSION?),
+(b) parses entries, (c) **qsorts them** (call 22190 @0xa5e53), and (d) stores
+{count @ global+0x1269670, table @ global+0x1268434}.
+
+Status: the opaque channel is now mapped to its parser; remaining work = decode the
+entry layout + the limit-field offsets within the 384 B response (next pass, same method).
+The qsort implies the entries are per-something sorted (per-domain? per-limit-type?).
