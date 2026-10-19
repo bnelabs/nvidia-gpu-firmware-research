@@ -287,3 +287,32 @@ GSP policy → driver RPC → opaque client channel (0x214/0x21b/0x215/0x275/0x2
 → BoardObj parse (qsort, 16 B records + names) → NVML-internal conversion → printed output.
 Named remaining step (tool-dependent): debugger on the live process at the NVML formatter
 to read the converted per-object records.
+
+
+## DISPATCHER DECODED (2026-10-19, REA/IDA sub_1117F0): cDeviceGetPerfLimitersClocks
+
+sub_1117F0 (0x4fb B, "dmal/common/common_clock.c", error tag "cDeviceGetPerfLimitersClocks")
+= the generic BoardObj get/set dispatcher that all 55 RMFunctions trampolines route to:
+
+```
+sub_1117F0(dev_ctx, mode, *out, class_id, type_id):
+  GET (mode 0/1):  dispatch[+24](dev, dev, mode, &v31, &v30)     // fetch v31 + v30
+                   dispatch[+224](dev, dev, class_id, rec[316])  // fetch BoardObj record
+                   if (!rec.valid(v33)) return 6
+                   if (rec.v34 == v31):
+                       *out = v30 * v35 / 0x186A0               // x ratio / 100,000
+                   else return 999
+  SET (mode 2):    dispatch[+224](...)                            // fetch + validate record
+                   dispatch[+48](dev, dev, 2, v35, ...)           // THE SETTER
+```
+
+- **0x186A0 = 100,000 divisor**: results are (value x ratio) / 100,000 - the BoardObj
+  values are stored in units where /100,000 yields the final figure. The SAME 100,000
+  appears in the vBIOS PowerPolicy mW values (450,000/520,000) - consistent unit family.
+- class 0x43 (slot[0]) = the **PerfLimitersClocks** BoardObj class; type 0x36 = a clock
+  domain object. The 55 trampolines bind (class,type) pairs across the BoardObj families.
+- GET validates the record against the fetched value (mismatch -> 999); SET routes to the
+  setter fn-ptr at dispatch+48 after record validation.
+
+STATUS: the BoardObj dispatch semantics are fully decoded - the per-object control
+surface's method dispatch, validation, and unit conversion are all source-decoded.
