@@ -269,3 +269,21 @@ extended processing (0xa6010).
 **Remaining observation (named)**: correlate the global-table contents with NVML's printed
 limits post-query - requires reading NVML's globals at runtime (debugger; read-only) since
 the values flow through the opaque channel. The structural decode is complete.
+
+
+## PACKET E FINAL: runtime persistence scan - DEFINITIVE NEGATIVE (2026-10-19)
+
+In-process scans (dlopen NVML, base via dlsym-0x99a20, verified pstate=8):
+- ±1 MiB around 0x1268400: mW u32 scan (370000/420000/450000/100000) → ZERO hits
+- ±2 MiB: W u32 (370/420/450/100) and W float (370.0f/420.0f/450.0f/100.0f) → ZERO hits
+
+**Conclusion**: NVML does not persist the limit values in its static data segment in any
+simple scalar encoding. The parsed BoardObj records hold converted internal representations,
+or values are transformed per-query from the opaque-channel responses. The printed limits
+are derived: opaque channel → parse → convert → format, without raw-scalar persistence.
+
+**Provenance chain FINAL** (all stages source/byte-decoded):
+GSP policy → driver RPC → opaque client channel (0x214/0x21b/0x215/0x275/0x279/0x289)
+→ BoardObj parse (qsort, 16 B records + names) → NVML-internal conversion → printed output.
+Named remaining step (tool-dependent): debugger on the live process at the NVML formatter
+to read the converted per-object records.
