@@ -1,5 +1,15 @@
 # Research log (append-only)
 
+## 2026-10-19 - wave 18 (packet H COMPLETE): BoardObj session chain fully decoded (Europe/Istanbul)
+- sub_1528F0 (dmal/rm/rm_nvml.c) = RM-side session driver calling sub_A71D0:
+  16-byte object records -> per-object malloc(0x1B8) RMFunctions tables
+  (off_2D1180 prototype, 440 B = 55 fn-ptrs) -> per-device global store
+  (stride 0x93418). Eventful objects -> dword_126969C/B0/B4/B8 + sub_3EA70.
+- **THE COMPLETE PICTURE**: NVML's limits = BoardObj attributes in per-object
+  RMFunction tables; every getter/setter routes through those fn-ptrs.
+  All source-decoded from libnvidia-ml-615.71.09.so via REA/IDA.
+- Packet E/H objective COMPLETE. Commit fccea12.
+
 # Research log (append-only)
 
 ## 2026-10-16 — wave 5 (new goal R1): packet 1 — fixture correctness + offline isolation (Europe/Istanbul)
