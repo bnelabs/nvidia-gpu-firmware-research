@@ -162,3 +162,35 @@ by the ARGUMENTS (ecx=arg at var_2B0, esi=arg at var_2A4 - passed in from sub_A7
 caller), not by the request bytes. The class selection lives in **sub_A71D0's caller**
 (next frame up: who calls sub_A71D0 with which ecx/esi). Named precisely: analyze
 sub_A71D0's callers (xrefs on 0xa71d0) for the argument constants.
+
+
+## PACKET H COMPLETE - the full BoardObj session chain decoded (2026-10-19, REA/IDA)
+
+sub_1528F0 (0x462 B, `dmal/rm/rm_nvml.c`) = **the RM-side BoardObj session driver** that
+calls sub_A71D0 (with a1 = the NVML device context at +16, a2 = the flag byte):
+
+1. `sub_A71D0(dev_ctx, flag, v27(560B out), 0)` - the enumeration we decoded
+2. Iterates the parsed 16-byte records (count from dword_12683A0):
+   - flag byte at rec+12: **bit0** -> "has control" (branch 1), **bit1** -> branch 2
+   - Branch 1: **malloc(0x1B8)** - allocates a 440-byte RMFunctions table (copied from
+     off_2D1180, "RMFunctions") per object, stores {id, attrs, class} into it, links it
+     into the per-device global array at off_250F90 (stride 0x93418 = 602,648 B/object!)
+   - Branch 2 (bit0 AND bit1): records into dword_126969C/B0/B4/B8 + sub_3EA70(3, ...) -
+     the "eventful" object path (count @ dword_153C4B8)
+3. Then: two dispatch-table calls (+184, +192 of the RM table) and sub_ABCA0/sub_39290
+
+## THE COMPLETE PICTURE (power-limit provenance chain, all source-decoded)
+```
+nvidia-smi query
+  -> NVML client controls (0x214/0x21b/0x215/0x279/0x289/0x275 via sub_A5880)
+     <- served by sub_A71D0 (BoardObj session driver)
+        -> parsed into 16-byte object records (id/attrs/class), qsorted
+        -> sub_1528F0 allocates per-object RMFunctions tables (0x1B8 B, off_2D1180 proto)
+        -> linked into the per-device global store (stride 0x93418)
+```
+**The "opaque channel" is NVML's BoardObj protocol**: enumerate objects (0x214/0x21b),
+fetch their attributes (0x215/0x275/0x279/0x289), and the objects become live RMFunction
+tables whose fn-ptrs NVML calls for every getter/setter. The limit fields NVML reads are
+the BoardObj attributes in these per-object tables. This completes the packet E/H decode:
+the mechanism is fully identified; per-object FIELD offsets now live in the RMFunctions
+prototype (off_2D1180, 440 B = 55 fn-ptrs).
