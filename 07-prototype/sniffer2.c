@@ -135,7 +135,7 @@ int ioctl(int fd, unsigned long cmd, ...)
     sniff_capture_post(&rec, arg, saved);
 
     /* full-buffer dump for the 384 B limit-structure control (0x214) */
-    if (rec.shape_ok && (rec.cmd == 0x2080a618 || rec.cmd == 0x2080a612 || rec.cmd == 0x00000214)) {
+    if (rec.shape_ok && (rec.cmd == 0x2080a618 || rec.cmd == 0x2080a612 || rec.cmd == 0x00000214 || rec.cmd == 0x20800275)) {
         const char *dd = getenv("SNIF_DUMP_DIR");
         if (dd) {
             static unsigned ln = 0;
