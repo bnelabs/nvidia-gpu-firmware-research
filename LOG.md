@@ -1,5 +1,13 @@
 # Research log (append-only)
 
+## 2026-10-19 - wave 21 (packet E): record-conversion phase decoded (Europe/Istanbul)
+- 12 B per-entry record (0x21b response): {u32 id @0, u32 value @+4, u16 @+8, u16 @+10}.
+- Conversion: 0x275 (268 B) per entry fills 16 B object records with name[80];
+  dual global tables @0x1268400 (72 B stride) and @0x1268434 (268 B stride).
+- Structural decode of the opaque channel COMPLETE. Named final observation: runtime
+  correlation of global-table values with NVML printed limits (debugger, read-only).
+- Commit 6220cf1.
+
 ## 2026-10-19 - wave 20 (table goal R1): RMFunctions table decode COMPLETE (Europe/Istanbul)
 - objdump pass over all 55 slots: two families - thin trampolines (class bindings to
   sub_1117F0: 0x43/0x3d/0x52/0x7/0x118/0x91x2/0xc1x4/0x44x2/0xcx2/0x4388) and full
