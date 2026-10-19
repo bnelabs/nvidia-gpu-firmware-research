@@ -211,3 +211,20 @@ The actual "selection" mechanism:
 
 No new decode needed; this closes the class-selection question with the mechanism
 identified at a deeper level (function-table polymorphism, not request parameters).
+
+
+## RMFunctions TABLE DECODED (2026-10-19): 55 trampolines binding (class,type) to the BoardObj dispatcher
+
+The off_2D1180 prototype (55 slots, all non-NULL, cluster 0x111000-0x12e000) = thin
+trampolines: each forwards to **sub_1117F0** (the generic BoardObj get/set dispatcher)
+binding a **(class, type) constant pair**. Slot[0] verified via IDA decompile:
+`sub_111D30 -> sub_1117F0(a2, a3, a4, 67, 54)` = class 0x43, type 0x36.
+
+Partial class map (naive scan; complete extraction needs a full disassembly pass):
+- 0x43 (slot 0), 0x3d (1), 0x52 (2) - first family
+- 0x118 (17), 0x91 (18), 0xc1 (20,21,23,24), 0x44 (27,28), 0x91 (40)
+- 12+ slots with different immediate patterns pending
+
+Status: the per-object control surface = 55 (class,type)-bound BoardObj methods.
+The slot->meaning map = the (class,type) pairs; sub_1117F0 dispatches on them.
+Complete extraction queued (proper x86 instruction decode over all 55).
