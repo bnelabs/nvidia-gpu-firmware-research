@@ -1,5 +1,16 @@
 # Research log (append-only)
 
+## 2026-10-19 - wave 17 (0x21b goal): decoded to boundary - class selection named (Europe/Istanbul)
+- Full -q trace under sniffer: NO 0x275 calls even on the full query. Root cause in
+  sub_A5B10 decompile: the 0x275 name loop requires a non-empty 0x214 entry list
+  (+128..255); via the NVML query path the list is EMPTY (RM wrote only byte +1).
+- The 12 B 0x21b responses (06 00 ... 06 00) = session state, NOT limit values.
+- The request's first 128 bytes select the object class; NVML sends zeros -> empty.
+  **Named missing piece: the class-selection constants** (decode sub_A5B10's caller,
+  or bench-probe with filled class bytes).
+- Packet E status: BoardObj enumeration API fully decoded structurally; limit-field
+  offsets require the class values - documented, not guessed. Commit d077445.
+
 ## 2026-10-18 - wave 16 (goal E final): opaque channel mapped structurally (Europe/Istanbul)
 - Packet E delivered to its achievable boundary: call site -> entry-list response ->
   per-entry 12B follow-ups -> parser (qsort + global store). The FIELD OFFSETS within
