@@ -89,3 +89,19 @@ Precisely named open item: the FIELD OFFSETS of the limit values within the per-
 370,000-mW values in simple encodings - the per-entry structure needs sustained
 disassembly passes or a bench differential). This is the single remaining sub-decode
 for complete power provenance.
+
+
+## PACKET E COMPLETE - BoardObj enumeration API decoded (2026-10-19, REA/IDA sub_A5B10)
+
+sub_A5B10 (0x65b B) = the full client-control enumeration:
+1. **0x214 (532)** -> 384 B: entry-ID list (u32s, -1 terminated, <=96 entries), iterated from v36[128]
+2. **0x21b (539)** -> 12 B per entry: detail record
+3. **0x275 (629)** -> 268 B per entry: {u32 @+4; u16 @+8; u16 @+10; **char name[80] @+8 via strncpy**}
+4. Results **qsorted** (comparator sub_A6170, 12 B elements) and stored:
+   count @ global+0x1269670, table @ global+0x1268434 (+ per-entry name[80] at +19301428 rel)
+
+This is NVIDIA's **BoardObj enumeration API**: the entries are named board objects
+(power rails, limit types) - the 80-byte name string would reveal the object identity
+directly (e.g. the limit-type names). Status: mechanism source-decoded; the NAME capture
+(one 268 B 0x275 response read) = the single remaining observation to enumerate the
+object names, completing power-limit provenance.
