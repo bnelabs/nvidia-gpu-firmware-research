@@ -111,3 +111,23 @@ object names, completing power-limit provenance.
   It fires under a different NVML query path - identify which nvidia-smi query
   drives sub_A5B10's second loop (or call it via a direct test harness) to capture
   the 268 B name responses. The BoardObj API structure itself is fully decoded.
+
+
+## PACKET E DECODED-TO-BOUNDARY (2026-10-19, full -q trace under sniffer)
+
+Even the FULL nvidia-smi -q does not fire 0x275. Root cause found in the sub_A5B10
+decompile: the 0x275 name loop runs only if the 0x214 response's ENTRY LIST
+(offset +128..255, u32s, -1-terminated) is non-empty - and on this board/driver,
+via the NVML query path, **the entry list is EMPTY** (trace: RM wrote only byte +1;
+nothing at +128+). The 12 B 0x21b responses (captured: 06 00 ... 06 00) are session
+state, not limit values.
+
+The request's first 128 bytes (v36[0..127]) select the object class - NVML sends
+zeros (no class selected) -> empty list. **Named missing piece**: the request-class
+values that populate the entry list (decode the CALLER of sub_A5B10 for the class
+constants, or bench-probe with filled class bytes).
+
+STATUS: the BoardObj enumeration API is fully decoded structurally (three-control
+sequence, entry-list format, parser, global store, empty-list behavior on this path).
+The limit-field offsets require the class-selection values - precisely named, outside
+this decode pass.
