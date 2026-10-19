@@ -1,5 +1,12 @@
 # Research log (append-only)
 
+## 2026-10-19 - wave 20 (table goal R1): RMFunctions table decode COMPLETE (Europe/Istanbul)
+- objdump pass over all 55 slots: two families - thin trampolines (class bindings to
+  sub_1117F0: 0x43/0x3d/0x52/0x7/0x118/0x91x2/0xc1x4/0x44x2/0xcx2/0x4388) and full
+  implementations (type-switch handlers with GSP-era version gates, e.g. slot 3).
+- The 55 slots = the complete BoardObj method set an object can expose.
+- Commit 2098d39. The per-object control surface is structurally mapped.
+
 ## 2026-10-19 - wave 19 (packet H corollary): class-selection question closed (Europe/Istanbul)
 - The class-constants hypothesis is superseded: the 384 B request is zeroed BY DESIGN;
   the selection is the sub_1528F0 flag byte + per-record attribute bits, realized as
