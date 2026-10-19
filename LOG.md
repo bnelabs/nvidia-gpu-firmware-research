@@ -1,5 +1,11 @@
 # Research log (append-only)
 
+## 2026-10-19 - wave 19 (packet H corollary): class-selection question closed (Europe/Istanbul)
+- The class-constants hypothesis is superseded: the 384 B request is zeroed BY DESIGN;
+  the selection is the sub_1528F0 flag byte + per-record attribute bits, realized as
+  RMFunctions function-table polymorphism (off_2D1180 prototype per object).
+- No new decode needed; commit 034f891. Packet H fully closed.
+
 ## 2026-10-19 - wave 18 (packet H COMPLETE): BoardObj session chain fully decoded (Europe/Istanbul)
 - sub_1528F0 (dmal/rm/rm_nvml.c) = RM-side session driver calling sub_A71D0:
   16-byte object records -> per-object malloc(0x1B8) RMFunctions tables
