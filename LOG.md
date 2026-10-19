@@ -16,6 +16,192 @@
 - Test harness hardened (mktemp, pipefail, fail-on-compile); 11 fake-RM + 11 offline green.
 - Commit 9940ab3 on work/packet-a-tracing. Next: lead review, then packet 3 (0x00000d01) or
   packet 2 completion per LEAD-NEXT.md order.
+## 2026-10-19 - wave 17 (0x21b goal): decoded to boundary - class selection named (Europe/Istanbul)
+- Full -q trace under sniffer: NO 0x275 calls even on the full query. Root cause in
+  sub_A5B10 decompile: the 0x275 name loop requires a non-empty 0x214 entry list
+  (+128..255); via the NVML query path the list is EMPTY (RM wrote only byte +1).
+- The 12 B 0x21b responses (06 00 ... 06 00) = session state, NOT limit values.
+- The request's first 128 bytes select the object class; NVML sends zeros -> empty.
+  **Named missing piece: the class-selection constants** (decode sub_A5B10's caller,
+  or bench-probe with filled class bytes).
+- Packet E status: BoardObj enumeration API fully decoded structurally; limit-field
+  offsets require the class values - documented, not guessed. Commit d077445.
+
+## 2026-10-18 - wave 16 (goal E final): opaque channel mapped structurally (Europe/Istanbul)
+- Packet E delivered to its achievable boundary: call site -> entry-list response ->
+  per-entry 12B follow-ups -> parser (qsort + global store). The FIELD OFFSETS within
+  the per-entry responses = the named open item (simple encodings searched, not found;
+  needs sustained disassembly or bench differential).
+- All other goal items complete: audit, fixtures, pstate chain, power provenance,
+  functional-diff groundwork. Commit 9ed34cf.
+
+## 2026-10-19 - wave 15 (goal F): gate decoded - pstate chain END-TO-END (Europe/Istanbul)
+- sub_99530 (0xb2 B): global feature flag (0x2D2DD4) + sub_98310 per-device classification;
+  clock-remap fallback allowed iff class in {2,3,4,5}.
+- **pstate two-source chain fully decoded**: primary (RM one-hot) -> gate -> clock-remap
+  fallback. All three stages source-decoded. Commit 848c27a.
+- Remaining: sub_98310 class semantics (optional sub-decode); packet E field offsets.
+
+## 2026-10-19 - wave 14 (goal R7): full power-structure captures (Europe/Istanbul)
+- sniffer2 capture bound raised to 64 KiB; full dumps of 0x2080a618 (20,512 B) and
+  0x2080a612 (54,352 B) captured via SNIF_DUMP_DIR - no truncation.
+- a618 = sparse per-domain PMGR power-info structure; no plain mW limit values.
+- STATUS: precise unresolved - field decode needs the TSAPI power-table definition
+  (closed) or a bench differential (limit change + buffer diff, one experiment).
+- Commit 87c34e8.
+
+## 2026-10-18 - wave 13 (goal E R4): 0x214 parser function identified (Europe/Istanbul)
+- Offline objdecode path (proven method, no MCP dependency): the 0x214 call site at 0xa5b78
+  (mov ecx,0x214 + TSAPI invoker 0xa5880, 0x180 B params on client obj).
+- Response parser identified: validates status (0x57 check), parses entries, QSORTS them,
+  stores count@global+0x1269670 + table@global+0x1268434. This is the opaque-channel
+  mechanism feeding NVML's limit fields.
+- Remaining: entry layout + limit-field offsets within the 384 B response.
+- Commit 1227f23.
+
+## 2026-10-16 - wave 12 (goal R9): PR #3 final summary posted (Europe/Istanbul)
+- PR #3 body updated via REST (gh pr edit hit a GraphQL projects deprecation bug):
+  complete findings across packets A-D + bounded milestone + REA/IDA decode wave +
+  capability boundary (RISC-V lanes) + open items.
+- All branch work current; awaiting lead review/merge.
+
+## 2026-10-16 - wave 11 (goal R8): client-control transport finding (Europe/Istanbul)
+- 50-call session trace with full provenance: the 0x214 (384 B) client control's params
+  buffer shows ~no RM writes, yet NVML prints all five limit fields -> **the client-level
+  0x0000xxxx family exchanges data via an opaque driver-internal channel (NVML RPC)**,
+  not the ioctl params buffer. Param diffing decodes the 0x2a RM_CONTROL family (proven
+  with 0x2080a6xx/0x2080014a/0x20803601) but CANNOT see client-control data.
+- Provenance finalized for the packet: limit fields = opaque 0x0000xxxx channel
+  [transport observed; fields unobservable via param diffing]; decode path if ever
+  needed = IDA analysis of NVML's 0x214/0x215 handlers (offline-capable via REA).
+- sniffer2 gained a full-buffer dump hook (0x214) as a debugging instrument.
+- Commit db654be.
+
+## 2026-10-18 - wave 10 (goal R7): a61d handler decoded; limit provenance resolved by disproof (Europe/Istanbul)
+- IDA(objdump-verified): a61d handler = selector byte (0xFD/0xFC/0xFE for ebx 1/2/0) + 12B
+  in/out via TSAPI table fn (+0x8c). Three limit-type sub-command variants.
+- **Provenance resolved by disproof**: per-selector NVML captures show ZERO a61d calls;
+  ALL limit fields ride client-level control **0x00000214** (384 B response, one per session).
+- a61d reclassified: auxiliary init-time quantity (370,000 mW invariant, selector 0xfe
+  observed) - NOT the NVML limit source. rmctl limits decode target = 0x214 response.
+- Commit 959f9d9.
+
+## 2026-10-16 - wave 9 (goal R6): REA capability boundary + resolver stop (Europe/Istanbul)
+- REA/IDA session LIVE and productive for x86-64 (libnvidia-ml decoded) - but NO REA lane
+  admits the RISC-V RM payloads (IDA: no verified RISC-V lane; Ghidra: needs double-float
+  ABI; Hopper: rejects RISC-V). Capability matrix updated.
+- Manual lui/addi resolver: 535 anchor reference FOUND (0x93ed2c); 615 = 0 across 4 anchors
+  -> stop rule applied. Precise prerequisite named: RISC-V decompile lane or manual
+  disassembly of reference sites.
+- Commit 3c879bf.
+
+## 2026-10-16 - wave 8 (goal R4): packet B COMPLETE - fallback decoded via REA/IDA (Europe/Istanbul)
+- sub_3C480 = **deviceGetClockRemappedFakePerformanceState** (name from its own error
+  strings, api.c:3521-3544). Behavior source-decoded: type-2 clock query -> per-domain
+  remap table (16,936 B) -> clock lookup -> P-state index; no match -> sentinel 32.
+- NVML pstate = TWO-SOURCE: RM one-hot primary (open-SDK 0x20802068 family), clock-derived
+  "fake" fallback when primary == P0. Both paths decoded - packet B question CLOSED.
+- Historical note: this explains the 0x20802068 vs NVML readings without any remaining
+  mystery; the one-hot enum decode (P2=4, P8=256) was the other half.
+- Commit f624726 on work/packet-a-tracing.
+
+## 2026-10-16 - wave 7 (goal R3): functional-diff groundwork + power provenance (Europe/Istanbul)
+- REA engines still down (11 missing). Matched-routine diff first attempt: anchor found in
+  BOTH RM payloads (softFloor assertion; 1,298 shared strings; census 1538 vs 1550 functions);
+  xref-to-function BLOCKED on .rodata vaddr mapping (lui/addi references) - precise next step
+  named (phdr-based mapping or REA). No function-level claim committed.
+- power-provenance.md added: all observed power sources tabulated (NVML 420/450/420/100 busy
+  vs 370 idle; a61d 370,000 invariant; vBIOS PowerPolicy 450,000/520,000) + 4 open constraint
+  questions + discipline notes (correlation != causation).
+- Commit c626700 on work/packet-a-tracing.
+
+## 2026-10-16 - wave 6 (goal R2): packet 3 - 0x2080a61d precise unresolved (Europe/Istanbul)
+- Discipline followed: question/hypotheses/observation/stop-rule recorded in
+  power-0x2080a61d-investigation.md before taking the observation.
+- Observation 2 (P8 idle, NVML limit 370 W): u32@+4 still 370,000 - invariant across
+  P2->P8 and limit 420<->370. State-dependence weakened.
+- Status: **precise unresolved result** (valid completion per LEAD-NEXT.md): surviving
+  hypotheses = per-rail limit / non-live scalar; units unproven.
+- Missing observation named: 0x2080a6xx response-struct layout (libnvidia-ml decode,
+  tooling-gated; a612=54 KB / a618=20 KB payloads exceed the 4 KiB sniffer bound).
+- Evidence hashed: power-query-idle-1248.log. Commit dcc8af0.
+
+## 2026-10-16 — wave 4 FINAL: session wrap (Europe/Istanbul)
+- 30-round session complete. Final state: PR #3 open (packets A-D + bounded milestone +
+  Codex fixes applied); main carries waves 0-2f + lead review merge.
+- Totals: ~57 commits across main + branch; 25+ research docs; 6 working tools/scripts
+  (rmctl, sniffer2, capture_state, fetch_gsp x2, parse_vbios_bit, inventory_firmware,
+  decode_telemetry, nvml_pstate_probe); 24 offline tests green; corpus hashed.
+- Production rig: read-only for the entire session; zero mutations; inference undisturbed
+  (load P2/420W -> idle P8/370W transition captured as evidence, not caused by us).
+- Standing queues documented in ROADMAP final-status section (REA-gated + bench-gated).
+
+# Research log (append-only)
+
+## 2026-10-16 — wave 3h: PR #3 Codex review — 4 findings fixed (Europe/Istanbul)
+- P1 inventory: ELF64 e_phentsize/e_phnum were read from e_flags (offsets 40/42 vs correct
+  54/56) -> "validated" labels untrustworthy. Fixed; inventories regenerated - honest counts:
+  615 container 12/13 validated + 1 ph_error (false-positive magic match surfaced).
+- P1 sniffer2: RM status no longer reported after a FAILED ioctl (stale input field).
+- P2 decode_telemetry: unknown GSP feature bits preserved as raw entries ("unknown stays raw").
+- P2 nvml_pstate_probe: nvmlErrorString(result) called with the return code; init/handle "ok".
+- 13 sniffer tests + 11 offline tests green; commit bfc2214 on PR #3 branch.
+
+## 2026-10-16 — wave 3g: PR #3 opened for lead review (Europe/Istanbul)
+- Branch work/packet-a-tracing cleaned: build artifacts ignored (rebuild-from-source policy),
+  stale v1 sniffer binary removed; 13+11 tests green from clean state.
+- **PR #3 opened** (packets A–D + bounded milestone) with full summary and open items:
+  https://github.com/bnelabs/nvidia-gpu-firmware-research/pull/3
+- REA engines still missing (hopper/ghidra/ida) — queued tasks unchanged.
+
+## 2026-10-16 — wave 3f: ✅ bounded milestone MET — telemetry decoder + fixtures (Europe/Istanbul)
+- rmctl pstate decode fixed (one-hot enum, Pn=2^n @ca2d03e): 0x100 = **P8, matches nvidia-smi**.
+- decode_telemetry.py + fixture (idle capture, full provenance) + 4 unit tests; 11 offline
+  tests green total (4 telemetry + 7 vbios).
+- RESEARCH-DIRECTION.md default milestone **met**: "reproducible, source-pinned, read-only
+  GA102 telemetry decoder with offline fixtures". Commit 83f6869 on work/packet-a-tracing.
+- Remaining (per review, non-blocking): libnvidia-ml decode (REA), matched-routine diff,
+  bench-gated work.
+
+## 2026-10-16 — wave 3e: loader family mapping SOURCE-DECODED (Europe/Istanbul)
+- nv-firmware-chip-family-select.h (@ca2d03e): get_chip_family() — GB10Y/GB20Y impl splits,
+  **RUBIN_GR1XX → GR10X explicit loader selection**; firmware tasks enum (INIT/RM/INTR/VGPU/
+  MNOC/DEBUG/ROOT/RM_STATE_MONITOR).
+- Status upgrade: kernel_<family>.elf names = source-decoded anchors. Withheld: consumer-SKU
+  claims, storage-order of extracted kernels (directory-walk decode still [VERIFY]).
+- REA engines still down (11 missing in doctor); ODS layout doc unpacked (nvfw_bin_hdr /
+  HS-header v2 / FMC ELF formats documented). Commit 511eb4d.
+
+## 2026-10-16 — wave 3d: GSP kernel census + matched-routine groundwork (Europe/Istanbul)
+- Full extraction of 615's 12 embedded ELFs; census: kernels 01–07 = per-arch Libos kernels
+  (17–18 libos strings, sizes 184–213 KB, md5-distinct), kernel-10 = 17.3 MB GSP-RM payload.
+- 535-era mapping open (no size match to 615 layout; 5 candidates incl. 13.7 MB RM payload) —
+  resolution via archive-directory decode (ODS + loader consumers, REA task). No size-based
+  inference committed, per review discipline.
+- Matched-routine baseline prepped: sbi.c assertion call site in 615-kernel-01 (@paddr 0xc230).
+- gsp-kernel-analysis.md added; commit 2818679 on work/packet-a-tracing.
+
+## 2026-10-16 — wave 3c: packet D first pass — table-attributed variant diffs (Europe/Istanbul)
+- EVGA 0B/0F/44 diff clusters attributed to decoded tables via the fixed parser's adjusted map.
+- **PowerPolicyTable +0xc4: u32 mW 450,000 (0B/44) vs 520,000 (0F)** — per-variant power value
+  (hypothesis); FanPolicyTable per-SKU duty/RPM bytes; OverclockingTable 1 byte unknown.
+- mW encoding corroborated independently by live RM path (0x2080a61d = 370,000).
+- All readings = hypothesis pending versioned table definitions; raw bytes in vbios-lab.md §8.
+- Commit 0921ccb on work/packet-a-tracing.
+
+## 2026-10-16 — wave 3b: packets A+B+C executed on branch work/packet-a-tracing (Europe/Istanbul)
+- Corpus re-validated with reviewer-fixed parser (4/4 EVGA samples, 67 mapped fields each).
+- **Packet A**: sniffer2 (hardened tracer: exact NVOS54 shape, separate errno/RM-status,
+  errno preserved, bounded captures, full provenance) + 13/13 acceptance tests, branch pushed.
+- **Packet B**: nvml_pstate_probe (dlopen NVML) — getter returns ordinal 0x8 (P8 idle, ×5
+  stable, matches nvidia-smi); getter path = ONE client-level control 0x00000d01 (12B);
+  getters 2–5 issue no ioctls (NVML in-process cache). Evidence hashed; response encoding open
+  → queued for libnvidia-ml.so.1 offline decode (REA when engines up).
+- **Packet C**: inventory_firmware.py — JSON inventories (sha256, sections bounds-checked,
+  embedded-ELF candidates, Perforce provenance r535/r537_41 → r570/r570_00 → r615/r616_69);
+  12 complete kernel ELFs extracted by computed size (7 family kernels + 17.3MB RM payload);
+  all 12 md5-distinct; arch→index mapping stays hypothetical per review.
+- REA engines (hopper/ghidra/ida) still pending; radare2 interim.
 
 ## 2026-10-15 — wave 3a: correction (0x14a ≠ pstate), idle-state capture, REA discovered (Europe/Istanbul)
 - **Self-correction**: 0x2080014a is a UUID/identity getter (pre/post sniffer diff exposed the

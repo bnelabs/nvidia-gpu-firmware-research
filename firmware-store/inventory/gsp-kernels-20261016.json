@@ -1,0 +1,718 @@
+[
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-01.elf",
+  "sha256": "ba6ec5157e8cb0732bae23b6b3341ca0acb4a882a59cbc82730facd40428f87e",
+  "size": 184528,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     },
+     {
+      "type": 1919243116,
+      "va": 3179617560987518559,
+      "filesz": 7013342035938533736,
+      "memsz": 6869764181691034722
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   },
+   {
+    "file_offset": 184320,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     }
+    ],
+    "ph_in_bounds": false,
+    "status": "header-only"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-02.elf",
+  "sha256": "67c8d9c22778979ec6a472af3e89d5abb13657e1b444a172b75cafe538ce516b",
+  "size": 205008,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     },
+     {
+      "type": 1560744051,
+      "va": 7169985843036653459,
+      "filesz": 38125993120630768,
+      "memsz": 16393102660894147621
+     },
+     {
+      "type": 268531571,
+      "va": 3437087466759811,
+      "filesz": 16734814277627774270,
+      "memsz": 10779300927124828399
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   },
+   {
+    "file_offset": 204800,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     }
+    ],
+    "ph_in_bounds": false,
+    "status": "header-only"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-03.elf",
+  "sha256": "b061eccb77e669e75a2a5c5e8fa880d5018eea331bd4f5483b807ee1ed0c7a90",
+  "size": 213200,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     },
+     {
+      "type": 1461175909,
+      "va": 4976788363589910528,
+      "filesz": 3033006796635631727,
+      "memsz": 13547747601164734466
+     },
+     {
+      "type": 2009254841,
+      "va": 13744951904868779425,
+      "filesz": 16208174169213482793,
+      "memsz": 5017398133187788191
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   },
+   {
+    "file_offset": 212992,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     }
+    ],
+    "ph_in_bounds": false,
+    "status": "header-only"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-04.elf",
+  "sha256": "ffd42b7f39030c986e76547d43ae50789d01631944b02477e3756c02ed0a4ff8",
+  "size": 184528,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     },
+     {
+      "type": 1684291948,
+      "va": 8029725087113310821,
+      "filesz": 6158195474721174629,
+      "memsz": 7308905024647148598
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   },
+   {
+    "file_offset": 184320,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     }
+    ],
+    "ph_in_bounds": false,
+    "status": "header-only"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-05.elf",
+  "sha256": "c49e3e79efb634d0ff7925bdb07887ad8330da7e62fe400d6083abcb22096d19",
+  "size": 213200,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     },
+     {
+      "type": 1415439132,
+      "va": 5158664484021289604,
+      "filesz": 4684932198999011567,
+      "memsz": 7449916995610620931
+     },
+     {
+      "type": 1901953154,
+      "va": 14511145143340336302,
+      "filesz": 94107071936611,
+      "memsz": 17804775595272668563
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   },
+   {
+    "file_offset": 212992,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     }
+    ],
+    "ph_in_bounds": false,
+    "status": "header-only"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-06.elf",
+  "sha256": "d392fdca442f1be67fc3fd99a7111617dbc5a7592fc270329d464a0e7bd63eca",
+  "size": 213200,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     },
+     {
+      "type": 1474113600,
+      "va": 3736154596000391,
+      "filesz": 199661734758035,
+      "memsz": 3526112959011325331
+     },
+     {
+      "type": 2580517103,
+      "va": 16834421251469641098,
+      "filesz": 8737674742741754022,
+      "memsz": 7857796747322554786
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   },
+   {
+    "file_offset": 212992,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     }
+    ],
+    "ph_in_bounds": false,
+    "status": "header-only"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-07.elf",
+  "sha256": "1169f20fba7cf2617db1ff37ac10490ea059295b0d4a651c1d6944c1c3da609d",
+  "size": 213200,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 65779,
+    "program_headers": [
+     {
+      "type": 1879048195,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+     },
+     {
+      "type": 1762919668,
+      "va": 16504871231228428901,
+      "filesz": 75495230027838723,
+      "memsz": 8902638251846420241
+     },
+     {
+      "type": 1746190181,
+      "va": 16826271977777068350,
+      "filesz": 38357157698712959,
+      "memsz": 5017436779081359599
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   },
+   {
+    "file_offset": 212992,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 2867667062728229107,
+    "program_headers": [],
+    "ph_in_bounds": true,
+    "status": "validated"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-08.elf",
+  "sha256": "007f93fa0e2551b89d773ecb67ece9c5c504c38cbf39a250a535536c570eff94",
+  "size": 41072,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 2867667062728229107,
+    "program_headers": [],
+    "ph_in_bounds": true,
+    "status": "validated"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-09.elf",
+  "sha256": "5caac9070c8e9cb01870ed381df67f74fdc15e091850cead5d2c55ccd4eec482",
+  "size": 45168,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 2899755210073243891,
+    "program_headers": [],
+    "ph_in_bounds": true,
+    "status": "validated"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-10.elf",
+  "sha256": "4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a",
+  "size": 17305752,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 7943786792728199411,
+    "program_headers": [
+     {
+      "type": 1,
+      "va": 16777216,
+      "filesz": 15540224,
+      "memsz": 15540224
+     },
+     {
+      "type": 2156003649,
+      "va": 2156003649,
+      "filesz": 2156003649,
+      "memsz": 7215338352921416001
+     },
+     {
+      "type": 0,
+      "va": 509752029855827047,
+      "filesz": 8328404276985200775,
+      "memsz": 73522293868146723
+     },
+     {
+      "type": 1671232743,
+      "va": 17840737248771969345,
+      "filesz": 12899321600864878789,
+      "memsz": 13259442310825050119
+     },
+     {
+      "type": 3827437889,
+      "va": 16438720560726311042,
+      "filesz": 141295855142149,
+      "memsz": 7215338352921416001
+     },
+     {
+      "type": 2432762382,
+      "va": 618048290604253696,
+      "filesz": 3969941735,
+      "memsz": 14524399073167020353
+     },
+     {
+      "type": 3089359206,
+      "va": 9697095020843576023,
+      "filesz": 483895992805170180,
+      "memsz": 2780718608465206791
+     },
+     {
+      "type": 544145638,
+      "va": 10692447148039154608,
+      "filesz": 2337087721960584327,
+      "memsz": 10692448247550780784
+     },
+     {
+      "type": 1288156195,
+      "va": 14106969561467905559,
+      "filesz": 5676699520281740819,
+      "memsz": 411971862352561719
+     },
+     {
+      "type": 3007743635,
+      "va": 13866462374047711447,
+      "filesz": 13866582426705133783,
+      "memsz": 437694182666520143
+     },
+     {
+      "type": 1157970405,
+      "va": 48379160179015911,
+      "filesz": 4108837101974652311,
+      "memsz": 9288393498708886789
+     },
+     {
+      "type": 16159843,
+      "va": 69405999260528032,
+      "filesz": 7157466516914372854,
+      "memsz": 7926353413115647075
+     },
+     {
+      "type": 1153795475,
+      "va": 11898475507911877731,
+      "filesz": 16789144219845865507,
+      "memsz": 16456997480760319421
+     },
+     {
+      "type": 85173664,
+      "va": 1208646280303147769,
+      "filesz": 13439751404353618117,
+      "memsz": 10651298191138553862
+     },
+     {
+      "type": 4143387363,
+      "va": 8359367703326181121,
+      "filesz": 18249755036521834243,
+      "memsz": 12034673606496030947
+     },
+     {
+      "type": 2545599120,
+      "va": 1153172360426610762,
+      "filesz": 650915991441,
+      "memsz": 1323966425759975
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-11.elf",
+  "sha256": "647f9e88d301ed61691474ae1389d7f79836090d22252b40a96315bc34046c89",
+  "size": 737392,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 9478388365754695923,
+    "program_headers": [
+     {
+      "type": 1,
+      "va": 16777216,
+      "filesz": 675840,
+      "memsz": 675840
+     },
+     {
+      "type": 2156028229,
+      "va": 9288392787623386214,
+      "filesz": 4973497922095311170,
+      "memsz": 2726941316768069
+     },
+     {
+      "type": 4144248963,
+      "va": 3858749009692819,
+      "filesz": 9830963115858964515,
+      "memsz": 11135017670864389493
+     },
+     {
+      "type": 101971679,
+      "va": 15019317702966900191,
+      "filesz": 15019317565527946463,
+      "memsz": 15019317496808469599
+     },
+     {
+      "type": 885392915,
+      "va": 9599074642649388782,
+      "filesz": 8070592261874208919,
+      "memsz": 9769153449247864825
+     },
+     {
+      "type": 826738451,
+      "va": 12025499561390769939,
+      "filesz": 216075027163069475,
+      "memsz": 2571563169609104931
+     },
+     {
+      "type": 1395733539,
+      "va": 5864029914152385571,
+      "filesz": 5742428326138558499,
+      "memsz": 8790306551635182611
+     },
+     {
+      "type": 378752647,
+      "va": 199751039141118739,
+      "filesz": 5987513827670904212,
+      "memsz": 16724684989493673982
+     },
+     {
+      "type": 3219234109,
+      "va": 4039147751,
+      "filesz": 1765662631249243302,
+      "memsz": 215849625579971100
+     },
+     {
+      "type": 3622435332,
+      "va": 11288834316525043879,
+      "filesz": 9288392779033460557,
+      "memsz": 17916006619821434976
+     },
+     {
+      "type": 507651,
+      "va": 10926457856258701301,
+      "filesz": 509865264253673507,
+      "memsz": 18444360965707074944
+     }
+    ],
+    "ph_in_bounds": true,
+    "status": "validated"
+   }
+  ]
+ },
+ {
+  "path": "firmware-store/gsp-kernels/615-kernel-12.elf",
+  "sha256": "39e67a53512eb3a8ea19e354d1a1a1a0542b39bc7e45db689ba7110a1e36c18b",
+  "size": 57456,
+  "first_bytes": "7f454c46",
+  "sections": [
+   {
+    "index": 0,
+    "error": "section header out of bounds"
+   }
+  ],
+  "loader_provenance": null,
+  "embedded_elf_candidates": [
+   {
+    "file_offset": 0,
+    "class": "ELF64",
+    "endian": "LE",
+    "machine": "RISC-V",
+    "type": "EXEC",
+    "entry": 2999960301782237427,
+    "program_headers": [],
+    "ph_in_bounds": true,
+    "status": "validated"
+   }
+  ]
+ }
+]

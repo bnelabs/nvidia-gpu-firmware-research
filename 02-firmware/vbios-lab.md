@@ -110,3 +110,21 @@ Parser rewritten per the official [BIOS-Information-Table spec](https://download
 - [ ] Fetch the FE 3090 ROM (TPU 231642) + partner variants → partner-diff the P tables
 - [ ] Locate 'M' MEMORY strap table + 'p' falcon-ucode tokens (absent in this legacy image?
       — check the UEFI image at 0x19000 for a second BIT)
+
+## 8. Packet D first pass — table-attributed variant diffs (2026-10-16, corrected offsets)
+
+EVGA 3090 variants `0B/0F/44`, diffs attributed via the fixed parser's adjusted table map
+(method: cluster → containing table by [start, next-start) ranges; raw bytes retained):
+
+| Cluster (file) | Table (+offset) | 0B | 0F | 44 | Reading (hypothesis) |
+|---|---|---|---|---|---|
+| 0x8cf0c (3B) | PowerPolicyTable +0xc4 | `d0 dd 06 00` | `40 ef 07 00` | `d0 dd 06 00` | u32 mW: **450,000 vs 520,000** — per-variant power value (0F = EVGA 520 W-class model candidate) |
+| 0x8d9ad | FanPolicyTable +0x46 | `26 64` | `37 64` | `3c 64` | fan duty % + 100 cap (38/55/60 %) — per-SKU cooler curves |
+| 0x8d9b6 | FanPolicyTable +0x4f | `78 05` | `08 07` | `08 07` | u16 (1400 / 1800) — RPM candidate |
+| 0x8f3ff | OverclockingTable +0x1b8 | `e0` | `ff` | `60` | single byte, unknown |
+
+Statuses: byte values = observed-bytes; the mW/duty readings = **hypothesis** (needs the
+versioned table definitions or driver-consumer confirmation). Cross-checks queued: NVML-reported
+limits per variant (bench), and the rig's own F4 vBIOS (not in corpus — read-only rule).
+Consistency note: the mW encoding independently recurs in the live RM path (0x2080a61d →
+370,000), supporting u32-mW as the family-wide unit [VERIFY per field].
