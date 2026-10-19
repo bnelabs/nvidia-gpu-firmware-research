@@ -194,3 +194,20 @@ tables whose fn-ptrs NVML calls for every getter/setter. The limit fields NVML r
 the BoardObj attributes in these per-object tables. This completes the packet E/H decode:
 the mechanism is fully identified; per-object FIELD offsets now live in the RMFunctions
 prototype (off_2D1180, 440 B = 55 fn-ptrs).
+
+
+## PACKET H COROLLARY - class-selection hypothesis superseded (2026-10-19)
+
+The packet-H hypothesis (class constants in the 384 B request bytes) is SUPERSEDED by
+the sub_A71D0/sub_1528F0 decode: the request's first 128 bytes are **zeroed by design**
+(`rep stosq` at 0xa7216) - there are no class-selection constants in the request.
+The actual "selection" mechanism:
+- sub_1528F0 passes a FLAG BYTE (a2) to sub_A71D0
+- sub_A71D0 gates post-processing on that flag and on per-record attribute bits
+  (rec+12 bit0 = has-control -> RMFunctions table; bit1 = eventful -> event path)
+- the per-object "class" is realized by the RMFunctions prototype (off_2D1180, 440 B
+  = 55 fn-ptrs) copied into each object's 0x1B8 B table - the object's behavior IS
+  its function table, not a request parameter.
+
+No new decode needed; this closes the class-selection question with the mechanism
+identified at a deeper level (function-table polymorphism, not request parameters).
