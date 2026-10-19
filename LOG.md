@@ -1,5 +1,16 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 22 (goal R2): 626-tag control-plane inventory (Europe/Istanbul)
+- RMFunctions table census: only 3 trampolines (common_clock family 0x3d/0x43/0x52 ->
+  sub_1117F0 = cDeviceGetPerfLimitersClocks); the other 52 = full BoardObj method
+  implementations.
+- **626 self-named function tags** extracted from NVML (cDevice*/cConvert*/cDebug*
+  families: Fan/Clock/Power/Volt/Therm/Perf/ECC/MIG/Events) - the complete named
+  index of NVML's control surface, committed as nvml-control-plane-tags.txt.
+- Reusable index: every future decode maps to its control-plane function via these
+  debug tags (the IDA error-string anchors).
+- Commit d2f08da.
+
 ## 2026-10-19 - wave 21 (packet E): record-conversion phase decoded (Europe/Istanbul)
 - 12 B per-entry record (0x21b response): {u32 id @0, u32 value @+4, u16 @+8, u16 @+10}.
 - Conversion: 0x275 (268 B) per entry fills 16 B object records with name[80];
