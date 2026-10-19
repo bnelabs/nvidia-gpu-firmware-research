@@ -131,3 +131,34 @@ STATUS: the BoardObj enumeration API is fully decoded structurally (three-contro
 sequence, entry-list format, parser, global store, empty-list behavior on this path).
 The limit-field offsets require the class-selection values - precisely named, outside
 this decode pass.
+
+
+## PACKET H: sub_A5B10's caller decoded - sub_A71D0 = the BoardObj session driver (2026-10-19, REA/IDA)
+
+sub_A71D0 (0xd4b B) is the **BoardObj session driver** - the function that owns the whole
+enumeration lifecycle. Decoded structure (from disasm + pseudocode):
+
+1. **Zeroes the 384 B request** (rep stosq 0x30 qwords at var_24B0 = the v36[0..127] region
+   the entry list comes back into) - **the class bytes are ZEROED here, not filled**:
+   `mov ecx,30h; rep stosq`. The emptiness is BY DESIGN for this call path.
+2. Issues 0x214 via sub_A5880 (params 0x180, r12=dispatch context).
+3. Parses entries: skips 0xFFFFFFFF, per valid id issues **0x21b (12 B)** then optionally
+   **0x215 (0x84 B)**, **0x279 (12 B)**, **0x289 (4 B)** - the per-object detail family.
+4. Gates: `cmp byte [rbp+var_2B8], 1` (arg flag from caller) selects the 0x215 path;
+   `cmp [var_26C+4], 1` gates another branch; 0x289 with r9d=4 on the 0x215 path.
+5. **qsorts 16-byte elements** (sub_A6170 comparator, nmemb=count, size=0x10) - the parsed
+   objects are 16-byte records (id + attrs + flags), stored count @ **dword_12683A0**.
+6. Marks objects with attribute flags: `or byte [rec+0Ch], 1/2` and stores
+   `0xFFFFFFFF` at `[r15+rdx+0x28C70]` (stride 0x93418 = 602,648 B - a large per-object
+   global array!). The 0x28C70 offset + 0x93418 stride = the parsed-objects global store.
+7. **sub_A5B10 is called CONDITIONALLY at 0xa7729-0xa7730**: only when
+   `cmp byte [rbp+var_2B0], 0; jz A7780` fails - i.e. sub_A5B10 (0x214 re-enumeration)
+   runs as a REFRESH path inside the same driver, gated by a caller flag.
+
+## ANSWER to the class-selection question
+**The 384 B request's class bytes are zeroed by this driver path by design** (rep stosq
+zeroing at 0xa7216) - the entry list comes back empty because the enumeration is driven
+by the ARGUMENTS (ecx=arg at var_2B0, esi=arg at var_2A4 - passed in from sub_A71D0's
+caller), not by the request bytes. The class selection lives in **sub_A71D0's caller**
+(next frame up: who calls sub_A71D0 with which ecx/esi). Named precisely: analyze
+sub_A71D0's callers (xrefs on 0xa71d0) for the argument constants.
