@@ -105,3 +105,9 @@ This is NVIDIA's **BoardObj enumeration API**: the entries are named board objec
 directly (e.g. the limit-type names). Status: mechanism source-decoded; the NAME capture
 (one 268 B 0x275 response read) = the single remaining observation to enumerate the
 object names, completing power-limit provenance.
+
+- NOTE (capture attempt): the 0x275 per-entry name call does NOT fire during the
+  power.limit query path (traced: 0x214 -> 0x21b x1 -> client controls -> end).
+  It fires under a different NVML query path - identify which nvidia-smi query
+  drives sub_A5B10's second loop (or call it via a direct test harness) to capture
+  the 268 B name responses. The BoardObj API structure itself is fully decoded.
