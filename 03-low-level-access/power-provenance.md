@@ -228,3 +228,22 @@ Partial class map (naive scan; complete extraction needs a full disassembly pass
 Status: the per-object control surface = 55 (class,type)-bound BoardObj methods.
 The slot->meaning map = the (class,type) pairs; sub_1117F0 dispatches on them.
 Complete extraction queued (proper x86 instruction decode over all 55).
+
+
+## TABLE DECODE COMPLETE (2026-10-19, objdump pass over all 55 slots)
+
+Two slot families in the RMFunctions prototype:
+1. **Trampolines** (slots 0,1,2,16-18,20,21,23,24,27,28,30,31,39,40): 6-instruction
+   forwards to sub_1117F0 binding a BoardObj class constant:
+   0x43, 0x3d, 0x52, 0x7, 0x118, 0x91(x2), 0xc1(x4), 0x44(x2), 0xc(x2), 0x4388
+2. **Full implementations** (the rest, e.g. slot 3 @0x111600): real functions with
+   their own logic (type switch on ebx: 1/2/0 branches = get-by-type variants,
+   RM-version gate `cmpl $4,(global)` = the GSP-era check).
+
+Insight: the prototype table mixes both - thin (class,type) bindings AND complete
+per-object method implementations. The trampoline class constants (0x43/0x3d/0x52/
+0xc1/0x44/0x91/0x118/0x7/0xc) are the BoardObj class IDs; the full implementations
+are the per-class handlers with NVML-era GSP gates.
+
+The per-object control surface is now structurally mapped: 55 slots = the complete
+BoardObj method set an object can expose.
