@@ -247,3 +247,25 @@ are the per-class handlers with NVML-era GSP gates.
 
 The per-object control surface is now structurally mapped: 55 slots = the complete
 BoardObj method set an object can expose.
+
+
+## PACKET E: record-conversion phase decoded (2026-10-19, objdump 0xa5e20-0xa60c0)
+
+Post-enumeration conversion (after qsort @0xa5e53 with comparator sub_A6170, 12 B stride):
+
+**12 B per-entry record layout (0x21b response)**:
+- u32 id @+0 (written into the 16 B object record @+0)
+- u32 value @+4 -> stored to global table (0x1268400 + count*0x48 family)
+- u16 @+8 -> global 0x1268404 + count*0x48
+- u16 @+10 -> global 0x1268408 + count*0x48
+
+**0x275 call (268 B) per entry**: fills a 16 B object record {id @+0, 0 @+4, name[80] via
+strncpy} - output stride 0x10c = 268 B/entry. RM-version gate: global > 4 branches to
+extended processing (0xa6010).
+
+**Two global tables result**: {id, u16, u16} @0x1268400 (72 B stride) and {name+attrs}
+@0x1268434 (268 B stride). These are what NVML's limit getters read.
+
+**Remaining observation (named)**: correlate the global-table contents with NVML's printed
+limits post-query - requires reading NVML's globals at runtime (debugger; read-only) since
+the values flow through the opaque channel. The structural decode is complete.
