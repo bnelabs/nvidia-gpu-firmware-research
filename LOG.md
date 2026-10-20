@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 23 (RMFunctions goal R2): all 55 slots anchored (Europe/Istanbul)
+- Batch tag-anchor pass: every slot resolved to its named control-plane functions via
+  the 628-tag inventory (JSON committed: rmfunctions-slot-map.json).
+- Key assignments: slot 3 = GetPerfLimitersClocks (decoded dispatcher); slots 5/6 =
+  SetPerfLimitersClocks + SetRawClock (THE SET PATH); slots 20-24 = GPC/MClk VF
+  offsets (voltage); slots 30/31 = PowerMizer mode; slots 41-43 = PerfMetrics/PMU
+  samples/rail metrics; slots 44-54 = Rist family (map/mode/command/repair).
+- The per-object control surface is now fully named. Commit 159e14a.
+
 ## 2026-10-20 - wave 22 (goal R2): 626-tag control-plane inventory (Europe/Istanbul)
 - RMFunctions table census: only 3 trampolines (common_clock family 0x3d/0x43/0x52 ->
   sub_1117F0 = cDeviceGetPerfLimitersClocks); the other 52 = full BoardObj method
