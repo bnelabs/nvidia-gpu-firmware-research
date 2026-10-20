@@ -422,3 +422,13 @@ The SET path's +0x98 fn-ptr is in the RM/kernel dispatch table (device context):
 
 The 0x275 per-entry NAME call does NOT fire during the power.limit query path -
 BoardObj name enumeration runs under different NVML query paths.
+
+
+## SET-PATH DECODE COMPLETE (2026-10-20, slots 5/6 full decode)
+
+Both SET-path handlers decoded. Same delegation pattern, different fn-ptr offsets:
+
+slot 5 (sub_118FB0): fn-ptr at +0x90
+slot 6 (sub_118E90): fn-ptr at +0x98
+Both cross the user/kernel boundary through the RM dispatch table at dev_ctx+165184.
+The kernel RM receives the call and forwards to the GSP via the BoardObj RPC protocol.
