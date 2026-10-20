@@ -1,5 +1,32 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 31 (3-agent results): signature chain + generation comparison (Europe/Istanbul)
+
+**GSP SIGNATURE CHAIN (gsp-signature-chain.md, 363 lines):**
+- Boot eras: Turing/Ampere = BROM->HS Booter->GSP-RM(LS); Hopper+ = FSP->COT->FMC->GSP-RM;
+  Blackwell consumer GB20x = SEC2 in FSP role
+- Mechanism VERIFIED: sha384(FMC image) == UCODE_HASH (checked by script on GB202/GH100)
+- Crypto: RSA-3072 (384B key+sig) on GH100/GB10B/GB20B; ECDSA P-384 (96B sig, 97B key
+  starting 0x04) on GB100/GB202/GR100 - algorithm switch inferred from sizes/prefix
+- fwsignature_<arch> sections = SIGNATURE BLOBS, not keys: 4x384B RSA-3K slots at
+  512B stride, header identical 535->615, gr10x slots are placeholders (Rubin unpopulated)
+- Custom firmware: host has ZERO enforcement (swap freely, init fails); all on-GPU by
+  fuse-anchored HS verifiers. Paths: NVIDIA key, verifier 0-day (extractable 165-287KB
+  FMC/Booter in g_bindata_*.c - unstudied target), hardware attack (39C3 Tegra precedent),
+  or debug-fused dev hardware. nvflash tools = vBIOS-only, never touch GSP chain.
+
+**ALL-GENERATION BOOT TRUST CHAIN (boot-trust-chain-comparison.md):**
+- Universal model: Falcon BROM -> HS ucode -> LS/NS ucode (falcon v0-v5 across gens)
+- ACR migration: PMU (Maxwell-Volta) -> SEC2 (Turing-Ada) -> GSP-FMC (Hopper+)
+- FMC-first boot proven: bPartitionedFmc HAL set for GH100+all GB2xx+GR100/102;
+  Booter bindata exists ONLY for TU102/TU116/GA100/GA102/AD102 (Ada = last Booter gen)
+- Rubin VERIFIED AT BINARY LEVEL in shipping 615.71.09: kernel_gr10x.elf + signatures
+- Debug/prod: FUSE_OPT_SECURE_GSP_DEBUG_DIS -> FUSE_ZB (Blackwell zero-bank)
+- Anti-rollback: FPF_GSP_UCODE{1..16}_VERSION one-hot fuses + REVOCATION_CHECK_FAILED
+- GC6 exit SKIPS signature checks (rmlsfm.h L97-99) - documented trust-chain shortcut
+- Custom firmware implications: host-side software-only surface = gsp.bin swaps (recoverable),
+  vBIOS BIT tables, GSP RPC; signed payloads blocked without keys
+
 ## 2026-10-20 - wave 29 (BoardObj taxonomy agent COMPLETE): full class taxonomy mapped (Europe/Istanbul)
 - Tegra nvgpu boardobjgrp_classes.h = the ONLY public numeric enumeration of BoardObj classes.
 - Public table: CLK(0x01-0x11, 17 types), VOLT(0x12-0x15, 4), FAN(0x16-0x18, 3),
