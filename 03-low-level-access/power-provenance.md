@@ -91,7 +91,9 @@ disassembly passes or a bench differential). This is the single remaining sub-de
 for complete power provenance.
 
 
-## PACKET E COMPLETE - BoardObj enumeration API decoded (2026-10-19, REA/IDA sub_A5B10)
+## [RETRACTED] PACKET E - BoardObj enumeration API decoded (2026-10-19, REA/IDA sub_A5B10)
+
+> **RETRACTED 2026-10-20**: 0x214 = NV0000_CTRL_CMD_GPU_GET_PROBED_IDS (GPU detection), NOT BoardObj enumeration. See the MAJOR CORRECTION section above. The structural decode (call site, response format, per-entry calls) is still valid as GPU discovery mechanics, but the BoardObj interpretation is wrong.
 
 sub_A5B10 (0x65b B) = the full client-control enumeration:
 1. **0x214 (532)** -> 384 B: entry-ID list (u32s, -1 terminated, <=96 entries), iterated from v36[128]
@@ -249,7 +251,9 @@ The per-object control surface is now structurally mapped: 55 slots = the comple
 BoardObj method set an object can expose.
 
 
-## PACKET E: record-conversion phase decoded (2026-10-19, objdump 0xa5e20-0xa60c0)
+## [RETRACTED] PACKET E: record-conversion phase decoded (2026-10-19)
+
+> **RETRACTED**: these are GPU ID records from the probed-IDs query, not BoardObj records.
 
 Post-enumeration conversion (after qsort @0xa5e53 with comparator sub_A6170, 12 B stride):
 
