@@ -411,3 +411,14 @@ Full decompile of the BoardObj GET/SET dispatcher:
 - +0x164: scale factor (u32)
 
 **KEY INSIGHT**: /100,000 = imul 0xA7C5AC5 >> 39 (compiler optimisation). Same 100,000 in vBIOS PowerPolicy values (450,000/520,000) - confirms the unit family.
+
+
+## SET-PATH DELEGATION DECODED (2026-10-20, objdump 0xa5e90-0xa5f80)
+
+The SET path's +0x98 fn-ptr is in the RM/kernel dispatch table (device context):
+- BoardObj SET computes the value via export-table call
+- Calls dispatch+0x98(value, flag, dev_ctx) - this crosses into the kernel RM
+- The fn-ptr table is NOT an NVML-internal table but the RM/kernel interface
+
+The 0x275 per-entry NAME call does NOT fire during the power.limit query path -
+BoardObj name enumeration runs under different NVML query paths.
