@@ -464,3 +464,11 @@
 - Recorded raw 0x4 agrees with NVML P2. Earlier physical/virtual split theories are unnecessary
   for this observation. Actual NVML getter path remains unknown.
 - No live GPU operations. Strategic direction updated to prioritize semantic validation.
+
+## 2026-10-20 - wave 27 (goal R1): dispatcher FULLY DECODED (Europe/Istanbul)
+- sub_1117F0 (0x4fb B) decompiled: GET = dispatch+24 fetch v31/v30 + dispatch+224 fetch 316B record + validate + (v30 * rec.scale / 100,000)
+- SET = dispatch+224 fetch record + validate (expected==0) + dispatch+48 SETTER with scale
+- BoardObj 316B record: +0x15C valid, +0x160 expected, +0x164 scale factor
+- /100,000 = imul 0xA7C5AC5 >> 39 (compiler optimization, not actual division)
+- Same 100,000 in vBIOS PowerPolicy values - unit family confirmed across vBIOS and RM
+- Commit 0cba5ca
