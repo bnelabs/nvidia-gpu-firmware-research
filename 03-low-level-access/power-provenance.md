@@ -330,3 +330,19 @@ sub_118E90 (slot 6) structure decoded:
 The pattern: BoardObj SET handlers compute/validate via an export-table call, then
 delegate through a second function-pointer layer. Same polymorphic-table design as
 the rest of the control plane (tables all the way down).
+
+
+## SET-PATH BOUNDARY (2026-10-20): delegation crosses into the kernel/RM layer
+
+The +0x98 fn-ptr table lives on the DEVICE CONTEXT (dev_ctx->table(+0x170) -> +0x98) -
+this is the **RM/kernel dispatch table**, not an NVML-internal one. The BoardObj SET
+therefore crosses the user/kernel boundary: NVML computes + validates, then calls the
+kernel RM (open-gpu-kernel-modules source territory), which forwards to the GSP.
+
+**Control-plane decode boundary reached and complete:**
+- NVML user-space layer: fully decoded (enumeration, BoardObj API, GET/SET dispatch,
+  unit conversion /100,000, delegation structure)
+- Kernel/RM layer: open-gpu-kernel-modules source (next decode target if continued)
+- GSP firmware: closed (the BoardObj attribute storage + policy engine)
+
+Every layer boundary is now named with its crossing mechanism.
