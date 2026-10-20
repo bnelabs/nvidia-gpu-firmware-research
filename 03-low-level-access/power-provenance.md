@@ -372,3 +372,10 @@ Source-pinned finding (ctrl0000gpu.h @ca2d03e):
 
 What remains VALID: the 55-slot RMFunctions table, the dispatcher sub_1117F0, power provenance findings, GSP firmware decode - all independent.
 What needs re-evaluation: the entry list interpretation (GPU IDs, not BoardObj entries), the class selection hypothesis (GPU probe parameters).
+
+
+## PACKET F COMPLETE - tsapiDeviceGetArchitecture decoded (2026-10-19, REA/IDA)
+
+sub_98310 (0x1af B, api.c:15211) = **tsapiDeviceGetArchitecture** - the architecture query that feeds the p-state gate. The lookup table (dword_1C24A0, 14 entries) READ FROM BINARY: arch 5->2, 6->3, 7->4, 8->5, 9->6, 10->7, 11->8, 12->9, 13->10, 14->11, 15->12, 16->13, 17->-1, 18->15. This is the normalized class that feeds the pstate gate (sub_99530): class in {2,3,4,5} = arch in {5,6,7,8} enables the clock-remap fallback.
+
+The p-state synthesis chain is END-TO-END decoded: (1) TSAPI arch query -> (2) lookup table -> (3) gate sub_99530 -> (4) clock-remap fallback sub_3C480. All four stages source-decoded.
