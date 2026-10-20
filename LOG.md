@@ -1,5 +1,12 @@
 # Research log (append-only)
 
+## 2026-10-21 - wave 36 (monitor pivot): 10-monitor/ working tool + revised case (Europe/Istanbul)
+- D1 nvml-surface-audit.md: ground-truth call-level audit (431 symbols, live probes); header mismatch documented; KEY FIND: VF offset reads are PUBLIC on 615.71.09
+- D2 collector: working read-only poller (stdlib ctypes, JSONL, dry-run, no root, XID parse); 2 binding bugs found+fixed by live testing (MinMaxClockOfPState segfault; GetGspFirmwareVersion crashes -> procfs); live-verified 4 samples
+- D3 baseline-single-card.md: longitudinal limits stated, passive 2-week protocol, crowdsourced schema with privacy model
+- D4 revised-business-case.md: VRM zone + rail voltage removed permanently; dead-card -> referral; population -> crowdsourcing; surviving differentiators with ratings; one-sentence product
+- All read-only. Commits 2d66900..e09fd17.
+
 ## 2026-10-20 - wave 35 (field pivot): 08-field/ four deliverables (Europe/Istanbul)
 - D1 verify-differentiation.md: six claims verified against r615 - 4 SOURCE-PINNED HIGH (per-rail power, VF drift, PMU telemetry, clock margin), 2 INFERRED (VRM zone temp LOW, rail voltage LOW-MEDIUM) with honest corrections; business case SURVIVES with two claims gated on one wire-capture session. nvmlDeviceGetPowerSamples ABSENT in 615.71.09 strengthens the PMU differentiator.
 - D2 pre-enumeration-workflow.md: 5-stage escalation (bus presence, link training, driver-attach, power sequencing, MATS-class probing) with instruments and ownership [BENCH]/[CUST]/[AUTH]
