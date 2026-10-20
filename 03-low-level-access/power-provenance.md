@@ -316,3 +316,17 @@ sub_1117F0(dev_ctx, mode, *out, class_id, type_id):
 
 STATUS: the BoardObj dispatch semantics are fully decoded - the per-object control
 surface's method dispatch, validation, and unit conversion are all source-decoded.
+
+
+## SET-PATH DECODED (2026-10-20): slot 5/6 handlers (SetPerfLimitersClocks family)
+
+sub_118E90 (slot 6) structure decoded:
+1. Input validation: byte [rsi] == 1 check, field +0x14 read
+2. Calls fn@0x37600 (nvmlInternalGetExportTable-adjacent) -> value at -0x24(%rbp)
+3. dev_ctx->table(165184) -> sub-table -> **fn-ptr at +0x98**
+4. **call fn98(value, flag(r14d), dev_ctx)** - the BoardObj SET delegates through a
+   second dispatch layer (sub-table +0x98), passing the computed value
+
+The pattern: BoardObj SET handlers compute/validate via an export-table call, then
+delegate through a second function-pointer layer. Same polymorphic-table design as
+the rest of the control plane (tables all the way down).
