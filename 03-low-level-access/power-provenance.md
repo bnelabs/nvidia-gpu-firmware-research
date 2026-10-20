@@ -357,3 +357,18 @@ error paths. The tag->function attribution is now xref-verified by REA (not infe
 The dispatcher chain is complete and xref-verified:
 sub_1117F0 (cDeviceGetPerfLimitersClocks) = the BoardObj get/set dispatcher that all
 clock-family RMFunctions trampolines (slots 0,1,2 = classes 0x43/0x3d/0x52) bind to.
+
+
+## MAJOR CORRECTION (2026-10-20): 0x214 is GPU_GET_PROBED_IDS, not BoardObj enumeration
+
+Source-pinned finding (ctrl0000gpu.h @ca2d03e):
+```c
+#define NV0000_CTRL_CMD_GPU_GET_PROBED_IDS (0x214U)
+```
+**The BoardObj enumeration interpretation was WRONG.** sub_A5B10 is a GPU detection function:
+- 0x214 = enumerate probed GPU IDs (384 B = GPU ID array)
+- 0x21b = per-GPU detail query (12 B = GPU state)
+- These are NVML device discovery calls, not control-plane operations
+
+What remains VALID: the 55-slot RMFunctions table, the dispatcher sub_1117F0, power provenance findings, GSP firmware decode - all independent.
+What needs re-evaluation: the entry list interpretation (GPU IDs, not BoardObj entries), the class selection hypothesis (GPU probe parameters).
