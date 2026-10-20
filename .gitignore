@@ -24,3 +24,5 @@ firmware-store/
 07-prototype/nvml_pstate_probe
 07-prototype/sniffer2.so
 07-prototype/sniffer.so
+07-prototype/fake_rm.so
+build/

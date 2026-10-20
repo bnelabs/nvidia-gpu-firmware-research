@@ -1,3 +1,5 @@
+> REFERENCE / HISTORICAL REPORT — not a hardware runbook. Current [CONSTITUTION](../CONSTITUTION.md) and [CORRECTIONS](../CORRECTIONS.md) override this material. Offline decompilation and RE remain authorized. Hardware recipes, bench exceptions and blanket complete/safe claims below are superseded; other literature claims have not all been independently revalidated.
+
 # Ada (RTX 40, 2022) — open KMD matures, vBIOS lock broken
 
 ## TL;DR

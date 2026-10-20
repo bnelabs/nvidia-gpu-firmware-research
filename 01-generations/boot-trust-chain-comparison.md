@@ -1,3 +1,5 @@
+> REFERENCE / HISTORICAL REPORT — not a hardware runbook. Current [CONSTITUTION](../CONSTITUTION.md) and [CORRECTIONS](../CORRECTIONS.md) override this material. Offline decompilation and RE remain authorized. Hardware recipes, bench exceptions and blanket complete/safe claims below are superseded; other literature claims have not all been independently revalidated.
+
 # Boot / Verification Chain Across GPU Generations (Pascal → Rubin)
 
 *Compiled 2026-10-20. Primary evidence: `open-gpu-kernel-modules` tag 615.78.08 (local checkout `vendor/open-gpu-kernel-modules`), kernel nova-core docs 7.3.0, NVIDIA open-gpu-doc Falcon-Security, envytools, nouveau `fwsec.c`, binary strings of local `gsp_ga10x.bin` / `gsp_tu10x.bin` (615.71.09). Claim-by-claim citations inline; anything not directly verified is marked [VERIFY].*

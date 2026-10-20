@@ -1,3 +1,5 @@
+> REFERENCE / HISTORICAL REPORT — not a hardware runbook. Current [CONSTITUTION](../CONSTITUTION.md) and [CORRECTIONS](../CORRECTIONS.md) override this material. Offline decompilation and RE remain authorized. Hardware recipes, bench exceptions and blanket complete/safe claims below are superseded; other literature claims have not all been independently revalidated.
+
 # GSP firmware signature chain: SEC2 → Booter/FMC → GSP-RM (Turing → Rubin)
 
 *Research notes for the lab rig's owner; compiled 2026-10-20 from the vendored r615
