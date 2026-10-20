@@ -1,5 +1,15 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 29 (RMFunctions R1): slot 4 decoded via REA/IDA (Europe/Istanbul)
+- sub_127750 (0xfd B, slot 4): clock-related BoardObj method handler
+- Accesses dev_ctx + 165184 -> +336 -> +56 fn-ptr, calls with 9-element u32 array
+- Dispatch: if result count > 32 -> sub_126580 (0x11cb B large handler)
+           else -> sub_120060 (0x1575 B small handler)
+- Error tag: "dmal/common/common_clock.c", "ROBUST_CHANNEL_CE10_ERROR"
+- Two sub-handlers identified: sub_120060 (5,461 B) and sub_126580 (73,227 B)
+- This slot dispatches clock operations between small/large modes based on count
+- Next: analyze sub_120060 and sub_126580 for the actual clock operations
+
 ## 2026-10-20 - wave 29 (goal capstone): CONTROL-PLANE.md created (Europe/Istanbul)
 - Single comprehensive reference document mapping every decoded layer:
   NVML API -> kernel RM -> BoardObj protocol -> per-object tables -> p-state
