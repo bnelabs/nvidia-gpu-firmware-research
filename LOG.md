@@ -1,5 +1,12 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 30 (SET-path goal): BoardObj SET-path decode COMPLETE (Europe/Istanbul)
+- Both SET handlers (sub_118FB0, sub_118E90) decoded: same delegation pattern, different fn-ptr offsets (+0x90/+0x98) in the RM dispatch table at dev_ctx+165184.
+- SET crosses the user/kernel boundary through the RM dispatch table.
+- The kernel RM (open source) forwards to the GSP via BoardObj RPC.
+- Complete read/write model for clock limits documented in power-provenance.md.
+- The control-plane decode is now COMPLETE at every layer boundary.
+
 ## 2026-10-20 - wave 29 (RMFunctions R1): slot 4 decoded via REA/IDA (Europe/Istanbul)
 - sub_127750 (0xfd B, slot 4): clock-related BoardObj method handler
 - Accesses dev_ctx + 165184 -> +336 -> +56 fn-ptr, calls with 9-element u32 array
