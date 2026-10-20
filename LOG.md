@@ -1,5 +1,19 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 32 (FMC closeout): KDF provenance + revised feasibility (Europe/Istanbul)
+- Sub-goal A (key-provenance.md): ALL GSP AES key material is on-GPU. rmlsfm.h LSF_UCODE_DESC
+  is included only by nvswitch SOE files; the GSP/falcon/ACR code never touches prdKeys/
+  dbgKeys/kdf. The vBIOS descriptor carries an ENCRYPTED flag but zero key bytes. The host's
+  only key-adjacent role: MESSAGE_QUEUE_INIT_FLAG_ENCRYPTION (RPC queue cipher toggle).
+- Sub-goal B (EXTRACTION.md revised): the AND-gating assumption was WRONG - AES and signature
+  verify independently. BUT both are hardware-gated (AES keys fused; RSA/ECDSA verified by
+  FSP/SEC2 hardware). KDF-strong hypothesis stands (HIGH evidence); KDF-weak UNPROVEN (LOW).
+- Observations to distinguish: live fuse read, debug-part vBIOS comparison, chip decap,
+  falcon emulator runs.
+- Bottom line: validator 0-day converges to hardware attack; the host-reachable surface
+  remains GSP RPC (runtime), vBIOS BIT (pre-boot), driver-side handling.
+- Commits ad17e7e, 241259d. FMC closed.
+
 ## 2026-10-20 - wave 31 (3-agent results): signature chain + generation comparison (Europe/Istanbul)
 
 **GSP SIGNATURE CHAIN (gsp-signature-chain.md, 363 lines):**
