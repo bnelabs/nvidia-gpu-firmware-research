@@ -1,5 +1,18 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 26 (packet H correction): 0x214 = GPU_GET_PROBED_IDS (Europe/Istanbul)
+- Source-pinned from ctrl0000gpu.h: 0x214 = NV0000_CTRL_CMD_GPU_GET_PROBED_IDS
+  (FINN_NV01_ROOT_GPU interface) - a system-level GPU detection query.
+- **The BoardObj enumeration interpretation was WRONG.** sub_A5B10 = NVML device
+  discovery (probed GPU IDs + per-GPU detail), not control-plane operations.
+- The 384 B "entry list" = probed GPU IDs; the 12 B 0x21b = per-GPU state.
+- What remains valid: RMFunctions table (55 slots), dispatcher sub_1117F0,
+  power provenance, GSP firmware decode - all independent of 0x214 interpretation.
+- What was corrected: the "entry list" = GPU ID array, the "class selection" =
+  GPU probe parameters, the sub_A5B10-to-BoardObj connection = separate subsystems.
+- The 0x2080xxxx RM controls (the actual per-object control surface) remain
+  correctly decoded - they were found via the RMFunctions table, not via 0x214.
+
 ## 2026-10-20 - wave 25 (goal R4): REA/IDA xref verification + full query trace decoded (Europe/Istanbul)
 - REA xrefs_to verified: the cDeviceGetPerfLimitersClocks tag (0x1ed450) is referenced
   by exactly 4 data xrefs, ALL in sub_1117F0 - the dispatcher attribution is now
