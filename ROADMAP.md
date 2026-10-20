@@ -83,3 +83,32 @@ Delivered and merged-or-in-review (PR #3):
 - Power provenance: final table in power-provenance.md; a61d reclassified; 0x214 = limit
   transport; per-entry field offsets = open item
 - PR #3: open with final summary; branch carries all waves through 16
+
+
+## COMPLETE RESEARCH STATE (2026-10-20, all goals closed)
+
+### Decoded (source-pinned, evidence-backed)
+1. **Control plane** (6 layers): NVML API (626 tags) -> client controls -> kernel RM ->
+   BoardObj protocol -> 55-slot RMFunctions tables -> GSP firmware
+2. **BoardObj taxonomy**: public Tegra enumeration (MAX=0x3C) + GSP-era extension;
+   RPC protocol {class_id, command_id}; method set INFO/STATUS/CONTROL/READINGS
+3. **P-state synthesis**: RM one-hot -> arch lookup table -> gate {2,3,4,5} -> clock-remap
+4. **Power provenance**: opaque channel (no raw-scalar persistence), a61d = auxiliary,
+   vBIOS PowerPolicy mW candidates
+5. **GSP firmware signature chain**: SHA-384+RSA-3K / ECDSA P-384, fwsignature = signature
+   slots, host has zero enforcement, all on-GPU by fuse-anchored HS verifiers
+6. **All-generation boot trust chain**: universal BROM->HS->LS model, ACR migration
+   (PMU->SEC2->GSP-FMC), FMC-first boot from Hopper, Rubin verified at binary level
+
+### Gated (precisely named)
+- RISC-V RM payload functional diff: needs REA RISC-V lane
+- Per-field limit decode: needs bench differential or live debugger
+- Custom GSP firmware: needs NVIDIA key, verifier 0-day, or hardware attack
+
+### Key documents
+- CONTROL-PLANE.md - the definitive control-plane reference
+- 02-firmware/gsp-signature-chain.md - complete signature chain analysis
+- 01-generations/boot-trust-chain-comparison.md - all-generation firmware architecture
+- 03-low-level-access/power-provenance.md - power control provenance chain
+- 03-low-level-access/nvml-control-plane-tags.txt - 628-tag function inventory
+- 03-low-level-access/rmfunctions-slot-map.json - 55-slot method map
