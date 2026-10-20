@@ -1,5 +1,12 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 35 (field pivot): 08-field/ four deliverables (Europe/Istanbul)
+- D1 verify-differentiation.md: six claims verified against r615 - 4 SOURCE-PINNED HIGH (per-rail power, VF drift, PMU telemetry, clock margin), 2 INFERRED (VRM zone temp LOW, rail voltage LOW-MEDIUM) with honest corrections; business case SURVIVES with two claims gated on one wire-capture session. nvmlDeviceGetPowerSamples ABSENT in 615.71.09 strengthens the PMU differentiator.
+- D2 pre-enumeration-workflow.md: 5-stage escalation (bus presence, link training, driver-attach, power sequencing, MATS-class probing) with instruments and ownership [BENCH]/[CUST]/[AUTH]
+- D3 nvidia-tooling-gap.md: 8 fault classes already free (nvidia-smi + logs), 5 billable gaps (VRM, VF drift, PMU telemetry, margin, sensor granularity)
+- D4 baseline-methodology.md: healthy-baseline product - feature vector, 5 load points, 20+ SKU samples, robust-z comparison engine, controlled-vs-passive split
+- All read-only. Commits f495722, 6fdf328, 799365e, fa29542.
+
 ## 2026-10-20 - wave 34 (diagnostics pivot): 07-diagnostics/ business foundation (Europe/Istanbul)
 - D1 signal-inventory.md: 40+ read-only observables across 10 domains, layer-tagged, RE status marked
 - D2 fault-triage-map.md: 8 fault classes, priority-ordered checks, decision logic + triage matrix
