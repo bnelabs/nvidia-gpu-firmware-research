@@ -432,3 +432,26 @@ slot 5 (sub_118FB0): fn-ptr at +0x90
 slot 6 (sub_118E90): fn-ptr at +0x98
 Both cross the user/kernel boundary through the RM dispatch table at dev_ctx+165184.
 The kernel RM receives the call and forwards to the GSP via the BoardObj RPC protocol.
+
+
+## BOARD OBJ CLASS TAXONOMY DECODED (2026-10-20, agent result - the definitive enumeration)
+
+The Tegra nvgpu driver (boardobjgrp_classes.h) provides the PUBLIC numeric class enumeration. The GSP-RM firmware uses the SAME taxonomy, extended past the public table for GSP-era classes.
+
+### Public class table:
+CLK 0x01-0x11 (17 types), VOLT 0x12-0x15 (4), FAN 0x16-0x18 (3), PERF 0x19-0x21 (9), THERM 0x22-0x25 (4), PMGR 0x26-0x2D (8), PERF_CF 0x2E-0x36 (9), NNE 0x37-0x39 (3), PMU 0x3A-0x3B (2). PUBLIC MAX = 0x3C.
+
+### GSP-era classes (our decoded values):
+0x3D = PUBLIC_MAX+1 (first GSP-era class)
+0x43 (67) = PerfLimitersClocks family
+0x44 (68) = PerfLimitersClocks variant
+0x52 (82) = clock-limits sibling
+0xC1 (193) = GSP-era VF-offset family (GPC/MClk VfOffset)
+0x91 (145) = GSP-era, 2 slots (unresolved)
+0x118 (280) = compound (class 0x01=CLK_DOMAIN, type 0x18)
+
+### BoardObj RPC protocol (nvgpu firmware side):
+RPC: nv_pmu_rpc_struct_board_obj_grp_cmd { hdr; u8 class_id; u8 command_id }
+Command IDs: SET=0x00, GET_STATUS=0x01
+Group header: nv_pmu_boardobjgrp_super { type; classType; class_id; obj_slots; flags }
+Method set: INFO / STATUS / CONTROL / READINGS
