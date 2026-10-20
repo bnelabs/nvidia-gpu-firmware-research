@@ -1,5 +1,14 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 25 (goal R4): REA/IDA xref verification + full query trace decoded (Europe/Istanbul)
+- REA xrefs_to verified: the cDeviceGetPerfLimitersClocks tag (0x1ed450) is referenced
+  by exactly 4 data xrefs, ALL in sub_1117F0 - the dispatcher attribution is now
+  xref-verified by REA (not inferred from strings).
+- Full 50-call trace decoded with the hardened sniffer2: the complete per-query
+  control sequence mapped (0x214 entry list -> 0x21b detail -> 0x279/0x289 -> client
+  0x0000xxxx family -> 0x2080a6xx power -> 0x00000d01 -> 0x2080a61d -> 0x216).
+- Both goals' objectives complete. Commits d18ffd9 + session evidence.
+
 ## 2026-10-20 - wave 24 (SET boundary): control-plane decode complete at NVML/RM boundary (Europe/Istanbul)
 - The +0x98 fn-ptr table = the RM/kernel dispatch (device context) - the BoardObj SET
   crosses the user/kernel boundary. Kernel side = open-gpu-kernel-modules (source
