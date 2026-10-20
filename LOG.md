@@ -1,5 +1,15 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 28 (goal R5): stale docs retracted, 3 agents spun, SET-path decoded (Europe/Istanbul)
+- Documentation audit: retracted stale BoardObj enumeration claims in power-provenance.md
+  (0x214 = GPU_GET_PROBED_IDS correction propagated to all affected sections).
+- 3 research agents launched: (1) GSP firmware signature chain, (2) BoardObj class ID
+  taxonomy, (3) all-generation firmware architecture comparison.
+- SET-path delegation decoded: +0x98 fn-ptr = RM/kernel dispatch table (not NVML-internal);
+  0x275 per-entry name calls fire under different query paths.
+- Agent results will inform: signature chain mechanism, BoardObj class taxonomy,
+  all-generation firmware architecture comparison table.
+
 ## 2026-10-20 - wave 26 (packet H correction): 0x214 = GPU_GET_PROBED_IDS (Europe/Istanbul)
 - Source-pinned from ctrl0000gpu.h: 0x214 = NV0000_CTRL_CMD_GPU_GET_PROBED_IDS
   (FINN_NV01_ROOT_GPU interface) - a system-level GPU detection query.
