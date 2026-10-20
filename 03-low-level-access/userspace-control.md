@@ -1,3 +1,5 @@
+> REFERENCE / HISTORICAL REPORT — not a hardware runbook. Current [CONSTITUTION](../CONSTITUTION.md) and [CORRECTIONS](../CORRECTIONS.md) override this material. Offline decompilation and RE remain authorized. Hardware recipes, bench exceptions and blanket complete/safe claims below are superseded; other literature claims have not all been independently revalidated.
+
 # Userspace Control Surface — nvidia-smi / NVML / NvAPI and what they really do
 
 *Merged deliverable (2026-10-15, Europe/Istanbul): the assigned research agent's fully verified

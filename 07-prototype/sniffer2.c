@@ -1,189 +1,78 @@
-/* sniffer2.c — hardened RM-control tracer implementation (packet A).
- * See sniffer2.h for scope and limitations. */
-#define _GNU_SOURCE
+/* Retained-capture decoder, explicitly for 64-bit little-endian NVOS54 records.
+ * Consumes byte arrays and never follows a pointer from a capture. It does not
+ * export ioctl, load NVML or attach to any process. */
 #include "sniffer2.h"
-
-#include <dlfcn.h>
-#include <errno.h>
-#include <stdint.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <sys/ioctl.h>
 
-static int (*real_ioctl_fp)(int, unsigned long, void *) = NULL;
-static unsigned g_seq = 0;
-
-void sniff_set_real_ioctl(int (*f)(int, unsigned long, void *))
+static uint32_t le32(const unsigned char *p)
 {
-    real_ioctl_fp = f;
+    return (uint32_t)p[0] | (uint32_t)p[1] << 8 | (uint32_t)p[2] << 16 | (uint32_t)p[3] << 24;
 }
-
-static int (*get_real_ioctl(void))(int, unsigned long, void *)
+int sniff_is_nvos54(unsigned magic, unsigned nr, unsigned size)
 {
-    if (!real_ioctl_fp)
-        real_ioctl_fp = (int (*)(int, unsigned long, void *))dlsym(RTLD_NEXT, "ioctl");
-    return real_ioctl_fp;
+    return magic == 'F' && nr == 0x2a && size == 32;
 }
-
-int sniff_is_nvos54(unsigned magic, unsigned nr, unsigned size_field)
+int sniff_decode_nvos54(const unsigned char *h, size_t len, sniff_record *out)
 {
-    return magic == 'F' && nr == 0x2a && size_field == 32;
-}
-
-int sniff_decode_nvos54(const unsigned char *nvos54, size_t len, sniff_record *r)
-{
-    if (!nvos54 || !r || len != 32)
-        return 0;
-    memcpy(&r->hclient,  nvos54 + 0, 4);
-    memcpy(&r->hObject,  nvos54 + 4, 4);
-    memcpy(&r->cmd,      nvos54 + 8, 4);
-    memcpy(&r->flags,    nvos54 + 12, 4);
-    memcpy(&r->params_ptr, nvos54 + 16, 8);
-    memcpy(&r->full_size, nvos54 + 24, 4);
-    /* status (at +28) is filled post-call by the caller; captured separately */
-    r->have_rm = 1;
+    if (!h || !out || len != 32) return 0;
+    out->hclient = le32(h);
+    out->hobject = le32(h + 4);
+    out->cmd = le32(h + 8);
+    out->flags = le32(h + 12);
+    out->recorded_params_pointer = le32(h + 16) | (uint64_t)le32(h + 20) << 32;
+    out->full_size = le32(h + 24);
     return 1;
 }
-
-void sniff_capture_pre(sniff_record *r, int fd, unsigned long cmd, void *arg)
+static uint32_t bounded(size_t available, uint32_t declared)
 {
-    memset(r, 0, sizeof(*r));
-    r->seq = ++g_seq;
-    r->fd = fd;
-    r->iocmd = cmd;
-    r->magic = (cmd >> 8) & 0xff;
-    r->nr = cmd & 0xff;
-    r->size_field = (cmd >> 16) & 0x3fff;
-    r->rm_status = -1;
-    r->shape_ok = sniff_is_nvos54(r->magic, r->nr, r->size_field) && arg != NULL;
-
-    if (!r->shape_ok)
-        return;
-
-    if (!sniff_decode_nvos54((const unsigned char *)arg, 32, r)) {
-        r->shape_ok = 0;
-        return;
-    }
-    r->captured = 0;
-    r->truncated = 0;
-    if (r->params_ptr && r->full_size) {
-        r->captured = r->full_size < SNIF_CAP_MAX ? r->full_size : SNIF_CAP_MAX;
-        r->truncated = r->full_size > SNIF_CAP_MAX;
-        memcpy(r->pre, (const void *)(uintptr_t)r->params_ptr, r->captured);
-    }
+    size_t n = available < declared ? available : declared;
+    return (uint32_t)(n < SNIF_CAP_MAX ? n : SNIF_CAP_MAX);
 }
-
-void sniff_capture_post(sniff_record *r, void *arg, int saved_errno)
+int sniff_from_buffers(unsigned magic, unsigned nr, unsigned size,
+                       const unsigned char *ph, size_t phlen,
+                       const unsigned char *qh, size_t qhlen,
+                       const unsigned char *pre, size_t pre_len,
+                       const unsigned char *post, size_t post_len,
+                       int result, int error, sniff_record *out)
 {
-    r->syscall_errno = saved_errno;
-    if (!r->shape_ok)
-        return;
-    if (r->params_ptr && r->full_size) {
-        memcpy(r->post, (const void *)(uintptr_t)r->params_ptr, r->captured);
-        /* RM status is only meaningful when the ioctl itself succeeded;
-         * after a failed syscall the +28 field is the caller's stale input. */
-        if (saved_errno == 0)
-            memcpy((unsigned char *)&r->rm_status, (const unsigned char *)arg + 28, 4);
-        r->changed = memcmp(r->pre, r->post, r->captured) != 0;
-        if (r->changed) {
-            r->diff_off = 0;
-            while (r->diff_off < r->captured && r->pre[r->diff_off] == r->post[r->diff_off])
-                r->diff_off++;
+    if (!out) return 0;
+    memset(out, 0, sizeof(*out));
+    out->rm_status = -1;
+    out->syscall_result = result;
+    out->syscall_errno = error;
+    if (!sniff_is_nvos54(magic, nr, size) || !sniff_decode_nvos54(ph, phlen, out)) return 0;
+    out->shape_ok = 1;
+    out->captured_pre = pre ? bounded(pre_len, out->full_size) : 0;
+    if (out->captured_pre) memcpy(out->pre, pre, out->captured_pre);
+    if (result == 0 && qh && qhlen == 32) {
+        out->rm_status = le32(qh + 28);
+        out->captured_post = post ? bounded(post_len, out->full_size) : 0;
+        if (out->captured_post) memcpy(out->post, post, out->captured_post);
+    }
+    out->truncated = out->captured_pre < out->full_size ||
+                     (result == 0 && out->captured_post < out->full_size);
+    uint32_t common = out->captured_pre < out->captured_post ? out->captured_pre : out->captured_post;
+    for (uint32_t i = 0; i < common; i++) {
+        if (out->pre[i] != out->post[i]) {
+            out->changed = 1;
+            out->diff_off = i;
+            break;
         }
     }
+    return 1;
 }
-
-void sniff_format(const sniff_record *r, char *out, size_t outlen)
+void sniff_format(const sniff_record *r, char *out, size_t size)
 {
-    size_t o = 0;
-#define APP(...) do { if (o < outlen) { int _n = snprintf(out + o, outlen - o, __VA_ARGS__); if (_n > 0) o += (size_t)_n; } } while (0)
-    APP("seq=%u fd=%d shape=%s", r->seq, r->fd, r->shape_ok ? "nvos54" : "passthrough");
-    if (!r->shape_ok) {
-        APP(" magic=0x%02x nr=0x%02x size=%u", r->magic, r->nr, r->size_field);
-        return;
-    }
-    APP(" cmd=0x%08x obj=0x%08x", r->cmd, r->hObject);
-    APP(" full=%u captured=%u%s", r->full_size, r->captured,
-        r->truncated ? " TRUNCATED" : "");
-    APP(" syscall_errno=%d rm_status=%d", r->syscall_errno, r->rm_status);
-    if (r->changed)
-        APP(" first_diff@+%u pre=%02x post=%02x", r->diff_off,
-            r->captured ? r->pre[r->diff_off] : 0,
-            r->captured ? r->post[r->diff_off] : 0);
-    else
-        APP(" unchanged");
-#undef APP
+    if (!r || !out || !size) return;
+    snprintf(out, size, "offline shape=%s cmd=0x%08x full=%u pre=%u post=%u%s "
+             "syscall_result=%d syscall_errno=%d rm_status=%lld changed=%d diff_off=%u",
+             r->shape_ok ? "nvos54-le64" : "unsupported", r->cmd, r->full_size,
+             r->captured_pre, r->captured_post, r->truncated ? " TRUNCATED" : "",
+             r->syscall_result, r->syscall_errno, (long long)r->rm_status, r->changed, r->diff_off);
 }
-
-/* ---- LD_PRELOAD wrapper ---- */
-int ioctl(int fd, unsigned long cmd, ...)
+int sniff_write_post(const sniff_record *r, FILE *stream)
 {
-    va_list ap;
-    va_start(ap, cmd);
-    void *arg = va_arg(ap, void *);
-    va_end(ap);
-
-    sniff_record rec;
-    sniff_capture_pre(&rec, fd, cmd, arg);
-
-    errno = 0;
-    int r = get_real_ioctl()(fd, cmd, arg);
-    int saved = errno;
-
-    sniff_capture_post(&rec, arg, saved);
-
-    /* full-buffer dump for the 384 B limit-structure control (0x214) */
-    if (rec.shape_ok && (rec.cmd == 0x2080a618 || rec.cmd == 0x2080a612 || rec.cmd == 0x00000214 || rec.cmd == 0x20800275)) {
-        const char *dd = getenv("SNIF_DUMP_DIR");
-        if (dd) {
-            static unsigned ln = 0;
-            char path[512];
-            snprintf(path, sizeof(path), "%s/cmd-0x%08x-%u.bin", dd, rec.cmd, ++ln);
-            FILE *f = fopen(path, "wb");
-            if (f) { fwrite(rec.post, 1, 384, f); fclose(f); }
-        }
-    }
-    /* offline-decode instrument: full-buffer dump for the 12 B per-entry detail
-     * control 0x21b (client limit-entry value). Enabled via SNIF_DUMP_DIR. */
-    if (rec.shape_ok && rec.cmd == 0x0000021b && rec.captured == 12) {
-        const char *dd = getenv("SNIF_DUMP_DIR");
-        if (dd) {
-            static unsigned en = 0;
-            char path[512];
-            snprintf(path, sizeof(path), "%s/0x21b-%u.bin", dd, ++en);
-            FILE *f = fopen(path, "wb");
-            if (f) { fwrite(rec.post, 1, 12, f); fclose(f); }
-        }
-    }
-
-    char line[512];
-    sniff_format(&rec, line, sizeof(line));
-    {
-        int se = errno;               /* preserve errno across logging */
-        dprintf(2, "[sniffer2 %s]\n", line);
-        errno = se;
-    }
-
-    /* NVML globals dump: snapshot the BoardObj result tables (0x1268400 family)
-     * after the session. Load base = dlsym(nvmlDeviceGetPerformanceState) runtime
-     * address minus its static offset (0x99a20, imagebase 0). Once per process. */
-    if (r == 0 && !getenv("SNIF_GLOBALS_DONE") && getenv("SNIF_DUMP_DIR")) {
-        void *psym = dlsym(RTLD_DEFAULT, "nvmlDeviceGetPerformanceState");
-        if (psym) {
-            uintptr_t base = (uintptr_t)psym - 0x99a20;
-            char p2[512];
-            snprintf(p2, sizeof(p2), "%s/globals-base-%p.bin", getenv("SNIF_DUMP_DIR"), (void *)base);
-            FILE *gf = fopen(p2, "wb");
-            if (gf) {
-                fwrite((const void *)(base + 0x1268000), 1, 0x1000, gf);
-                fclose(gf);
-                setenv("SNIF_GLOBALS_DONE", "1", 1);
-            }
-        }
-    }
-
-    errno = saved;                    /* restore caller-visible errno */
-    return r;
+    if (!r || !stream || !r->shape_ok || r->syscall_result != 0 || r->rm_status < 0 ||
+        r->captured_post > SNIF_CAP_MAX) return 0;
+    return fwrite(r->post, 1, r->captured_post, stream) == r->captured_post;
 }

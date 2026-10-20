@@ -1,135 +1,46 @@
-/* test_sniff_decode.c — packet A acceptance tests (no GPU, no kernel needed).
- * Covers: malformed shapes, RM rejection, unchanged inputs, truncated captures,
- * diff detection, and caller-visible errno preservation. */
 #include "../07-prototype/sniffer2.h"
-
-#include <errno.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <sys/ioctl.h>
-
-static int fails = 0;
-#define CHECK(cond, name) do { \
-    if (cond) printf("ok   %s\n", name); \
-    else { printf("FAIL %s\n", name); fails++; } } while (0)
-
-static int fake_fail(int fd, unsigned long c, void *a)
-{
-    (void)fd; (void)c; (void)a; errno = ENOTTY; return -1;
-}
-
-static int fake_reject(int fd, unsigned long c, void *a)
-{
-    (void)fd; (void)c;
-    unsigned st = 0x1f;
-    memcpy((unsigned char *)a + 28, &st, 4);
-    errno = 0;
-    return 0;
-}
-
-static void fill32(unsigned char *b, unsigned cmd, unsigned obj, unsigned full)
-{
-    memset(b, 0, 32);
-    memcpy(b + 8, &cmd, 4);
-    memcpy(b + 4, &obj, 4);
-    memcpy(b + 24, &full, 4);
-}
-
+#include <stdio.h>
+static unsigned checks;
+#define CHECK(c) do { checks++; if (!(c)) { fprintf(stderr,"FAIL line %d: %s\n",__LINE__,#c); return 1; } } while (0)
+static void put32(unsigned char *p, uint32_t v)
+{ for (unsigned i=0;i<4;i++) p[i]=(unsigned char)(v>>(8*i)); }
 int main(void)
 {
-    /* 1. malformed shapes must not decode */
-    {
-        sniff_record r;
-        unsigned char b[40] = {0};
-        fill32(b, 0x20800102, 0x11111111, 32);
-        CHECK(sniff_decode_nvos54(b, 31, &r) == 0, "decode rejects len=31");
-        CHECK(sniff_decode_nvos54(b, 33, &r) == 0, "decode rejects len=33");
-        CHECK(sniff_is_nvos54('F', 0x2a, 32) == 1, "exact shape accepted");
-        CHECK(sniff_is_nvos54('F', 0x2b, 32) == 0, "wrong nr rejected");
-        CHECK(sniff_is_nvos54('F', 0x2a, 64) == 0, "wrong size_field rejected");
-    }
-
-    /* 2. well-formed decode extracts fields */
-    {
-        sniff_record r;
-        unsigned char b[32];
-        fill32(b, 0x20800102, 0xcaf00001, 64);
-        CHECK(sniff_decode_nvos54(b, 32, &r) == 1, "decode accepts len=32");
-        CHECK(r.cmd == 0x20800102 && r.hObject == 0xcaf00001 && r.full_size == 64,
-              "decode extracts cmd/obj/size");
-    }
-
-    /* 3. wrapper: syscall failure — errno preserved, buffer unchanged, no RM status */
-    {
-        unsigned char b[32], params[64];
-        fill32(b, 0x20800102, 0x1, 64);
-        memset(params, 0x77, sizeof(params));
-        { unsigned long pp = (unsigned long)params; memcpy(b + 16, &pp, 8); }
-        sniff_set_real_ioctl(fake_fail);
-        errno = 0;
-        int rv = ioctl(99, _IOWR('F', 0x2a, unsigned char[32]), b);
-        int e = errno;
-        CHECK(rv == -1 && e == ENOTTY, "wrapper preserves -1/ENOTTY to caller");
-        CHECK(params[0] == 0x77, "params buffer unchanged on syscall failure");
-    }
-
-    /* 4. wrapper: RM rejection (status != 0) logged distinctly */
-    {
-        unsigned char b[32], params[32];
-        fill32(b, 0x20800102, 0x1, 32);
-        memset(params, 0, sizeof(params));
-        { unsigned long pp = (unsigned long)params; memcpy(b + 16, &pp, 8); }
-        sniff_set_real_ioctl(fake_reject);
-        int rv = ioctl(99, _IOWR('F', 0x2a, unsigned char[32]), b);
-        CHECK(rv == 0, "RM rejection returns 0 (kernel accepted the ioctl)");
-    }
-
-    /* 5. capture: bounded capture + truncation flag */
-    {
-        sniff_record r;
-        unsigned char b[32];
-        static unsigned char big[8192];
-        fill32(b, 0x2080a618, 0x1, sizeof(big));
-        memset(big, 0xAB, sizeof(big));
-        r.params_ptr = (unsigned long)big;
-        r.full_size = sizeof(big);
-        /* emulate capture path */
-        r.captured = r.full_size < SNIF_CAP_MAX ? r.full_size : SNIF_CAP_MAX;
-        r.truncated = r.full_size > SNIF_CAP_MAX;
-        memcpy(r.pre, big, r.captured);
-        CHECK(r.captured == SNIF_CAP_MAX && r.truncated == 1,
-              "capture bounded with truncation flag");
-    }
-
-    /* 6. diff detection: single changed byte found at right offset */
-    {
-        sniff_record r;
-        unsigned char b[32];
-        fill32(b, 0x20800102, 0x1, 64);
-        r.params_ptr = 0;
-        r.full_size = 64;
-        r.captured = 64;
-        memset(r.pre, 0x11, 64);
-        memcpy(r.post, r.pre, 64);
-        r.post[10] = 0xBB;
-        r.changed = memcmp(r.pre, r.post, 64) != 0;
-        r.diff_off = 0;
-        while (r.diff_off < 64 && r.pre[r.diff_off] == r.post[r.diff_off]) r.diff_off++;
-        CHECK(r.changed == 1 && r.diff_off == 10, "diff detection at +10");
-    }
-
-    /* 7. unchanged input reported as unchanged */
-    {
-        sniff_record r;
-        memset(&r, 0, sizeof(r));
-        r.shape_ok = 1;
-        r.captured = 32;
-        memcpy(r.pre, "AAAA", 4);
-        memcpy(r.post, r.pre, 32);
-        r.changed = memcmp(r.pre, r.post, 32) != 0;
-        CHECK(r.changed == 0, "unchanged input flagged");
-    }
-
-    printf(fails ? "\n%d test(s) FAILED\n" : "\nall tests passed\n", fails);
-    return fails != 0;
+    unsigned char h[32]={0}, q[32]={0};
+    static unsigned char pre[SNIF_CAP_MAX+1], post[SNIF_CAP_MAX+1];
+    sniff_record *r=calloc(1,sizeof(*r));
+    CHECK(r != NULL);
+    put32(h,0x1234); put32(h+4,0x5678); put32(h+8,0x2080a618);
+    /* Deliberately invalid historical pointer: decoder must never follow it. */
+    memset(h+16,0xff,8);
+    put32(h+24,sizeof(pre)); memcpy(q,h,32);
+    memset(pre,0x11,sizeof(pre)); memcpy(post,pre,sizeof(pre)); post[100]=0x22;
+    CHECK(!sniff_decode_nvos54(h,31,r));
+    CHECK(!sniff_decode_nvos54(h,33,r));
+    CHECK(!sniff_decode_nvos54(NULL,32,r));
+    CHECK(!sniff_from_buffers('F',0x2b,32,h,32,q,32,pre,sizeof(pre),post,sizeof(post),0,0,r));
+    CHECK(!sniff_from_buffers('F',0x2a,64,h,32,q,32,pre,sizeof(pre),post,sizeof(post),0,0,r));
+    CHECK(sniff_from_buffers('F',0x2a,32,h,32,q,32,pre,sizeof(pre),post,sizeof(post),0,99,r));
+    CHECK(r->hclient==0x1234 && r->hobject==0x5678 && r->cmd==0x2080a618);
+    CHECK(r->recorded_params_pointer==UINT64_MAX);
+    CHECK(r->captured_pre==SNIF_CAP_MAX && r->captured_post==SNIF_CAP_MAX && r->truncated);
+    CHECK(r->changed && r->diff_off==100);
+    CHECK(r->rm_status==0); /* success is determined by return value, not stale errno */
+    FILE *f=tmpfile(); CHECK(f != NULL);
+    CHECK(sniff_write_post(r,f)); CHECK(ftell(f)==SNIF_CAP_MAX); fclose(f);
+    CHECK(sniff_from_buffers('F',0x2a,32,h,32,q,32,pre,0,post,sizeof(post),-1,25,r));
+    CHECK(r->rm_status==-1 && r->captured_post==0 && r->syscall_errno==25);
+    f=tmpfile(); CHECK(f != NULL); CHECK(!sniff_write_post(r,f)); fclose(f);
+    put32(h+24,12); memcpy(q,h,32); put32(q+28,0x56);
+    CHECK(sniff_from_buffers('F',0x2a,32,h,32,q,32,pre,12,pre,12,0,0,r));
+    CHECK(r->rm_status==0x56 && !r->changed && !r->truncated);
+    f=tmpfile(); CHECK(f != NULL); CHECK(sniff_write_post(r,f)); CHECK(ftell(f)==12); fclose(f);
+    CHECK(sniff_from_buffers('F',0x2a,32,h,32,q,31,pre,12,post,12,0,0,r));
+    CHECK(r->rm_status==-1 && r->captured_post==0 && r->truncated);
+    CHECK(sniff_from_buffers('F',0x2a,32,h,32,q,32,NULL,12,NULL,12,0,0,r));
+    CHECK(r->captured_pre==0 && r->captured_post==0 && r->truncated);
+    char text[32]; sniff_format(r,text,sizeof(text)); CHECK(text[31]=='\0');
+    free(r); printf("%u offline record checks passed\n",checks); return 0;
 }

@@ -3,6 +3,8 @@ import importlib.util
 from pathlib import Path
 import struct
 import unittest
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 spec = importlib.util.spec_from_file_location('bit', Path(__file__).resolve().parents[1] / 'scripts/parse_vbios_bit.py')
 bit = importlib.util.module_from_spec(spec)

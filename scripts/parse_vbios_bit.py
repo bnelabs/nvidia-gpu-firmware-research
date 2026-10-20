@@ -13,6 +13,7 @@ Handles raw ROMs and NVGI/EVGA-wrapped images (auto-locates inner 0x55AA image).
 """
 import struct
 import sys
+from offline_io import read_artifact
 
 # Token names from the official spec (id -> name)
 NAMES = {
@@ -139,8 +140,7 @@ def main():
     parser.add_argument("--perf", action="store_true")
     args = parser.parse_args()
     path, follow_perf = args.rom, args.perf
-    with open(path, "rb") as stream:
-        data = stream.read()
+    data = read_artifact(path)
     print(f"file: {path} ({len(data)} bytes), first 4: {data[:4]!r}")
 
     rom_off = find_inner_rom(data)

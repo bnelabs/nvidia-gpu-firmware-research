@@ -15,6 +15,7 @@ import hashlib
 import json
 import struct
 import sys
+from offline_io import read_artifact
 
 ELF_MAGIC = b"\x7fELF"
 MACHINES = {0xF3: "RISC-V", 0x3E: "x86-64", 0xB7: "AArch64"}
@@ -26,11 +27,13 @@ def sha256(data: bytes) -> str:
 
 def parse_sections(data: bytes):
     """ELF section table for 64-bit LE ELF. Returns list (with error markers)."""
-    if data[:4] != ELF_MAGIC or data[4] != 2 or data[5] != 1:
+    if len(data) < 64 or data[:4] != ELF_MAGIC or data[4] != 2 or data[5] != 1:
         return []
     try:
         e_shoff, = struct.unpack_from("<Q", data, 0x28)
         e_shentsize, e_shnum = struct.unpack_from("<HH", data, 0x3A)
+        if e_shnum and (e_shentsize < 64 or e_shoff + e_shentsize * e_shnum > len(data)):
+            return [{"error": "section table outside artifact or invalid stride"}]
         secs = []
         for i in range(e_shnum):
             off = e_shoff + i * e_shentsize
@@ -39,11 +42,11 @@ def parse_sections(data: bytes):
                 break
             name_off, s_type, flags, addr, offset, size = struct.unpack_from(
                 "<IIQQQQ", data, off)
-            in_bounds = offset + size <= len(data)
+            in_bounds = s_type == 8 or offset + size <= len(data)  # SHT_NOBITS has no file payload
             secs.append({
                 "index": i, "type": s_type, "offset": offset, "size": size,
                 "in_bounds": in_bounds,
-                "preview": data[offset:offset + 16].hex() if in_bounds else None,
+                "preview": data[offset:offset + min(size, 16)].hex() if in_bounds and s_type != 8 else None,
             })
         return secs
     except struct.error as e:
@@ -78,25 +81,36 @@ def scan_embedded_elfs(data: bytes):
                     # ELF64: e_phoff@32 (8B), e_phentsize@54, e_phnum@56
                     e_phoff, = struct.unpack_from("<Q", d, 32)
                     e_phentsize, e_phnum = struct.unpack_from("<HH", d, 54)
-                    if e_phentsize < 56:
+                    if e_phentsize < 56 or not e_phnum or e_phnum > 4096:
                         cand["ph_error"] = f"implausible e_phentsize={e_phentsize}"
                     else:
-                        phs, bounds_ok = [], True
-                        for i in range(min(e_phnum, 16)):
+                        phs, bounds_ok, entry_mapped = [], True, False
+                        if e_phoff + e_phnum * e_phentsize > len(d):
+                            bounds_ok = False
+                        for i in range(e_phnum) if bounds_ok else ():
                             ph = e_phoff + i * e_phentsize
                             if ph + 56 > len(d):
                                 bounds_ok = False
                                 break
                             p_type, p_flags, p_off, p_va, _, p_filesz, p_memsz = \
                                 struct.unpack_from("<IIQQQQQ", d, ph)
+                            valid_segment = p_off + p_filesz <= len(d)
+                            if p_type == 1:
+                                valid_segment = valid_segment and p_filesz <= p_memsz and p_va + p_memsz <= 1 << 64
+                                if p_flags & 1 and p_va <= e_entry < p_va + p_memsz:
+                                    entry_mapped = True
+                            bounds_ok = bounds_ok and valid_segment
                             phs.append({"type": p_type, "va": p_va,
-                                        "filesz": p_filesz, "memsz": p_memsz})
+                                        "offset": p_off, "filesz": p_filesz, "memsz": p_memsz,
+                                        "in_bounds": valid_segment})
                         cand["program_headers"] = phs
                         cand["ph_in_bounds"] = bounds_ok
-                        ok = bounds_ok
+                        cand["entry_in_executable_load"] = entry_mapped
+                        ok = bounds_ok and entry_mapped and e_machine in MACHINES
                 except struct.error:
                     cand["ph_error"] = True
-        cand["status"] = "validated" if ok else "header-only"
+        cand["status"] = "structurally-plausible" if ok else "header-only"
+        cand["limit"] = "bounds checked against remaining artifact, not a proven archive-member boundary or architecture mapping"
         out.append(cand)
     return out
 
@@ -115,7 +129,7 @@ def loader_provenance(data: bytes):
 
 
 def inventory(path: str) -> dict:
-    data = open(path, "rb").read()
+    data = read_artifact(path)
     rec = {
         "path": path,
         "sha256": hashlib.sha256(data).hexdigest(),

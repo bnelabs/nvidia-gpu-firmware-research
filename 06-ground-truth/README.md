@@ -1,20 +1,12 @@
-# Ground truth rig
+# Historical ground truth
+These captures are preserved unchanged. They describe earlier snapshots, not current GPU
+health or proof that a worker never disturbed inference. Use offline analysis only.
 
-- **GPU:** GeForce RTX 3090 (GA102, rev a1) @ PCI 01:00.0 — **runs production inference, do not disturb**
-- **Driver:** NVIDIA Open Kernel Module 615.71.09 (branch r615), CUDA UMD 13.4, Ubuntu, gcc 15.2
-- **State at wave 0 (2026-10-15):** P2, 95% util, 80C, 417W/420W, 21GB/24GB VRAM in use
+Record each file's SHA-256 and size when using it. The filenames configspace-4k are
+historical labels: the old script invoked the conventional -xxx dump, not extended -xxxx.
+Do not repeat those reads. Some tracer exports may be fixed 384-byte prefixes despite
+larger declared payloads; verify actual retained lengths before claiming completeness.
 
-## Rules
-- Captures here are **read-only only** (NVML queries, /proc, /sys reads, lspci config dumps).
-- Never: resets (-r), power/clock mutations, driver unbind, sysfs writes, rom dump (`echo 1 > rom`), flashing.
-- Mutating experiments live in P4 on a disposable test bench / VFIO VM.
-
-## Usage
-```bash
-bash scripts/capture_state.sh   # passive snapshot -> dumps-<timestamp>/ (text, committed)
-```
-
-## Why this rig matters
-Ampere (GA10x) is the generation where GSP-capable open kernel modules matured (510+), the LHR
-era firmware interplay is documented, and the card idles at a driver branch (r615) far past the
-last public guides — perfect for verifying which community knowledge still holds in 2026.
+Manually transcribed fixture JSON is not a complete raw capture or independent source.
+No new root capture, custom RM probe, tracing or firmware acquisition from the GPU is
+authorized. The current collector's default prints a plan without hardware contact.

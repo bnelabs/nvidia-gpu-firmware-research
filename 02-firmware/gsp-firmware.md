@@ -1,3 +1,5 @@
+> REFERENCE / HISTORICAL REPORT — not a hardware runbook. Current [CONSTITUTION](../CONSTITUTION.md) and [CORRECTIONS](../CORRECTIONS.md) override this material. Offline decompilation and RE remain authorized. Hardware recipes, bench exceptions and blanket complete/safe claims below are superseded; other literature claims have not all been independently revalidated.
+
 # GSP Firmware (Turing → Blackwell): notes for offline study of one's own hardware
 
 *Research notes for an owner studying their own RTX 3090 rig from an offline analysis machine. Nothing here touches the production GPU: every command below runs on copies of files on a separate box. No malware, no attacks on other people's systems.*

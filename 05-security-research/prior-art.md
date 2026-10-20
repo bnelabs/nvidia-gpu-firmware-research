@@ -1,3 +1,5 @@
+> REFERENCE / HISTORICAL REPORT — not a hardware runbook. Current [CONSTITUTION](../CONSTITUTION.md) and [CORRECTIONS](../CORRECTIONS.md) override this material. Offline decompilation and RE remain authorized. Hardware recipes, bench exceptions and blanket complete/safe claims below are superseded; other literature claims have not all been independently revalidated.
+
 # Prior Art — Public Reverse Engineering & Security Research on NVIDIA GPU Firmware
 
 *Research notes for the owner of the lab rig studying their own hardware. Compiled 2026-10-15; all links checked that date. Framing: analysis of one's own cards, no offensive tooling, no techniques aimed at systems you don't own.*

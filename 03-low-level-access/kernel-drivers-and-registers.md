@@ -1,3 +1,5 @@
+> REFERENCE / HISTORICAL REPORT — not a hardware runbook. Current [CONSTITUTION](../CONSTITUTION.md) and [CORRECTIONS](../CORRECTIONS.md) override this material. Offline decompilation and RE remain authorized. Hardware recipes, bench exceptions and blanket complete/safe claims below are superseded; other literature claims have not all been independently revalidated.
+
 # Kernel Drivers & Registers — Low-Level Access Paths on Consumer NVIDIA GPUs
 
 Research notes for the lab owner studying **their own hardware** (RTX 3090 / GA102, open

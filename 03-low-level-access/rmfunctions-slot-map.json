@@ -12,7 +12,8 @@
     "cDeviceQueryClockLockedState",
     "cDeviceSetAutoBoostedClocksEnabled",
     "cDeviceSetVFUpdateMode"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 1,
@@ -22,7 +23,8 @@
     "cDeviceQueryClockLockedState",
     "cDeviceSetAutoBoostedClocksEnabled",
     "cDeviceSetVFUpdateMode"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 2,
@@ -32,14 +34,16 @@
     "cDeviceQueryClockLockedState",
     "cDeviceSetAutoBoostedClocksEnabled",
     "cDeviceSetVFUpdateMode"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 3,
    "function": "sub_111600",
    "tags": [
     "cDeviceGetPerfLimitersClocks"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 4,
@@ -47,7 +51,8 @@
    "tags": [
     "cDeviceGetGpuResetStatus",
     "cDeviceGetMmaStallPercent"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 5,
@@ -55,7 +60,8 @@
    "tags": [
     "cDeviceSetPerfLimitersClocks",
     "cDeviceSetRawClock"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 6,
@@ -63,7 +69,8 @@
    "tags": [
     "cDeviceSetPerfLimitersClocks",
     "cDeviceSetRawClock"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 7,
@@ -74,7 +81,8 @@
     "cDeviceSetAutoBoostedClocksEnabled",
     "cDeviceSetMclkLimit",
     "cDeviceSetVFUpdateMode"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 8,
@@ -85,7 +93,8 @@
     "cDeviceMapTargetToActualFrequency",
     "cDeviceSetAutoBoostedClocksAPIRestriction",
     "cDeviceSetDefaultAutoBoostedClocksEnabled"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 9,
@@ -95,7 +104,8 @@
     "cDeviceMapTargetToActualFrequency",
     "cDeviceRmClockDomainToDomainIndexUncached",
     "cDeviceSetAutoBoostedClocksAPIRestriction"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 10,
@@ -106,7 +116,8 @@
     "cDeviceMapTargetToActualFrequency",
     "cDeviceSetAutoBoostedClocksAPIRestriction",
     "cDeviceSetDefaultAutoBoostedClocksEnabled"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 11,
@@ -117,7 +128,8 @@
     "cDeviceSetAutoBoostedClocksEnabled",
     "cDeviceSetMclkLimit",
     "cDeviceSetVFUpdateMode"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 12,
@@ -127,7 +139,8 @@
     "cDeviceMapTargetToActualFrequency",
     "cDeviceSetAutoBoostedClocksAPIRestriction",
     "cDeviceSetDefaultAutoBoostedClocksEnabled"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 13,
@@ -135,7 +148,8 @@
    "tags": [
     "cDeviceGetClockSamples",
     "cDeviceQueryLockedClocksHelper"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 14,
@@ -144,7 +158,8 @@
     "cDeviceGet3xRmClockInfo",
     "cDeviceGetMclkLimitInfo",
     "cDeviceRmClockDomainToDomainIndex"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 15,
@@ -152,7 +167,8 @@
    "tags": [
     "cDeviceGetClkMonStatus",
     "cDeviceGetClockInfo"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 16,
@@ -161,24 +177,28 @@
     "cDeviceGetClockInfo",
     "cDeviceGetClockMarginMHz",
     "cDeviceGetMinTargetSmClockMHzUncached"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 17,
    "function": "sub_114E80",
    "tags": [
     "cDeviceGetClockSamples"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 18,
    "function": "sub_114B50",
-   "tags": []
+   "tags": [],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 19,
    "function": "sub_114770",
-   "tags": []
+   "tags": [],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 20,
@@ -187,14 +207,16 @@
     "cDeviceGetClkMinMaxVfOffset",
     "cDeviceGetGpcClkVfOffset",
     "cDeviceSetMClkVfOffset"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 21,
    "function": "sub_114480",
    "tags": [
     "cDeviceSetGpcClkVfOffset"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 22,
@@ -202,7 +224,8 @@
    "tags": [
     "cDeviceGetClkMinMaxVfOffset",
     "cDeviceSetGpcClkVfOffset"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 23,
@@ -211,7 +234,8 @@
     "cDeviceGetGpcClkVfOffset",
     "cDeviceGetMClkVfOffset",
     "cDeviceSetMClkVfOffset"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 24,
@@ -220,7 +244,8 @@
     "cDeviceGetClkMinMaxVfOffset",
     "cDeviceSetGpcClkVfOffset",
     "cDeviceSetMClkVfOffset"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 25,
@@ -229,7 +254,8 @@
     "cDeviceGetClockMarginMHz",
     "cDeviceGetMinTargetSmClockMHzUncached",
     "cDeviceGetPowerMizerMode_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 26,
@@ -239,7 +265,8 @@
     "cDeviceGetMinTargetSmClockMHzUncached",
     "cDeviceGetPowerMizerMode_v1",
     "cDeviceSetPowerMizerMode_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 27,
@@ -249,7 +276,8 @@
     "cDeviceResetMemoryLockedClocks",
     "cDeviceSetGpcRgFeature",
     "cDeviceToggleInflectionPointsDisableHelper"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 28,
@@ -260,7 +288,8 @@
     "cDeviceSetGpcRgFeature",
     "cDeviceSetPerformanceMode",
     "cDeviceToggleInflectionPointsDisableHelper"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 29,
@@ -268,7 +297,8 @@
    "tags": [
     "cDeviceGetAdaptiveClockInfoStatus",
     "cDeviceGetClkVfOffsetHelper"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 30,
@@ -278,7 +308,8 @@
     "cDeviceGetPowerMizerMode_v1",
     "cDevicePowerMizerModeUnCached",
     "cDeviceSetPowerMizerMode_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 31,
@@ -288,7 +319,8 @@
     "cDevicePowerMizerModeUnCached",
     "cDeviceSetPowerMizerMode_v1",
     "cDeviceToggleInstructionAwareVFCurve"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 32,
@@ -298,7 +330,8 @@
     "cDeviceGetClkVfOffsetHelper",
     "cDeviceSupportsLockClocksDeferred",
     "cGetClockDomainControlsHelper"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 33,
@@ -308,7 +341,8 @@
     "cDeviceGetMclkLimit",
     "cDeviceSupportsLockClocksDeferred",
     "cGetClockDomainControlsHelper"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 34,
@@ -318,7 +352,8 @@
     "cDeviceSetMclkLimit",
     "cDeviceSupportsLockClocksDeferred",
     "cGetClockDomainControlsHelper"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 35,
@@ -328,7 +363,8 @@
     "cDeviceGetVFUpdateMode",
     "cDeviceSetMclkLimit",
     "cDeviceSupportsLockClocksDeferred"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 36,
@@ -339,7 +375,8 @@
     "cDeviceSetMclkLimit",
     "cDeviceSetVFUpdateMode",
     "cDeviceSupportsLockClocksDeferred"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 37,
@@ -348,7 +385,8 @@
     "cConvertNvmlClockTypeToRmClockDomain",
     "cDeviceIsClockSupported",
     "cDeviceToggleInstructionAwareVFCurve"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 38,
@@ -357,7 +395,8 @@
     "cConvertNvmlClockTypeToRmClockDomain",
     "cDeviceGetClkPublicDomain",
     "cDeviceIsClockSupported"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 39,
@@ -366,7 +405,8 @@
     "cDeviceGet3xRmClockInfo",
     "cDeviceGetMclkLimitInfo",
     "cDeviceRmClockDomainToDomainIndex"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 40,
@@ -375,7 +415,8 @@
     "cDeviceGetGpuDrainAndResetStatus",
     "cDeviceGetGpuResetStatus",
     "cDeviceGetMmaStallPercent"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 41,
@@ -385,7 +426,8 @@
     "cDeviceGetAddressingModeUncached",
     "cDevicePerfMetricsGetPhysicalRailDlppm1xMetricsFull",
     "cDevicePerfMetricsGetPmuSamples"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 42,
@@ -394,14 +436,16 @@
     "cDevicePerfMetricsGetObservedCoreRailMetricsFull",
     "cDevicePerfMetricsGetObservedMetricsFull",
     "cDevicePerfMetricsGetSamplesFullV1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 43,
    "function": "sub_128AA0",
    "tags": [
     "cDevicePerfMetricsGetSampleV1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 44,
@@ -409,7 +453,8 @@
    "tags": [
     "cDeviceRistMapBuffer_v1",
     "cDeviceRistModeEnter_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 45,
@@ -417,7 +462,8 @@
    "tags": [
     "cDeviceRistModeEnter_v1",
     "cDeviceRistModeExit"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 46,
@@ -425,7 +471,8 @@
    "tags": [
     "cDeviceRistUnmapBuffer_v1",
     "cSystemRistInitBuffer_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 47,
@@ -433,14 +480,16 @@
    "tags": [
     "cSystemRistDeinitBuffer_v1",
     "cSystemRistInitBuffer_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 48,
    "function": "sub_12DCA0",
    "tags": [
     "cDeviceRistMapBuffer_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 49,
@@ -448,7 +497,8 @@
    "tags": [
     "cDeviceRistPerformTpcRepair_v1",
     "cDeviceRistUnmapBuffer_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 50,
@@ -457,7 +507,8 @@
     "cDeviceRistGetInstances_v1",
     "cDeviceRistModeEnter_v1",
     "cDeviceRistModeExit"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 51,
@@ -467,7 +518,8 @@
     "cDeviceRistGetInstances_v1",
     "cDeviceRistModeEnter_v1",
     "cDeviceRistModeExit"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 52,
@@ -477,14 +529,16 @@
     "cDeviceRistGetCapabilities_v1",
     "cDeviceRistGetInstances_v1",
     "cDeviceRistModeExit"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 53,
    "function": "sub_12DBA0",
    "tags": [
     "cDeviceRistMapBuffer_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   },
   {
    "slot": 54,
@@ -494,7 +548,13 @@
     "cDeviceRistGetCapabilities_v1",
     "cDeviceRistGetInstances_v1",
     "cDeviceRistGetStatus_v1"
-   ]
+   ],
+   "status": "historical candidate association; multiple tags are not one proven semantic identity"
   }
- ]
+ ],
+ "component": "host userspace x86-64 library; not GSP firmware",
+ "address_domain": "reported library virtual addresses; verify image base offline",
+ "mapping_status": "candidate tag associations; exact semantic identity and wire contracts not established",
+ "header_commit_scope": "pinned_commit identifies public driver reference, not proof of private ABI compatibility",
+ "safety": "static analysis only; no invocation of these functions or controls on hardware"
 }

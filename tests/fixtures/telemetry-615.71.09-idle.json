@@ -1,20 +1,46 @@
-{"fixture": "GA102 telemetry - idle capture (read-only rmctl probes)",
+{
+ "fixture": "GA102 telemetry - idle capture (read-only rmctl probes)",
  "captured": "2026-10-16T00:55:00+03:00",
  "host": "ubuntuserver",
- "device": {"name": "NVIDIA GeForce RTX 3090",
-            "uuid": "GPU-8a9c05b3-fea1-4d89-5113-b56acbb1eba9",
-            "pci": "0000:06:00.0", "vbios": "94.02.42.00.F4"},
- "driver": {"version": "615.71.09", "kind": "open-kernel-module",
-            "gsp_firmware_version": "615.71.09",
-            "pinned_header_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf"},
+ "device": {
+  "name": "NVIDIA GeForce RTX 3090",
+  "uuid": "GPU-8a9c05b3-fea1-4d89-5113-b56acbb1eba9",
+  "pci": "0000:06:00.0",
+  "vbios": "94.02.42.00.F4"
+ },
+ "driver": {
+  "version": "615.71.09",
+  "kind": "open-kernel-module",
+  "gsp_firmware_version": "615.71.09",
+  "pinned_header_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf"
+ },
  "probes": {
-  "gsp_get_features": {"cmd": "0x20803601",
-    "raw": {"gspFeatures": 1, "bValid": 1, "bDefaultGspRmGpu": 1},
-    "source": "07-prototype/rmctl.c probe 4; struct ctrl2080gsp.h"},
-  "perf_get_current_pstate": {"cmd": "0x20802068",
-    "raw": {"currPstate": 256},
-    "encoding": "one-hot: NV2080_CTRL_PERF_PSTATES_Pn = 2^n (P0=1 ... P15=0x8000)",
-    "source": "ctrl2080perf.h @ ca2d03e; tests/test_pstate_decode.c"},
-  "clk_pmumon_domains_get_samples": {"cmd": "0x20801037",
-    "raw": {"numSamples": 250, "last_activeGpcClkFreqKHz": 210000},
-    "encoding": "KHz u32", "source": "ctrl2080clk.h"}}}
+  "gsp_get_features": {
+   "cmd": "0x20803601",
+   "raw": {
+    "gspFeatures": 1,
+    "bValid": 1,
+    "bDefaultGspRmGpu": 1
+   },
+   "source": "07-prototype/rmctl.c probe 4; struct ctrl2080gsp.h"
+  },
+  "perf_get_current_pstate": {
+   "cmd": "0x20802068",
+   "raw": {
+    "currPstate": 256
+   },
+   "encoding": "one-hot: NV2080_CTRL_PERF_PSTATES_Pn = 2^n (P0=1 ... P15=0x8000)",
+   "source": "ctrl2080perf.h @ ca2d03e; tests/test_pstate_decode.c"
+  },
+  "clk_pmumon_domains_get_samples": {
+   "cmd": "0x20801037",
+   "raw": {
+    "numSamples": 250,
+    "last_activeGpcClkFreqKHz": 210000
+   },
+   "encoding": "KHz u32",
+   "source": "ctrl2080clk.h"
+  }
+ },
+ "evidence_status": "historical manually transcribed fixture; not a retained full raw response or new observation"
+}

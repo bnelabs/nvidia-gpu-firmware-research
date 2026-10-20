@@ -1,3 +1,5 @@
+> HISTORICAL WORKER REPORTS. Current CONSTITUTION.md and CORRECTIONS.md override older safety/completion claims. No current workload or GPU safety is certified by this log.
+
 # Research log (append-only)
 
 ## 2026-10-21 - wave 36 (monitor pivot): 10-monitor/ working tool + revised case (Europe/Istanbul)
@@ -597,3 +599,7 @@
 - /100,000 = imul 0xA7C5AC5 >> 39 (compiler optimization, not actual division)
 - Same 100,000 in vBIOS PowerPolicy values - unit family confirmed across vBIOS and RM
 - Commit 0cba5ca
+
+
+## 2026-10-21 — constitutional safety and evidence correction
+Owner permits deep offline RE and non-intrusive documented monitoring only. The prior bench exception, all-goals-complete certification, opaque GPU-discovery/power attribution, host-to-firmware attribution and diagnostic capability overclaims are superseded by CONSTITUTION.md and CORRECTIONS.md. Live custom RM, preload and ABI-probing implementations are retired; prebuilt binaries removed. Offline decoders/fixtures and the default-off documented collector replace them. No GPU, driver, settings, firmware or running worker was accessed or altered during this change. CPU-only validation is recorded in VALIDATION.md. Replaced narratives are preserved under archive/2026-10-21-pre-constitution.
