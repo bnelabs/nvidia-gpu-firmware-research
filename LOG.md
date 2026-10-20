@@ -1,5 +1,20 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 29 (BoardObj taxonomy agent COMPLETE): full class taxonomy mapped (Europe/Istanbul)
+- Tegra nvgpu boardobjgrp_classes.h = the ONLY public numeric enumeration of BoardObj classes.
+- Public table: CLK(0x01-0x11, 17 types), VOLT(0x12-0x15, 4), FAN(0x16-0x18, 3),
+  PERF(0x19-0x21, 9), THERM(0x22-0x25, 4), PMGR(0x26-0x2D, 8), PERF_CF(0x2E-0x36, 9),
+  NNE(0x37-0x39, 3), PMU(0x3A-0x3B, 2). PUBLIC_MAX = 0x3C.
+- GSP-era extension: 0x3D+ = beyond public enumeration (our decoded values live here).
+- Two additional stub classes found: 0x39 (NNE_DESC) and 0x3A (PMU_SUPER_SURFACE) in the
+  trampoline cluster that the slot map missed.
+- BoardObj RPC protocol confirmed: {class_id, command_id (SET=0, GET_STATUS=1)} +
+  group header {type, classType, class_id, obj_slots, flags}.
+- Method set per object: INFO / STATUS / CONTROL / READINGS (+ payload variants).
+- The class selection mechanism: flag byte in sub_1528F0 + per-record attrs, realized
+  via RMFunctions function-table polymorphism (not request parameters).
+- Commit a2a1f83.
+
 ## 2026-10-20 - wave 30 (SET-path goal): BoardObj SET-path decode COMPLETE (Europe/Istanbul)
 - Both SET handlers (sub_118FB0, sub_118E90) decoded: same delegation pattern, different fn-ptr offsets (+0x90/+0x98) in the RM dispatch table at dev_ctx+165184.
 - SET crosses the user/kernel boundary through the RM dispatch table.
