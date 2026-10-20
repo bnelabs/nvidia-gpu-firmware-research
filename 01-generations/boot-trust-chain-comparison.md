@@ -109,3 +109,16 @@ The shipping consumer image is *not* one architecture — it is a binArchive of 
 - [VERIFY] Public JTAG/SWD posture of GeForce dGPUs (envytools debug page is a stub; nothing primary found).
 - [VERIFY] Exact FMC provenance pre-Hopper (Tegra FMC usage) — kernel comments only define GSP-FMC.
 - [VERIFY] Whether `.fwsignature_cc_*` sections are consumed only in CC boots or also in the normal path.
+
+
+## GC6-exit signature skip — assessment disposition
+
+The documented GC6-exit trust shortcut (rmlsfm.h:96-97: signatures are not checked when
+re-booting GSP-RM from WPR2 after a GC6 sleep) was assessed as a security finding and
+**closed as INFORMATIONAL** (see 04-gc6/threat-model.md and 04-gc6/exploitability.md).
+The shortcut requires host-kernel code execution to reach, grants nothing beyond existing
+kernel privileges, cannot persist across reboot (the NORMAL boot path always re-verifies),
+and — decisively — the trusted state it reuses lives inside WPR2, a hardware write-protected
+region that neither host kernel code nor guests can modify during the GC6 window. The skip
+is a deliberate design choice whose safety depends on WPR2 hardware protection, and that
+protection holds. No PSIRT report is warranted.
