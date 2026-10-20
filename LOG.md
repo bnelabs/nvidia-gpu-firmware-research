@@ -1,5 +1,18 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 33 (GC6 closeout): security assessment complete - INFORMATIONAL (Europe/Istanbul)
+- Deliverable 1 (04-gc6/threat-model.md): attacker model = host kernel required (gpu_suspend.c:228
+  is the only trigger), grants nothing beyond kernel privileges, no persistence across reboot
+  (NORMAL boot re-verifies: kernel_gsp_tu102.c:398-440), no guest/userland reachability
+  (WPR2 hardware write protection: kernel_gsp_frts_tu102.c:506-517).
+- Deliverable 2 (04-gc6/exploitability.md): kill-criterion MATCHED exactly - requires host
+  kernel, no persistence, no cross-boundary escalation. Rated INFORMATIONAL. The skip is a
+  documented design choice safe under WPR2 hardware protection. Evidence HIGH for the
+  structural claims, MEDIUM for GC6 AON scratch ACLs (not audited this pass).
+- Deliverable 3: disposition paragraph appended to boot-trust-chain-comparison.md.
+- **No PSIRT report warranted.** The kill criterion was applied honestly - no inflation.
+- Commits af7166c, a2fb7a9, 21a4256. GC6 closed.
+
 ## 2026-10-20 - wave 32 (FMC closeout): KDF provenance + revised feasibility (Europe/Istanbul)
 - Sub-goal A (key-provenance.md): ALL GSP AES key material is on-GPU. rmlsfm.h LSF_UCODE_DESC
   is included only by nvswitch SOE files; the GSP/falcon/ACR code never touches prdKeys/
