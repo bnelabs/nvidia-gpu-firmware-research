@@ -1,0 +1,500 @@
+{
+ "source": "libnvidia-ml-615.71.09.so",
+ "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95",
+ "table_off": "0x2D1180",
+ "pinned_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+ "slots": [
+  {
+   "slot": 0,
+   "function": "sub_111D30",
+   "tags": [
+    "cDevicePerfPStatesInfoUncached",
+    "cDeviceQueryClockLockedState",
+    "cDeviceSetAutoBoostedClocksEnabled",
+    "cDeviceSetVFUpdateMode"
+   ]
+  },
+  {
+   "slot": 1,
+   "function": "sub_111D10",
+   "tags": [
+    "cDevicePerfPStatesInfoUncached",
+    "cDeviceQueryClockLockedState",
+    "cDeviceSetAutoBoostedClocksEnabled",
+    "cDeviceSetVFUpdateMode"
+   ]
+  },
+  {
+   "slot": 2,
+   "function": "sub_111CF0",
+   "tags": [
+    "cDevicePerfPStatesInfoUncached",
+    "cDeviceQueryClockLockedState",
+    "cDeviceSetAutoBoostedClocksEnabled",
+    "cDeviceSetVFUpdateMode"
+   ]
+  },
+  {
+   "slot": 3,
+   "function": "sub_111600",
+   "tags": [
+    "cDeviceGetPerfLimitersClocks"
+   ]
+  },
+  {
+   "slot": 4,
+   "function": "sub_127750",
+   "tags": [
+    "cDeviceGetGpuResetStatus",
+    "cDeviceGetMmaStallPercent"
+   ]
+  },
+  {
+   "slot": 5,
+   "function": "sub_118FB0",
+   "tags": [
+    "cDeviceSetPerfLimitersClocks",
+    "cDeviceSetRawClock"
+   ]
+  },
+  {
+   "slot": 6,
+   "function": "sub_118E90",
+   "tags": [
+    "cDeviceSetPerfLimitersClocks",
+    "cDeviceSetRawClock"
+   ]
+  },
+  {
+   "slot": 7,
+   "function": "sub_1120A0",
+   "tags": [
+    "cDeviceGetVFUpdateMode",
+    "cDeviceQueryClockLockedState",
+    "cDeviceSetAutoBoostedClocksEnabled",
+    "cDeviceSetMclkLimit",
+    "cDeviceSetVFUpdateMode"
+   ]
+  },
+  {
+   "slot": 8,
+   "function": "sub_115D90",
+   "tags": [
+    "cDeviceGetAutoBoostedClocksAPIRestriction",
+    "cDeviceGetMclkCapabilityCap",
+    "cDeviceMapTargetToActualFrequency",
+    "cDeviceSetAutoBoostedClocksAPIRestriction",
+    "cDeviceSetDefaultAutoBoostedClocksEnabled"
+   ]
+  },
+  {
+   "slot": 9,
+   "function": "sub_116070",
+   "tags": [
+    "cDeviceGetMclkCapabilityCap",
+    "cDeviceMapTargetToActualFrequency",
+    "cDeviceRmClockDomainToDomainIndexUncached",
+    "cDeviceSetAutoBoostedClocksAPIRestriction"
+   ]
+  },
+  {
+   "slot": 10,
+   "function": "sub_115CB0",
+   "tags": [
+    "cDeviceGetAutoBoostedClocksAPIRestriction",
+    "cDeviceGetAutoBoostedClocksEnabled",
+    "cDeviceMapTargetToActualFrequency",
+    "cDeviceSetAutoBoostedClocksAPIRestriction",
+    "cDeviceSetDefaultAutoBoostedClocksEnabled"
+   ]
+  },
+  {
+   "slot": 11,
+   "function": "sub_1122A0",
+   "tags": [
+    "cDeviceGetMclkLimit",
+    "cDeviceGetVFUpdateMode",
+    "cDeviceSetAutoBoostedClocksEnabled",
+    "cDeviceSetMclkLimit",
+    "cDeviceSetVFUpdateMode"
+   ]
+  },
+  {
+   "slot": 12,
+   "function": "sub_115E60",
+   "tags": [
+    "cDeviceGetMclkCapabilityCap",
+    "cDeviceMapTargetToActualFrequency",
+    "cDeviceSetAutoBoostedClocksAPIRestriction",
+    "cDeviceSetDefaultAutoBoostedClocksEnabled"
+   ]
+  },
+  {
+   "slot": 13,
+   "function": "sub_115430",
+   "tags": [
+    "cDeviceGetClockSamples",
+    "cDeviceQueryLockedClocksHelper"
+   ]
+  },
+  {
+   "slot": 14,
+   "function": "sub_11CB20",
+   "tags": [
+    "cDeviceGet3xRmClockInfo",
+    "cDeviceGetMclkLimitInfo",
+    "cDeviceRmClockDomainToDomainIndex"
+   ]
+  },
+  {
+   "slot": 15,
+   "function": "sub_11F830",
+   "tags": [
+    "cDeviceGetClkMonStatus",
+    "cDeviceGetClockInfo"
+   ]
+  },
+  {
+   "slot": 16,
+   "function": "sub_11F310",
+   "tags": [
+    "cDeviceGetClockInfo",
+    "cDeviceGetClockMarginMHz",
+    "cDeviceGetMinTargetSmClockMHzUncached"
+   ]
+  },
+  {
+   "slot": 17,
+   "function": "sub_114E80",
+   "tags": [
+    "cDeviceGetClockSamples"
+   ]
+  },
+  {
+   "slot": 18,
+   "function": "sub_114B50",
+   "tags": []
+  },
+  {
+   "slot": 19,
+   "function": "sub_114770",
+   "tags": []
+  },
+  {
+   "slot": 20,
+   "function": "sub_113AE0",
+   "tags": [
+    "cDeviceGetClkMinMaxVfOffset",
+    "cDeviceGetGpcClkVfOffset",
+    "cDeviceSetMClkVfOffset"
+   ]
+  },
+  {
+   "slot": 21,
+   "function": "sub_114480",
+   "tags": [
+    "cDeviceSetGpcClkVfOffset"
+   ]
+  },
+  {
+   "slot": 22,
+   "function": "sub_114080",
+   "tags": [
+    "cDeviceGetClkMinMaxVfOffset",
+    "cDeviceSetGpcClkVfOffset"
+   ]
+  },
+  {
+   "slot": 23,
+   "function": "sub_113840",
+   "tags": [
+    "cDeviceGetGpcClkVfOffset",
+    "cDeviceGetMClkVfOffset",
+    "cDeviceSetMClkVfOffset"
+   ]
+  },
+  {
+   "slot": 24,
+   "function": "sub_113D80",
+   "tags": [
+    "cDeviceGetClkMinMaxVfOffset",
+    "cDeviceSetGpcClkVfOffset",
+    "cDeviceSetMClkVfOffset"
+   ]
+  },
+  {
+   "slot": 25,
+   "function": "sub_11F190",
+   "tags": [
+    "cDeviceGetClockMarginMHz",
+    "cDeviceGetMinTargetSmClockMHzUncached",
+    "cDeviceGetPowerMizerMode_v1"
+   ]
+  },
+  {
+   "slot": 26,
+   "function": "sub_11ED30",
+   "tags": [
+    "cDeviceGetClockMarginMHz",
+    "cDeviceGetMinTargetSmClockMHzUncached",
+    "cDeviceGetPowerMizerMode_v1",
+    "cDeviceSetPowerMizerMode_v1"
+   ]
+  },
+  {
+   "slot": 27,
+   "function": "sub_11B510",
+   "tags": [
+    "cDeviceGetPerformanceMode",
+    "cDeviceResetMemoryLockedClocks",
+    "cDeviceSetGpcRgFeature",
+    "cDeviceToggleInflectionPointsDisableHelper"
+   ]
+  },
+  {
+   "slot": 28,
+   "function": "sub_11B3A0",
+   "tags": [
+    "cDeviceGetPerformanceMode",
+    "cDeviceResetMemoryLockedClocks",
+    "cDeviceSetGpcRgFeature",
+    "cDeviceSetPerformanceMode",
+    "cDeviceToggleInflectionPointsDisableHelper"
+   ]
+  },
+  {
+   "slot": 29,
+   "function": "sub_113070",
+   "tags": [
+    "cDeviceGetAdaptiveClockInfoStatus",
+    "cDeviceGetClkVfOffsetHelper"
+   ]
+  },
+  {
+   "slot": 30,
+   "function": "sub_11E9D0",
+   "tags": [
+    "cDeviceGetInstructionAwareVFCurve",
+    "cDeviceGetPowerMizerMode_v1",
+    "cDevicePowerMizerModeUnCached",
+    "cDeviceSetPowerMizerMode_v1"
+   ]
+  },
+  {
+   "slot": 31,
+   "function": "sub_11E7F0",
+   "tags": [
+    "cDeviceGetInstructionAwareVFCurve",
+    "cDevicePowerMizerModeUnCached",
+    "cDeviceSetPowerMizerMode_v1",
+    "cDeviceToggleInstructionAwareVFCurve"
+   ]
+  },
+  {
+   "slot": 32,
+   "function": "sub_112C30",
+   "tags": [
+    "cDeviceGetAdaptiveClockInfoStatus",
+    "cDeviceGetClkVfOffsetHelper",
+    "cDeviceSupportsLockClocksDeferred",
+    "cGetClockDomainControlsHelper"
+   ]
+  },
+  {
+   "slot": 33,
+   "function": "sub_1129A0",
+   "tags": [
+    "cDeviceGetAdaptiveClockInfoStatus",
+    "cDeviceGetMclkLimit",
+    "cDeviceSupportsLockClocksDeferred",
+    "cGetClockDomainControlsHelper"
+   ]
+  },
+  {
+   "slot": 34,
+   "function": "sub_112780",
+   "tags": [
+    "cDeviceGetMclkLimit",
+    "cDeviceSetMclkLimit",
+    "cDeviceSupportsLockClocksDeferred",
+    "cGetClockDomainControlsHelper"
+   ]
+  },
+  {
+   "slot": 35,
+   "function": "sub_112590",
+   "tags": [
+    "cDeviceGetMclkLimit",
+    "cDeviceGetVFUpdateMode",
+    "cDeviceSetMclkLimit",
+    "cDeviceSupportsLockClocksDeferred"
+   ]
+  },
+  {
+   "slot": 36,
+   "function": "sub_112430",
+   "tags": [
+    "cDeviceGetMclkLimit",
+    "cDeviceGetVFUpdateMode",
+    "cDeviceSetMclkLimit",
+    "cDeviceSetVFUpdateMode",
+    "cDeviceSupportsLockClocksDeferred"
+   ]
+  },
+  {
+   "slot": 37,
+   "function": "sub_11E180",
+   "tags": [
+    "cConvertNvmlClockTypeToRmClockDomain",
+    "cDeviceIsClockSupported",
+    "cDeviceToggleInstructionAwareVFCurve"
+   ]
+  },
+  {
+   "slot": 38,
+   "function": "sub_11DFB0",
+   "tags": [
+    "cConvertNvmlClockTypeToRmClockDomain",
+    "cDeviceGetClkPublicDomain",
+    "cDeviceIsClockSupported"
+   ]
+  },
+  {
+   "slot": 39,
+   "function": "sub_11CBB0",
+   "tags": [
+    "cDeviceGet3xRmClockInfo",
+    "cDeviceGetMclkLimitInfo",
+    "cDeviceRmClockDomainToDomainIndex"
+   ]
+  },
+  {
+   "slot": 40,
+   "function": "sub_127850",
+   "tags": [
+    "cDeviceGetGpuDrainAndResetStatus",
+    "cDeviceGetGpuResetStatus",
+    "cDeviceGetMmaStallPercent"
+   ]
+  },
+  {
+   "slot": 41,
+   "function": "sub_128240",
+   "tags": [
+    "cDeviceGetAddressingMode",
+    "cDeviceGetAddressingModeUncached",
+    "cDevicePerfMetricsGetPhysicalRailDlppm1xMetricsFull",
+    "cDevicePerfMetricsGetPmuSamples"
+   ]
+  },
+  {
+   "slot": 42,
+   "function": "sub_1296C0",
+   "tags": [
+    "cDevicePerfMetricsGetObservedCoreRailMetricsFull",
+    "cDevicePerfMetricsGetObservedMetricsFull",
+    "cDevicePerfMetricsGetSamplesFullV1"
+   ]
+  },
+  {
+   "slot": 43,
+   "function": "sub_128AA0",
+   "tags": [
+    "cDevicePerfMetricsGetSampleV1"
+   ]
+  },
+  {
+   "slot": 44,
+   "function": "sub_12D790",
+   "tags": [
+    "cDeviceRistMapBuffer_v1",
+    "cDeviceRistModeEnter_v1"
+   ]
+  },
+  {
+   "slot": 45,
+   "function": "sub_12D500",
+   "tags": [
+    "cDeviceRistModeEnter_v1",
+    "cDeviceRistModeExit"
+   ]
+  },
+  {
+   "slot": 46,
+   "function": "sub_12B210",
+   "tags": [
+    "cDeviceRistUnmapBuffer_v1",
+    "cSystemRistInitBuffer_v1"
+   ]
+  },
+  {
+   "slot": 47,
+   "function": "sub_12AEE0",
+   "tags": [
+    "cSystemRistDeinitBuffer_v1",
+    "cSystemRistInitBuffer_v1"
+   ]
+  },
+  {
+   "slot": 48,
+   "function": "sub_12DCA0",
+   "tags": [
+    "cDeviceRistMapBuffer_v1"
+   ]
+  },
+  {
+   "slot": 49,
+   "function": "sub_12B630",
+   "tags": [
+    "cDeviceRistPerformTpcRepair_v1",
+    "cDeviceRistUnmapBuffer_v1"
+   ]
+  },
+  {
+   "slot": 50,
+   "function": "sub_12D2A0",
+   "tags": [
+    "cDeviceRistGetInstances_v1",
+    "cDeviceRistModeEnter_v1",
+    "cDeviceRistModeExit"
+   ]
+  },
+  {
+   "slot": 51,
+   "function": "sub_12D0A0",
+   "tags": [
+    "cDeviceRistCommand_v1",
+    "cDeviceRistGetInstances_v1",
+    "cDeviceRistModeEnter_v1",
+    "cDeviceRistModeExit"
+   ]
+  },
+  {
+   "slot": 52,
+   "function": "sub_12CE50",
+   "tags": [
+    "cDeviceRistCommand_v1",
+    "cDeviceRistGetCapabilities_v1",
+    "cDeviceRistGetInstances_v1",
+    "cDeviceRistModeExit"
+   ]
+  },
+  {
+   "slot": 53,
+   "function": "sub_12DBA0",
+   "tags": [
+    "cDeviceRistMapBuffer_v1"
+   ]
+  },
+  {
+   "slot": 54,
+   "function": "sub_12CBE0",
+   "tags": [
+    "cDeviceRistCommand_v1",
+    "cDeviceRistGetCapabilities_v1",
+    "cDeviceRistGetInstances_v1",
+    "cDeviceRistGetStatus_v1"
+   ]
+  }
+ ]
+}
