@@ -1,5 +1,13 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 24 (SET boundary): control-plane decode complete at NVML/RM boundary (Europe/Istanbul)
+- The +0x98 fn-ptr table = the RM/kernel dispatch (device context) - the BoardObj SET
+  crosses the user/kernel boundary. Kernel side = open-gpu-kernel-modules (source
+  available); GSP side = closed.
+- **The complete control-plane map**: NVML (fully decoded: enumeration, BoardObj API,
+  GET/SET dispatch, unit conversion, delegation) -> kernel RM (open source) -> GSP (closed).
+- Commit bdc58a3.
+
 ## 2026-10-20 - wave 23 (RMFunctions goal R2): all 55 slots anchored (Europe/Istanbul)
 - Batch tag-anchor pass: every slot resolved to its named control-plane functions via
   the 628-tag inventory (JSON committed: rmfunctions-slot-map.json).
