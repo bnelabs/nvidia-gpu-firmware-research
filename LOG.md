@@ -1,5 +1,13 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 29 (goal capstone): CONTROL-PLANE.md created (Europe/Istanbul)
+- Single comprehensive reference document mapping every decoded layer:
+  NVML API -> kernel RM -> BoardObj protocol -> per-object tables -> p-state
+  synthesis -> GSP firmware. Includes the 626-tag inventory summary, the 55-slot
+  RMFunctions map, the unit system, the provenance chain, and working tool references.
+- This is the capstone deliverable that packages all research into a single
+  actionable reference for future work.
+
 ## 2026-10-20 - wave 28 (goal R5): stale docs retracted, 3 agents spun, SET-path decoded (Europe/Istanbul)
 - Documentation audit: retracted stale BoardObj enumeration claims in power-provenance.md
   (0x214 = GPU_GET_PROBED_IDS correction propagated to all affected sections).
