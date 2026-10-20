@@ -346,3 +346,14 @@ kernel RM (open-gpu-kernel-modules source territory), which forwards to the GSP.
 - GSP firmware: closed (the BoardObj attribute storage + policy engine)
 
 Every layer boundary is now named with its crossing mechanism.
+
+
+## XREF CONFIRMATION (REA/IDA): the cDeviceGetPerfLimitersClocks tag anchors sub_1117F0
+
+REA xrefs_to on the tag string (file 0x1ed450) confirms exactly 4 data references,
+ALL from sub_1117F0 (0x111946, 0x111b90, 0x111c20, 0x111c90) - the dispatcher's four
+error paths. The tag->function attribution is now xref-verified by REA (not inferred).
+
+The dispatcher chain is complete and xref-verified:
+sub_1117F0 (cDeviceGetPerfLimitersClocks) = the BoardObj get/set dispatcher that all
+clock-family RMFunctions trampolines (slots 0,1,2 = classes 0x43/0x3d/0x52) bind to.
