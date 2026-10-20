@@ -1,5 +1,12 @@
 # Research log (append-only)
 
+## 2026-10-20 - wave 34 (diagnostics pivot): 07-diagnostics/ business foundation (Europe/Istanbul)
+- D1 signal-inventory.md: 40+ read-only observables across 10 domains, layer-tagged, RE status marked
+- D2 fault-triage-map.md: 8 fault classes, priority-ordered checks, decision logic + triage matrix
+- D3 public-vs-re.md: three-tier gap analysis - supported / our-decoded-reads / physical-only
+- D4 operating-envelope.md: three tiers + 10 off-limits writes with supported-API alternatives
+- All read-only; no SET analysis; no new firmware; no GC6 revisit. Commits through 4da09c7.
+
 ## 2026-10-20 - wave 33 (GC6 closeout): security assessment complete - INFORMATIONAL (Europe/Istanbul)
 - Deliverable 1 (04-gc6/threat-model.md): attacker model = host kernel required (gpu_suspend.c:228
   is the only trigger), grants nothing beyond kernel privileges, no persistence across reboot
