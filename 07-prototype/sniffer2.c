@@ -166,6 +166,24 @@ int ioctl(int fd, unsigned long cmd, ...)
         errno = se;
     }
 
+    /* NVML globals dump: snapshot the BoardObj result tables (0x1268400 family)
+     * after the session. Load base = dlsym(nvmlDeviceGetPerformanceState) runtime
+     * address minus its static offset (0x99a20, imagebase 0). Once per process. */
+    if (r == 0 && !getenv("SNIF_GLOBALS_DONE") && getenv("SNIF_DUMP_DIR")) {
+        void *psym = dlsym(RTLD_DEFAULT, "nvmlDeviceGetPerformanceState");
+        if (psym) {
+            uintptr_t base = (uintptr_t)psym - 0x99a20;
+            char p2[512];
+            snprintf(p2, sizeof(p2), "%s/globals-base-%p.bin", getenv("SNIF_DUMP_DIR"), (void *)base);
+            FILE *gf = fopen(p2, "wb");
+            if (gf) {
+                fwrite((const void *)(base + 0x1268000), 1, 0x1000, gf);
+                fclose(gf);
+                setenv("SNIF_GLOBALS_DONE", "1", 1);
+            }
+        }
+    }
+
     errno = saved;                    /* restore caller-visible errno */
     return r;
 }
