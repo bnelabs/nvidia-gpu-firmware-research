@@ -379,3 +379,31 @@ What needs re-evaluation: the entry list interpretation (GPU IDs, not BoardObj e
 sub_98310 (0x1af B, api.c:15211) = **tsapiDeviceGetArchitecture** - the architecture query that feeds the p-state gate. The lookup table (dword_1C24A0, 14 entries) READ FROM BINARY: arch 5->2, 6->3, 7->4, 8->5, 9->6, 10->7, 11->8, 12->9, 13->10, 14->11, 15->12, 16->13, 17->-1, 18->15. This is the normalized class that feeds the pstate gate (sub_99530): class in {2,3,4,5} = arch in {5,6,7,8} enables the clock-remap fallback.
 
 The p-state synthesis chain is END-TO-END decoded: (1) TSAPI arch query -> (2) lookup table -> (3) gate sub_99530 -> (4) clock-remap fallback sub_3C480. All four stages source-decoded.
+
+
+## DISPATCHER FULLY DECODED (2026-10-20, sub_1117F0 0x4fb B decompile)
+
+Full decompile of the BoardObj GET/SET dispatcher:
+
+**GET path (mode 0/1):**
+1. dispatch[+24](dev, dev, mode, \&v31, \&v30) - fetches v31 (expected clock) and v30 (actual clock)
+2. dispatch[+224](dev, dev, class_id, rec_316) - fetches 316 B BoardObj record by class_id
+3. rec.valid (byte at +0x15C) must be nonzero
+4. rec.expected (int at +0x160) must equal v31
+5. result = v30 * rec.scale(v35 at +0x164) / 100,000
+   - magic division: imul 0xA7C5AC5h, shr 39 = divide by 100,000
+6. DEBUG log at common_clock.c:3066
+
+**SET path (mode 2):**
+1. dispatch[+224](dev, dev, type_id, rec_316) - fetch record
+2. rec.valid must be nonzero
+3. rec.expected must be ZERO
+4. dispatch[+48](dev, dev, 2, rec.scale, 0, 0, 0, \&v31, a3) - calls the SETTER fn-ptr
+5. result 2 = pending, 0 = success
+
+**BoardObj record layout (316 B):**
+- +0x15C: valid flag (byte)
+- +0x160: expected/fetched value (int)
+- +0x164: scale factor (u32)
+
+**KEY INSIGHT**: /100,000 = imul 0xA7C5AC5 >> 39 (compiler optimisation). Same 100,000 in vBIOS PowerPolicy values (450,000/520,000) - confirms the unit family.
