@@ -29,9 +29,46 @@ All UCODE_IMAGE blobs are AES-encrypted LS payloads:
 - GH100 Booter has 1.5 percent trailing zeros (alignment padding)
 - LS encryption = AES-128-CBC with prd/dbg key slots from LSF_UCODE_DESC
 
-## Validator 0-day feasibility conclusion
+## Validator feasibility conclusion (REVISED 2026-10-20 after key-provenance analysis)
 
-The FMC/Booter images are AES-encrypted with keys in the falcon security model. Decryption keys are either: in UCODE_DESC blobs (fused on-GPU), derived via KDF from fused root keys, or per-generation.
+The original report stated both layers (AES + signature) must be broken. That assumed
+AND-gating. Re-evaluation after the key provenance analysis (03-fmc/kdf/key-provenance.md):
 
-**Feasibility rating: HARDWARE-ATTACK REQUIRED for full static analysis.**
-Without fused AES keys, the FMC/Booter validator code cannot be decrypted from the host side. The validator 0-day path requires: fused key access (chip decap), a KDF vulnerability, or debug-fused hardware. The signature check (RSA-3072/ECDSA P-384) is cryptographically sound against forgery.
+**Finding: the AES layer does NOT reduce to the signature layer.** The two layers verify
+independently: AES keys are fused on-GPU (never host-readable), while RSA/ECDSA signatures
+are verified by the FSP/SEC2 hardware verifier. There is no host-side decryption path that
+requires signature forgery, and there is no signature-forgery path that yields plaintext.
+
+### Hypothesis A: KDF strong (default, supported by all static evidence)
+- All key material fused on-GPU; host readable surface = descriptor metadata only
+- Both layers require hardware access
+- Rating: **HARDWARE-ATTACK REQUIRED** (evidence strength: HIGH - source-pinned)
+
+### Hypothesis B: KDF weak (requires observations to confirm/deny)
+- If any dbgKeys slot on a debug-fused part were extractable from its own vBIOS
+  (they are not, per the current evidence - the vBIOS carries descriptors, not keys),
+  or if a dev-part leak exposed a fused key, host-side decryption of LS payloads
+  would fall WITHOUT any signature forgery
+- Rating: **UNPROVEN** (evidence strength: LOW - no positive evidence of weak keys)
+
+### Observations needed to distinguish A from B
+1. A live fuse read of FUSE_OPT_SECURE_GSP_DEBUG_DIS state on a dev part
+   (not host-reachable on GeForce; needs nvswitch/debug tooling)
+2. A debug-fused part: compare its vBIOS falcon-ucode descriptors against a retail
+   part for key-sized payloads (none found in retail vBIOS today)
+3. Chip-decap of the falcon key-slot region (hardware attack)
+4. Falcon-emulator runs of the KDF with candidate inputs (research-lab only)
+
+### Practical conclusion for custom firmware
+- Modifying and re-signing GSP-RM: requires the signature key (NVIDIA-held) AND
+  the fused AES key slots - both layers, both hardware-gated
+- Loading a modified .fwimage from the host: possible (host has zero enforcement)
+  but the GPU rejects it at FMC/GSP boot (signature + AES both fail)
+- The reachable attack surface remains: GSP RPC protocol (runtime), vBIOS BIT tables
+  (pre-boot), and driver-side handling - not the signed payload chain
+
+**Bottom line: the validator 0-day path is not host-side-feasible under the KDF-strong
+hypothesis (static evidence supports it); it converges to a hardware attack.
+The AND-gating assumption was WRONG - the layers are independent - but both happen
+to be hardware-gated, so the conclusion (hardware required) is unchanged.
+Evidence-strength: HIGH for the structural claim, MEDIUM for the absence of weak keys.
