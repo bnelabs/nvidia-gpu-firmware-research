@@ -31,10 +31,12 @@ openssl enc -d -aes-128-ecb -K 25EFCDAB896745231032547698BADCFE -nopad \
   -in "$GFW_REPLAY_TMP/debug-imem.bin" -out "$GFW_REPLAY_TMP/decoded-imem.bin"
 python3 "$PACKET/replay_fwsec_progress.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/progress.json"
 cmp "$GFW_REPLAY_TMP/progress.json" "$PACKET/fwsec-progress-replay.json"
+python3 "$PACKET/replay_early_gates.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/early.json"
+cmp "$GFW_REPLAY_TMP/early.json" "$PACKET/early-gates-replay.json"
 openssl enc -e -aes-128-ecb -K 25EFCDAB896745231032547698BADCFE -nopad \
   -in "$GFW_REPLAY_TMP/decoded-imem.bin" -out "$GFW_REPLAY_TMP/roundtrip.bin"
 cmp "$GFW_REPLAY_TMP/debug-imem.bin" "$GFW_REPLAY_TMP/roundtrip.bin"
 cc -std=c11 -O2 -Wall -Wextra -Werror "$PACKET/replay.c" -o "$GFW_REPLAY_TMP/source-gate"
 "$GFW_REPLAY_TMP/source-gate" > "$GFW_REPLAY_TMP/source-gate.json"
 cmp "$GFW_REPLAY_TMP/source-gate.json" "$PACKET/replay.json"
-printf '%s\n' '30 copied progress-block cases and six NVIDIA source-gate cases reproduced.'
+printf '%s\n' '30 progress-block, 12 early-gate and six NVIDIA source-gate cases reproduced.'

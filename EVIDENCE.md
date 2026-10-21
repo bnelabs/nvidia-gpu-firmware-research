@@ -111,3 +111,9 @@ and actual source storage remain unresolved. Seven JSON products replay exactly;
 public debug-key decode and bounded progress-writer replay. Candidate versus
 installed bytes, debug versus production code, and synthetic versus hardware
 behavior remain separate. This is not a successful recovery procedure.
+
+The same packet's follow-up reproduces three early checks and conditional raw
+error publication in copied debug code (12 fixtures). Four GA102 VBIOS variants
+have identical FWSEC components; other ROM data and installed identity remain
+unproven. Retained teardown evidence locates a separate DMA queue timeout before
+firmware execution. See the packet for boundaries and source hashes.

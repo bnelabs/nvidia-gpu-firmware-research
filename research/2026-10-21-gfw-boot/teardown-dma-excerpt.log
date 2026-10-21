@@ -1,0 +1,12 @@
+257679: 2026-10-21T20:33:37.974016+03:00 ubuntuserver kernel: NVRM: GPU0 rpcRmApiFree_GSP: GspRmFree failed: hClient=0xc1e00001; hObject=0xcaf00000; paramsStatus=0x00000000; status=0x0000000f
+257680: 2026-10-21T20:33:37.974021+03:00 ubuntuserver kernel: NVRM: nvAssertOkFailedNoLog: Assertion failed: GPU lost from the bus [NV_ERR_GPU_IS_LOST] (0x0000000F) returned from kgspSendRpc(pGpu, pKernelGsp, NVDM_TYPE_GMCAPI, fullRpcSize, bSync) @ gpu.c:7871
+257681: 2026-10-21T20:33:37.974025+03:00 ubuntuserver kernel: NVRM: _threadNodeCheckTimeout: API_GPU_ATTACHED_SANITY_CHECK failed!
+257682: 2026-10-21T20:33:37.974030+03:00 ubuntuserver kernel: NVRM: nvAssertFailedNoLog: Assertion failed: (status == NV_OK) || (status == NV_ERR_GPU_IN_FULLCHIP_RESET) @ kernel_falcon_tu102.c:187
+257683: 2026-10-21T20:33:37.974035+03:00 ubuntuserver kernel: NVRM: nvAssertFailedNoLog: Assertion failed: (status == NV_OK) || (status == NV_ERR_GPU_IN_FULLCHIP_RESET) @ kernel_gsp_tu102.c:545
+257684: 2026-10-21T20:33:37.974039+03:00 ubuntuserver kernel: NVRM: _threadNodeCheckTimeout: API_GPU_ATTACHED_SANITY_CHECK failed!
+257685: 2026-10-21T20:33:37.974043+03:00 ubuntuserver kernel: NVRM: s_dmaPoll_GA102: Error while waiting for Falcon DMA; mode: 0, status: 0x00000065
+257686: 2026-10-21T20:33:37.974047+03:00 ubuntuserver kernel: NVRM: nvAssertOkFailedNoLog: Assertion failed: Call timed out [NV_ERR_TIMEOUT] (0x00000065) returned from s_dmaTransfer_GA102(pGpu, pKernelFlcn, pUcode->imemPa, pUcode->imemVa, srcPhysAddr, pUcode->imemSize, dmaCmd) @ kernel_gsp_falcon_ga102.c:236
+257687: 2026-10-21T20:33:37.974052+03:00 ubuntuserver kernel: NVRM: kgspExecuteFwsec_TU102: failed to execute FWSEC cmd 0x19: status 0x65
+257688: 2026-10-21T20:33:37.974057+03:00 ubuntuserver kernel: NVRM: kgspExecuteFwsec_TU102: (note: VBIOS version 94.02.42.00.F4)
+257689: 2026-10-21T20:33:37.974061+03:00 ubuntuserver kernel: NVRM: kgspTeardown_TU102: failed to execute FWSEC-SB for PreOsApps during driver unload: 0x65
+257690: 2026-10-21T20:33:37.974065+03:00 ubuntuserver kernel: NVRM: nvAssertFailedNoLog: Assertion failed: FWSEC-SB failed @ kernel_gsp_tu102.c:560

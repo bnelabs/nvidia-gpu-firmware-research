@@ -1,0 +1,110 @@
+{
+  "nvidia_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "sources": [
+    {
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_falcon_ga102.c",
+      "sha256": "438475900aa56285884b0c4c8dba5aa4a44343d14e0e0541ad63052fc36e3e41",
+      "line_start": 51,
+      "line_end": 148,
+      "excerpt": "s_dmaPollCondFunc\n(\n    OBJGPU *pGpu,\n    void *pVoid\n)\n{\n    DmaPollCondData *pData = (DmaPollCondData *)pVoid;\n    return ((kflcnRegRead_HAL(pGpu, pData->pKernelFlcn, NV_PFALCON_FALCON_DMATRFCMD) & pData->pollMask) == pData->pollValue);\n}\n\n/*!\n * Poll on either _FULL or _IDLE field of NV_PFALCON_FALCON_DMATRFCMD\n *\n * @param[in]     pGpu            GPU object pointer\n * @param[in]     pKernelFlcn     pKernelFlcn object pointer\n * @param[in]     mode            FLCN_DMA_POLL_QUEUE_NOT_FULL for poll on _FULL; return when _FULL is false\n *                                FLCN_DMA_POLL_ENGINE_IDLE    for poll on _IDLE; return when _IDLE is true\n */\nstatic NV_STATUS\ns_dmaPoll_GA102\n(\n    OBJGPU *pGpu,\n    KernelFalcon *pKernelFlcn,\n    FlcnDmaPollMode mode\n)\n{\n    NV_STATUS status;\n    DmaPollCondData data;\n\n    data.pKernelFlcn = pKernelFlcn;\n    if (mode == FLCN_DMA_POLL_QUEUE_NOT_FULL)\n    {\n        data.pollMask = DRF_SHIFTMASK(NV_PFALCON_FALCON_DMATRFCMD_FULL);\n        data.pollValue = DRF_DEF(_PFALCON, _FALCON_DMATRFCMD, _FULL, _FALSE);\n    }\n    else\n    {\n        data.pollMask = DRF_SHIFTMASK(NV_PFALCON_FALCON_DMATRFCMD_IDLE);\n        data.pollValue = DRF_DEF(_PFALCON, _FALCON_DMATRFCMD, _IDLE, _TRUE);\n    }\n\n    status = gpuTimeoutCondWait(pGpu, s_dmaPollCondFunc, &data, NULL);\n    if (status != NV_OK)\n    {\n        NV_PRINTF(LEVEL_ERROR, \"Error while waiting for Falcon DMA; mode: %d, status: 0x%08x\\n\", mode, status);\n        DBG_BREAKPOINT();\n        return status;\n    }\n\n    return NV_OK;\n}\n\nstatic NV_STATUS\ns_dmaTransfer_GA102\n(\n    OBJGPU *pGpu,\n    KernelFalcon *pKernelFlcn,\n    NvU32 dest,\n    NvU32 memOff,\n    RmPhysAddr srcPhysAddr,\n    NvU32 sizeInBytes,\n    NvU32 dmaCmd\n)\n{\n    NV_STATUS status = NV_OK;\n    NvU32 data;\n    NvU32 bytesXfered = 0;\n\n    // Ensure request queue initially has space or writing base registers will corrupt DMA transfer.\n    NV_CHECK_OK_OR_RETURN(LEVEL_SILENT, s_dmaPoll_GA102(pGpu, pKernelFlcn, FLCN_DMA_POLL_QUEUE_NOT_FULL));\n\n    kflcnRegWrite_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_DMATRFBASE, NvU64_LO32(srcPhysAddr >> 8));\n    kflcnRegWrite_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_DMATRFBASE1, NvU64_HI32(srcPhysAddr >> 8) & 0x1FF);\n\n    while (bytesXfered < sizeInBytes)\n    {\n        // Poll for non-full request queue as writing control registers when full will corrupt DMA transfer.\n        NV_CHECK_OK_OR_RETURN(LEVEL_SILENT, s_dmaPoll_GA102(pGpu, pKernelFlcn, FLCN_DMA_POLL_QUEUE_NOT_FULL));\n\n        data = FLD_SET_DRF_NUM(_PFALCON, _FALCON_DMATRFMOFFS, _OFFS, dest, 0);\n        kflcnRegWrite_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_DMATRFMOFFS, data);\n\n        data = FLD_SET_DRF_NUM(_PFALCON, _FALCON_DMATRFFBOFFS, _OFFS, memOff, 0);\n        kflcnRegWrite_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_DMATRFFBOFFS, data);\n\n        // Write the command\n        kflcnRegWrite_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_DMATRFCMD, dmaCmd);\n\n        bytesXfered += FLCN_BLK_ALIGNMENT;\n        dest        += FLCN_BLK_ALIGNMENT;\n        memOff      += FLCN_BLK_ALIGNMENT;\n    }\n\n    //\n    // Poll for completion. GA10x+ does not have TCM tagging so DMA operations to/from TCM should\n    // wait for DMA to complete before launching another operation to avoid memory ordering problems.\n    //\n    NV_CHECK_OK_OR_RETURN(LEVEL_SILENT, s_dmaPoll_GA102(pGpu, pKernelFlcn, FLCN_DMA_POLL_ENGINE_IDLE));",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_falcon_ga102.c"
+    },
+    {
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_falcon_ga102.c",
+      "sha256": "438475900aa56285884b0c4c8dba5aa4a44343d14e0e0541ad63052fc36e3e41",
+      "line_start": 230,
+      "line_end": 310,
+      "excerpt": "\n    // Perform DMA for IMEM\n    {\n        RmPhysAddr srcPhysAddr = memdescGetPhysAddr(pUcode->pUcodeMemDesc, AT_GPU, 0);\n        srcPhysAddr = srcPhysAddr + pUcode->codeOffset - pUcode->imemVa;\n\n        NV_ASSERT_OK_OR_RETURN(\n            s_dmaTransfer_GA102(pGpu, pKernelFlcn,\n                                pUcode->imemPa,    // dest\n                                pUcode->imemVa,    // memOff\n                                srcPhysAddr,       // srcPhysAddr\n                                pUcode->imemSize,  // sizeInBytes\n                                dmaCmd));\n    }\n\n    // Prepare DMA command for DMEM\n    dmaCmd = FLD_SET_DRF(_PFALCON, _FALCON_DMATRFCMD, _IMEM, _FALSE, dmaCmd);\n    dmaCmd = FLD_SET_DRF_NUM(_PFALCON, _FALCON_DMATRFCMD, _SEC, 0x0, dmaCmd);\n    if (pUcode->dmemVa != FLCN_DMEM_VA_INVALID)\n    {\n        dmaCmd = FLD_SET_DRF(_PFALCON, _FALCON_DMATRFCMD, _SET_DMTAG, _TRUE, dmaCmd);\n    }\n\n    // Perform DMA for DMEM\n    {\n        NvU32 memOff = 0;\n\n        RmPhysAddr srcPhysAddr = memdescGetPhysAddr(pUcode->pUcodeMemDesc, AT_GPU, 0);\n        srcPhysAddr += pUcode->dataOffset;\n        if (pUcode->dmemVa != FLCN_DMEM_VA_INVALID)\n        {\n            srcPhysAddr -= pUcode->dmemVa;\n            memOff = pUcode->dmemVa;\n        }\n\n        NV_ASSERT_OK_OR_RETURN(\n            s_dmaTransfer_GA102(pGpu, pKernelFlcn,\n                                pUcode->dmemPa,    // dest\n                                memOff,            // memOff\n                                srcPhysAddr,       // srcPhysAddr\n                                pUcode->dmemSize,  // sizeInBytes\n                                dmaCmd));\n    }\n\n    // Program BROM registers for PKC signature validation.\n    _kgspSetupPkcParams(pGpu, pKernelFlcn, pUcode->hsSigDmemAddr, pUcode->engineIdMask, pUcode->ucodeId);\n\n    // Set BOOTVEC to start of secure code.\n    kflcnRegWrite_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_BOOTVEC, pUcode->imemVa);\n\n    // Write mailboxes if requested.\n    if (pMailbox0 != NULL)\n        kflcnRegWrite_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_MAILBOX0, *pMailbox0);\n    if (pMailbox1 != NULL)\n        kflcnRegWrite_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_MAILBOX1, *pMailbox1);\n\n    // Start CPU now.\n    kflcnStartCpu_HAL(pGpu, pKernelFlcn);\n\n    // Wait for completion.\n    status = kflcnWaitForHalt_HAL(pGpu, pKernelFlcn, GPU_TIMEOUT_DEFAULT, 0);\n\n    // Read mailboxes if requested.\n    if (pMailbox0 != NULL)\n        *pMailbox0 = kflcnRegRead_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_MAILBOX0);\n    if (pMailbox1 != NULL)\n        *pMailbox1 = kflcnRegRead_HAL(pGpu, pKernelFlcn, NV_PFALCON_FALCON_MAILBOX1);\n\n    return status;\n}\n\n/*!\n * Load and Execute an HS Binary on request from GSP\n *\n * @param[in]      pGpu             GPU object pointer\n * @param[in]      pKernelGsp       KernelGsp object pointer\n * @param[in]      pParams          Parameters for loading and executing an HS binary\n *\n * @return NV_OK if the HS binary has been loaded and executed successfully\n */\nNV_STATUS",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_falcon_ga102.c"
+    },
+    {
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c",
+      "sha256": "df312262254d712e8340c2d428bb5869354756f41b7a5758aac2f1825fdf2550",
+      "line_start": 515,
+      "line_end": 570,
+      "excerpt": " *\n * For pre-Hopper, this involves running FWSEC-SB to put back pre-OS apps and\n * Booter Unload to teardown WPR2.\n *\n * @param[in]   pGpu            GPU object pointer\n * @param[in]   pKernelGsp      GSP object pointer\n * @param[in]   unloadMode      GSP unload mode\n */\nNV_STATUS\nkgspTeardown_TU102\n(\n    OBJGPU *pGpu,\n    KernelGsp *pKernelGsp,\n    KernelGspUnloadMode unloadMode\n)\n{\n    NV_STATUS status;\n\n    //\n    // Avoid cascading timeouts when attempting to invoke the below ucodes if\n    // we are unloading due to a GSP-RM timeout.\n    //\n    threadStateResetTimeout(pGpu);\n\n    if (unloadMode != KGSP_UNLOAD_MODE_GC6_ENTER)\n    {\n        KernelGspPreparedFwsecCmd preparedCmd;\n\n        // Reset GSP so we can load FWSEC-SB\n        status = kflcnReset_HAL(pGpu, staticCast(pKernelGsp, KernelFalcon));\n        NV_ASSERT((status == NV_OK) || (status == NV_ERR_GPU_IN_FULLCHIP_RESET));\n\n        // Invoke FWSEC-SB to put back PreOsApps during driver unload\n        status = kgspPrepareForFwsecSb_HAL(pGpu, pKernelGsp, pKernelGsp->pFwsecUcode, &preparedCmd);\n        if (status != NV_OK)\n        {\n            NV_PRINTF(LEVEL_ERROR, \"failed to prepare for FWSEC-SB for PreOsApps during driver unload: 0x%x\\n\", status);\n            NV_ASSERT_FAILED(\"FWSEC-SB prep failed\");\n        }\n        else\n        {\n            status = kgspExecuteFwsec_HAL(pGpu, pKernelGsp, &preparedCmd);\n            if ((status != NV_OK) && (status != NV_ERR_GPU_IN_FULLCHIP_RESET))\n            {\n                NV_PRINTF(LEVEL_ERROR, \"failed to execute FWSEC-SB for PreOsApps during driver unload: 0x%x\\n\", status);\n                NV_ASSERT_FAILED(\"FWSEC-SB failed\");\n            }\n        }\n    }\n\n    // Execute Booter Unload\n    status = kgspExecuteBooterUnloadIfNeeded_HAL(pGpu, pKernelGsp,\n                                                 _kgspGetBooterUnloadArgs(pKernelGsp, unloadMode));\n    return status;\n}\n",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c"
+    },
+    {
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_frts_tu102.c",
+      "sha256": "1d47cba56830bf8cf341e08851ccf5f664d08133d5d06fc18376fc53edf7cd56",
+      "line_start": 100,
+      "line_end": 140,
+      "excerpt": "\n#define FALCON_APPLICATION_INTERFACE_DMEM_MAPPER_V3_CMD_FRTS (0x15)\n#define FALCON_APPLICATION_INTERFACE_DMEM_MAPPER_V3_CMD_SB   (0x19)\n\ntypedef struct\n{\n    NvU32 version;\n    NvU32 size;\n    NvU64 gfwImageOffset;\n    NvU32 gfwImageSize;\n    NvU32 flags;\n} FWSECLIC_READ_VBIOS_DESC;\n\n#define FWSECLIC_READ_VBIOS_STRUCT_FLAGS (2)\n\ntypedef struct\n{\n    NvU32 version;\n    NvU32 size;\n    NvU32 frtsRegionOffset4K;\n    NvU32 frtsRegionSize;\n    NvU32 frtsRegionMediaType;\n} FWSECLIC_FRTS_REGION_DESC;\n\n#define FWSECLIC_FRTS_REGION_MEDIA_FB (2)\n#define FWSECLIC_FRTS_REGION_SIZE_1MB_IN_4K (0x100)\n\ntypedef struct\n{\n    FWSECLIC_READ_VBIOS_DESC readVbiosDesc;\n    FWSECLIC_FRTS_REGION_DESC frtsRegionDesc;\n} FWSECLIC_FRTS_CMD;\n\n#define NV_VBIOS_FWSECLIC_SCRATCH_INDEX_0E      0x0E\n#define NV_VBIOS_FWSECLIC_FRTS_ERR_CODE         31:16\n#define NV_VBIOS_FWSECLIC_FRTS_ERR_CODE_NONE    0x00000000\n\n#define NV_VBIOS_FWSECLIC_SCRATCH_INDEX_15      0x15\n#define NV_VBIOS_FWSECLIC_SB_ERR_CODE           15:0\n#define NV_VBIOS_FWSECLIC_SB_ERR_CODE_NONE      0x00000000\n",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_frts_tu102.c"
+    },
+    {
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_frts_tu102.c",
+      "sha256": "1d47cba56830bf8cf341e08851ccf5f664d08133d5d06fc18376fc53edf7cd56",
+      "line_start": 450,
+      "line_end": 565,
+      "excerpt": "    return status;\n}\n\n/*!\n * Execute a given FWSEC cmd and wait for completion.\n * KernelGspPreparedFwsecCmd should be set by s_prepareForFwsec_TU102 and\n * not filled in manually\n *\n * @param[in]   pGpu           OBJGPU pointer\n * @param[in]   pKernelGsp     KernelGsp pointer\n * @param[in]   pPreparedCmd   Prepared command state from s_prepareForFwsec_TU102\n */\nNV_STATUS\nkgspExecuteFwsec_TU102\n(\n    OBJGPU *pGpu,\n    KernelGsp *pKernelGsp,\n    KernelGspPreparedFwsecCmd *pPreparedCmd\n)\n{\n    NV_STATUS status;\n\n    NV_ASSERT_OR_RETURN(!IS_VIRTUAL(pGpu), NV_ERR_NOT_SUPPORTED);\n    NV_ASSERT_OR_RETURN(IS_GSP_CLIENT(pGpu), NV_ERR_NOT_SUPPORTED);\n\n    NV_ASSERT_OR_RETURN(pPreparedCmd != NULL, NV_ERR_INVALID_ARGUMENT);\n\n    if (API_GPU_IN_RESET_SANITY_CHECK(pGpu))\n        return NV_ERR_GPU_IN_FULLCHIP_RESET;\n\n    status = kgspExecuteHsFalcon_HAL(pGpu, pKernelGsp, pPreparedCmd->pFwsecUcode,\n                                     staticCast(pKernelGsp, KernelFalcon), NULL, NULL);\n\n    if (status != NV_OK)\n    {\n        NV_PRINTF(LEVEL_ERROR, \"failed to execute FWSEC cmd 0x%x: status 0x%x\\n\", pPreparedCmd->cmd, status);\n        goto out;\n    }\n\n    if (pPreparedCmd->cmd == FALCON_APPLICATION_INTERFACE_DMEM_MAPPER_V3_CMD_FRTS)\n    {\n        NvU32 data;\n        NvU32 frtsErrCode;\n        NvU32 wpr2HiVal;\n        NvU32 wpr2LoVal;\n        NvU32 expectedLoVal;\n\n        data = GPU_REG_RD32(pGpu, NV_PBUS_VBIOS_SCRATCH(NV_VBIOS_FWSECLIC_SCRATCH_INDEX_0E));\n        frtsErrCode = DRF_VAL(_VBIOS, _FWSECLIC, _FRTS_ERR_CODE, data);\n        if (frtsErrCode != NV_VBIOS_FWSECLIC_FRTS_ERR_CODE_NONE)\n        {\n            NV_PRINTF(LEVEL_ERROR, \"failed to execute FWSEC for FRTS: FRTS error code 0x%x\\n\", frtsErrCode);\n            status = NV_ERR_GENERIC;\n            goto out;\n        }\n\n        data = GPU_REG_RD32(pGpu, NV_PFB_PRI_MMU_WPR2_ADDR_HI);\n        wpr2HiVal = DRF_VAL(_PFB, _PRI_MMU_WPR2_ADDR_HI, _VAL, data);\n        if (wpr2HiVal == 0)\n        {\n            NV_PRINTF(LEVEL_ERROR, \"failed to execute FWSEC for FRTS: no initialized WPR2 found\\n\");\n            status = NV_ERR_GENERIC;\n            goto out;\n        }\n\n        data = GPU_REG_RD32(pGpu, NV_PFB_PRI_MMU_WPR2_ADDR_LO);\n        wpr2LoVal = DRF_VAL(_PFB, _PRI_MMU_WPR2_ADDR_LO, _VAL, data);\n        expectedLoVal = (NvU32) (pPreparedCmd->frtsOffset >> NV_PFB_PRI_MMU_WPR2_ADDR_LO_ALIGNMENT);\n        if (wpr2LoVal != expectedLoVal)\n        {\n            NV_PRINTF(LEVEL_ERROR,\n                      \"failed to execute FWSEC for FRTS: WPR2 initialized at an unexpected location: 0x%08x (expected 0x%08x)\\n\",\n                      wpr2LoVal, expectedLoVal);\n            status = NV_ERR_GENERIC;\n            goto out;\n        }\n    }\n    else  // i.e. FALCON_APPLICATION_INTERFACE_DMEM_MAPPER_V3_CMD_SB\n    {\n        NvU32 data;\n        NvU32 sbErrCode;\n\n        if (!GPU_FLD_TEST_DRF_DEF(pGpu, _PGC6, _AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK,\n                                  _READ_PROTECTION_LEVEL0, _ENABLE))\n        {\n            NV_PRINTF(LEVEL_ERROR, \"failed to execute FWSEC for SB: GFW PLM not lowered\\n\");\n            status = NV_ERR_GENERIC;\n            goto out;\n        }\n\n        if (!GPU_FLD_TEST_DRF_DEF(pGpu, _PGC6, _AON_SECURE_SCRATCH_GROUP_05_0_GFW_BOOT,\n                                  _PROGRESS, _COMPLETED))\n        {\n            NV_PRINTF(LEVEL_ERROR, \"failed to execute FWSEC for SB: GFW progress not completed\\n\");\n            status = NV_ERR_GENERIC;\n            goto out;\n        }\n\n        data = GPU_REG_RD32(pGpu, NV_PBUS_VBIOS_SCRATCH(NV_VBIOS_FWSECLIC_SCRATCH_INDEX_15));\n        sbErrCode = DRF_VAL(_VBIOS, _FWSECLIC, _SB_ERR_CODE, data);\n        if (sbErrCode != NV_VBIOS_FWSECLIC_SB_ERR_CODE_NONE)\n        {\n            NV_PRINTF(LEVEL_ERROR, \"failed to execute FWSEC for SB: SB error code 0x%x\\n\", sbErrCode);\n            status = NV_ERR_GENERIC;\n            goto out;\n        }\n    }\n\nout:\n    if (status != NV_OK)\n    {\n        NV_PRINTF(LEVEL_ERROR, \"(note: VBIOS version %s)\\n\", pKernelGsp->vbiosVersionStr);\n    }\n\n    return status;\n}",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_frts_tu102.c"
+    },
+    {
+      "path": "src/nvidia/inc/kernel/gpu/falcon/falcon_common.h",
+      "sha256": "afb1b1b88477bf85c8334b08e4a8bd088ca7cf7986234e6701d483e0df788278",
+      "line_start": 65,
+      "line_end": 72,
+      "excerpt": "\n/*!\n * Used by FALCON_DMATRFCMD polling functions to wait for _FULL==FALSE or _IDLE==TRUE\n */\ntypedef enum {\n    FLCN_DMA_POLL_QUEUE_NOT_FULL = 0,\n    FLCN_DMA_POLL_ENGINE_IDLE = 1\n} FlcnDmaPollMode;",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/inc/kernel/gpu/falcon/falcon_common.h"
+    },
+    {
+      "path": "src/common/inc/swref/published/ampere/ga102/dev_falcon_v4.h",
+      "sha256": "42cfc2cfae62b2c2652b3c9d630ef5085e03016dd8ed7dcd30179964aca224ce",
+      "line_start": 55,
+      "line_end": 63,
+      "excerpt": "#define NV_PFALCON_FALCON_DMATRFMOFFS                                                                  0x00000114     /* RW-4R */\n#define NV_PFALCON_FALCON_DMATRFMOFFS_OFFS                                                             23:0           /* RWIVF */\n#define NV_PFALCON_FALCON_DMATRFCMD                                                                    0x00000118     /* RW-4R */\n#define NV_PFALCON_FALCON_DMATRFCMD_FULL                                                               0:0            /* R-XVF */\n#define NV_PFALCON_FALCON_DMATRFCMD_FULL_TRUE                                                          0x00000001     /* R---V */\n#define NV_PFALCON_FALCON_DMATRFCMD_FULL_FALSE                                                         0x00000000     /* R---V */\n#define NV_PFALCON_FALCON_DMATRFCMD_IDLE                                                               1:1            /* R-XVF */\n#define NV_PFALCON_FALCON_DMATRFCMD_IDLE_TRUE                                                          0x00000001     /* R---V */\n#define NV_PFALCON_FALCON_DMATRFCMD_IDLE_FALSE                                                         0x00000000     /* R---V */",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga102/dev_falcon_v4.h"
+    },
+    {
+      "path": "src/common/inc/swref/published/turing/tu102/dev_bus.h",
+      "sha256": "58d106d908a1b56a99b10075744067b15be95d0973ae4b4c9a50e914843cdd44",
+      "line_start": 24,
+      "line_end": 28,
+      "excerpt": "#ifndef __tu102_dev_bus_h__\n#define __tu102_dev_bus_h__\n\n#define NV_PBUS_VBIOS_SCRATCH(i)                  (0x00001400+(i)*4) /*       */\n#define NV_PBUS_SW_SCRATCH(i)                     (0x00001400+(i)*4) /* RW-4A */",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/turing/tu102/dev_bus.h"
+    }
+  ],
+  "retained_log": {
+    "name": "recovery-kernel.log",
+    "sha256": "cb2585bb21ad3948351dcd6041f95c3115e21a62a6fabf9b8df1b4dcef7063c3",
+    "excerpt": "teardown-dma-excerpt.log",
+    "line_range": [
+      257679,
+      257690
+    ]
+  },
+  "interpretation_limits": [
+    "The teardown DMA timeout and later early-boot marker are different phases; no causal link is established.",
+    "Timeout mode 0 means queue-not-full check. It can fail before the first block or later in the transfer; the number of submitted blocks is unknown.",
+    "This invocation returns before PKC setup and StartCpu; it did not demonstrate execution of the requested FWSEC-SB program.",
+    "Raw firmware return codes are not given NV_STATUS names. Early-gate PRI semantics remain unnamed where no GA102 proof exists."
+  ],
+  "decoder_sources": {
+    "commit": "f102b82381f3f11cee113d16374c87091db039d9",
+    "files": [
+      {
+        "path": "envydis/falcon.c",
+        "sha256": "a4424c17145e72f31e1a9ed55296c3ee49058f3860374b2c34dd49f92cf99bd9"
+      },
+      {
+        "path": "docs/hw/falcon/branch.rst",
+        "sha256": "599a072eaeb6128591993185e2da7ab2621fb42146bda27196948b0e07e75900"
+      },
+      {
+        "path": "docs/hw/falcon/data.rst",
+        "sha256": "03b63751a2b738455c8cc133a740c4a4dae44c4e48b6dc5761442f4724a170f8"
+      },
+      {
+        "path": "rnndb/pm/gf100_pclock.xml",
+        "sha256": "c5cac2970f34a5d93f1b9d9e2feb9d76266a8171eac34ad8bc679d5b7d714752"
+      }
+    ]
+  },
+  "source_mismatch_notes": [
+    "Envytools GF100 PCLOCK domain is not a proven GA102 field definition for 0x137090.",
+    "NVIDIA Hopper/Blackwell I2CS scratch and Linux nvgrace HBM-training uses of 0x200bc are not GA102 semantic proof.",
+    "No identified retained register value selects one of the modeled failure paths."
+  ]
+}

@@ -1,0 +1,4613 @@
+{
+  "debug_imem_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb",
+  "limits": "Only selected copied early-gate/control-flow bytes execute. All PRI services, canary, stack and entry r0=0x55 are fixtures. Stops before the next boot precondition or remaining error tail; no hardware, full boot, installed-byte or production-code proof.",
+  "cases_passed": 12,
+  "cases": [
+    {
+      "name": "gate_137090_bit17_clear",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 179,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 179
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x4eb6"
+          },
+          {
+            "firmware_imem_va": "0x4eb6",
+            "raw": "3e7c5800",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gate_825800_bits_1",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 745,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 1
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 745
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gate_825800_bits_2",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 751,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 2
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 751
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x47c"
+          },
+          {
+            "firmware_imem_va": "0x47c",
+            "raw": "c4a902",
+            "next_pc": "0x47f"
+          },
+          {
+            "firmware_imem_va": "0x47f",
+            "raw": "4eef02",
+            "next_pc": "0x482"
+          },
+          {
+            "firmware_imem_va": "0x482",
+            "raw": "f41b0e",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gate_825800_bits_3",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 745,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 3
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 745
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gate_825800_bits_4",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 752,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 4
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 752
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x47c"
+          },
+          {
+            "firmware_imem_va": "0x47c",
+            "raw": "c4a902",
+            "next_pc": "0x47f"
+          },
+          {
+            "firmware_imem_va": "0x47f",
+            "raw": "4eef02",
+            "next_pc": "0x482"
+          },
+          {
+            "firmware_imem_va": "0x482",
+            "raw": "f41b0e",
+            "next_pc": "0x485"
+          },
+          {
+            "firmware_imem_va": "0x485",
+            "raw": "c4a904",
+            "next_pc": "0x488"
+          },
+          {
+            "firmware_imem_va": "0x488",
+            "raw": "4ef002",
+            "next_pc": "0x48b"
+          },
+          {
+            "firmware_imem_va": "0x48b",
+            "raw": "f41b05",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gate_825800_bits_5",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 745,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 5
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 745
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gate_825800_bits_6",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 751,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 6
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 751
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x47c"
+          },
+          {
+            "firmware_imem_va": "0x47c",
+            "raw": "c4a902",
+            "next_pc": "0x47f"
+          },
+          {
+            "firmware_imem_va": "0x47f",
+            "raw": "4eef02",
+            "next_pc": "0x482"
+          },
+          {
+            "firmware_imem_va": "0x482",
+            "raw": "f41b0e",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gate_825800_bits_7",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 745,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 7
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 745
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "first_checks_pass",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x4ec5",
+        "stop_reason": "next_boot_precondition",
+        "raw_r1": 0,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137808",
+            "value": 1
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137810",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137808",
+            "value": 1
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x137808",
+            "value": 0
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x47c"
+          },
+          {
+            "firmware_imem_va": "0x47c",
+            "raw": "c4a902",
+            "next_pc": "0x47f"
+          },
+          {
+            "firmware_imem_va": "0x47f",
+            "raw": "4eef02",
+            "next_pc": "0x482"
+          },
+          {
+            "firmware_imem_va": "0x482",
+            "raw": "f41b0e",
+            "next_pc": "0x485"
+          },
+          {
+            "firmware_imem_va": "0x485",
+            "raw": "c4a904",
+            "next_pc": "0x488"
+          },
+          {
+            "firmware_imem_va": "0x488",
+            "raw": "4ef002",
+            "next_pc": "0x48b"
+          },
+          {
+            "firmware_imem_va": "0x48b",
+            "raw": "f41b05",
+            "next_pc": "0x48e"
+          },
+          {
+            "firmware_imem_va": "0x48e",
+            "raw": "bde4",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x59b9"
+          },
+          {
+            "firmware_imem_va": "0x59b9",
+            "raw": "3eba4e00",
+            "next_pc": "0x4eba"
+          },
+          {
+            "firmware_imem_va": "0x4eba",
+            "raw": "7e1c3f00",
+            "next_pc": "0x3f1c"
+          },
+          {
+            "firmware_imem_va": "0x3f1c",
+            "raw": "d9a0050000",
+            "next_pc": "0x3f21"
+          },
+          {
+            "firmware_imem_va": "0x3f21",
+            "raw": "bf99",
+            "next_pc": "0x3f23"
+          },
+          {
+            "firmware_imem_va": "0x3f23",
+            "raw": "f430fc",
+            "next_pc": "0x3f26"
+          },
+          {
+            "firmware_imem_va": "0x3f26",
+            "raw": "fe4f01",
+            "next_pc": "0x3f29"
+          },
+          {
+            "firmware_imem_va": "0x3f29",
+            "raw": "8a087813",
+            "next_pc": "0x3f2d"
+          },
+          {
+            "firmware_imem_va": "0x3f2d",
+            "raw": "a0f9",
+            "next_pc": "0x3f2f"
+          },
+          {
+            "firmware_imem_va": "0x3f2f",
+            "raw": "7e171100",
+            "next_pc": "0x3f33"
+          },
+          {
+            "firmware_imem_va": "0x3f33",
+            "raw": "f0a401",
+            "next_pc": "0x3f36"
+          },
+          {
+            "firmware_imem_va": "0x3f36",
+            "raw": "f40b29",
+            "next_pc": "0x3f39"
+          },
+          {
+            "firmware_imem_va": "0x3f39",
+            "raw": "8a107813",
+            "next_pc": "0x3f3d"
+          },
+          {
+            "firmware_imem_va": "0x3f3d",
+            "raw": "7e171100",
+            "next_pc": "0x3f41"
+          },
+          {
+            "firmware_imem_va": "0x3f41",
+            "raw": "4eee02",
+            "next_pc": "0x3f44"
+          },
+          {
+            "firmware_imem_va": "0x3f44",
+            "raw": "f0a410",
+            "next_pc": "0x3f47"
+          },
+          {
+            "firmware_imem_va": "0x3f47",
+            "raw": "f41b1a",
+            "next_pc": "0x3f4a"
+          },
+          {
+            "firmware_imem_va": "0x3f4a",
+            "raw": "8a087813",
+            "next_pc": "0x3f4e"
+          },
+          {
+            "firmware_imem_va": "0x3f4e",
+            "raw": "7e171100",
+            "next_pc": "0x3f52"
+          },
+          {
+            "firmware_imem_va": "0x3f52",
+            "raw": "09fe",
+            "next_pc": "0x3f54"
+          },
+          {
+            "firmware_imem_va": "0x3f54",
+            "raw": "ffa9b4",
+            "next_pc": "0x3f57"
+          },
+          {
+            "firmware_imem_va": "0x3f57",
+            "raw": "8a087813",
+            "next_pc": "0x3f5b"
+          },
+          {
+            "firmware_imem_va": "0x3f5b",
+            "raw": "7e711100",
+            "next_pc": "0x3f5f"
+          },
+          {
+            "firmware_imem_va": "0x3f5f",
+            "raw": "bde4",
+            "next_pc": "0x3f61"
+          },
+          {
+            "firmware_imem_va": "0x3f61",
+            "raw": "fe4901",
+            "next_pc": "0x3f64"
+          },
+          {
+            "firmware_imem_va": "0x3f64",
+            "raw": "bf9f",
+            "next_pc": "0x3f66"
+          },
+          {
+            "firmware_imem_va": "0x3f66",
+            "raw": "d9a0050000",
+            "next_pc": "0x3f6b"
+          },
+          {
+            "firmware_imem_va": "0x3f6b",
+            "raw": "bf99",
+            "next_pc": "0x3f6d"
+          },
+          {
+            "firmware_imem_va": "0x3f6d",
+            "raw": "b2ea",
+            "next_pc": "0x3f6f"
+          },
+          {
+            "firmware_imem_va": "0x3f6f",
+            "raw": "a6f9",
+            "next_pc": "0x3f71"
+          },
+          {
+            "firmware_imem_va": "0x3f71",
+            "raw": "f40b07",
+            "next_pc": "0x3f78"
+          },
+          {
+            "firmware_imem_va": "0x3f78",
+            "raw": "f43004",
+            "next_pc": "0x3f7b"
+          },
+          {
+            "firmware_imem_va": "0x3f7b",
+            "raw": "f800",
+            "next_pc": "0x4ebe"
+          },
+          {
+            "firmware_imem_va": "0x4ebe",
+            "raw": "b2a1",
+            "next_pc": "0x4ec0"
+          },
+          {
+            "firmware_imem_va": "0x4ec0",
+            "raw": "b3ad00bc09",
+            "next_pc": "0x4ec5"
+          }
+        ]
+      }
+    },
+    {
+      "name": "next_gate_failure",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 750,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 305419776
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 305419777
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 131072
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x825800",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137808",
+            "value": 1
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137810",
+            "value": 16
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x200bc",
+            "value": 750
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x59ae"
+          },
+          {
+            "firmware_imem_va": "0x59ae",
+            "raw": "7e5b0400",
+            "next_pc": "0x45b"
+          },
+          {
+            "firmware_imem_va": "0x45b",
+            "raw": "d9a0050000",
+            "next_pc": "0x460"
+          },
+          {
+            "firmware_imem_va": "0x460",
+            "raw": "bf99",
+            "next_pc": "0x462"
+          },
+          {
+            "firmware_imem_va": "0x462",
+            "raw": "f430fc",
+            "next_pc": "0x465"
+          },
+          {
+            "firmware_imem_va": "0x465",
+            "raw": "fe4f01",
+            "next_pc": "0x468"
+          },
+          {
+            "firmware_imem_va": "0x468",
+            "raw": "da00588200",
+            "next_pc": "0x46d"
+          },
+          {
+            "firmware_imem_va": "0x46d",
+            "raw": "a0f9",
+            "next_pc": "0x46f"
+          },
+          {
+            "firmware_imem_va": "0x46f",
+            "raw": "7e171100",
+            "next_pc": "0x473"
+          },
+          {
+            "firmware_imem_va": "0x473",
+            "raw": "4ee902",
+            "next_pc": "0x476"
+          },
+          {
+            "firmware_imem_va": "0x476",
+            "raw": "c4a901",
+            "next_pc": "0x479"
+          },
+          {
+            "firmware_imem_va": "0x479",
+            "raw": "f41b17",
+            "next_pc": "0x47c"
+          },
+          {
+            "firmware_imem_va": "0x47c",
+            "raw": "c4a902",
+            "next_pc": "0x47f"
+          },
+          {
+            "firmware_imem_va": "0x47f",
+            "raw": "4eef02",
+            "next_pc": "0x482"
+          },
+          {
+            "firmware_imem_va": "0x482",
+            "raw": "f41b0e",
+            "next_pc": "0x485"
+          },
+          {
+            "firmware_imem_va": "0x485",
+            "raw": "c4a904",
+            "next_pc": "0x488"
+          },
+          {
+            "firmware_imem_va": "0x488",
+            "raw": "4ef002",
+            "next_pc": "0x48b"
+          },
+          {
+            "firmware_imem_va": "0x48b",
+            "raw": "f41b05",
+            "next_pc": "0x48e"
+          },
+          {
+            "firmware_imem_va": "0x48e",
+            "raw": "bde4",
+            "next_pc": "0x490"
+          },
+          {
+            "firmware_imem_va": "0x490",
+            "raw": "fe4901",
+            "next_pc": "0x493"
+          },
+          {
+            "firmware_imem_va": "0x493",
+            "raw": "bf9f",
+            "next_pc": "0x495"
+          },
+          {
+            "firmware_imem_va": "0x495",
+            "raw": "d9a0050000",
+            "next_pc": "0x49a"
+          },
+          {
+            "firmware_imem_va": "0x49a",
+            "raw": "bf99",
+            "next_pc": "0x49c"
+          },
+          {
+            "firmware_imem_va": "0x49c",
+            "raw": "b2ea",
+            "next_pc": "0x49e"
+          },
+          {
+            "firmware_imem_va": "0x49e",
+            "raw": "a6f9",
+            "next_pc": "0x4a0"
+          },
+          {
+            "firmware_imem_va": "0x4a0",
+            "raw": "f40b07",
+            "next_pc": "0x4a7"
+          },
+          {
+            "firmware_imem_va": "0x4a7",
+            "raw": "f43004",
+            "next_pc": "0x4aa"
+          },
+          {
+            "firmware_imem_va": "0x4aa",
+            "raw": "f800",
+            "next_pc": "0x59b2"
+          },
+          {
+            "firmware_imem_va": "0x59b2",
+            "raw": "b2a1",
+            "next_pc": "0x59b4"
+          },
+          {
+            "firmware_imem_va": "0x59b4",
+            "raw": "b3ad00c8fe",
+            "next_pc": "0x59b9"
+          },
+          {
+            "firmware_imem_va": "0x59b9",
+            "raw": "3eba4e00",
+            "next_pc": "0x4eba"
+          },
+          {
+            "firmware_imem_va": "0x4eba",
+            "raw": "7e1c3f00",
+            "next_pc": "0x3f1c"
+          },
+          {
+            "firmware_imem_va": "0x3f1c",
+            "raw": "d9a0050000",
+            "next_pc": "0x3f21"
+          },
+          {
+            "firmware_imem_va": "0x3f21",
+            "raw": "bf99",
+            "next_pc": "0x3f23"
+          },
+          {
+            "firmware_imem_va": "0x3f23",
+            "raw": "f430fc",
+            "next_pc": "0x3f26"
+          },
+          {
+            "firmware_imem_va": "0x3f26",
+            "raw": "fe4f01",
+            "next_pc": "0x3f29"
+          },
+          {
+            "firmware_imem_va": "0x3f29",
+            "raw": "8a087813",
+            "next_pc": "0x3f2d"
+          },
+          {
+            "firmware_imem_va": "0x3f2d",
+            "raw": "a0f9",
+            "next_pc": "0x3f2f"
+          },
+          {
+            "firmware_imem_va": "0x3f2f",
+            "raw": "7e171100",
+            "next_pc": "0x3f33"
+          },
+          {
+            "firmware_imem_va": "0x3f33",
+            "raw": "f0a401",
+            "next_pc": "0x3f36"
+          },
+          {
+            "firmware_imem_va": "0x3f36",
+            "raw": "f40b29",
+            "next_pc": "0x3f39"
+          },
+          {
+            "firmware_imem_va": "0x3f39",
+            "raw": "8a107813",
+            "next_pc": "0x3f3d"
+          },
+          {
+            "firmware_imem_va": "0x3f3d",
+            "raw": "7e171100",
+            "next_pc": "0x3f41"
+          },
+          {
+            "firmware_imem_va": "0x3f41",
+            "raw": "4eee02",
+            "next_pc": "0x3f44"
+          },
+          {
+            "firmware_imem_va": "0x3f44",
+            "raw": "f0a410",
+            "next_pc": "0x3f47"
+          },
+          {
+            "firmware_imem_va": "0x3f47",
+            "raw": "f41b1a",
+            "next_pc": "0x3f61"
+          },
+          {
+            "firmware_imem_va": "0x3f61",
+            "raw": "fe4901",
+            "next_pc": "0x3f64"
+          },
+          {
+            "firmware_imem_va": "0x3f64",
+            "raw": "bf9f",
+            "next_pc": "0x3f66"
+          },
+          {
+            "firmware_imem_va": "0x3f66",
+            "raw": "d9a0050000",
+            "next_pc": "0x3f6b"
+          },
+          {
+            "firmware_imem_va": "0x3f6b",
+            "raw": "bf99",
+            "next_pc": "0x3f6d"
+          },
+          {
+            "firmware_imem_va": "0x3f6d",
+            "raw": "b2ea",
+            "next_pc": "0x3f6f"
+          },
+          {
+            "firmware_imem_va": "0x3f6f",
+            "raw": "a6f9",
+            "next_pc": "0x3f71"
+          },
+          {
+            "firmware_imem_va": "0x3f71",
+            "raw": "f40b07",
+            "next_pc": "0x3f78"
+          },
+          {
+            "firmware_imem_va": "0x3f78",
+            "raw": "f43004",
+            "next_pc": "0x3f7b"
+          },
+          {
+            "firmware_imem_va": "0x3f7b",
+            "raw": "f800",
+            "next_pc": "0x4ebe"
+          },
+          {
+            "firmware_imem_va": "0x4ebe",
+            "raw": "b2a1",
+            "next_pc": "0x4ec0"
+          },
+          {
+            "firmware_imem_va": "0x4ec0",
+            "raw": "b3ad00bc09",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x5890"
+          },
+          {
+            "firmware_imem_va": "0x5890",
+            "raw": "b314003e",
+            "next_pc": "0x58ce"
+          },
+          {
+            "firmware_imem_va": "0x58ce",
+            "raw": "b30eaa000f",
+            "next_pc": "0x58dd"
+          },
+          {
+            "firmware_imem_va": "0x58dd",
+            "raw": "8abc0002",
+            "next_pc": "0x58e1"
+          },
+          {
+            "firmware_imem_va": "0x58e1",
+            "raw": "b21b",
+            "next_pc": "0x58e3"
+          },
+          {
+            "firmware_imem_va": "0x58e3",
+            "raw": "7e711100",
+            "next_pc": "0x58e7"
+          },
+          {
+            "firmware_imem_va": "0x58e7",
+            "raw": "3eed5800",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "publication_suppressed_by_22410",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 179,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 1
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 1
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 0
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x4eb6"
+          },
+          {
+            "firmware_imem_va": "0x4eb6",
+            "raw": "3e7c5800",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d3e"
+          },
+          {
+            "firmware_imem_va": "0x3d3e",
+            "raw": "40aa00",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "publication_suppressed_by_1070",
+      "all_inputs_synthetic": true,
+      "result": {
+        "stop_pc": "0x58ed",
+        "stop_reason": "error_tail",
+        "raw_r1": 179,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118234",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x118234",
+            "value": 1
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x137090",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x22410",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x1070",
+            "value": 1
+          }
+        ],
+        "trace": [
+          {
+            "firmware_imem_va": "0x4e87",
+            "raw": "8a348211",
+            "next_pc": "0x4e8b"
+          },
+          {
+            "firmware_imem_va": "0x4e8b",
+            "raw": "7e171100",
+            "next_pc": "0x4e8f"
+          },
+          {
+            "firmware_imem_va": "0x4e8f",
+            "raw": "4900ff",
+            "next_pc": "0x4e92"
+          },
+          {
+            "firmware_imem_va": "0x4e92",
+            "raw": "ffa9b4",
+            "next_pc": "0x4e95"
+          },
+          {
+            "firmware_imem_va": "0x4e95",
+            "raw": "8a348211",
+            "next_pc": "0x4e99"
+          },
+          {
+            "firmware_imem_va": "0x4e99",
+            "raw": "f0b501",
+            "next_pc": "0x4e9c"
+          },
+          {
+            "firmware_imem_va": "0x4e9c",
+            "raw": "7e711100",
+            "next_pc": "0x4ea0"
+          },
+          {
+            "firmware_imem_va": "0x4ea0",
+            "raw": "8a907013",
+            "next_pc": "0x4ea4"
+          },
+          {
+            "firmware_imem_va": "0x4ea4",
+            "raw": "7e171100",
+            "next_pc": "0x4ea8"
+          },
+          {
+            "firmware_imem_va": "0x4ea8",
+            "raw": "89000002",
+            "next_pc": "0x4eac"
+          },
+          {
+            "firmware_imem_va": "0x4eac",
+            "raw": "41b300",
+            "next_pc": "0x4eaf"
+          },
+          {
+            "firmware_imem_va": "0x4eaf",
+            "raw": "fda904",
+            "next_pc": "0x4eb2"
+          },
+          {
+            "firmware_imem_va": "0x4eb2",
+            "raw": "f51bfc0a",
+            "next_pc": "0x4eb6"
+          },
+          {
+            "firmware_imem_va": "0x4eb6",
+            "raw": "3e7c5800",
+            "next_pc": "0x587c"
+          },
+          {
+            "firmware_imem_va": "0x587c",
+            "raw": "0055",
+            "next_pc": "0x587e"
+          },
+          {
+            "firmware_imem_va": "0x587e",
+            "raw": "3e885800",
+            "next_pc": "0x5888"
+          },
+          {
+            "firmware_imem_va": "0x5888",
+            "raw": "7e1a3d00",
+            "next_pc": "0x3d1a"
+          },
+          {
+            "firmware_imem_va": "0x3d1a",
+            "raw": "f430fc",
+            "next_pc": "0x3d1d"
+          },
+          {
+            "firmware_imem_va": "0x3d1d",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d22"
+          },
+          {
+            "firmware_imem_va": "0x3d22",
+            "raw": "f902",
+            "next_pc": "0x3d24"
+          },
+          {
+            "firmware_imem_va": "0x3d24",
+            "raw": "bf99",
+            "next_pc": "0x3d26"
+          },
+          {
+            "firmware_imem_va": "0x3d26",
+            "raw": "fe4f01",
+            "next_pc": "0x3d29"
+          },
+          {
+            "firmware_imem_va": "0x3d29",
+            "raw": "90ff04",
+            "next_pc": "0x3d2c"
+          },
+          {
+            "firmware_imem_va": "0x3d2c",
+            "raw": "8a102402",
+            "next_pc": "0x3d30"
+          },
+          {
+            "firmware_imem_va": "0x3d30",
+            "raw": "a0f9",
+            "next_pc": "0x3d32"
+          },
+          {
+            "firmware_imem_va": "0x3d32",
+            "raw": "0055",
+            "next_pc": "0x3d34"
+          },
+          {
+            "firmware_imem_va": "0x3d34",
+            "raw": "7e171100",
+            "next_pc": "0x3d38"
+          },
+          {
+            "firmware_imem_va": "0x3d38",
+            "raw": "f0a407",
+            "next_pc": "0x3d3b"
+          },
+          {
+            "firmware_imem_va": "0x3d3b",
+            "raw": "f40b06",
+            "next_pc": "0x3d41"
+          },
+          {
+            "firmware_imem_va": "0x3d41",
+            "raw": "4a7010",
+            "next_pc": "0x3d44"
+          },
+          {
+            "firmware_imem_va": "0x3d44",
+            "raw": "7e171100",
+            "next_pc": "0x3d48"
+          },
+          {
+            "firmware_imem_va": "0x3d48",
+            "raw": "b3a00007",
+            "next_pc": "0x3d4c"
+          },
+          {
+            "firmware_imem_va": "0x3d4c",
+            "raw": "40aa00",
+            "next_pc": "0x3d4f"
+          },
+          {
+            "firmware_imem_va": "0x3d4f",
+            "raw": "fe4901",
+            "next_pc": "0x3d52"
+          },
+          {
+            "firmware_imem_va": "0x3d52",
+            "raw": "909904",
+            "next_pc": "0x3d55"
+          },
+          {
+            "firmware_imem_va": "0x3d55",
+            "raw": "bf9f",
+            "next_pc": "0x3d57"
+          },
+          {
+            "firmware_imem_va": "0x3d57",
+            "raw": "d9a0050000",
+            "next_pc": "0x3d5c"
+          },
+          {
+            "firmware_imem_va": "0x3d5c",
+            "raw": "bf99",
+            "next_pc": "0x3d5e"
+          },
+          {
+            "firmware_imem_va": "0x3d5e",
+            "raw": "b20a",
+            "next_pc": "0x3d60"
+          },
+          {
+            "firmware_imem_va": "0x3d60",
+            "raw": "a6f9",
+            "next_pc": "0x3d62"
+          },
+          {
+            "firmware_imem_va": "0x3d62",
+            "raw": "f40b07",
+            "next_pc": "0x3d69"
+          },
+          {
+            "firmware_imem_va": "0x3d69",
+            "raw": "fb0504",
+            "next_pc": "0x588c"
+          },
+          {
+            "firmware_imem_va": "0x588c",
+            "raw": "b3a45561",
+            "next_pc": "0x58ed"
+          }
+        ]
+      }
+    }
+  ]
+}

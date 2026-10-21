@@ -166,3 +166,72 @@ C compiler. The six basic blocks also retain their raw instruction bytes in
 `fwsec-progress-replay.json`. The full exploratory disassembly, original failed
 decode, downloaded ROM and initial parser remain in the separate local incident
 archive; they are not production tools or an automated recovery service.
+
+
+## Follow-up: the first three checks and four ROM variants
+
+The copied debug bytes now execute through the first checks after the `0x1`
+write, including their conditional error-publication path. Twelve synthetic
+cases in [early-gates-replay.json](early-gates-replay.json) cover these paths.
+Every one of the 808 executed instruction boundaries/byte sequences agrees
+with the retained envytools listing. Reads, writes, entry state, stack and
+canary are fixtures; this is not an execution trace from the card.
+
+| Copied debug code | Condition | Raw result in the modeled path |
+| --- | --- | --- |
+| `0x4ea0..0x4eba` | PRI operand `0x137090`, bit 17 clear | `0xb3` |
+| `0x45b..0x4ac` | PRI operand `0x825800`, bit 0 set | `0x2e9` |
+| Same helper | bit 0 clear, bit 1 set | `0x2ef` |
+| Same helper | bits 0–1 clear, bit 2 set | `0x2f0` |
+| `0x3f1c..0x3f7d` | PRI `0x137808` bit 0 set and `0x137810` bit 4 set | `0x2ee` |
+
+These are firmware raw codes, not assigned `NV_STATUS` meanings. The helper
+at `0x3d1a` inspects PRI operands `0x22410` and `0x1070`; its result controls
+whether the error is written to PRI operand `0x200bc` at `0x58dd..0x58e7`.
+Our fixtures show both error publication and suppression for the same earlier
+failure. The replay stops at the next boot precondition (`0x4ec5`) or error
+tail (`0x58ed`). It does not execute the remainder of initialization.
+
+No identified retained values select one of those failure branches. The current
+NVIDIA GA102 headers do not establish names for all of these fields. Envytools'
+older GF100 clock-domain map and Hopper/Blackwell names at `0x200bc` are not
+substitutes for GA102 evidence. None of these operands is a proposed live
+read/write recipe.
+
+The retained unload log also shows a more specific failure than the short
+FWSEC error line: **the IMEM transfer hit a queue-not-full timeout, mode 0**.
+[teardown-dma-excerpt.log](teardown-dma-excerpt.log) and
+[early-gates-sources.json](early-gates-sources.json) preserve the exact evidence.
+The source returns before PKC setup and `StartCpu` for that invocation. It
+therefore does not show the requested FWSEC-SB program executing and returning
+one of the raw codes above. Queue checks occur before and within the transfer;
+the amount transferred is unknown. This unload event precedes the later reset
+and `0x1` startup error. A causal connection remains unproven.
+
+[version-comparison.json](version-comparison.json) compares four copied ROMs.
+Their versions are decoded from BIT BIOSDATA bytes, rather than assumed from
+filenames: `94.02.42.00.F4`, `.0B`, `.0F` and `.44`. Each legacy image carries PCI
+device ID `0x2204`. All four have byte-identical FWSEC descriptors, stored IMEM
+and stored DMEM, separately for debug and production. Decoded debug IMEM also
+matches. The production plaintext/key remains unknown; debug/production
+semantic equivalence does not follow from these comparisons.
+
+These are different board-vendor variants within the same VBIOS version family.
+OEM suffixes do not establish release chronology. Other ROM components and
+runtime board parameters can differ. The three EVGA files were retained before
+this investigation; their hashes are known, but original download URLs remain
+unresolved. Their firmware is not a replacement for this card's VBIOS.
+
+The regular reproduction command now checks the twelve early-gate cases too.
+With all four exact ROM files copied under `firmware-store/gfw-boot`, reproduce
+the separate comparison with:
+
+```sh
+bash scripts/run_cpu_only.sh python3 research/2026-10-21-gfw-boot/compare_fwsec.py firmware-store/gfw-boot
+```
+
+Next: trace the remaining preconditions and initialization work between
+`0x4ec5` and the `0x2` update at `0x577a`, following the copied callees and table
+inputs. Prioritize a demonstrated state producer or initialization dependency;
+keep absent runtime values and unnamed fields unresolved. No working additional
+no-reboot recovery intervention is established by this follow-up.

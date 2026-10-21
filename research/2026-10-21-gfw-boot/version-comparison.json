@@ -1,0 +1,164 @@
+{
+  "address_domain": "All offsets are ROM file offsets; component IMEM/DMEM are separate Falcon-engine domains. Hash equality is byte equality of stored artifacts, not installed/runtime identity.",
+  "version_source": {
+    "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+    "path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp_fwsec.c",
+    "lines": "75-88 BIT_DATA_BIOSDATA_BINVER"
+  },
+  "limits": "Same GA102 PCI device ID and nearby VBIOS version family, different board vendors/variants. No chronology inferred from OEM suffix; no production-key decode or proof that every ROM component matches.",
+  "inputs": [
+    {
+      "file": "msi-3090-F4-candidate.rom",
+      "file_sha256": "6dd01dee331f4d0faf5dbd8bc58e31dd58eb88c7d403c7f7ae13e412927e8711",
+      "bytes": 999424,
+      "rom_version_from_bit_B": "94.02.42.00.F4",
+      "version_field_file_offset": 37950,
+      "version_field_raw": "00420294f4",
+      "legacy_pci_device_id": "0x2204",
+      "provenance": "public download URL recorded in sibling source JSON",
+      "components": {
+        "debug": {
+          "descriptor_file_offset": 249668,
+          "descriptor_bytes": 1196,
+          "descriptor_sha256": "430aa8fbbb04f02a7de744375f4cfe1a0df29218d7bb3e16e622a7ca9c27d6e0",
+          "imem_file_offset": 250864,
+          "imem_bytes": 55808,
+          "stored_imem_sha256": "a84efa34649c843d6075fbbeec3ee958a3a02df25ed8c0a34ba679f1775f6fb1",
+          "dmem_file_offset": 306672,
+          "dmem_bytes": 2048,
+          "stored_dmem_sha256": "f1d80c10402db3f5c2fd0a56a7fabda3b5165e1b8de2d9155d06f0315f0fa35a",
+          "decoded_debug_imem_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb"
+        },
+        "production": {
+          "descriptor_file_offset": 308720,
+          "descriptor_bytes": 1196,
+          "descriptor_sha256": "9e1868d94bda8c008fc969f5778a06aec8ebe1218001f6ee995e0e82cd774aa4",
+          "imem_file_offset": 309916,
+          "imem_bytes": 55808,
+          "stored_imem_sha256": "cf60d4e90156f106a850f40d02890577c8c55c773c8931949cc31feca0806b2b",
+          "dmem_file_offset": 365724,
+          "dmem_bytes": 2048,
+          "stored_dmem_sha256": "f9c8001028348bd2e3a3d5dac0e9e6c0f8c0840e339787c64a9eb7284bba804e"
+        }
+      }
+    },
+    {
+      "file": "evga-3090-94.02.42.00.0B.rom",
+      "file_sha256": "4ef3c1ab655035a370ea2e0db88d244e17a007fe9cc45c8bdaf2876062942bb5",
+      "bytes": 999424,
+      "rom_version_from_bit_B": "94.02.42.00.0B",
+      "version_field_file_offset": 37950,
+      "version_field_raw": "004202940b",
+      "legacy_pci_device_id": "0x2204",
+      "provenance": "pre-existing retained GA102 file and SHA256SUMS; original acquisition URL unresolved",
+      "components": {
+        "debug": {
+          "descriptor_file_offset": 249668,
+          "descriptor_bytes": 1196,
+          "descriptor_sha256": "430aa8fbbb04f02a7de744375f4cfe1a0df29218d7bb3e16e622a7ca9c27d6e0",
+          "imem_file_offset": 250864,
+          "imem_bytes": 55808,
+          "stored_imem_sha256": "a84efa34649c843d6075fbbeec3ee958a3a02df25ed8c0a34ba679f1775f6fb1",
+          "dmem_file_offset": 306672,
+          "dmem_bytes": 2048,
+          "stored_dmem_sha256": "f1d80c10402db3f5c2fd0a56a7fabda3b5165e1b8de2d9155d06f0315f0fa35a",
+          "decoded_debug_imem_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb"
+        },
+        "production": {
+          "descriptor_file_offset": 308720,
+          "descriptor_bytes": 1196,
+          "descriptor_sha256": "9e1868d94bda8c008fc969f5778a06aec8ebe1218001f6ee995e0e82cd774aa4",
+          "imem_file_offset": 309916,
+          "imem_bytes": 55808,
+          "stored_imem_sha256": "cf60d4e90156f106a850f40d02890577c8c55c773c8931949cc31feca0806b2b",
+          "dmem_file_offset": 365724,
+          "dmem_bytes": 2048,
+          "stored_dmem_sha256": "f9c8001028348bd2e3a3d5dac0e9e6c0f8c0840e339787c64a9eb7284bba804e"
+        }
+      }
+    },
+    {
+      "file": "evga-3090-94.02.42.00.0F.rom",
+      "file_sha256": "4a04d081631e22697b3a07ce6e605747b37bcc77f6435aa7200d89c91de21ace",
+      "bytes": 999424,
+      "rom_version_from_bit_B": "94.02.42.00.0F",
+      "version_field_file_offset": 37950,
+      "version_field_raw": "004202940f",
+      "legacy_pci_device_id": "0x2204",
+      "provenance": "pre-existing retained GA102 file and SHA256SUMS; original acquisition URL unresolved",
+      "components": {
+        "debug": {
+          "descriptor_file_offset": 249668,
+          "descriptor_bytes": 1196,
+          "descriptor_sha256": "430aa8fbbb04f02a7de744375f4cfe1a0df29218d7bb3e16e622a7ca9c27d6e0",
+          "imem_file_offset": 250864,
+          "imem_bytes": 55808,
+          "stored_imem_sha256": "a84efa34649c843d6075fbbeec3ee958a3a02df25ed8c0a34ba679f1775f6fb1",
+          "dmem_file_offset": 306672,
+          "dmem_bytes": 2048,
+          "stored_dmem_sha256": "f1d80c10402db3f5c2fd0a56a7fabda3b5165e1b8de2d9155d06f0315f0fa35a",
+          "decoded_debug_imem_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb"
+        },
+        "production": {
+          "descriptor_file_offset": 308720,
+          "descriptor_bytes": 1196,
+          "descriptor_sha256": "9e1868d94bda8c008fc969f5778a06aec8ebe1218001f6ee995e0e82cd774aa4",
+          "imem_file_offset": 309916,
+          "imem_bytes": 55808,
+          "stored_imem_sha256": "cf60d4e90156f106a850f40d02890577c8c55c773c8931949cc31feca0806b2b",
+          "dmem_file_offset": 365724,
+          "dmem_bytes": 2048,
+          "stored_dmem_sha256": "f9c8001028348bd2e3a3d5dac0e9e6c0f8c0840e339787c64a9eb7284bba804e"
+        }
+      }
+    },
+    {
+      "file": "evga-3090-94.02.42.00.44.rom",
+      "file_sha256": "42dd161e7cc6c55d8fb2b8085f55216bcdb568f06e8a86af1e403079c23f7533",
+      "bytes": 999424,
+      "rom_version_from_bit_B": "94.02.42.00.44",
+      "version_field_file_offset": 37950,
+      "version_field_raw": "0042029444",
+      "legacy_pci_device_id": "0x2204",
+      "provenance": "pre-existing retained GA102 file and SHA256SUMS; original acquisition URL unresolved",
+      "components": {
+        "debug": {
+          "descriptor_file_offset": 249668,
+          "descriptor_bytes": 1196,
+          "descriptor_sha256": "430aa8fbbb04f02a7de744375f4cfe1a0df29218d7bb3e16e622a7ca9c27d6e0",
+          "imem_file_offset": 250864,
+          "imem_bytes": 55808,
+          "stored_imem_sha256": "a84efa34649c843d6075fbbeec3ee958a3a02df25ed8c0a34ba679f1775f6fb1",
+          "dmem_file_offset": 306672,
+          "dmem_bytes": 2048,
+          "stored_dmem_sha256": "f1d80c10402db3f5c2fd0a56a7fabda3b5165e1b8de2d9155d06f0315f0fa35a",
+          "decoded_debug_imem_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb"
+        },
+        "production": {
+          "descriptor_file_offset": 308720,
+          "descriptor_bytes": 1196,
+          "descriptor_sha256": "9e1868d94bda8c008fc969f5778a06aec8ebe1218001f6ee995e0e82cd774aa4",
+          "imem_file_offset": 309916,
+          "imem_bytes": 55808,
+          "stored_imem_sha256": "cf60d4e90156f106a850f40d02890577c8c55c773c8931949cc31feca0806b2b",
+          "dmem_file_offset": 365724,
+          "dmem_bytes": 2048,
+          "stored_dmem_sha256": "f9c8001028348bd2e3a3d5dac0e9e6c0f8c0840e339787c64a9eb7284bba804e"
+        }
+      }
+    }
+  ],
+  "all_four_equal": {
+    "debug": {
+      "descriptor_sha256": true,
+      "stored_imem_sha256": true,
+      "stored_dmem_sha256": true,
+      "decoded_debug_imem_sha256": true
+    },
+    "production": {
+      "descriptor_sha256": true,
+      "stored_imem_sha256": true,
+      "stored_dmem_sha256": true
+    }
+  }
+}
