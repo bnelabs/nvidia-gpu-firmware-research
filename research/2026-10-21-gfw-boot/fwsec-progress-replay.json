@@ -1,0 +1,1449 @@
+{
+  "artifact_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb",
+  "address_domains": "PCs are copied debug FWSEC Falcon IMEM VAs (base zero); 0x118234 is the PRI address argument to copied helpers; all read values/writes are synthetic only.",
+  "limits": "Only six straight-line blocks. Helper calls are modeled; their instruction bodies and physical hardware are not executed. No production-code equivalence or runtime branch attribution.",
+  "cases_passed": 30,
+  "unknown_opcode_rejected": true,
+  "cases": [
+    {
+      "name": "clear_low_byte",
+      "start_firmware_imem_va": "0x1338",
+      "end_exclusive": "0x134e",
+      "initial_synthetic_value": 0,
+      "result": 0,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 0
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 0
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x1338",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x133c",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x1340",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x1343",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x1346",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x134a",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "clear_low_byte",
+      "start_firmware_imem_va": "0x1338",
+      "end_exclusive": "0x134e",
+      "initial_synthetic_value": 1,
+      "result": 0,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 1
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 0
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x1338",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x133c",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x1340",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x1343",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x1346",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x134a",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "clear_low_byte",
+      "start_firmware_imem_va": "0x1338",
+      "end_exclusive": "0x134e",
+      "initial_synthetic_value": 255,
+      "result": 0,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 255
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 0
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x1338",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x133c",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x1340",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x1343",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x1346",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x134a",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "clear_low_byte",
+      "start_firmware_imem_va": "0x1338",
+      "end_exclusive": "0x134e",
+      "initial_synthetic_value": 305419947,
+      "result": 305419776,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 305419947
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 305419776
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x1338",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x133c",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x1340",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x1343",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x1346",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x134a",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "clear_low_byte",
+      "start_firmware_imem_va": "0x1338",
+      "end_exclusive": "0x134e",
+      "initial_synthetic_value": 4294967295,
+      "result": 4294967040,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 4294967295
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 4294967040
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x1338",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x133c",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x1340",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x1343",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x1346",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x134a",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_1",
+      "start_firmware_imem_va": "0x4e87",
+      "end_exclusive": "0x4ea0",
+      "initial_synthetic_value": 0,
+      "result": 1,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 0
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 1
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4e87",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e8b",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4e8f",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4e92",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4e95",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e99",
+          "raw": "f0b501"
+        },
+        {
+          "firmware_imem_va": "0x4e9c",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_1",
+      "start_firmware_imem_va": "0x4e87",
+      "end_exclusive": "0x4ea0",
+      "initial_synthetic_value": 1,
+      "result": 1,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 1
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 1
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4e87",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e8b",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4e8f",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4e92",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4e95",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e99",
+          "raw": "f0b501"
+        },
+        {
+          "firmware_imem_va": "0x4e9c",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_1",
+      "start_firmware_imem_va": "0x4e87",
+      "end_exclusive": "0x4ea0",
+      "initial_synthetic_value": 255,
+      "result": 1,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 255
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 1
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4e87",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e8b",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4e8f",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4e92",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4e95",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e99",
+          "raw": "f0b501"
+        },
+        {
+          "firmware_imem_va": "0x4e9c",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_1",
+      "start_firmware_imem_va": "0x4e87",
+      "end_exclusive": "0x4ea0",
+      "initial_synthetic_value": 305419947,
+      "result": 305419777,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 305419947
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 305419777
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4e87",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e8b",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4e8f",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4e92",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4e95",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e99",
+          "raw": "f0b501"
+        },
+        {
+          "firmware_imem_va": "0x4e9c",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_1",
+      "start_firmware_imem_va": "0x4e87",
+      "end_exclusive": "0x4ea0",
+      "initial_synthetic_value": 4294967295,
+      "result": 4294967041,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 4294967295
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 4294967041
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4e87",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e8b",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4e8f",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4e92",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4e95",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4e99",
+          "raw": "f0b501"
+        },
+        {
+          "firmware_imem_va": "0x4e9c",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_2",
+      "start_firmware_imem_va": "0x577a",
+      "end_exclusive": "0x5793",
+      "initial_synthetic_value": 0,
+      "result": 2,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 0
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 2
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x577a",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x577e",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5782",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x5785",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x5788",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x578c",
+          "raw": "f0b502"
+        },
+        {
+          "firmware_imem_va": "0x578f",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_2",
+      "start_firmware_imem_va": "0x577a",
+      "end_exclusive": "0x5793",
+      "initial_synthetic_value": 1,
+      "result": 2,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 1
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 2
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x577a",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x577e",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5782",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x5785",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x5788",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x578c",
+          "raw": "f0b502"
+        },
+        {
+          "firmware_imem_va": "0x578f",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_2",
+      "start_firmware_imem_va": "0x577a",
+      "end_exclusive": "0x5793",
+      "initial_synthetic_value": 255,
+      "result": 2,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 255
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 2
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x577a",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x577e",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5782",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x5785",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x5788",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x578c",
+          "raw": "f0b502"
+        },
+        {
+          "firmware_imem_va": "0x578f",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_2",
+      "start_firmware_imem_va": "0x577a",
+      "end_exclusive": "0x5793",
+      "initial_synthetic_value": 305419947,
+      "result": 305419778,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 305419947
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 305419778
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x577a",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x577e",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5782",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x5785",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x5788",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x578c",
+          "raw": "f0b502"
+        },
+        {
+          "firmware_imem_va": "0x578f",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_2",
+      "start_firmware_imem_va": "0x577a",
+      "end_exclusive": "0x5793",
+      "initial_synthetic_value": 4294967295,
+      "result": 4294967042,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 4294967295
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 4294967042
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x577a",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x577e",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5782",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x5785",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x5788",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x578c",
+          "raw": "f0b502"
+        },
+        {
+          "firmware_imem_va": "0x578f",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_3",
+      "start_firmware_imem_va": "0x4bdc",
+      "end_exclusive": "0x4bf5",
+      "initial_synthetic_value": 0,
+      "result": 3,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 0
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 3
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4bdc",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4be0",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4be4",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4be7",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4bea",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4bee",
+          "raw": "f0b503"
+        },
+        {
+          "firmware_imem_va": "0x4bf1",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_3",
+      "start_firmware_imem_va": "0x4bdc",
+      "end_exclusive": "0x4bf5",
+      "initial_synthetic_value": 1,
+      "result": 3,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 1
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 3
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4bdc",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4be0",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4be4",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4be7",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4bea",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4bee",
+          "raw": "f0b503"
+        },
+        {
+          "firmware_imem_va": "0x4bf1",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_3",
+      "start_firmware_imem_va": "0x4bdc",
+      "end_exclusive": "0x4bf5",
+      "initial_synthetic_value": 255,
+      "result": 3,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 255
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 3
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4bdc",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4be0",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4be4",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4be7",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4bea",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4bee",
+          "raw": "f0b503"
+        },
+        {
+          "firmware_imem_va": "0x4bf1",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_3",
+      "start_firmware_imem_va": "0x4bdc",
+      "end_exclusive": "0x4bf5",
+      "initial_synthetic_value": 305419947,
+      "result": 305419779,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 305419947
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 305419779
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4bdc",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4be0",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4be4",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4be7",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4bea",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4bee",
+          "raw": "f0b503"
+        },
+        {
+          "firmware_imem_va": "0x4bf1",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_3",
+      "start_firmware_imem_va": "0x4bdc",
+      "end_exclusive": "0x4bf5",
+      "initial_synthetic_value": 4294967295,
+      "result": 4294967043,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 4294967295
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 4294967043
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x4bdc",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4be0",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x4be4",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x4be7",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x4bea",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x4bee",
+          "raw": "f0b503"
+        },
+        {
+          "firmware_imem_va": "0x4bf1",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_9",
+      "start_firmware_imem_va": "0x5899",
+      "end_exclusive": "0x58b2",
+      "initial_synthetic_value": 0,
+      "result": 9,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 0
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 9
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x5899",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x589d",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x58a1",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x58a4",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x58a7",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x58ab",
+          "raw": "f0b509"
+        },
+        {
+          "firmware_imem_va": "0x58ae",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_9",
+      "start_firmware_imem_va": "0x5899",
+      "end_exclusive": "0x58b2",
+      "initial_synthetic_value": 1,
+      "result": 9,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 1
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 9
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x5899",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x589d",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x58a1",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x58a4",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x58a7",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x58ab",
+          "raw": "f0b509"
+        },
+        {
+          "firmware_imem_va": "0x58ae",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_9",
+      "start_firmware_imem_va": "0x5899",
+      "end_exclusive": "0x58b2",
+      "initial_synthetic_value": 255,
+      "result": 9,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 255
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 9
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x5899",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x589d",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x58a1",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x58a4",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x58a7",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x58ab",
+          "raw": "f0b509"
+        },
+        {
+          "firmware_imem_va": "0x58ae",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_9",
+      "start_firmware_imem_va": "0x5899",
+      "end_exclusive": "0x58b2",
+      "initial_synthetic_value": 305419947,
+      "result": 305419785,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 305419947
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 305419785
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x5899",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x589d",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x58a1",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x58a4",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x58a7",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x58ab",
+          "raw": "f0b509"
+        },
+        {
+          "firmware_imem_va": "0x58ae",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_9",
+      "start_firmware_imem_va": "0x5899",
+      "end_exclusive": "0x58b2",
+      "initial_synthetic_value": 4294967295,
+      "result": 4294967049,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 4294967295
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 4294967049
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x5899",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x589d",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x58a1",
+          "raw": "4900ff"
+        },
+        {
+          "firmware_imem_va": "0x58a4",
+          "raw": "ffa9b4"
+        },
+        {
+          "firmware_imem_va": "0x58a7",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x58ab",
+          "raw": "f0b509"
+        },
+        {
+          "firmware_imem_va": "0x58ae",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_ff",
+      "start_firmware_imem_va": "0x592e",
+      "end_exclusive": "0x5941",
+      "initial_synthetic_value": 0,
+      "result": 255,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 0
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 255
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x592e",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x5932",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5936",
+          "raw": "c5abff"
+        },
+        {
+          "firmware_imem_va": "0x5939",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x593d",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_ff",
+      "start_firmware_imem_va": "0x592e",
+      "end_exclusive": "0x5941",
+      "initial_synthetic_value": 1,
+      "result": 255,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 1
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 255
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x592e",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x5932",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5936",
+          "raw": "c5abff"
+        },
+        {
+          "firmware_imem_va": "0x5939",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x593d",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_ff",
+      "start_firmware_imem_va": "0x592e",
+      "end_exclusive": "0x5941",
+      "initial_synthetic_value": 255,
+      "result": 255,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 255
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 255
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x592e",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x5932",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5936",
+          "raw": "c5abff"
+        },
+        {
+          "firmware_imem_va": "0x5939",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x593d",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_ff",
+      "start_firmware_imem_va": "0x592e",
+      "end_exclusive": "0x5941",
+      "initial_synthetic_value": 305419947,
+      "result": 305420031,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 305419947
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 305420031
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x592e",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x5932",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5936",
+          "raw": "c5abff"
+        },
+        {
+          "firmware_imem_va": "0x5939",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x593d",
+          "raw": "7e711100"
+        }
+      ]
+    },
+    {
+      "name": "set_low_byte_ff",
+      "start_firmware_imem_va": "0x592e",
+      "end_exclusive": "0x5941",
+      "initial_synthetic_value": 4294967295,
+      "result": 4294967295,
+      "events": [
+        {
+          "service": "synthetic_read",
+          "register_domain": "GPU PRI address operand",
+          "address": "0x118234",
+          "value": 4294967295
+        },
+        {
+          "service": "synthetic_write",
+          "address": "0x118234",
+          "value": 4294967295
+        }
+      ],
+      "instructions": [
+        {
+          "firmware_imem_va": "0x592e",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x5932",
+          "raw": "7e171100"
+        },
+        {
+          "firmware_imem_va": "0x5936",
+          "raw": "c5abff"
+        },
+        {
+          "firmware_imem_va": "0x5939",
+          "raw": "8a348211"
+        },
+        {
+          "firmware_imem_va": "0x593d",
+          "raw": "7e711100"
+        }
+      ]
+    }
+  ]
+}

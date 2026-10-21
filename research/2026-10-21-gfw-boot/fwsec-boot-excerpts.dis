@@ -1,0 +1,244 @@
+; early_check: Falcon IMEM VA [0x45b, 0x4ac)
+0000045b: d9 a0 05 00 00     C  mov $r9 0x5a0
+00000460: bf 99                 ld b32 $r9 D[$r9]
+00000462: f4 30 fc              add $sp -0x4
+00000465: fe 4f 01              mov $r15 $sp
+00000468: da 00 58 82 00        mov $r10 0x825800
+0000046d: a0 f9                 st b32 D[$r15] $r9
+0000046f: 7e 17 11 00           lcall 0x1117
+00000473: 4e e9 02              mov $r14 0x2e9
+00000476: c4 a9 01              and $r9 $r10 0x1
+00000479: f4 1b 17              bra ne 0x490
+0000047c: c4 a9 02              and $r9 $r10 0x2
+0000047f: 4e ef 02              mov $r14 0x2ef
+00000482: f4 1b 0e              bra ne 0x490
+00000485: c4 a9 04              and $r9 $r10 0x4
+00000488: 4e f0 02              mov $r14 0x2f0
+0000048b: f4 1b 05              bra ne 0x490
+0000048e: bd e4                 clear b32 $r14
+00000490: fe 49 01            B mov $r9 $sp
+00000493: bf 9f                 ld b32 $r15 D[$r9]
+00000495: d9 a0 05 00 00        mov $r9 0x5a0
+0000049a: bf 99                 ld b32 $r9 D[$r9]
+0000049c: b2 ea                 mov b32 $r10 $r14
+0000049e: a6 f9                 cmp b32 $r15 $r9
+000004a0: f4 0b 07              bra e 0x4a7
+000004a3: 7e 51 d6 00           lcall 0xd651
+000004a7: f4 30 04            B add $sp 0x4
+000004aa: f8 00                 ret
+; read_helper: Falcon IMEM VA [0x1117, 0x1171)
+00001117: df a0 05 00 00     C  mov $r15 0x5a0
+0000111c: bf ff                 ld b32 $r15 D[$r15]
+0000111e: f4 30 fc              add $sp -0x4
+00001121: fe 49 01              mov $r9 $sp
+00001124: a0 9f                 st b32 D[$r9] $r15
+00001126: 89 00 c1 01           mov $r9 0x1c100
+0000112a: fa 9a 00              iowr I[$r9] $r10
+0000112d: df f1 00 00 80        mov $r15 0x800000f1
+00001132: b8 99 00 01 02        sub b32 $r9 $r9 0x100
+00001137: fa 9f 01              iowrs I[$r9] $r15
+0000113a: 8f 00 c0 01           mov $r15 0x1c000
+0000113e: cf fa 00            B iord $r10 I[$r15]
+00001141: c7 a9 4c              extr $r9 $r10 0xc:0xe
+00001144: b3 90 01 fa           bra b32 $r9 0x1 e 0x113e
+00001148: b3 94 04 08           bra b32 $r9 0x4 ne 0x1150
+0000114c: 7e 67 10 00           lcall 0x1067
+00001150: 8a 00 c2 01         B mov $r10 0x1c200
+00001154: cf aa 00              iord $r10 I[$r10]
+00001157: fe 49 01              mov $r9 $sp
+0000115a: bf 9f                 ld b32 $r15 D[$r9]
+0000115c: d9 a0 05 00 00        mov $r9 0x5a0
+00001161: bf 99                 ld b32 $r9 D[$r9]
+00001163: a6 f9                 cmp b32 $r15 $r9
+00001165: f4 0b 07              bra e 0x116c
+00001168: 7e 51 d6 00           lcall 0xd651
+0000116c: f4 30 04            B add $sp 0x4
+0000116f: f8 00                 ret
+; write_helper: Falcon IMEM VA [0x1171, 0x11cc)
+00001171: df a0 05 00 00     C  mov $r15 0x5a0
+00001176: bf ff                 ld b32 $r15 D[$r15]
+00001178: f4 30 fc              add $sp -0x4
+0000117b: fe 49 01              mov $r9 $sp
+0000117e: a0 9f                 st b32 D[$r9] $r15
+00001180: 89 00 c1 01           mov $r9 0x1c100
+00001184: fa 9a 00              iowr I[$r9] $r10
+00001187: b8 99 00 01 00        add b32 $r9 $r9 0x100
+0000118c: fa 9b 00              iowr I[$r9] $r11
+0000118f: df f2 00 00 80        mov $r15 0x800000f2
+00001194: b8 99 00 02 02        sub b32 $r9 $r9 0x200
+00001199: fa 9f 01              iowrs I[$r9] $r15
+0000119c: 8f 00 c0 01           mov $r15 0x1c000
+000011a0: cf fa 00            B iord $r10 I[$r15]
+000011a3: c7 a9 4c              extr $r9 $r10 0xc:0xe
+000011a6: b3 90 01 fa           bra b32 $r9 0x1 e 0x11a0
+000011aa: b3 94 04 08           bra b32 $r9 0x4 ne 0x11b2
+000011ae: 7e 67 10 00           lcall 0x1067
+000011b2: fe 49 01            B mov $r9 $sp
+000011b5: bf 9f                 ld b32 $r15 D[$r9]
+000011b7: d9 a0 05 00 00        mov $r9 0x5a0
+000011bc: bf 99                 ld b32 $r9 D[$r9]
+000011be: a6 f9                 cmp b32 $r15 $r9
+000011c0: f4 0b 07              bra e 0x11c7
+000011c3: 7e 51 d6 00           lcall 0xd651
+000011c7: f4 30 04            B add $sp 0x4
+000011ca: f8 00                 ret
+; command_dispatch: Falcon IMEM VA [0x131c, 0x13cb)
+0000131c: d9 60 05 00 00        mov $r9 0x560
+00001321: 98 99 0b              ld b32 $r9 D[$r9+0x2c]
+00001324: c4 92 ff              and $r2 $r9 0xff
+00001327: 92 29 01              sub b32 $r9 $r2 0x1
+0000132a: b0 96 18              cmp b32 $r9 0x18
+0000132d: f4 0d 05              bra be 0x1332
+00001330: 02 19                 mov $r2 0x19
+00001332: b2 21               B mov b32 $r1 $r2
+00001334: b3 24 19 4a           bra b32 $r2 0x19 ne 0x137e
+00001338: 8a 34 82 11           mov $r10 0x118234
+0000133c: 7e 17 11 00           lcall 0x1117
+00001340: 49 00 ff              mov $r9 -0x100
+00001343: ff a9 b4              and $r11 $r10 $r9
+00001346: 8a 34 82 11           mov $r10 0x118234
+0000134a: 7e 71 11 00           lcall 0x1171
+0000134e: 7e fc 04 00           lcall 0x4fc
+00001352: b2 a0                 mov b32 $r0 $r10
+00001354: 8a fc 80 11           mov $r10 0x1180fc
+00001358: 7e 17 11 00           lcall 0x1117
+0000135c: c7 a9 94              extr $r9 $r10 0x14:0x18
+0000135f: b3 94 00 15           bra b32 $r9 0x0 ne 0x1374
+00001363: c4 0f 1f              and $r15 $r0 0x1f
+00001366: d9 ff ff 0f fe        mov $r9 0xfe0fffff
+0000136b: b6 f4 14              shl b32 $r15 0x14
+0000136e: ff a9 94              and $r9 $r10 $r9
+00001371: ff f9 a5              or $r10 $r15 $r9
+00001374: b2 ab               B mov b32 $r11 $r10
+00001376: 8a fc 80 11           mov $r10 0x1180fc
+0000137a: 7e 71 11 00           lcall 0x1171
+0000137e: 7e 52 05 00         B lcall 0x552
+00001382: b2 a0                 mov b32 $r0 $r10
+00001384: b3 a4 00 47           bra b32 $r10 0x0 ne 0x13cb
+00001388: 4a 14 14              mov $r10 0x1414
+0000138b: 7e 17 11 00           lcall 0x1117
+0000138f: 89 ff 0f ff           mov $r9 -0xf001
+00001393: ff a9 b4              and $r11 $r10 $r9
+00001396: 4a 14 14              mov $r10 0x1414
+00001399: f1 b5 00 20           or $r11 0x2000
+0000139d: 7e 71 11 00           lcall 0x1171
+000013a1: 7e e3 08 00           lcall 0x8e3
+000013a5: b2 a0                 mov b32 $r0 $r10
+000013a7: b3 a4 00 24           bra b32 $r10 0x0 ne 0x13cb
+000013ab: b3 10 15 12           bra b32 $r1 0x15 e 0x13bd
+000013af: b3 10 19 16           bra b32 $r1 0x19 e 0x13c5
+000013b3: b3 10 01 18           bra b32 $r1 0x1 e 0x13cb
+000013b7: 00 26                 mov $r0 0x26
+000013b9: 3e cb 13 00           lbra 0x13cb
+000013bd: 7e 53 2c 00         B lcall 0x2c53
+000013c1: 3e c9 13 00           lbra 0x13c9
+000013c5: 7e 5c 4d 00         B lcall 0x4d5c
+000013c9: b2 a0               B mov b32 $r0 $r10
+; marker_1_and_following_checks: Falcon IMEM VA [0x4e87, 0x4f1a)
+00004e87: 8a 34 82 11         B mov $r10 0x118234
+00004e8b: 7e 17 11 00           lcall 0x1117
+00004e8f: 49 00 ff              mov $r9 -0x100
+00004e92: ff a9 b4              and $r11 $r10 $r9
+00004e95: 8a 34 82 11           mov $r10 0x118234
+00004e99: f0 b5 01              or $r11 0x1
+00004e9c: 7e 71 11 00           lcall 0x1171
+00004ea0: 8a 90 70 13           mov $r10 0x137090
+00004ea4: 7e 17 11 00           lcall 0x1117
+00004ea8: 89 00 00 02           mov $r9 0x20000
+00004eac: 41 b3 00              mov $r1 0xb3
+00004eaf: fd a9 04              and $r10 $r9
+00004eb2: f5 1b fc 0a           bra ne 0x59ae
+00004eb6: 3e 7c 58 00           lbra 0x587c
+00004eba: 7e 1c 3f 00         B lcall 0x3f1c
+00004ebe: b2 a1                 mov b32 $r1 $r10
+00004ec0: b3 ad 00 bc 09        bra b32 $r10 0x0 ne 0x587c
+00004ec5: 89 00 02 01           mov $r9 0x10200
+00004ec9: cf 99 00              iord $r9 I[$r9]
+00004ecc: 8f 00 00 10           mov $r15 0x100000
+00004ed0: fd 9f 04              and $r9 $r15
+00004ed3: f5 1b ea 0a           bra ne 0x59bd
+00004ed7: da 34 04 82 00        mov $r10 0x820434
+00004edc: 41 13 02              mov $r1 0x213
+00004edf: 7e 17 11 00           lcall 0x1117
+00004ee3: f0 a4 01              and $r10 0x1
+00004ee6: f5 1b d7 0a           bra ne 0x59bd
+00004eea: 3e 7c 58 00           lbra 0x587c
+00004eee: 4a 28 17            B mov $r10 0x1728
+00004ef1: 7e 17 11 00           lcall 0x1117
+00004ef5: d9 00 00 80 2f        mov $r9 0x2f800000
+00004efa: 41 1b 04              mov $r1 0x41b
+00004efd: fd a9 04              and $r10 $r9
+00004f00: f5 1b 7c 09           bra ne 0x587c
+00004f04: 4a 24 17              mov $r10 0x1724
+00004f07: 7e 17 11 00           lcall 0x1117
+00004f0b: d9 00 00 00 08        mov $r9 0x8000000
+00004f10: 41 aa 02              mov $r1 0x2aa
+00004f13: fd a9 04              and $r10 $r9
+00004f16: f5 0b 66 09           bra e 0x587c
+; marker_2: Falcon IMEM VA [0x577a, 0x5793)
+0000577a: 8a 34 82 11         B mov $r10 0x118234
+0000577e: 7e 17 11 00           lcall 0x1117
+00005782: 49 00 ff              mov $r9 -0x100
+00005785: ff a9 b4              and $r11 $r10 $r9
+00005788: 8a 34 82 11           mov $r10 0x118234
+0000578c: f0 b5 02              or $r11 0x2
+0000578f: 7e 71 11 00           lcall 0x1171
+; marker_9_and_error_exit: Falcon IMEM VA [0x587c, 0x58f6)
+0000587c: 00 55               B mov $r0 0x55
+0000587e: 3e 88 58 00           lbra 0x5888
+00005882: 41 8b 02            B mov $r1 0x28b
+00005885: 40 aa 00            B mov $r0 0xaa
+00005888: 7e 1a 3d 00         B lcall 0x3d1a
+0000588c: b3 a4 55 61           bra b32 $r10 0x55 ne 0x58ed
+00005890: b3 14 00 3e           bra b32 $r1 0x0 ne 0x58ce
+00005894: b3 0e aa 00 49        bra b32 $r0 0xaa ne 0x58dd
+00005899: 8a 34 82 11           mov $r10 0x118234
+0000589d: 7e 17 11 00           lcall 0x1117
+000058a1: 49 00 ff              mov $r9 -0x100
+000058a4: ff a9 b4              and $r11 $r10 $r9
+000058a7: 8a 34 82 11           mov $r10 0x118234
+000058ab: f0 b5 09              or $r11 0x9
+000058ae: 7e 71 11 00           lcall 0x1171
+000058b2: 0a 04                 mov $r10 0x4
+000058b4: 7e b0 37 00           lcall 0x37b0
+000058b8: b2 a0                 mov b32 $r0 $r10
+000058ba: 0a 03                 mov $r10 0x3
+000058bc: 7e a8 43 00           lcall 0x43a8
+000058c0: b3 a0 00 2b           bra b32 $r10 0x0 e 0x58eb
+000058c4: b3 04 00 27           bra b32 $r0 0x0 ne 0x58eb
+000058c8: b2 a1                 mov b32 $r1 $r10
+000058ca: 3e ed 58 00           lbra 0x58ed
+000058ce: b3 0e aa 00 0f      B bra b32 $r0 0xaa ne 0x58dd
+000058d3: 0a 02                 mov $r10 0x2
+000058d5: 7e a8 43 00           lcall 0x43a8
+000058d9: 3e ed 58 00           lbra 0x58ed
+000058dd: 8a bc 00 02         B mov $r10 0x200bc
+000058e1: b2 1b                 mov b32 $r11 $r1
+000058e3: 7e 71 11 00           lcall 0x1171
+000058e7: 3e ed 58 00           lbra 0x58ed
+000058eb: b2 01               B mov b32 $r1 $r0
+000058ed: b3 7a aa 00 09      B bra b32 $r7 0xaa e 0x58f6
+000058f2: 7e d0 4c 00           lcall 0x4cd0
+; completion: Falcon IMEM VA [0x58f6, 0x5949)
+000058f6: b3 14 00 4f         B bra b32 $r1 0x0 ne 0x5945
+000058fa: 8a d0 d7 00           mov $r10 0xd7d0
+000058fe: 7e 17 11 00           lcall 0x1117
+00005902: 8a d0 d7 00           mov $r10 0xd7d0
+00005906: 0b ff                 mov $r11 -0x1
+00005908: 7e 71 11 00           lcall 0x1171
+0000590c: 4b ff 00              mov $r11 0xff
+0000590f: 8a a0 83 11           mov $r10 0x1183a0
+00005913: 7e 71 11 00           lcall 0x1171
+00005917: 8a 24 23 12           mov $r10 0x122324
+0000591b: 7e 17 11 00           lcall 0x1117
+0000591f: 89 ff ff fc           mov $r9 -0x30001
+00005923: ff a9 b4              and $r11 $r10 $r9
+00005926: 8a 24 23 12           mov $r10 0x122324
+0000592a: 7e 71 11 00           lcall 0x1171
+0000592e: 8a 34 82 11           mov $r10 0x118234
+00005932: 7e 17 11 00           lcall 0x1117
+00005936: c5 ab ff              or $r11 $r10 0xff
+00005939: 8a 34 82 11           mov $r10 0x118234
+0000593d: 7e 71 11 00           lcall 0x1171
+00005941: 3e 49 59 00           lbra 0x5949
+00005945: 7e ee 3e 00         B lcall 0x3eee

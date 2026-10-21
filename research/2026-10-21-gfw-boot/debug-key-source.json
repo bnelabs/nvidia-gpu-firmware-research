@@ -1,0 +1,13 @@
+{
+  "url": "https://gist.githubusercontent.com/nvlight/fc7479629b0ace094873e58ba7d75eb2/raw/fbb4f7b64acf6233bc6b87d2453ddf8ce5fc58e2/vbios-comparison-table.md",
+  "final_url": "https://gist.githubusercontent.com/nvlight/fc7479629b0ace094873e58ba7d75eb2/raw/fbb4f7b64acf6233bc6b87d2453ddf8ce5fc58e2/vbios-comparison-table.md",
+  "source_revision": "fbb4f7b64acf6233bc6b87d2453ddf8ce5fc58e2",
+  "retrieved_document_bytes": 25866,
+  "retrieved_document_sha256": "f19a399fadc3a32ffc356ec70f9045f4fe1cbe4c84fd30ddea4bce30652dad49",
+  "retained_excerpt": [
+    "| Debug HS encryption | csecret(37) debug | **RECOVERED:** `25EFCDAB896745231032547698BADCFE` (BlackSun) |",
+    "debug_csecret(37) = 25EFCDAB 89674523 10325476 98BADCFE",
+    "Debug key (KNOWN): `debug_csecret(37) = 25EFCDAB896745231032547698BADCFE`"
+  ],
+  "status": "independent public GA100 debug-key hypothesis; locally reproduced on copied GA102 candidate debug IMEM; no access to leaked source or physical key extraction"
+}

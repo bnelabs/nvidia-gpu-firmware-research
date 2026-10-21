@@ -103,3 +103,11 @@ from that buffer; the copied constructor transfers its `+0x0c` word into entry
 The acquisition callback creates a memory sub-descriptor; its transfer worker
 and actual source storage remain unresolved. Seven JSON products replay exactly;
 41 Python tests and C/CLI/offline-record checks pass without GPU access.
+
+## Xid79 boot investigation
+
+[Early firmware boot](research/2026-10-21-gfw-boot/README.md) records the retained
+`0x1` failure, exact-release source gate, copied candidate-ROM FWSEC inventory,
+public debug-key decode and bounded progress-writer replay. Candidate versus
+installed bytes, debug versus production code, and synthetic versus hardware
+behavior remain separate. This is not a successful recovery procedure.

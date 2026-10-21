@@ -11,6 +11,10 @@ to the bytes and source version used to establish it.
 
 ## Findings
 
+- **An Xid79 recovery restored PCI access but left early firmware boot incomplete.**
+  The copied debug FWSEC image exposes progress writers and failure branches;
+  a working no-reboot recovery remains unproven.
+  [Read the boot investigation](research/2026-10-21-gfw-boot/README.md).
 - **NVML can read a shared cache before issuing a control request.** The retained
   implementation has a five-attempt reader and accepts a valid timestamp without
   checking its age. [Read the dispatch analysis](research/2026-10-21-pstate-dispatch/README.md).

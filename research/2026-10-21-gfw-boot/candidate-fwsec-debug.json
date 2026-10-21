@@ -1,0 +1,36 @@
+{
+  "application_id": 69,
+  "descriptor_file_offset": 249668,
+  "descriptor_header": "0x4ac0301",
+  "header_encrypted_bit": false,
+  "descriptor_bytes": 1196,
+  "descriptor_sha256": "430aa8fbbb04f02a7de744375f4cfe1a0df29218d7bb3e16e622a7ca9c27d6e0",
+  "descriptor_raw_fields": [
+    78381825,
+    57856,
+    1444,
+    28,
+    0,
+    55808,
+    0,
+    0,
+    2048,
+    1024,
+    9,
+    3,
+    7,
+    37441
+  ],
+  "payload_file_offset": 250864,
+  "imem_bytes": 55808,
+  "dmem_bytes": 2048,
+  "address_domain": "Offsets are ROM file offsets; extracted IMEM starts at firmware-engine IMEM VA field from descriptor, not host VA. Candidate is not proven installed bytes.",
+  "fwsec-debug-imem.bin": {
+    "sha256": "a84efa34649c843d6075fbbeec3ee958a3a02df25ed8c0a34ba679f1775f6fb1",
+    "bytes": 55808
+  },
+  "fwsec-debug-dmem.bin": {
+    "sha256": "f1d80c10402db3f5c2fd0a56a7fabda3b5165e1b8de2d9155d06f0315f0fa35a",
+    "bytes": 2048
+  }
+}

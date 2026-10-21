@@ -1,0 +1,8 @@
+[
+{"case":"logged_marker_1_halt_ok","synthetic":true,"status":85,"marker_reads":1,"protection_reads":1,"halt_calls":1,"modeled_timeout_us":2050000},
+{"case":"completed_marker_halt_ok","synthetic":true,"status":0,"marker_reads":1,"protection_reads":1,"halt_calls":1,"modeled_timeout_us":2050000},
+{"case":"read_protection_not_lowered","synthetic":true,"status":85,"marker_reads":0,"protection_reads":1,"halt_calls":1,"modeled_timeout_us":2050000},
+{"case":"completed_marker_halt_error","synthetic":true,"status":101,"marker_reads":1,"protection_reads":1,"halt_calls":1,"modeled_timeout_us":2050000},
+{"case":"completion_only_on_next_read","synthetic":true,"status":85,"marker_reads":1,"protection_reads":1,"halt_calls":1,"modeled_timeout_us":2050000},
+{"case":"synthetic_all_ones_halt_ok","synthetic":true,"status":0,"marker_reads":1,"protection_reads":1,"halt_calls":1,"modeled_timeout_us":2050000}
+]

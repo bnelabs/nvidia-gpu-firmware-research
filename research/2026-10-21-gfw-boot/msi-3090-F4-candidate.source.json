@@ -1,0 +1,9 @@
+{
+  "url": "https://modbios.io/v2/vgabios/msi-rtx-3090-24576-1737769445/download",
+  "retrieved_utc": "2026-10-21T18:20:40.029801+00:00",
+  "content_type": "application/octet-stream",
+  "bytes": 999424,
+  "sha256": "6dd01dee331f4d0faf5dbd8bc58e31dd58eb88c7d403c7f7ae13e412927e8711",
+  "published_sha256": "6dd01dee331f4d0faf5dbd8bc58e31dd58eb88c7d403c7f7ae13e412927e8711",
+  "status": "offline candidate; matching advertised version/PCI IDs does not establish byte identity with the installed card"
+}

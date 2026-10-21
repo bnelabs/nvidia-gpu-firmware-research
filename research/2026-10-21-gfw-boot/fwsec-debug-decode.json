@@ -1,0 +1,28 @@
+{
+  "public_key_source": "https://gist.github.com/nvlight/fc7479629b0ace094873e58ba7d75eb2/fbb4f7b64acf6233bc6b87d2453ddf8ce5fc58e2",
+  "public_key_hex": "25EFCDAB896745231032547698BADCFE",
+  "algorithm_tested": "AES-128-ECB no padding",
+  "input_sha256": "a84efa34649c843d6075fbbeec3ee958a3a02df25ed8c0a34ba679f1775f6fb1",
+  "output_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb",
+  "output_bytes": 55808,
+  "envytools_commit": "f102b82381f3f11cee113d16374c87091db039d9",
+  "decoder": [
+    "envydis",
+    "-m",
+    "falcon",
+    "-V",
+    "fuc6",
+    "-F",
+    "crypt",
+    "-i",
+    "-n"
+  ],
+  "unknown_instruction_count_full_linear_decode": 61,
+  "first_unknown_instruction_firmware_imem_va": "0xd713",
+  "limits": [
+    "Public key hypothesis from GA100 report tested against GA102 candidate debug entry, not a production-key recovery.",
+    "Code/data boundaries are not universally established. Linear decode includes trailer/padding; no inference from unknown tail.",
+    "Debug-to-production code equivalence, installed-byte identity and no-reboot recovery are unproven.",
+    "Descriptor encrypted flag clear did not prove that the IMEM payload was plaintext."
+  ]
+}

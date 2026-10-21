@@ -1,0 +1,5 @@
+260163: 2026-10-21T20:34:57.184900+03:00 ubuntuserver kernel: NVRM: GPU0 gpuWaitForGfwBootComplete_TU102: failed to wait for GFW_BOOT: (progress 0x1)
+260164: 2026-10-21T20:34:57.184976+03:00 ubuntuserver kernel: NVRM: GPU0 kgspWaitForGfwBootOk_TU102: failed to wait for GFW boot complete: 0x55 VBIOS version 94.02.42.00.F4
+260165: 2026-10-21T20:34:57.184994+03:00 ubuntuserver kernel: NVRM: GPU0 kgspWaitForGfwBootOk_TU102: (the GPU may be in a bad state and may need to be reset)
+260166: 2026-10-21T20:34:57.185011+03:00 ubuntuserver kernel: NVRM: GPU0 nvCheckOkFailedNoLog: Check failed: Generic Error: Not ready [NV_ERR_NOT_READY] (0x00000055) returned from kgspWaitForGfwBootOk_HAL(pGpu, pKernelGsp) @ kernel_gsp.c:5675
+260167: 2026-10-21T20:34:57.185026+03:00 ubuntuserver kernel: NVRM: GPU0 RmInitAdapter: Cannot initialize GSP firmware RM

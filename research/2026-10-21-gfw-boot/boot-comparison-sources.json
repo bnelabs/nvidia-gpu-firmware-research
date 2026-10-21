@@ -1,0 +1,80 @@
+{
+  "nvidia_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "nvidia_version": "615.71.09",
+  "files": {
+    "boot_gate": {
+      "path": "src/nvidia/src/kernel/gpu/arch/turing/kern_gpu_tu102.c",
+      "sha256": "3531fec9953940b8bff58772ab330b149fdfd15eb063cb65bba9fdfab27d8bb6",
+      "bytes": 20339,
+      "reviewed_line_start": 390,
+      "reviewed_line_end": 490,
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/arch/turing/kern_gpu_tu102.c"
+    },
+    "runtime_boot_order": {
+      "path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c",
+      "sha256": "ed6d7020a8a1772bc44608178aa13a77a72b8bf0eabe3293c12bc9d2b122c6c9",
+      "bytes": 272591,
+      "reviewed_line_start": 5660,
+      "reviewed_line_end": 5750,
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c"
+    },
+    "fwsec_parser": {
+      "path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp_fwsec.c",
+      "sha256": "67ef9df6a3653644899f69df5e135b1f64d365b22b1cd1676991d7ebc606fed5",
+      "bytes": 37642,
+      "reviewed_line_start": 129,
+      "reviewed_line_end": 186,
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/kernel_gsp_fwsec.c"
+    },
+    "hs_loader": {
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_falcon_ga102.c",
+      "sha256": "438475900aa56285884b0c4c8dba5aa4a44343d14e0e0541ad63052fc36e3e41",
+      "bytes": 15484,
+      "reviewed_line_start": 167,
+      "reviewed_line_end": 315,
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_falcon_ga102.c"
+    },
+    "vbios_rom_chain": {
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_vbios_tu102.c",
+      "sha256": "6c7e83954146704f6b189bc10bd12dc2a28fcbcd050f4b92c985f65b2c2cda9b",
+      "bytes": 16479,
+      "reviewed_line_start": 1,
+      "reviewed_line_end": 569,
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_vbios_tu102.c"
+    },
+    "scratch_registers": {
+      "path": "src/common/inc/swref/published/ampere/ga102/dev_gc6_island.h",
+      "sha256": "4c9d9be20c394e1d70316fcdde9b7c5554638e53033f0fa57762a8050cd3e0bf",
+      "bytes": 2378,
+      "reviewed_line_start": 27,
+      "reviewed_line_end": 35,
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga102/dev_gc6_island.h"
+    },
+    "scratch_fields": {
+      "path": "src/common/inc/swref/published/ampere/ga102/dev_gc6_island_addendum.h",
+      "sha256": "04d1ae3abf5123b428d553408faf1dd46594c73a60e01abb5e0d4b7f072a7050",
+      "bytes": 2666,
+      "reviewed_line_start": 27,
+      "reviewed_line_end": 38,
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga102/dev_gc6_island_addendum.h"
+    }
+  },
+  "nouveau": {
+    "commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+    "path": "drivers/gpu/drm/nouveau/nvkm/subdev/gsp/tu102.c",
+    "retained_file": "nouveau-tu102.c",
+    "retained_sha256": "12b9c120dbf8042182d48a80c39a9fa50442cc7189c6795f50b8302f1074b61f",
+    "comparison": "oneinit performs FWSEC-FRTS and init performs booter/GSP init; lifecycle difference is not proof of recovery for this fault"
+  },
+  "nova": {
+    "url": "https://docs.kernel.org/gpu/nova/core/fwsec.html",
+    "kind": "unversioned conceptual documentation, not exact driver implementation or measured card state",
+    "comparison": "Ampere FWSEC participates in secure boot/devinit before runtime GSP-RM"
+  },
+  "independent": {
+    "url": "https://github.com/Consensus-Protocol/cmp170hx/blob/d923a25fb2ecb6ee3d62654983f453194b66485f/docs/hardware/vbios.md",
+    "commit": "d923a25fb2ecb6ee3d62654983f453194b66485f",
+    "git_blob_sha1": "11859a563d9756fa701d56f42c8bec8231a5dad9",
+    "limits": "GA100 report; encryption/key-index claims in independent revisions conflict. Do not transfer its reset-domain claims or key-index labels to GA102. See separately pinned debug-key-source.json for the tested key bytes."
+  }
+}

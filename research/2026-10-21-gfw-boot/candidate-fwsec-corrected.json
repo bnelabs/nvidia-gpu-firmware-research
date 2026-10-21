@@ -1,0 +1,295 @@
+{
+  "path": "firmware-store/gfw-boot/msi-3090-F4-candidate.rom",
+  "sha256": "6dd01dee331f4d0faf5dbd8bc58e31dd58eb88c7d403c7f7ae13e412927e8711",
+  "bytes": 999424,
+  "address_domain": "All absolute offsets are file offsets. Falcon pointers use the NVIDIA expansion adjustment: first type-0xe0 image offset minus base image size, added to raw pointer. All terms include the outer wrapper file mapping explicitly. IMEM/DMEM addresses remain separate firmware-engine domains.",
+  "option_rom_file_offset": 37376,
+  "images": [
+    {
+      "file_offset": 37376,
+      "rom_signature_raw": "55aa",
+      "data_signature_raw": "50434952",
+      "pcir_off": "0x9370",
+      "vendor": "0x10de",
+      "device": "0x2204",
+      "image_size_512units": 127,
+      "code_type": 0,
+      "last_image": false,
+      "nvidia_extension": {
+        "file_offset": 37776,
+        "revision": 257,
+        "size": 20,
+        "raw": "4e504445010114007f0000010000000062148238",
+        "subimage_512units": 127,
+        "effective_last": false
+      }
+    },
+    {
+      "file_offset": 102400,
+      "rom_signature_raw": "55aa",
+      "data_signature_raw": "50434952",
+      "pcir_off": "0x1901c",
+      "vendor": "0x10de",
+      "device": "0x2204",
+      "image_size_512units": 179,
+      "code_type": 3,
+      "last_image": true,
+      "nvidia_extension": {
+        "file_offset": 102464,
+        "revision": 256,
+        "size": 16,
+        "raw": "4e50444500011000b300000009000600",
+        "subimage_512units": 179,
+        "effective_last": false
+      }
+    },
+    {
+      "file_offset": 194048,
+      "rom_signature_raw": "564e",
+      "data_signature_raw": "4e504453",
+      "pcir_off": "0x2f740",
+      "vendor": "0x10de",
+      "device": "0x2200",
+      "image_size_512units": 43,
+      "code_type": 224,
+      "last_image": false,
+      "nvidia_extension": {
+        "file_offset": 194400,
+        "revision": 257,
+        "size": 20,
+        "raw": "4e504445010114002b0000000000000000000000",
+        "subimage_512units": 43,
+        "effective_last": false
+      }
+    },
+    {
+      "file_offset": 216064,
+      "rom_signature_raw": "564e",
+      "data_signature_raw": "4e504453",
+      "pcir_off": "0x34c20",
+      "vendor": "0x10de",
+      "device": "0x2200",
+      "image_size_512units": 724,
+      "code_type": 224,
+      "last_image": true,
+      "nvidia_extension": {
+        "file_offset": 216128,
+        "revision": 257,
+        "size": 20,
+        "raw": "4e50444501011400d40280000000000000000000",
+        "subimage_512units": 724,
+        "effective_last": true
+      }
+    }
+  ],
+  "expansion_image_file_offset": 194048,
+  "falcon_pointer_base_file_offset": 129024,
+  "base_image_size": 65024,
+  "falcon_pointer_raw": 457185,
+  "falcon_table_file_offset": 586209,
+  "falcon_header_raw": "010606100130",
+  "entries": [
+    {
+      "index": 0,
+      "file_offset": 586215,
+      "raw": "010154540100",
+      "application_id": 1,
+      "target_id": 1,
+      "descriptor_pointer_raw": 87124
+    },
+    {
+      "index": 1,
+      "file_offset": 586221,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    },
+    {
+      "index": 2,
+      "file_offset": 586227,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    },
+    {
+      "index": 3,
+      "file_offset": 586233,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    },
+    {
+      "index": 4,
+      "file_offset": 586239,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    },
+    {
+      "index": 5,
+      "file_offset": 586245,
+      "raw": "07069ca40300",
+      "application_id": 7,
+      "target_id": 6,
+      "descriptor_pointer_raw": 238748
+    },
+    {
+      "index": 6,
+      "file_offset": 586251,
+      "raw": "080178430500",
+      "application_id": 8,
+      "target_id": 1,
+      "descriptor_pointer_raw": 344952
+    },
+    {
+      "index": 7,
+      "file_offset": 586257,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    },
+    {
+      "index": 8,
+      "file_offset": 586263,
+      "raw": "450744d70100",
+      "application_id": 69,
+      "target_id": 7,
+      "descriptor_pointer_raw": 120644
+    },
+    {
+      "index": 9,
+      "file_offset": 586269,
+      "raw": "8507f0bd0200",
+      "application_id": 133,
+      "target_id": 7,
+      "descriptor_pointer_raw": 179696,
+      "fwsec_prod_source_decoded": {
+        "header": 78381825,
+        "stored_size": 57856,
+        "pkc_data_offset": 1444,
+        "interface_offset": 28,
+        "imem_phys_base": 0,
+        "imem_load_size": 55808,
+        "imem_virt_base": 0,
+        "dmem_phys_base": 0,
+        "dmem_load_size": 2048,
+        "engine_id_mask": 1024,
+        "ucode_id": 9,
+        "signature_count": 3,
+        "signature_versions": 7,
+        "reserved": 37441,
+        "payload_encoding_status": "Unresolved from descriptor flag alone; clear bit is not proof of plaintext IMEM",
+        "descriptor_file_offset": 308720,
+        "descriptor_version": 3,
+        "descriptor_size": 1196,
+        "descriptor_sha256": "9e1868d94bda8c008fc969f5778a06aec8ebe1218001f6ee995e0e82cd774aa4",
+        "payload_file_offset": 309916,
+        "payload_sha256": "6c894458a5cc7c0473f2c81ad76456f48e865ee25f3d6e2322c0dc98efaa8e1e",
+        "imem_file_offset": 309916,
+        "imem_sha256": "cf60d4e90156f106a850f40d02890577c8c55c773c8931949cc31feca0806b2b",
+        "dmem_file_offset": 365724,
+        "dmem_sha256": "f9c8001028348bd2e3a3d5dac0e9e6c0f8c0840e339787c64a9eb7284bba804e",
+        "interfaces": [
+          {
+            "id": 4,
+            "dmem_offset": 1376,
+            "entry_file_offset": 365756,
+            "mapper": {
+              "file_offset": 367100,
+              "signature_raw": "444d4150",
+              "version": 3,
+              "size": 64,
+              "cmd_in_buffer_offset": 1984,
+              "cmd_in_buffer_size": 64,
+              "cmd_out_buffer_offset": 16777216,
+              "cmd_out_buffer_size": 256,
+              "nvf_img_data_buffer_offset": 2304,
+              "nvf_img_data_buffer_size": 9728,
+              "printf_buffer_hdr": 0,
+              "ucode_build_time_stamp": 1224,
+              "ucode_signature": 1232,
+              "init_cmd": 0,
+              "ucode_feature": 4,
+              "ucode_cmd_mask0": 278528,
+              "ucode_cmd_mask1": 0,
+              "multi_tgt_tbl": 1964
+            },
+            "buffer_address_domains": {
+              "cmd_in_buffer_offset": {
+                "raw": 1984,
+                "bytes": 64,
+                "fits_copied_dmem": true,
+                "interpretation": "bounded copied DMEM range"
+              },
+              "cmd_out_buffer_offset": {
+                "raw": 16777216,
+                "bytes": 256,
+                "fits_copied_dmem": false,
+                "interpretation": "unresolved firmware address; not dereferenced or relabeled as a file offset"
+              }
+            }
+          },
+          {
+            "id": 5,
+            "dmem_offset": 1964,
+            "entry_file_offset": 365764
+          }
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "file_offset": 586275,
+      "raw": "490538a00400",
+      "application_id": 73,
+      "target_id": 5,
+      "descriptor_pointer_raw": 303160
+    },
+    {
+      "index": 11,
+      "file_offset": 586281,
+      "raw": "8905d8f10400",
+      "application_id": 137,
+      "target_id": 5,
+      "descriptor_pointer_raw": 324056
+    },
+    {
+      "index": 12,
+      "file_offset": 586287,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    },
+    {
+      "index": 13,
+      "file_offset": 586293,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    },
+    {
+      "index": 14,
+      "file_offset": 586299,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    },
+    {
+      "index": 15,
+      "file_offset": 586305,
+      "raw": "000000000000",
+      "application_id": 0,
+      "target_id": 0,
+      "descriptor_pointer_raw": 0
+    }
+  ],
+  "interpretation_limit": "Names decode copied-file metadata only. Signature authenticity, installed-byte identity, runtime selection and reset recovery are unverified."
+}
