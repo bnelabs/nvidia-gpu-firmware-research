@@ -1,0 +1,602 @@
+{
+  "status": "hypothesis",
+  "decoder": "Capstone 5.0.7",
+  "domain": "component file offset displayed as the disassembler base; not a proven firmware VA",
+  "evidence": [
+    {
+      "source": "vendor/research-sources/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "offset": "0x5000",
+      "bytes": 128,
+      "sha256": "cdb5d3c1aaef3f18ba48b8a536ffcfc8318861fec2b359586be433a069975d3d",
+      "raw_hex": "374118001b0101406f000010011106ec9717000083b707859c633ee4970700009387c77a9c639c43812737071000f98f99eb970700009387e7799c639c43858b99cf054511a0054522679717000083b767819c636317f700e260056182800145e5b797000000e780c044011106ec170300000333237f8338030046e497080000",
+      "instructions": [
+        {
+          "component_file_offset": "0x5000",
+          "bytes_hex": "37411800",
+          "mnemonic": "lui",
+          "operands": "sp, 0x184"
+        },
+        {
+          "component_file_offset": "0x5004",
+          "bytes_hex": "1b010140",
+          "mnemonic": "addiw",
+          "operands": "sp, sp, 0x400"
+        },
+        {
+          "component_file_offset": "0x5008",
+          "bytes_hex": "6f000010",
+          "mnemonic": "j",
+          "operands": "0x100"
+        },
+        {
+          "component_file_offset": "0x500c",
+          "bytes_hex": "0111",
+          "mnemonic": "c.addi",
+          "operands": "sp, -0x20"
+        },
+        {
+          "component_file_offset": "0x500e",
+          "bytes_hex": "06ec",
+          "mnemonic": "c.sdsp",
+          "operands": "ra, 0x18(sp)"
+        },
+        {
+          "component_file_offset": "0x5010",
+          "bytes_hex": "97170000",
+          "mnemonic": "auipc",
+          "operands": "a5, 1"
+        },
+        {
+          "component_file_offset": "0x5014",
+          "bytes_hex": "83b70785",
+          "mnemonic": "ld",
+          "operands": "a5, -0x7b0(a5)"
+        },
+        {
+          "component_file_offset": "0x5018",
+          "bytes_hex": "9c63",
+          "mnemonic": "c.ld",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x501a",
+          "bytes_hex": "3ee4",
+          "mnemonic": "c.sdsp",
+          "operands": "a5, 8(sp)"
+        },
+        {
+          "component_file_offset": "0x501c",
+          "bytes_hex": "97070000",
+          "mnemonic": "auipc",
+          "operands": "a5, 0"
+        },
+        {
+          "component_file_offset": "0x5020",
+          "bytes_hex": "9387c77a",
+          "mnemonic": "addi",
+          "operands": "a5, a5, 0x7ac"
+        },
+        {
+          "component_file_offset": "0x5024",
+          "bytes_hex": "9c63",
+          "mnemonic": "c.ld",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x5026",
+          "bytes_hex": "9c43",
+          "mnemonic": "c.lw",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x5028",
+          "bytes_hex": "8127",
+          "mnemonic": "c.addiw",
+          "operands": "a5, 0"
+        },
+        {
+          "component_file_offset": "0x502a",
+          "bytes_hex": "37071000",
+          "mnemonic": "lui",
+          "operands": "a4, 0x100"
+        },
+        {
+          "component_file_offset": "0x502e",
+          "bytes_hex": "f98f",
+          "mnemonic": "c.and",
+          "operands": "a5, a4"
+        },
+        {
+          "component_file_offset": "0x5030",
+          "bytes_hex": "99eb",
+          "mnemonic": "c.bnez",
+          "operands": "a5, 0x16"
+        },
+        {
+          "component_file_offset": "0x5032",
+          "bytes_hex": "97070000",
+          "mnemonic": "auipc",
+          "operands": "a5, 0"
+        },
+        {
+          "component_file_offset": "0x5036",
+          "bytes_hex": "9387e779",
+          "mnemonic": "addi",
+          "operands": "a5, a5, 0x79e"
+        },
+        {
+          "component_file_offset": "0x503a",
+          "bytes_hex": "9c63",
+          "mnemonic": "c.ld",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x503c",
+          "bytes_hex": "9c43",
+          "mnemonic": "c.lw",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x503e",
+          "bytes_hex": "858b",
+          "mnemonic": "c.andi",
+          "operands": "a5, 1"
+        },
+        {
+          "component_file_offset": "0x5040",
+          "bytes_hex": "99cf",
+          "mnemonic": "c.beqz",
+          "operands": "a5, 0x1e"
+        },
+        {
+          "component_file_offset": "0x5042",
+          "bytes_hex": "0545",
+          "mnemonic": "c.li",
+          "operands": "a0, 1"
+        },
+        {
+          "component_file_offset": "0x5044",
+          "bytes_hex": "11a0",
+          "mnemonic": "c.j",
+          "operands": "4"
+        },
+        {
+          "component_file_offset": "0x5046",
+          "bytes_hex": "0545",
+          "mnemonic": "c.li",
+          "operands": "a0, 1"
+        },
+        {
+          "component_file_offset": "0x5048",
+          "bytes_hex": "2267",
+          "mnemonic": "c.ldsp",
+          "operands": "a4, 8(sp)"
+        },
+        {
+          "component_file_offset": "0x504a",
+          "bytes_hex": "97170000",
+          "mnemonic": "auipc",
+          "operands": "a5, 1"
+        },
+        {
+          "component_file_offset": "0x504e",
+          "bytes_hex": "83b76781",
+          "mnemonic": "ld",
+          "operands": "a5, -0x7ea(a5)"
+        },
+        {
+          "component_file_offset": "0x5052",
+          "bytes_hex": "9c63",
+          "mnemonic": "c.ld",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x5054",
+          "bytes_hex": "6317f700",
+          "mnemonic": "bne",
+          "operands": "a4, a5, 0xe"
+        },
+        {
+          "component_file_offset": "0x5058",
+          "bytes_hex": "e260",
+          "mnemonic": "c.ldsp",
+          "operands": "ra, 0x18(sp)"
+        },
+        {
+          "component_file_offset": "0x505a",
+          "bytes_hex": "0561",
+          "mnemonic": "c.addi16sp",
+          "operands": "sp, 0x20"
+        },
+        {
+          "component_file_offset": "0x505c",
+          "bytes_hex": "8280",
+          "mnemonic": "c.jr",
+          "operands": "ra"
+        },
+        {
+          "component_file_offset": "0x505e",
+          "bytes_hex": "0145",
+          "mnemonic": "c.li",
+          "operands": "a0, 0"
+        },
+        {
+          "component_file_offset": "0x5060",
+          "bytes_hex": "e5b7",
+          "mnemonic": "c.j",
+          "operands": "-0x18"
+        },
+        {
+          "component_file_offset": "0x5062",
+          "bytes_hex": "97000000",
+          "mnemonic": "auipc",
+          "operands": "ra, 0"
+        },
+        {
+          "component_file_offset": "0x5066",
+          "bytes_hex": "e780c044",
+          "mnemonic": "jalr",
+          "operands": "ra, ra, 0x44c"
+        },
+        {
+          "component_file_offset": "0x506a",
+          "bytes_hex": "0111",
+          "mnemonic": "c.addi",
+          "operands": "sp, -0x20"
+        },
+        {
+          "component_file_offset": "0x506c",
+          "bytes_hex": "06ec",
+          "mnemonic": "c.sdsp",
+          "operands": "ra, 0x18(sp)"
+        },
+        {
+          "component_file_offset": "0x506e",
+          "bytes_hex": "17030000",
+          "mnemonic": "auipc",
+          "operands": "t1, 0"
+        },
+        {
+          "component_file_offset": "0x5072",
+          "bytes_hex": "0333237f",
+          "mnemonic": "ld",
+          "operands": "t1, 0x7f2(t1)"
+        },
+        {
+          "component_file_offset": "0x5076",
+          "bytes_hex": "83380300",
+          "mnemonic": "ld",
+          "operands": "a7, 0(t1)"
+        },
+        {
+          "component_file_offset": "0x507a",
+          "bytes_hex": "46e4",
+          "mnemonic": "c.sdsp",
+          "operands": "a7, 8(sp)"
+        },
+        {
+          "component_file_offset": "0x507c",
+          "bytes_hex": "97080000",
+          "mnemonic": "auipc",
+          "operands": "a7, 0"
+        }
+      ],
+      "referenced_literal_pool": [
+        {
+          "component_file_offset": "0x57c8",
+          "bytes_hex": "0804110000000020",
+          "u64_le": "0x2000000000110408"
+        },
+        {
+          "component_file_offset": "0x57d0",
+          "bytes_hex": "3404820000000020",
+          "u64_le": "0x2000000000820434"
+        },
+        {
+          "component_file_offset": "0x5860",
+          "bytes_hex": "0014180000000000",
+          "u64_le": "0x181400"
+        }
+      ],
+      "decoded_bytes": 128
+    },
+    {
+      "source": "vendor/open-gpu-kernel-modules/src/nvidia/generated/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "offset": "0x5000",
+      "bytes": 128,
+      "sha256": "cdb5d3c1aaef3f18ba48b8a536ffcfc8318861fec2b359586be433a069975d3d",
+      "raw_hex": "374118001b0101406f000010011106ec9717000083b707859c633ee4970700009387c77a9c639c43812737071000f98f99eb970700009387e7799c639c43858b99cf054511a0054522679717000083b767819c636317f700e260056182800145e5b797000000e780c044011106ec170300000333237f8338030046e497080000",
+      "instructions": [
+        {
+          "component_file_offset": "0x5000",
+          "bytes_hex": "37411800",
+          "mnemonic": "lui",
+          "operands": "sp, 0x184"
+        },
+        {
+          "component_file_offset": "0x5004",
+          "bytes_hex": "1b010140",
+          "mnemonic": "addiw",
+          "operands": "sp, sp, 0x400"
+        },
+        {
+          "component_file_offset": "0x5008",
+          "bytes_hex": "6f000010",
+          "mnemonic": "j",
+          "operands": "0x100"
+        },
+        {
+          "component_file_offset": "0x500c",
+          "bytes_hex": "0111",
+          "mnemonic": "c.addi",
+          "operands": "sp, -0x20"
+        },
+        {
+          "component_file_offset": "0x500e",
+          "bytes_hex": "06ec",
+          "mnemonic": "c.sdsp",
+          "operands": "ra, 0x18(sp)"
+        },
+        {
+          "component_file_offset": "0x5010",
+          "bytes_hex": "97170000",
+          "mnemonic": "auipc",
+          "operands": "a5, 1"
+        },
+        {
+          "component_file_offset": "0x5014",
+          "bytes_hex": "83b70785",
+          "mnemonic": "ld",
+          "operands": "a5, -0x7b0(a5)"
+        },
+        {
+          "component_file_offset": "0x5018",
+          "bytes_hex": "9c63",
+          "mnemonic": "c.ld",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x501a",
+          "bytes_hex": "3ee4",
+          "mnemonic": "c.sdsp",
+          "operands": "a5, 8(sp)"
+        },
+        {
+          "component_file_offset": "0x501c",
+          "bytes_hex": "97070000",
+          "mnemonic": "auipc",
+          "operands": "a5, 0"
+        },
+        {
+          "component_file_offset": "0x5020",
+          "bytes_hex": "9387c77a",
+          "mnemonic": "addi",
+          "operands": "a5, a5, 0x7ac"
+        },
+        {
+          "component_file_offset": "0x5024",
+          "bytes_hex": "9c63",
+          "mnemonic": "c.ld",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x5026",
+          "bytes_hex": "9c43",
+          "mnemonic": "c.lw",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x5028",
+          "bytes_hex": "8127",
+          "mnemonic": "c.addiw",
+          "operands": "a5, 0"
+        },
+        {
+          "component_file_offset": "0x502a",
+          "bytes_hex": "37071000",
+          "mnemonic": "lui",
+          "operands": "a4, 0x100"
+        },
+        {
+          "component_file_offset": "0x502e",
+          "bytes_hex": "f98f",
+          "mnemonic": "c.and",
+          "operands": "a5, a4"
+        },
+        {
+          "component_file_offset": "0x5030",
+          "bytes_hex": "99eb",
+          "mnemonic": "c.bnez",
+          "operands": "a5, 0x16"
+        },
+        {
+          "component_file_offset": "0x5032",
+          "bytes_hex": "97070000",
+          "mnemonic": "auipc",
+          "operands": "a5, 0"
+        },
+        {
+          "component_file_offset": "0x5036",
+          "bytes_hex": "9387e779",
+          "mnemonic": "addi",
+          "operands": "a5, a5, 0x79e"
+        },
+        {
+          "component_file_offset": "0x503a",
+          "bytes_hex": "9c63",
+          "mnemonic": "c.ld",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x503c",
+          "bytes_hex": "9c43",
+          "mnemonic": "c.lw",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x503e",
+          "bytes_hex": "858b",
+          "mnemonic": "c.andi",
+          "operands": "a5, 1"
+        },
+        {
+          "component_file_offset": "0x5040",
+          "bytes_hex": "99cf",
+          "mnemonic": "c.beqz",
+          "operands": "a5, 0x1e"
+        },
+        {
+          "component_file_offset": "0x5042",
+          "bytes_hex": "0545",
+          "mnemonic": "c.li",
+          "operands": "a0, 1"
+        },
+        {
+          "component_file_offset": "0x5044",
+          "bytes_hex": "11a0",
+          "mnemonic": "c.j",
+          "operands": "4"
+        },
+        {
+          "component_file_offset": "0x5046",
+          "bytes_hex": "0545",
+          "mnemonic": "c.li",
+          "operands": "a0, 1"
+        },
+        {
+          "component_file_offset": "0x5048",
+          "bytes_hex": "2267",
+          "mnemonic": "c.ldsp",
+          "operands": "a4, 8(sp)"
+        },
+        {
+          "component_file_offset": "0x504a",
+          "bytes_hex": "97170000",
+          "mnemonic": "auipc",
+          "operands": "a5, 1"
+        },
+        {
+          "component_file_offset": "0x504e",
+          "bytes_hex": "83b76781",
+          "mnemonic": "ld",
+          "operands": "a5, -0x7ea(a5)"
+        },
+        {
+          "component_file_offset": "0x5052",
+          "bytes_hex": "9c63",
+          "mnemonic": "c.ld",
+          "operands": "a5, 0(a5)"
+        },
+        {
+          "component_file_offset": "0x5054",
+          "bytes_hex": "6317f700",
+          "mnemonic": "bne",
+          "operands": "a4, a5, 0xe"
+        },
+        {
+          "component_file_offset": "0x5058",
+          "bytes_hex": "e260",
+          "mnemonic": "c.ldsp",
+          "operands": "ra, 0x18(sp)"
+        },
+        {
+          "component_file_offset": "0x505a",
+          "bytes_hex": "0561",
+          "mnemonic": "c.addi16sp",
+          "operands": "sp, 0x20"
+        },
+        {
+          "component_file_offset": "0x505c",
+          "bytes_hex": "8280",
+          "mnemonic": "c.jr",
+          "operands": "ra"
+        },
+        {
+          "component_file_offset": "0x505e",
+          "bytes_hex": "0145",
+          "mnemonic": "c.li",
+          "operands": "a0, 0"
+        },
+        {
+          "component_file_offset": "0x5060",
+          "bytes_hex": "e5b7",
+          "mnemonic": "c.j",
+          "operands": "-0x18"
+        },
+        {
+          "component_file_offset": "0x5062",
+          "bytes_hex": "97000000",
+          "mnemonic": "auipc",
+          "operands": "ra, 0"
+        },
+        {
+          "component_file_offset": "0x5066",
+          "bytes_hex": "e780c044",
+          "mnemonic": "jalr",
+          "operands": "ra, ra, 0x44c"
+        },
+        {
+          "component_file_offset": "0x506a",
+          "bytes_hex": "0111",
+          "mnemonic": "c.addi",
+          "operands": "sp, -0x20"
+        },
+        {
+          "component_file_offset": "0x506c",
+          "bytes_hex": "06ec",
+          "mnemonic": "c.sdsp",
+          "operands": "ra, 0x18(sp)"
+        },
+        {
+          "component_file_offset": "0x506e",
+          "bytes_hex": "17030000",
+          "mnemonic": "auipc",
+          "operands": "t1, 0"
+        },
+        {
+          "component_file_offset": "0x5072",
+          "bytes_hex": "0333237f",
+          "mnemonic": "ld",
+          "operands": "t1, 0x7f2(t1)"
+        },
+        {
+          "component_file_offset": "0x5076",
+          "bytes_hex": "83380300",
+          "mnemonic": "ld",
+          "operands": "a7, 0(t1)"
+        },
+        {
+          "component_file_offset": "0x507a",
+          "bytes_hex": "46e4",
+          "mnemonic": "c.sdsp",
+          "operands": "a7, 8(sp)"
+        },
+        {
+          "component_file_offset": "0x507c",
+          "bytes_hex": "97080000",
+          "mnemonic": "auipc",
+          "operands": "a7, 0"
+        }
+      ],
+      "referenced_literal_pool": [
+        {
+          "component_file_offset": "0x57c8",
+          "bytes_hex": "0804110000000020",
+          "u64_le": "0x2000000000110408"
+        },
+        {
+          "component_file_offset": "0x57d0",
+          "bytes_hex": "3404820000000020",
+          "u64_le": "0x2000000000820434"
+        },
+        {
+          "component_file_offset": "0x5860",
+          "bytes_hex": "0014180000000000",
+          "u64_le": "0x181400"
+        }
+      ],
+      "decoded_bytes": 128
+    }
+  ],
+  "limits": "Linear decode under explicit RV64+RVC assumption. No function boundaries, load address, branch reachability or MMIO effects proven."
+}

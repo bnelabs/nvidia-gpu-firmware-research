@@ -603,3 +603,144 @@
 
 ## 2026-10-21 — constitutional safety and evidence correction
 Owner permits deep offline RE and non-intrusive documented monitoring only. The prior bench exception, all-goals-complete certification, opaque GPU-discovery/power attribution, host-to-firmware attribution and diagnostic capability overclaims are superseded by CONSTITUTION.md and CORRECTIONS.md. Live custom RM, preload and ABI-probing implementations are retired; prebuilt binaries removed. Offline decoders/fixtures and the default-off documented collector replace them. No GPU, driver, settings, firmware or running worker was accessed or altered during this change. CPU-only validation is recorded in VALIDATION.md. Replaced narratives are preserved under archive/2026-10-21-pre-constitution.
+
+## 2026-10-21 — preserved integration and first offline RE packet
+
+- Read AGENTS/CONSTITUTION/CORRECTIONS/EVIDENCE/LEAD-NEXT. Initial tracked tree was
+  clean at 12301b3. Preserved all non-Git files including ignored copies in an
+  external hash-recorded archive and created preserve/pre-pr4-20261021T064004Z.
+  Fast-forwarded main to d42161f, including PR #4; final fetch confirms that head.
+  Stale ignored rmctl/sniffer2.so builds were moved to the preservation directory.
+- [Research packet](research/2026-10-21-offline/README.md): re-exported hash-pinned
+  host instructions, relocations and tables; distinguished file offset 0x2d1180
+  from host ELF VA 0x2d1180 and corrected the claimed table-copy relationship.
+  Traced the P-state wrapper to its indirect boundary; retained the candidate path
+  and historical-log disagreement separately. Emulated only the conversion with
+  20 synthetic inputs. No firmware consumer or current hardware reading claimed.
+- Compared GA102 PROD GspRmBoot in NVIDIA 615.71.09 vs 615.78.08 (exact commits
+  and 24 source hashes retained). Decoded 42 compressed descriptor bytes to an
+  84-byte structure and 17,934 compressed image bytes to 24,576 bytes. Both decoded
+  components are identical across these releases. Old extracted .bin copies were
+  padded compressed storage and remain unchanged. Exported bounded RV64+RVC code
+  and raw tagged pointers without assigning unproven register names or keys.
+- Reproduced the packet under bwrap with no GPU devices, host services or network
+  and a read-only repo. Gate passed: 35 Python tests, 29 C record checks and the
+  remaining synthetic/C/CLI/syntax checks. REA could not access the local artifact
+  path; stopped that provider path without sudo or runtime instrumentation.
+  No live collector, NVML, private controls, hardware reads or remediation ran.
+- Remaining link: actual device +0x28540 dispatcher population, complete command
+  syscall path, then the closed GSP consumer. Continue those questions offline.
+
+## 2026-10-21 — offline P-state dispatch, RUSD and retained firmware methods
+
+- Preserved prior uncommitted/ignored work in sibling
+  `nvidia-offline-pstate-preserve-20261021T070430Z/workspace.tar.gz`,
+  190,908,449 bytes, SHA-256
+  `c0a89dcc80539daa27b1fd834f19948077865c93e7ad93d915617ceaab67e6bc`.
+  Final fetch confirms HEAD and origin/main still d42161f (includes PR #4).
+  No reset, clean, stash, commit or push; previous packet/raw evidence preserved.
+- [Dispatch packet](research/2026-10-21-pstate-dispatch/README.md): REA/IDA now
+  opens the existing container-local copied x86 library at its expected hash.
+  Checked decompilation against raw bytes. Device base +0xa0 resolves the earlier
+  +0x285e0/+0x28540 gap. Canonical callback attempts RUSD before direct control;
+  exact mapped layout, five-attempt snapshot loop and one-hot conversion recovered.
+  Historical text-log consistency is retained separately from branch proof.
+- Dispatcher synthetic run stops before transport with NVOS54 request c020462a,
+  size 32, command 20802068 and payload 4. Raw instructions locate ioctl PLT;
+  no helper/syscall executed. Downloaded exact-release source into a separate
+  ignored detached checkout, never built/loaded; original vendor tree unchanged.
+- Explicit source-defined NVOC parser exports all 1,183 Subdevice firmware method
+  records with raw bytes/domains/flags/parameter sizes. 638 generated names and
+  654 literal command definitions match public exact-release source. Located
+  direct P-state handler 16be978 and internal RUSD init/poll 1447738/1447ac8.
+  RISC-V synthetic branches check errors and conditional field copy; the unknown
+  indirect object getter is stubbed explicitly. No physical-value origin claimed.
+- REA rejects retained soft-float RISC-V ELF through currently configured provider
+  lanes; admission evidence retained. No Ghidra/Hopper installation, ABI rewriting
+  or privilege change. Capstone/Unicorn analysis stays in CPU-only namespaces.
+  Offline emulator placeholder-page exceptions were corrected with valid synthetic
+  stop pages; no hardware error or remediation occurred.
+- Seven deterministic JSON results reproduced byte-for-byte. Required gate passed:
+  38 Python tests, 29 C record checks, remaining synthetic/C/CLI/syntax checks.
+  No GPU command, monitoring collector, injection, tracer, custom RM/GSP call,
+  live polling, hardware read, sudo or production operation performed.
+- Next: trace firmware RUSD writer callbacks and the separate direct object-value
+  getter/writers; compare provenance before asserting a shared physical source.
+
+## 2026-10-21 — offline firmware P-state writer and host-reader bridge
+
+- Preserved full non-Git workspace plus status/diff/refs in sibling
+  `nvidia-value-provenance-preserve-20261021-pjjaQu/`; archive 234,738,414 bytes,
+  SHA-256 `8d2da7c6c93a383333cb47afc95357098575364ca7c1978995e53d4f25b6131b`.
+  Fetch confirms HEAD/origin/main d42161f, including PR #4. Prior uncommitted work
+  remains; no reset, clean, stash, commit, push or old-packet rewrite.
+- [Writer packet](research/2026-10-21-pstate-writers/README.md): raw RV64/RVC
+  callback arithmetic recovers setup/callback/worker links and refresh 143c6ec.
+  Shared +0x8e8 reaches helper 143bde0, which supplies internal RM API command
+  20802068, size 4. Exact-release cl00de.h independently states this source.
+- Publisher 1434cdc writes in-progress timestamp, payload, then timestamp; error
+  helper invalidates timestamp without clearing payload. Eight bounded synthetic
+  cases execute copied writer/handler/lookup/publisher/memory utilities. Internal
+  RM routing, entry getter, timestamp and cached probe state remain explicit
+  synthetic adapters; special-instruction/probe paths are not executed.
+- Fed those exact synthetic record bytes into copied x86 NVML reader. Raw 4/256
+  return ordinal 2/8; zero-timestamp records produce raw error 10 after five
+  attempts without changing caller output. Stable composite raw values still
+  produce ordinal 32; accepted timestamps do not prove freshness.
+- Added signed AUIPC/JALR reference tests and retained raw SD +0x320 scan candidates
+  as unproven leads only. Compared exact NVIDIA source and pinned nouveau/nova
+  scope; no sensor/register meaning inferred from displacement or public names.
+- Ten analysis JSON outputs replayed byte-for-byte. CPU-only gate: 41 Python tests,
+  29 C record checks and remaining synthetic/C/CLI/syntax checks passed. Offline
+  tooling/fixture errors were bounded and corrected without any hardware action.
+  No GPU monitoring, private live call, tracer, injection, polling, sudo, hardware
+  read, firmware operation, settings change or production operation performed.
+- Remaining boundary: internal callback +0x41c0, concrete table getter +0x38,
+  entry +0x34 writers and timestamp source. Continue their construction/dataflow
+  offline; no runtime pointer or physical measurement claim.
+
+## 2026-10-21 — offline internal callback assignment and copied method dispatch
+
+- Preserved full non-Git workspace and status/diff/refs in sibling
+  `nvidia-callback-preserve-20261021-09cClt/`; archive 234,850,129 bytes,
+  SHA-256 `fcbd4bed118a5b22c1b4bad52f7216f3b7fdcb05cf355a8fc32ffe841b73c1d9`.
+  Final fetch keeps HEAD/origin/main at d42161f (includes PR #4). No reset, clean,
+  stash, commit, push or modification of prior raw evidence packets.
+- [Callback-origin packet](research/2026-10-21-callback-origins/README.md): found
+  initialization store 1aea7ce assigning firmware target 14078cc to object +41c0.
+  Exact-source isolated RM_API compiles to size 240, Control +38, context +e8;
+  binary receiver +4188 / context +4270 and default-security words (2,1) agree.
+  Retained copied API template bytes are zero; runtime contents remain unknown.
+- Executed 177 initializer instructions and 539 writer/dispatcher/lookup/method
+  instructions on CPU with actual copied RTTI/export metadata. The previously
+  substituted RM routing target is now the pointer assigned by copied code.
+  One opaque context-swap service returns fixture success; object graph/handles
+  remain synthetic. Execution stops before the unresolved table entry getter.
+- Copied binary search resolves every one of 1,183 Subdevice records and rejects
+  18 absent IDs. Retained eight raw class-cast relatives. Source comparisons use
+  exact NVIDIA commit 61dcc937 and pinned nouveau/nova scope; no runtime permission,
+  physical sensor or externally reachable security-bypass claim is inferred.
+- Raw control-store and ADDI +320 candidates remain leads. The table getter and
+  entry +34 writers are unresolved; next angle is object factory/out-parameter/
+  initializer-copy provenance instead of further undirected displacement scans.
+- Ten analysis JSON files reproduced byte-for-byte; CPU-only gate passed 41 Python
+  tests, 29 C record checks and remaining synthetic/C/CLI/syntax checks. No native
+  target execution, GPU monitoring, private live control, raw hardware access,
+  tracer, injection, polling, sudo, reset, firmware or production operation.
+
+## 2026-10-21 — publication of completed offline progress
+
+- At the owner's explicit request, prepared the four completed evidence packets,
+  parsers, CPU-only fixtures and corrected map for commit/push/PR merge from isolated
+  worktree `../nvidia-offline-publication-20261021`, branch
+  `research/offline-pstate-progress-20261021`. The original working checkout and
+  ignored artifact/source copies remain unchanged. All prior packet checksums
+  remain valid; snapshots in their prose describe their original checkpoints.
+- Added Capstone 5.0.7 wheel/version/hash to the disposable GitHub CPU runner's
+  venv because instruction-reference tests require that decoder. No installation
+  or driver/package change on the production host is performed by this workflow
+  edit. The gate consumes synthetic fixtures; full firmware replay separately
+  requires the retained, hash-matched ignored inputs.
+- The remaining research target is object/table construction leading to getter
+  +0x38 and entry +0x34 writers. No new physical-value or runtime-selection claim
+  is added by publication.

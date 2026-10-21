@@ -1,0 +1,307 @@
+{
+  "evidence_id": "ev_d06344923d392e5f481dd83885e4837b440c2077f3d29a9d4d530f70c2a60bef",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0x31a70"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 9.108,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 9.29,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0x31a70"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0x31a70",
+            "fn": {
+              "addr": "0x31a70",
+              "name": "sub_31A70",
+              "size": "0x866"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x31a70",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x31a70",
+          "code": "__int64 __fastcall sub_31A70(__int64 a1)\n{\n  unsigned int v1; // r12d\n  char *v2; // r12\n  unsigned int v3; // r13d\n  char v4; // r9\n  __int64 v5; // r8\n  int v6; // ecx\n  int v7; // r14d\n  int v8; // edx\n  int v9; // eax\n  int v10; // eax\n  __int64 v11; // rdi\n  __int64 (__fastcall **v12)(__int64, char *, __int64 *); // rax\n  __int64 (__fastcall *v13)(__int64, char *, __int64 *); // rax\n  int v14; // r14d\n  int v15; // eax\n  __int64 v16; // rbx\n  __int64 v17; // rcx\n  int v18; // eax\n  int v20; // eax\n  int v21; // eax\n  int v22; // eax\n  int v23; // eax\n  int v24; // eax\n  int v25; // eax\n  int v26; // r9d\n  int v27; // r8d\n  int v28; // edx\n  __int64 v29; // rdi\n  __int64 v30; // rax\n  void (__fastcall *v31)(_QWORD, unsigned int *); // rax\n  __int64 v32; // rax\n  void (__fastcall *v33)(__int64, _QWORD, _QWORD); // rax\n  __int64 v34; // rdi\n  __int64 v35; // rax\n  void (__fastcall *v36)(__int64, unsigned int *); // rax\n  __int64 v37; // rdi\n  __int64 v38; // rax\n  void (__fastcall *v39)(__int64, _QWORD, _QWORD); // rax\n  int v40; // eax\n  int v41; // eax\n  int v42; // eax\n  int v43; // r14d\n  int v44; // eax\n  unsigned int v45; // [rsp+14h] [rbp-7Ch]\n  __int64 v46; // [rsp+18h] [rbp-78h]\n  __int64 v47; // [rsp+20h] [rbp-70h]\n  char v48; // [rsp+29h] [rbp-67h]\n  char v49; // [rsp+2Ah] [rbp-66h]\n  char v50; // [rsp+2Bh] [rbp-65h]\n  int v51; // [rsp+2Ch] [rbp-64h]\n  __int64 v53; // [rsp+38h] [rbp-58h]\n  int v54; // [rsp+38h] [rbp-58h]\n  int v55; // [rsp+38h] [rbp-58h]\n  unsigned int v56; // [rsp+48h] [rbp-48h] BYREF\n  __int64 v57; // [rsp+4Ch] [rbp-44h] BYREF\n  int v58; // [rsp+54h] [rbp-3Ch] BYREF\n  __int64 v59; // [rsp+58h] [rbp-38h]\n\n  v56 = 0; /*0x31a85*/\n  if ( a1 == 0 ) /*0x31a8f*/\n    return 1; /*0x31f27*/\n  v53 = unk_153CDC8; /*0x31aaa*/\n  v45 = (*(__int64 (__fastcall **)(char *))(*(_QWORD *)(unk_153CDC8 + 16LL) + 8LL))(a1: &s[140]); /*0x31ab5*/\n  if ( v45 != 0 ) /*0x31aba*/\n  {\n    if ( unk_153D718 <= 1 ) /*0x321fa*/\n    {\n      return 999; /*0x31e2d*/\n    }\n    else\n    {\n      sub_1AB3B0(a1: &tp); /*0x32207*/\n      v42 = syscall(sysno: 186); /*0x32218*/\n      sub_14C570( /*0x32255*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%x\\n\",\n        a2: (unsigned int)\"ERROR\",\n        a3: v42,\n        a4: (unsigned int)\"nvml_checkpoint.c\",\n        a5: 268,\n        a6: v45);\n      return 999; /*0x3225a*/\n    }\n  }\n  v1 = *(_DWORD *)(a1 + 8); /*0x31acb*/\n  if ( unk_153B1C0 > v1 ) /*0x31ad2*/\n  {\n    if ( unk_153D718 > 1 ) /*0x31eba*/\n    {\n      sub_1AB3B0(a1: &tp); /*0x31ec3*/\n      v22 = syscall(sysno: 186); /*0x31ed4*/\n      sub_14C570( /*0x31f15*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%x %x\\n\",\n        a2: (unsigned int)\"ERROR\",\n        a3: v22,\n        a4: (unsigned int)\"nvml_checkpoint.c\",\n        a5: 408,\n        a6: v1);\n    }",
+          "line_count": 100,
+          "total_lines": 330,
+          "truncated": true,
+          "cursor": {
+            "next": 100
+          },
+          "refs": [
+            {
+              "addr": "0x153cdc8",
+              "name": "unk_153CDC8"
+            },
+            {
+              "addr": "0x2d2e20",
+              "name": "s"
+            },
+            {
+              "addr": "0x1ab3b0",
+              "name": "sub_1AB3B0"
+            },
+            {
+              "addr": "0x153d700",
+              "name": "tp"
+            },
+            {
+              "addr": "0x226b0",
+              "name": ".syscall"
+            },
+            {
+              "addr": "0x14c570",
+              "name": "sub_14C570"
+            },
+            {
+              "addr": "0x1b5c30",
+              "name": "aSTidLlu06fsSDX_2",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%x\n"
+            },
+            {
+              "addr": "0x2053db",
+              "name": "aRobustChannelC_21",
+              "string": "ROBUST_CHANNEL_CE10_ERROR"
+            },
+            {
+              "addr": "0x1b5c1e",
+              "name": "aNvmlCheckpoint",
+              "string": "nvml_checkpoint.c"
+            },
+            {
+              "addr": "0x153d718",
+              "name": "unk_153D718"
+            },
+            {
+              "addr": "0x1b5c58",
+              "name": "aSTidLlu06fsSDX_1",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%x %x\n"
+            },
+            {
+              "addr": "0x153b1c0",
+              "name": "unk_153B1C0"
+            },
+            {
+              "addr": "0xabca0",
+              "name": "sub_ABCA0"
+            },
+            {
+              "addr": "0x39290",
+              "name": "sub_39290"
+            },
+            {
+              "addr": "0x1b2468",
+              "name": "aSTidLlu06fsSDD",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%d\n"
+            },
+            {
+              "addr": "0x1b2a00",
+              "name": "aSTidLlu06fsSDS_2",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%s\n"
+            },
+            {
+              "addr": "0x1b5c80",
+              "name": "aSTidLlu06fsSDD_3",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%d %x\n"
+            },
+            {
+              "addr": "0x1b2395",
+              "name": "aDebug",
+              "string": "DEBUG"
+            },
+            {
+              "addr": "0x8b680",
+              "name": "loc_8B680"
+            },
+            {
+              "addr": "0x22480",
+              "name": ".memset"
+            },
+            {
+              "addr": "0x93418",
+              "name": "loc_93418"
+            },
+            {
+              "addr": "0x28548",
+              "name": "loc_28548"
+            },
+            {
+              "addr": "0xa5880",
+              "name": "sub_A5880"
+            },
+            {
+              "addr": "0xa9410",
+              "name": "sub_A9410"
+            },
+            {
+              "addr": "0x2fe40",
+              "name": "sub_2FE40"
+            },
+            {
+              "addr": "0x1b2988",
+              "name": "aSTidLlu06fsSDD_0",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%d %d\n"
+            }
+          ]
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x31a70",
+          "offset": 100,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x31a70",
+          "code": "    return 1; /*0x31f15*/\n  }\n  if ( unk_153B1C0 == 0 ) /*0x31ada*/\n  {\nLABEL_41:\n    v29 = unk_153CDC8; /*0x32090*/\n    if ( unk_153CDC8 == 0 ) /*0x3209a*/\n      goto LABEL_54; /*0x3209a*/\n    v30 = *(_QWORD *)(unk_153CDC8 + 32LL); /*0x320a0*/\n    if ( v30 != 0 ) /*0x320a7*/\n    {\n      v31 = *(void (__fastcall **)(_QWORD, unsigned int *))(v30 + 128); /*0x320a9*/\n      if ( v31 != nullptr ) /*0x320b3*/\n      {\n        v31(a1: unk_153CDC8, a2: &v56); /*0x320b9*/\n        v29 = unk_153CDC8; /*0x320bb*/\n        if ( unk_153CDC8 == 0 ) /*0x320c5*/\n          goto LABEL_54; /*0x320c5*/\n      }\n    }\n    v32 = *(_QWORD *)(v29 + 48); /*0x320cb*/\n    if ( v32 != 0 && (v33 = *(void (__fastcall **)(__int64, _QWORD, _QWORD))(v32 + 184)) != nullptr ) /*0x320e2*/\n    {\n      v33(a1: v29, a2: *(unsigned int *)&s[140], a3: v56); /*0x320f2*/\n      v34 = unk_153CDC8; /*0x320f4*/\n      if ( unk_153CDC8 == 0 ) /*0x320fe*/\n        goto LABEL_54; /*0x320fe*/\n    }\n    else\n    {\n      v34 = unk_153CDC8; /*0x32272*/\n    }\n    v35 = *(_QWORD *)(v34 + 32); /*0x32100*/\n    if ( v35 == 0 || (v36 = *(void (__fastcall **)(__int64, unsigned int *))(v35 + 128)) == nullptr ) /*0x32117*/\n    {\n      v37 = unk_153CDC8; /*0x32266*/\n      goto LABEL_51; /*0x3226d*/\n    }\n    v36(a1: v34, a2: &v56); /*0x32121*/\n    v37 = unk_153CDC8; /*0x32123*/\n    if ( unk_153CDC8 != 0 ) /*0x3212d*/\n    {\nLABEL_51:\n      v38 = *(_QWORD *)(v37 + 48); /*0x3212f*/\n      if ( v38 != 0 ) /*0x32136*/\n      {\n        v39 = *(void (__fastcall **)(__int64, _QWORD, _QWORD))(v38 + 192); /*0x32138*/\n        if ( v39 != nullptr ) /*0x32142*/\n          v39(a1: v37, a2: *(unsigned int *)&s[140], a3: v56); /*0x3214e*/\n      }\n    }\nLABEL_54:\n    sub_ABCA0(a1: v53); /*0x32150*/\n    sub_39290(); /*0x32159*/\n    return v45; /*0x3215e*/\n  }\n  v2 = &s[160]; /*0x31aeb*/\n  v3 = 0; /*0x31af2*/\n  while ( 1 ) /*0x31ca8*/\n  {\n    if ( *(_DWORD *)&s[603160 * v3 + 180] == 0 || *((_DWORD *)v2 + 7) != 0 || *((_DWORD *)v2 + 4) == 0 ) /*0x31cd9*/\n    {\n      if ( unk_153D718 > 1 ) /*0x31dac*/\n      {\n        sub_1AB3B0(a1: &tp); /*0x31db9*/\n        v20 = syscall(sysno: 186); /*0x31dca*/\n        sub_14C570( /*0x31e06*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v20,\n          a4: (unsigned int)\"nvml_checkpoint.c\",\n          a5: 420,\n          a6: v3);\n      }\n      goto LABEL_17; /*0x31e12*/\n    }\n    v15 = *(_DWORD *)(a1 + 8); /*0x31ceb*/\n    if ( v15 <= 0 ) /*0x31cf0*/\n    {\nLABEL_25:\n      if ( unk_153D718 <= 1 ) /*0x31d2c*/\n        return 999; /*0x31d2c*/\n      sub_1AB3B0(a1: &tp); /*0x31d39*/\n      v18 = syscall(sysno: 186); /*0x31d4a*/\n      sub_14C570( /*0x31d86*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s\\n\",\n        a2: (unsigned int)\"ERROR\",\n        a3: v18,\n        a4: (unsigned int)\"nvml_checkpoint.c\",\n        a5: 428,\n        a6: (_DWORD)v2 + 896);\n      return 999; /*0x31d8b*/\n    }\n    v16 = *(_QWORD *)(a1 + 16); /*0x31cf2*/\n    v17 = v16 + 32LL * (unsigned int)(v15 - 1) + 32; /*0x31cfd*/\n    while ( *((_OWORD *)v2 + 56) != *(_OWORD *)v16 ) /*0x31d19*/\n    {\n      v16 += 32; /*0x31d1f*/\n      if ( v17 == v16 ) /*0x31d26*/\n        goto LABEL_25; /*0x31d26*/",
+          "line_count": 100,
+          "total_lines": 330,
+          "truncated": true,
+          "cursor": {
+            "next": 200
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x31a70",
+          "offset": 200,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x31a70",
+          "code": "    }\n    if ( unk_153D718 > 4 ) /*0x31b14*/\n    {\n      sub_1AB3B0(a1: &tp); /*0x31e4b*/\n      v21 = syscall(sysno: 186); /*0x31e5c*/\n      sub_14C570( /*0x31e9e*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d %x\\n\",\n        a2: (unsigned int)\"DEBUG\",\n        a3: v21,\n        a4: (unsigned int)\"nvml_checkpoint.c\",\n        a5: 433,\n        a6: v3);\n    }\n    v4 = *v2; /*0x31b1e*/\n    v5 = *((_QWORD *)v2 + 20648); /*0x31b2a*/\n    v6 = *((_DWORD *)v2 + 41716); /*0x31b32*/\n    v59 = 0; /*0x31b3d*/\n    v7 = *(_DWORD *)(v16 + 24); /*0x31b49*/\n    v50 = v4; /*0x31b4d*/\n    v47 = v5; /*0x31b5a*/\n    v46 = *(_QWORD *)(v53 + 16); /*0x31b5e*/\n    v49 = v2[571088]; /*0x31b62*/\n    v51 = v6; /*0x31b6d*/\n    v57 = *(_QWORD *)(v2 + 571092); /*0x31b70*/\n    v48 = *((_BYTE *)&loc_8B680 + (_QWORD)v2); /*0x31b7d*/\n    memset(s: v2, c: 0, n: (size_t)&loc_93418); /*0x31b80*/\n    *((_DWORD *)v2 + 1) = v3; /*0x31b99*/\n    *((_QWORD *)v2 + 20648) = v47; /*0x31b9e*/\n    *v2 = v50; /*0x31bad*/\n    *((_DWORD *)v2 + 41716) = v51; /*0x31bba*/\n    *(_DWORD *)((char *)&loc_28548 + (_QWORD)v2) = v7; /*0x31bc7*/\n    v8 = *(_DWORD *)&s[140]; /*0x31bd8*/\n    v58 = v7; /*0x31bda*/\n    v9 = sub_A5880(a1: v46, a2: v8, a3: v8, a4: 539, a5: (unsigned int)&v58, a6: 12, a7: 0); /*0x31bde*/\n    if ( v9 != 0 ) /*0x31bee*/\n      break; /*0x31bee*/\n    *((_QWORD *)v2 + 1) = v59; /*0x31bfe*/\n    v10 = sub_A9410(a1: v53, a2: v2); /*0x31c17*/\n    if ( v10 != 0 ) /*0x31c25*/\n    {\n      v55 = v10; /*0x32014*/\n      if ( unk_153D718 <= 1 ) /*0x32017*/\n        return 999; /*0x32017*/\n      sub_1AB3B0(a1: &tp); /*0x32027*/\n      v25 = syscall(sysno: 186); /*0x32038*/\n      v26 = v55; /*0x32042*/\n      v27 = 351; /*0x32046*/\n      v28 = v25; /*0x32054*/\n      goto LABEL_40; /*0x32054*/\n    }\n    if ( v49 != 0 ) /*0x31c2f*/\n    {\n      v11 = *((_QWORD *)v2 + 20648); /*0x31c31*/\n      if ( v11 == 0 /*0x31c58*/\n        || (v12 = *(__int64 (__fastcall ***)(__int64, char *, __int64 *))(v11 + 384)) == nullptr\n        || (v13 = *v12) == nullptr )\n      {\n        v14 = 3; /*0x3218d*/\nLABEL_58:\n        if ( unk_153D718 <= 1 ) /*0x32197*/\n          return 999; /*0x32197*/\n        sub_1AB3B0(a1: &tp); /*0x321a7*/\n        v41 = syscall(sysno: 186); /*0x321b8*/\n        v26 = v14; /*0x321ca*/\n        v28 = v41; /*0x321cd*/\n        v27 = 362; /*0x321d0*/\nLABEL_40:\n        sub_14C570( /*0x32064*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v28,\n          a4: (unsigned int)\"nvml_checkpoint.c\",\n          a5: v27,\n          a6: v26);\n        goto LABEL_36; /*0x3208a*/\n      }\n      v14 = v13(a1: v11, a2: v2, a3: &v57); /*0x31c73*/\n      if ( v14 != 0 ) /*0x31c76*/\n        goto LABEL_58; /*0x31c76*/\n      v2[571088] = 0; /*0x31c7c*/\n    }\n    if ( v48 != 0 ) /*0x31c89*/\n    {\n      v40 = sub_2FE40(a1: v2); /*0x3216b*/\n      if ( v40 != 0 ) /*0x32179*/\n      {\n        v43 = v40; /*0x32282*/\n        if ( unk_153D718 <= 1 ) /*0x32285*/\n          return 999; /*0x32285*/\n        sub_1AB3B0(a1: &tp); /*0x32295*/\n        v44 = syscall(sysno: 186); /*0x322a6*/\n        v26 = v43; /*0x322b8*/\n        v28 = v44; /*0x322bb*/\n        v27 = 375; /*0x322be*/\n        goto LABEL_40; /*0x322d1*/\n      }\n      *((_BYTE *)&loc_8B680 + (_QWORD)v2) = 0; /*0x3217f*/\n    }\nLABEL_17:\n    ++v3; /*0x31c90*/",
+          "line_count": 100,
+          "total_lines": 330,
+          "truncated": true,
+          "cursor": {
+            "next": 300
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x31a70",
+          "offset": 300,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x31a70",
+          "code": "    v2 += 603160; /*0x31c94*/\n    if ( unk_153B1C0 <= v3 ) /*0x31ca2*/\n      goto LABEL_41; /*0x31ca2*/\n  }\n  v54 = v9; /*0x31e24*/\n  if ( unk_153D718 <= 1 ) /*0x31e27*/\n    return 999; /*0x31e27*/\n  sub_1AB3B0(a1: &tp); /*0x31f3a*/\n  v23 = syscall(sysno: 186); /*0x31f4b*/\n  sub_14C570( /*0x31f91*/\n    a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%x\\n\",\n    a2: (unsigned int)\"ERROR\",\n    a3: v23,\n    a4: (unsigned int)\"nvml_checkpoint.c\",\n    a5: 335,\n    a6: v54);\nLABEL_36:\n  if ( unk_153D718 <= 1 ) /*0x31fa1*/\n    return 999; /*0x31fa1*/\n  sub_1AB3B0(a1: &tp); /*0x31fad*/\n  v24 = syscall(sysno: 186); /*0x31fbe*/\n  sub_14C570( /*0x31ffc*/\n    a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d %d\\n\",\n    a2: (unsigned int)\"ERROR\",\n    a3: v24,\n    a4: (unsigned int)\"nvml_checkpoint.c\",\n    a5: 439,\n    a6: v3);\n  return 999; /*0x31d95*/\n}",
+          "line_count": 30,
+          "total_lines": 330,
+          "truncated": true,
+          "cursor": {
+            "done": true
+          }
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_31A70(__int64 a1)\n{\n  unsigned int v1; // r12d\n  char *v2; // r12\n  unsigned int v3; // r13d\n  char v4; // r9\n  __int64 v5; // r8\n  int v6; // ecx\n  int v7; // r14d\n  int v8; // edx\n  int v9; // eax\n  int v10; // eax\n  __int64 v11; // rdi\n  __int64 (__fastcall **v12)(__int64, char *, __int64 *); // rax\n  __int64 (__fastcall *v13)(__int64, char *, __int64 *); // rax\n  int v14; // r14d\n  int v15; // eax\n  __int64 v16; // rbx\n  __int64 v17; // rcx\n  int v18; // eax\n  int v20; // eax\n  int v21; // eax\n  int v22; // eax\n  int v23; // eax\n  int v24; // eax\n  int v25; // eax\n  int v26; // r9d\n  int v27; // r8d\n  int v28; // edx\n  __int64 v29; // rdi\n  __int64 v30; // rax\n  void (__fastcall *v31)(_QWORD, unsigned int *); // rax\n  __int64 v32; // rax\n  void (__fastcall *v33)(__int64, _QWORD, _QWORD); // rax\n  __int64 v34; // rdi\n  __int64 v35; // rax\n  void (__fastcall *v36)(__int64, unsigned int *); // rax\n  __int64 v37; // rdi\n  __int64 v38; // rax\n  void (__fastcall *v39)(__int64, _QWORD, _QWORD); // rax\n  int v40; // eax\n  int v41; // eax\n  int v42; // eax\n  int v43; // r14d\n  int v44; // eax\n  unsigned int v45; // [rsp+14h] [rbp-7Ch]\n  __int64 v46; // [rsp+18h] [rbp-78h]\n  __int64 v47; // [rsp+20h] [rbp-70h]\n  char v48; // [rsp+29h] [rbp-67h]\n  char v49; // [rsp+2Ah] [rbp-66h]\n  char v50; // [rsp+2Bh] [rbp-65h]\n  int v51; // [rsp+2Ch] [rbp-64h]\n  __int64 v53; // [rsp+38h] [rbp-58h]\n  int v54; // [rsp+38h] [rbp-58h]\n  int v55; // [rsp+38h] [rbp-58h]\n  unsigned int v56; // [rsp+48h] [rbp-48h] BYREF\n  __int64 v57; // [rsp+4Ch] [rbp-44h] BYREF\n  int v58; // [rsp+54h] [rbp-3Ch] BYREF\n  __int64 v59; // [rsp+58h] [rbp-38h]\n\n  v56 = 0; /*0x31a85*/\n  if ( a1 == 0 ) /*0x31a8f*/\n    return 1; /*0x31f27*/\n  v53 = unk_153CDC8; /*0x31aaa*/\n  v45 = (*(__int64 (__fastcall **)(char *))(*(_QWORD *)(unk_153CDC8 + 16LL) + 8LL))(a1: &s[140]); /*0x31ab5*/\n  if ( v45 != 0 ) /*0x31aba*/\n  {\n    if ( unk_153D718 <= 1 ) /*0x321fa*/\n    {\n      return 999; /*0x31e2d*/\n    }\n    else\n    {\n      sub_1AB3B0(a1: &tp); /*0x32207*/\n      v42 = syscall(sysno: 186); /*0x32218*/\n      sub_14C570( /*0x32255*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%x\\n\",\n        a2: (unsigned int)\"ERROR\",\n        a3: v42,\n        a4: (unsigned int)\"nvml_checkpoint.c\",\n        a5: 268,\n        a6: v45);\n      return 999; /*0x3225a*/\n    }\n  }\n  v1 = *(_DWORD *)(a1 + 8); /*0x31acb*/\n  if ( unk_153B1C0 > v1 ) /*0x31ad2*/\n  {\n    if ( unk_153D718 > 1 ) /*0x31eba*/\n    {\n      sub_1AB3B0(a1: &tp); /*0x31ec3*/\n      v22 = syscall(sysno: 186); /*0x31ed4*/\n      sub_14C570( /*0x31f15*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%x %x\\n\",\n        a2: (unsigned int)\"ERROR\",\n        a3: v22,\n        a4: (unsigned int)\"nvml_checkpoint.c\",\n        a5: 408,\n        a6: v1);\n    }\n    return 1; /*0x31f15*/\n  }\n  if ( unk_153B1C0 == 0 ) /*0x31ada*/\n  {\nLABEL_41:\n    v29 = unk_153CDC8; /*0x32090*/\n    if ( unk_153CDC8 == 0 ) /*0x3209a*/\n      goto LABEL_54; /*0x3209a*/\n    v30 = *(_QWORD *)(unk_153CDC8 + 32LL); /*0x320a0*/\n    if ( v30 != 0 ) /*0x320a7*/\n    {\n      v31 = *(void (__fastcall **)(_QWORD, unsigned int *))(v30 + 128); /*0x320a9*/\n      if ( v31 != nullptr ) /*0x320b3*/\n      {\n        v31(a1: unk_153CDC8, a2: &v56); /*0x320b9*/\n        v29 = unk_153CDC8; /*0x320bb*/\n        if ( unk_153CDC8 == 0 ) /*0x320c5*/\n          goto LABEL_54; /*0x320c5*/\n      }\n    }\n    v32 = *(_QWORD *)(v29 + 48); /*0x320cb*/\n    if ( v32 != 0 && (v33 = *(void (__fastcall **)(__int64, _QWORD, _QWORD))(v32 + 184)) != nullptr ) /*0x320e2*/\n    {\n      v33(a1: v29, a2: *(unsigned int *)&s[140], a3: v56); /*0x320f2*/\n      v34 = unk_153CDC8; /*0x320f4*/\n      if ( unk_153CDC8 == 0 ) /*0x320fe*/\n        goto LABEL_54; /*0x320fe*/\n    }\n    else\n    {\n      v34 = unk_153CDC8; /*0x32272*/\n    }\n    v35 = *(_QWORD *)(v34 + 32); /*0x32100*/\n    if ( v35 == 0 || (v36 = *(void (__fastcall **)(__int64, unsigned int *))(v35 + 128)) == nullptr ) /*0x32117*/\n    {\n      v37 = unk_153CDC8; /*0x32266*/\n      goto LABEL_51; /*0x3226d*/\n    }\n    v36(a1: v34, a2: &v56); /*0x32121*/\n    v37 = unk_153CDC8; /*0x32123*/\n    if ( unk_153CDC8 != 0 ) /*0x3212d*/\n    {\nLABEL_51:\n      v38 = *(_QWORD *)(v37 + 48); /*0x3212f*/\n      if ( v38 != 0 ) /*0x32136*/\n      {\n        v39 = *(void (__fastcall **)(__int64, _QWORD, _QWORD))(v38 + 192); /*0x32138*/\n        if ( v39 != nullptr ) /*0x32142*/\n          v39(a1: v37, a2: *(unsigned int *)&s[140], a3: v56); /*0x3214e*/\n      }\n    }\nLABEL_54:\n    sub_ABCA0(a1: v53); /*0x32150*/\n    sub_39290(); /*0x32159*/\n    return v45; /*0x3215e*/\n  }\n  v2 = &s[160]; /*0x31aeb*/\n  v3 = 0; /*0x31af2*/\n  while ( 1 ) /*0x31ca8*/\n  {\n    if ( *(_DWORD *)&s[603160 * v3 + 180] == 0 || *((_DWORD *)v2 + 7) != 0 || *((_DWORD *)v2 + 4) == 0 ) /*0x31cd9*/\n    {\n      if ( unk_153D718 > 1 ) /*0x31dac*/\n      {\n        sub_1AB3B0(a1: &tp); /*0x31db9*/\n        v20 = syscall(sysno: 186); /*0x31dca*/\n        sub_14C570( /*0x31e06*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v20,\n          a4: (unsigned int)\"nvml_checkpoint.c\",\n          a5: 420,\n          a6: v3);\n      }\n      goto LABEL_17; /*0x31e12*/\n    }\n    v15 = *(_DWORD *)(a1 + 8); /*0x31ceb*/\n    if ( v15 <= 0 ) /*0x31cf0*/\n    {\nLABEL_25:\n      if ( unk_153D718 <= 1 ) /*0x31d2c*/\n        return 999; /*0x31d2c*/\n      sub_1AB3B0(a1: &tp); /*0x31d39*/\n      v18 = syscall(sysno: 186); /*0x31d4a*/\n      sub_14C570( /*0x31d86*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s\\n\",\n        a2: (unsigned int)\"ERROR\",\n        a3: v18,\n        a4: (unsigned int)\"nvml_checkpoint.c\",\n        a5: 428,\n        a6: (_DWORD)v2 + 896);\n      return 999; /*0x31d8b*/\n    }\n    v16 = *(_QWORD *)(a1 + 16); /*0x31cf2*/\n    v17 = v16 + 32LL * (unsigned int)(v15 - 1) + 32; /*0x31cfd*/\n    while ( *((_OWORD *)v2 + 56) != *(_OWORD *)v16 ) /*0x31d19*/\n    {\n      v16 += 32; /*0x31d1f*/\n      if ( v17 == v16 ) /*0x31d26*/\n        goto LABEL_25; /*0x31d26*/\n    }\n    if ( unk_153D718 > 4 ) /*0x31b14*/\n    {\n      sub_1AB3B0(a1: &tp); /*0x31e4b*/\n      v21 = syscall(sysno: 186); /*0x31e5c*/\n      sub_14C570( /*0x31e9e*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d %x\\n\",\n        a2: (unsigned int)\"DEBUG\",\n        a3: v21,\n        a4: (unsigned int)\"nvml_checkpoint.c\",\n        a5: 433,\n        a6: v3);\n    }\n    v4 = *v2; /*0x31b1e*/\n    v5 = *((_QWORD *)v2 + 20648); /*0x31b2a*/\n    v6 = *((_DWORD *)v2 + 41716); /*0x31b32*/\n    v59 = 0; /*0x31b3d*/\n    v7 = *(_DWORD *)(v16 + 24); /*0x31b49*/\n    v50 = v4; /*0x31b4d*/\n    v47 = v5; /*0x31b5a*/\n    v46 = *(_QWORD *)(v53 + 16); /*0x31b5e*/\n    v49 = v2[571088]; /*0x31b62*/\n    v51 = v6; /*0x31b6d*/\n    v57 = *(_QWORD *)(v2 + 571092); /*0x31b70*/\n    v48 = *((_BYTE *)&loc_8B680 + (_QWORD)v2); /*0x31b7d*/\n    memset(s: v2, c: 0, n: (size_t)&loc_93418); /*0x31b80*/\n    *((_DWORD *)v2 + 1) = v3; /*0x31b99*/\n    *((_QWORD *)v2 + 20648) = v47; /*0x31b9e*/\n    *v2 = v50; /*0x31bad*/\n    *((_DWORD *)v2 + 41716) = v51; /*0x31bba*/\n    *(_DWORD *)((char *)&loc_28548 + (_QWORD)v2) = v7; /*0x31bc7*/\n    v8 = *(_DWORD *)&s[140]; /*0x31bd8*/\n    v58 = v7; /*0x31bda*/\n    v9 = sub_A5880(a1: v46, a2: v8, a3: v8, a4: 539, a5: (unsigned int)&v58, a6: 12, a7: 0); /*0x31bde*/\n    if ( v9 != 0 ) /*0x31bee*/\n      break; /*0x31bee*/\n    *((_QWORD *)v2 + 1) = v59; /*0x31bfe*/\n    v10 = sub_A9410(a1: v53, a2: v2); /*0x31c17*/\n    if ( v10 != 0 ) /*0x31c25*/\n    {\n      v55 = v10; /*0x32014*/\n      if ( unk_153D718 <= 1 ) /*0x32017*/\n        return 999; /*0x32017*/\n      sub_1AB3B0(a1: &tp); /*0x32027*/\n      v25 = syscall(sysno: 186); /*0x32038*/\n      v26 = v55; /*0x32042*/\n      v27 = 351; /*0x32046*/\n      v28 = v25; /*0x32054*/\n      goto LABEL_40; /*0x32054*/\n    }\n    if ( v49 != 0 ) /*0x31c2f*/\n    {\n      v11 = *((_QWORD *)v2 + 20648); /*0x31c31*/\n      if ( v11 == 0 /*0x31c58*/\n        || (v12 = *(__int64 (__fastcall ***)(__int64, char *, __int64 *))(v11 + 384)) == nullptr\n        || (v13 = *v12) == nullptr )\n      {\n        v14 = 3; /*0x3218d*/\nLABEL_58:\n        if ( unk_153D718 <= 1 ) /*0x32197*/\n          return 999; /*0x32197*/\n        sub_1AB3B0(a1: &tp); /*0x321a7*/\n        v41 = syscall(sysno: 186); /*0x321b8*/\n        v26 = v14; /*0x321ca*/\n        v28 = v41; /*0x321cd*/\n        v27 = 362; /*0x321d0*/\nLABEL_40:\n        sub_14C570( /*0x32064*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v28,\n          a4: (unsigned int)\"nvml_checkpoint.c\",\n          a5: v27,\n          a6: v26);\n        goto LABEL_36; /*0x3208a*/\n      }\n      v14 = v13(a1: v11, a2: v2, a3: &v57); /*0x31c73*/\n      if ( v14 != 0 ) /*0x31c76*/\n        goto LABEL_58; /*0x31c76*/\n      v2[571088] = 0; /*0x31c7c*/\n    }\n    if ( v48 != 0 ) /*0x31c89*/\n    {\n      v40 = sub_2FE40(a1: v2); /*0x3216b*/\n      if ( v40 != 0 ) /*0x32179*/\n      {\n        v43 = v40; /*0x32282*/\n        if ( unk_153D718 <= 1 ) /*0x32285*/\n          return 999; /*0x32285*/\n        sub_1AB3B0(a1: &tp); /*0x32295*/\n        v44 = syscall(sysno: 186); /*0x322a6*/\n        v26 = v43; /*0x322b8*/\n        v28 = v44; /*0x322bb*/\n        v27 = 375; /*0x322be*/\n        goto LABEL_40; /*0x322d1*/\n      }\n      *((_BYTE *)&loc_8B680 + (_QWORD)v2) = 0; /*0x3217f*/\n    }\nLABEL_17:\n    ++v3; /*0x31c90*/\n    v2 += 603160; /*0x31c94*/\n    if ( unk_153B1C0 <= v3 ) /*0x31ca2*/\n      goto LABEL_41; /*0x31ca2*/\n  }\n  v54 = v9; /*0x31e24*/\n  if ( unk_153D718 <= 1 ) /*0x31e27*/\n    return 999; /*0x31e27*/\n  sub_1AB3B0(a1: &tp); /*0x31f3a*/\n  v23 = syscall(sysno: 186); /*0x31f4b*/\n  sub_14C570( /*0x31f91*/\n    a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%x\\n\",\n    a2: (unsigned int)\"ERROR\",\n    a3: v23,\n    a4: (unsigned int)\"nvml_checkpoint.c\",\n    a5: 335,\n    a6: v54);\nLABEL_36:\n  if ( unk_153D718 <= 1 ) /*0x31fa1*/\n    return 999; /*0x31fa1*/\n  sub_1AB3B0(a1: &tp); /*0x31fad*/\n  v24 = syscall(sysno: 186); /*0x31fbe*/\n  sub_14C570( /*0x31ffc*/\n    a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d %d\\n\",\n    a2: (unsigned int)\"ERROR\",\n    a3: v24,\n    a4: (unsigned int)\"nvml_checkpoint.c\",\n    a5: 439,\n    a6: v3);\n  return 999; /*0x31d95*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0x31a70"
+    }
+  ],
+  "evidence_links": []
+}

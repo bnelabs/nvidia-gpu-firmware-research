@@ -1,0 +1,55 @@
+{
+  "source_commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+  "request_url": "https://api.github.com/repos/torvalds/linux/contents/drivers/gpu/nova-core/gsp?ref=7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+  "raw_github_directory": [
+    {
+      "name": "boot.rs",
+      "path": "drivers/gpu/nova-core/gsp/boot.rs",
+      "sha": "2800f3aee37d05e4d24b4989d2ce418ab2549596",
+      "size": 4160,
+      "url": "https://api.github.com/repos/torvalds/linux/contents/drivers/gpu/nova-core/gsp/boot.rs?ref=7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "html_url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp/boot.rs",
+      "git_url": "https://api.github.com/repos/torvalds/linux/git/blobs/2800f3aee37d05e4d24b4989d2ce418ab2549596",
+      "download_url": "https://raw.githubusercontent.com/torvalds/linux/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp/boot.rs",
+      "type": "file",
+      "_links": {
+        "self": "https://api.github.com/repos/torvalds/linux/contents/drivers/gpu/nova-core/gsp/boot.rs?ref=7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+        "git": "https://api.github.com/repos/torvalds/linux/git/blobs/2800f3aee37d05e4d24b4989d2ce418ab2549596",
+        "html": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp/boot.rs"
+      }
+    },
+    {
+      "name": "fw.rs",
+      "path": "drivers/gpu/nova-core/gsp/fw.rs",
+      "sha": "34226dd009824c1e44d0cb2e37b43434a364e433",
+      "size": 159,
+      "url": "https://api.github.com/repos/torvalds/linux/contents/drivers/gpu/nova-core/gsp/fw.rs?ref=7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "html_url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp/fw.rs",
+      "git_url": "https://api.github.com/repos/torvalds/linux/git/blobs/34226dd009824c1e44d0cb2e37b43434a364e433",
+      "download_url": "https://raw.githubusercontent.com/torvalds/linux/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp/fw.rs",
+      "type": "file",
+      "_links": {
+        "self": "https://api.github.com/repos/torvalds/linux/contents/drivers/gpu/nova-core/gsp/fw.rs?ref=7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+        "git": "https://api.github.com/repos/torvalds/linux/git/blobs/34226dd009824c1e44d0cb2e37b43434a364e433",
+        "html": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp/fw.rs"
+      }
+    },
+    {
+      "name": "fw",
+      "path": "drivers/gpu/nova-core/gsp/fw",
+      "sha": "2de6b82584fe1e4edd147f06a06837dcd1962de4",
+      "size": 0,
+      "url": "https://api.github.com/repos/torvalds/linux/contents/drivers/gpu/nova-core/gsp/fw?ref=7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "html_url": "https://github.com/torvalds/linux/tree/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp/fw",
+      "git_url": "https://api.github.com/repos/torvalds/linux/git/trees/2de6b82584fe1e4edd147f06a06837dcd1962de4",
+      "download_url": null,
+      "type": "dir",
+      "_links": {
+        "self": "https://api.github.com/repos/torvalds/linux/contents/drivers/gpu/nova-core/gsp/fw?ref=7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+        "git": "https://api.github.com/repos/torvalds/linux/git/trees/2de6b82584fe1e4edd147f06a06837dcd1962de4",
+        "html": "https://github.com/torvalds/linux/tree/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp/fw"
+      }
+    }
+  ],
+  "limits": "Directory listing and two source files inspected only. No nova runtime or hardware operation performed."
+}

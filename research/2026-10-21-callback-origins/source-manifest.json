@@ -1,0 +1,283 @@
+{
+  "artifacts": [
+    {
+      "path": "firmware-store/gsp-kernels/615-kernel-10.elf",
+      "bytes": 17305752,
+      "sha256": "4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a"
+    }
+  ],
+  "sources": [
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/nvidia/src/kernel/gpu/gpu.c",
+      "bytes": 251471,
+      "sha256": "287b204497d90139836f15b1d05a5abca50a67cd2c235e0351194c00153a2257",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/nvidia/src/kernel/gpu/gpu.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gpu.c",
+      "excerpts": [
+        {
+          "start_line": 758,
+          "end_line": 860,
+          "text": "_gpuInitPciHandle\n(\n    OBJGPU *pGpu\n)\n{\n    NvU32 domain   = gpuGetDomain(pGpu);\n    NvU8  bus      = gpuGetBus(pGpu);\n    NvU8  device   = gpuGetDevice(pGpu);\n    NvU8  function = 0;\n\n    pGpu->hPci = osPciInitHandle(domain, bus, device, function, NULL, NULL);\n}\n\nstatic NV_STATUS _gpuRmApiControl\n(\n    RM_API *pRmApi,\n    NvHandle hClient,\n    NvHandle hObject,\n    NvU32 cmd,\n    void *pParams,\n    NvU32 paramsSize\n)\n{\n    RmCtrlParams rmCtrlParams;\n    CALL_CONTEXT callCtx, *oldCtx = NULL;\n    RS_LOCK_INFO lockInfo = {0};\n    NV_STATUS status = NV_OK;\n\n    OBJGPU *pGpu = (OBJGPU*)pRmApi->pPrivateContext;\n\n    // This API is only used to route locally on monolithic or UCODE\n    NV_ASSERT_OR_RETURN(!IS_FW_CLIENT(pGpu), NV_ERR_INVALID_STATE);\n\n    //\n    // The physical API can be used on any controls and any handles and it is\n    // expected to be routed correctly. However, if the caller is using the GPU\n    // internal handles, we can skip the resource server overhead and make a\n    // direct function call instead.\n    //\n    // This optimization should be skipped on vGPU Guests as they should always\n    // go through the resource server. The resource server is responsible for\n    // deciding whether to RPC to the HOST (ROUTE_TO_VGPU_HOST) or call the\n    // implementation on the guest.\n    //\n    if (!IS_VIRTUAL(pGpu) && hClient == pGpu->hInternalClient && hObject == pGpu->hInternalSubdevice)\n    {\n        NV_ASSERT_OR_RETURN(pGpu->pCachedSubdevice && pGpu->pCachedRsClient, NV_ERR_INVALID_STATE);\n\n        const struct NVOC_EXPORTED_METHOD_DEF *pEntry;\n        pEntry = objGetExportedMethodDef((void*)pGpu->pCachedSubdevice, cmd);\n\n        NV_ASSERT_OR_RETURN(pEntry != NULL, NV_ERR_NOT_SUPPORTED);\n\n        NV_ASSERT_OR_RETURN(pEntry->paramSize == paramsSize, NV_ERR_INVALID_PARAM_STRUCT);\n        NV_PRINTF(LEVEL_INFO, \"GPU Internal RM control 0x%08x on gpuInst:%x hClient:0x%08x hSubdevice:0x%08x\\n\",\n                  cmd, pGpu->gpuInstance, hClient, hObject);\n\n        portMemSet(&rmCtrlParams, 0, sizeof(rmCtrlParams));\n        rmCtrlParams.hClient    = hClient;\n        rmCtrlParams.hObject    = hObject;\n        rmCtrlParams.pGpu       = pGpu;\n        rmCtrlParams.cmd        = cmd;\n        rmCtrlParams.flags      = NVOS54_FLAGS_LOCK_BYPASS;\n        rmCtrlParams.pParams    = pParams;\n        rmCtrlParams.paramsSize = paramsSize;\n        rmCtrlParams.secInfo.privLevel = RS_PRIV_LEVEL_KERNEL;\n        rmCtrlParams.secInfo.paramLocation = PARAM_LOCATION_KERNEL;\n        rmCtrlParams.bInternal  = NV_TRUE;\n\n        lockInfo.flags = RM_LOCK_FLAGS_NO_GPUS_LOCK | RM_LOCK_FLAGS_NO_CLIENT_LOCK;\n        rmCtrlParams.pLockInfo = &lockInfo;\n\n        portMemSet(&callCtx, 0, sizeof(callCtx));\n        callCtx.pResourceRef   = RES_GET_REF(pGpu->pCachedSubdevice);\n        callCtx.pClient        = pGpu->pCachedRsClient;\n        callCtx.secInfo        = rmCtrlParams.secInfo;\n        callCtx.pServer        = &g_resServ;\n        callCtx.pControlParams = &rmCtrlParams;\n        callCtx.pLockInfo      = rmCtrlParams.pLockInfo;\n\n        NV_ASSERT_OK_OR_RETURN(resservSwapTlsCallContext(&oldCtx, &callCtx));\n\n        if (pEntry->paramSize == 0)\n        {\n            status = ((NV_STATUS(*)(void*))pEntry->pFunc)(pGpu->pCachedSubdevice);\n        }\n        else\n        {\n            status = ((NV_STATUS(*)(void*,void*))pEntry->pFunc)(pGpu->pCachedSubdevice, pParams);\n        }\n\n        NV_ASSERT_OK(resservRestoreTlsCallContext(oldCtx));\n    }\n    else\n    {\n        RM_API *pInternalRmApi = rmapiGetInterface(RMAPI_GPU_LOCK_INTERNAL);\n        NV_ASSERT_OR_RETURN(rmDeviceGpuLockIsOwner(pGpu->gpuInstance),\n            NV_ERR_INVALID_LOCK_STATE);\n\n        status = pInternalRmApi->Control(pInternalRmApi, hClient, hObject, cmd, pParams, paramsSize);\n    }\n\n    return status;"
+        },
+        {
+          "start_line": 889,
+          "end_line": 914,
+          "text": "\nstatic void\n_gpuInitPhysicalRmApi\n(\n    OBJGPU *pGpu\n)\n{\n    // Populate all unused APIs with stubs\n    pGpu->physicalRmApi = *rmapiGetInterface(RMAPI_STUBS);\n    pGpu->physicalRmApi.pPrivateContext = pGpu;\n\n    portMemSet(&pGpu->physicalRmApi.defaultSecInfo, 0,\n               sizeof(pGpu->physicalRmApi.defaultSecInfo));\n    pGpu->physicalRmApi.defaultSecInfo.privLevel     = RS_PRIV_LEVEL_KERNEL;\n    pGpu->physicalRmApi.defaultSecInfo.paramLocation = PARAM_LOCATION_KERNEL;\n    pGpu->physicalRmApi.bHasDefaultSecInfo           = NV_TRUE;\n    pGpu->physicalRmApi.bTlsInternal                 = NV_TRUE;\n    pGpu->physicalRmApi.bApiLockInternal             = NV_TRUE;\n    pGpu->physicalRmApi.bRmSemaInternal              = NV_TRUE;\n    pGpu->physicalRmApi.bGpuLockInternal             = NV_TRUE;\n\n    // Only initialize the methods that exist on GSP/DCE as well\n    pGpu->physicalRmApi.Control                      = _gpuRmApiControl;\n    pGpu->physicalRmApi.AllocWithHandle              = _gpuRmApiAllocWithHandle;\n    pGpu->physicalRmApi.Free                         = _gpuRmApiFree;\n}"
+        }
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/nvidia/inc/kernel/rmapi/rmapi.h",
+      "bytes": 20732,
+      "sha256": "052dd05795e6b7392031cac1f06d0ee872d2d212e1b7829c852cbcc8d0596447",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/nvidia/inc/kernel/rmapi/rmapi.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/inc/kernel/rmapi/rmapi.h",
+      "excerpts": [
+        {
+          "start_line": 171,
+          "end_line": 213,
+          "text": " */\nstruct _RM_API\n{\n    // Allocate a resource with default security attributes and local pointers (no NvP64)\n    NV_STATUS (*Alloc)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hParent,\n                       NvHandle *phObject, NvU32 hClass, void *pAllocParams, NvU32 paramsSize);\n\n    // Allocate a resource with default security attributes and local pointers (no NvP64)\n    // and client assigned handle\n    NV_STATUS (*AllocWithHandle)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hParent,\n                                 NvHandle hObject, NvU32 hClass, void *pAllocParams, NvU32 paramsSize);\n\n    // Allocate a resource\n    NV_STATUS (*AllocWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hParent,\n                                  NvHandle *phObject, NvU32 hClass, NvP64 pAllocParams, NvU32 paramsSize,\n                                  NvU32 flags, NvP64 pRightsRequested, API_SECURITY_INFO *pSecInfo);\n\n    // Free a resource with default security attributes\n    NV_STATUS (*Free)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject);\n\n    // Free a resource\n    NV_STATUS (*FreeWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject,\n                                 NvU32 flags, API_SECURITY_INFO *pSecInfo);\n\n    // Disables all clients in the list, with default security attributes\n    NV_STATUS (*DisableClients)(struct _RM_API *pRmApi, NvHandle *phClientList, NvU32 numClients);\n\n    // Disables all clients in the list\n    NV_STATUS (*DisableClientsWithSecInfo)(struct _RM_API *pRmApi, NvHandle *phClientList,\n                                        NvU32 numClients, API_SECURITY_INFO *pSecInfo);\n\n    // Invoke a control with default security attributes and local pointers (no NvP64)\n    NV_STATUS (*Control)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject, NvU32 cmd,\n                         void *pParams, NvU32 paramsSize);\n\n    // Invoke a control\n    NV_STATUS (*ControlWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject, NvU32 cmd,\n                                    NvP64 pParams, NvU32 paramsSize, NvU32 flags, API_SECURITY_INFO *pSecInfo);\n\n    // Prefetch a control parameters into the control call cache (0000, 0080 and 2080 classes only)\n    NV_STATUS (*ControlPrefetch)(struct _RM_API *pRmApi, NvU32 cmd);\n\n    // Dup an object with default security attributes"
+        },
+        {
+          "start_line": 253,
+          "end_line": 268,
+          "text": "\n    // Map dma memory. Provides RM internal implementation for NvRmMapMemoryDma().\n    NV_STATUS (*MapWithSecInfo)(struct _RM_API *pRmApi, NVOS46_PARAMETERS *pParms, API_SECURITY_INFO *pSecInfo);\n\n    // Unmap dma memory with default security attributes\n    NV_STATUS (*Unmap)(struct _RM_API *pRmApi, NVOS47_PARAMETERS *pParms);\n\n    // Unmap dma memory\n    NV_STATUS (*UnmapWithSecInfo)(struct _RM_API *pRmApi, NVOS47_PARAMETERS *pParms, API_SECURITY_INFO *pSecInfo);\n\n\n    API_SECURITY_INFO  defaultSecInfo;\n    NvBool             bHasDefaultSecInfo;\n    NvBool             bTlsInternal;\n    NvBool             bApiLockInternal;\n    NvBool             bRmSemaInternal;"
+        }
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvsecurityinfo.h",
+      "bytes": 2649,
+      "sha256": "5614686e8fb70bb647c23dba7903916536ea69386e41ef7f5b0242a36db1621c",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/common/sdk/nvidia/inc/nvsecurityinfo.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/nvsecurityinfo.h",
+      "excerpts": [
+        {
+          "start_line": 30,
+          "end_line": 74,
+          "text": "typedef void *PSECURITY_TOKEN;\n\n/**\n * Specifies the privilege level of the caller\n * Taken from resserv.h\n */\ntypedef enum \n{\n    RS_PRIV_LEVEL_USER,\n    RS_PRIV_LEVEL_USER_ROOT,\n    RS_PRIV_LEVEL_KERNEL,\n    RS_PRIV_LEVEL_HOST,\n    RS_PRIV_LEVEL_CPU_MAX=RS_PRIV_LEVEL_HOST,\n    RS_PRIV_LEVEL_GPU1,\n    RS_PRIV_LEVEL_GPU2,\n    RS_PRIV_LEVEL_GPU3,\n} RS_PRIV_LEVEL;\n\n/**\n * Specifies where the parameters are, user or kernel space (decide whether copy_in/out)\n *\n * PARAM_LOCATION_USER   - Parameters in user space\n * PARAM_LOCATION_KERNEL - Parameters in kernel space\n * PARAM_LOCATION_MIXED  - Parameters in kernel space with potential user mode pointers\n */\ntypedef enum _API_PARAM_LOCATION\n{\n    PARAM_LOCATION_USER   = 0,\n    PARAM_LOCATION_KERNEL = 1,\n    PARAM_LOCATION_MIXED  = 2,\n} API_PARAM_LOCATION;\n\n#define API_SECURITY_INFO_PROC_ID_OVERRIDE_MAGIC 0x52435049U // \"RCPI\"\n\ntypedef struct _API_SECURITY_INFO\n{\n    RS_PRIV_LEVEL privLevel;\n    API_PARAM_LOCATION paramLocation;\n    PSECURITY_TOKEN pProcessToken;\n    void *clientOSInfo;\n    void *gpuOsInfo;\n    // Kernel-only RM client ProcID override. PID 0 is treated as no override.\n    NvU32 procIDOverride;\n    NvU32 procIDOverrideMagic;\n} API_SECURITY_INFO;"
+        }
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvstatuscodes.h",
+      "bytes": 19637,
+      "sha256": "4a9a39b51862d21cfa446414135386616a4a4914dd34dc83f98099295fea7b56",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/common/sdk/nvidia/inc/nvstatuscodes.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/nvstatuscodes.h",
+      "excerpts": [
+        {
+          "start_line": 85,
+          "end_line": 95,
+          "text": "NV_STATUS_CODE(NV_ERR_INVALID_OPERATION,                        0x00000038, \"Requested operation is not valid\")\nNV_STATUS_CODE(NV_ERR_INVALID_OWNER,                            0x00000039, \"Owner not valid\")\nNV_STATUS_CODE(NV_ERR_INVALID_PARAM_STRUCT,                     0x0000003A, \"Invalid structure parameter\")\nNV_STATUS_CODE(NV_ERR_INVALID_PARAMETER,                        0x0000003B, \"At least one of the parameters passed is not valid\")\nNV_STATUS_CODE(NV_ERR_INVALID_PATH,                             0x0000003C, \"The requested path is not valid\")\nNV_STATUS_CODE(NV_ERR_INVALID_POINTER,                          0x0000003D, \"Pointer not valid\")\nNV_STATUS_CODE(NV_ERR_INVALID_REGISTRY_KEY,                     0x0000003E, \"Found an invalid registry key\")\nNV_STATUS_CODE(NV_ERR_INVALID_REQUEST,                          0x0000003F, \"Generic Error: Invalid request\")\nNV_STATUS_CODE(NV_ERR_INVALID_STATE,                            0x00000040, \"Generic Error: Invalid state\")\nNV_STATUS_CODE(NV_ERR_INVALID_STRING_LENGTH,                    0x00000041, \"The string length is not valid\")\nNV_STATUS_CODE(NV_ERR_INVALID_READ,                             0x00000042, \"The requested read operation is not valid\")"
+        },
+        {
+          "start_line": 113,
+          "end_line": 117,
+          "text": "NV_STATUS_CODE(NV_ERR_NOT_COMPATIBLE,                           0x00000054, \"Generic Error: Incompatible types\")\nNV_STATUS_CODE(NV_ERR_NOT_READY,                                0x00000055, \"Generic Error: Not ready\")\nNV_STATUS_CODE(NV_ERR_NOT_SUPPORTED,                            0x00000056, \"Call not supported\")\nNV_STATUS_CODE(NV_ERR_OBJECT_NOT_FOUND,                         0x00000057, \"Requested object not found\")\nNV_STATUS_CODE(NV_ERR_OBJECT_TYPE_MISMATCH,                     0x00000058, \"Specified objects do not match\")"
+        }
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/nvidia/inc/libraries/nvoc/rtti.h",
+      "bytes": 3204,
+      "sha256": "28f8c2b2fda36785aad3b83fd97bb464d6aee4744cf7fd2c40db064f01f3d9cf",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/nvidia/inc/libraries/nvoc/rtti.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/inc/libraries/nvoc/rtti.h",
+      "excerpts": [
+        {
+          "start_line": 46,
+          "end_line": 72,
+          "text": "// MSVC warning C4200 on \"NVOC_CASTINFO::relatives\": zero-sized array in struct/union\n// Ignore the warning on VS2013+\n//! List of valid casts, needed for dynamicCast.\nstruct NVOC_CASTINFO\n{\n    const NvU32             numRelatives;\n    const struct NVOC_RTTI *const relatives[];\n};\n\n\n\n//! Items unique to each NVOC class definition.  Used to identify NVOC classes.\nstruct NVOC_CLASS_DEF {\n    const NVOC_CLASS_INFO classInfo;              // public, defined in runtime.h; contains classId, size, and name\n    const NVOC_DYNAMIC_OBJ_CREATE objCreatefn;\n    const struct NVOC_CASTINFO *const pCastInfo;\n    const struct NVOC_EXPORT_INFO* const pExportInfo;\n};\n\n//! Items used to identify base class subobjects.\nstruct NVOC_RTTI                                  // one per derived-ancestor relationship pair (and every derived class is also its own ancestor)\n{\n    const struct NVOC_CLASS_DEF *const pClassDef; // drives dynamicCast and objCreateDynamic, one per class\n    const NVOC_DYNAMIC_DTOR            dtor;      // __nvoc_destructFromBase for base substructures, real destructor for derived\n    const NvU32                        offset;    // 0 for derived\n};\n"
+        }
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/nvidia/inc/libraries/nvoc/runtime.h",
+      "bytes": 4715,
+      "sha256": "f066bdc669638264974430b1570ee9be2969f660488fd0087547fd40d38177c6",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/nvidia/inc/libraries/nvoc/runtime.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/inc/libraries/nvoc/runtime.h",
+      "excerpts": [
+        {
+          "start_line": 70,
+          "end_line": 89,
+          "text": "//! Contains data needed to call the exported method from kernel\nstruct NVOC_EXPORTED_METHOD_DEF\n{\n    void (*pFunc) (void);                         // Pointer to the method itself\n    NvU32 flags;                                  // Export flags used for permission, method attribute verification (eg. NO_LOCK, PRIVILEGED...)\n    NvU32 accessRight;                            // Access rights required for this method\n    NvU32 methodId;                               // Id of the method in the class. Used for method identification.\n    NvU32 paramSize;                              // Size of the parameter structure that the method takes as the argument (0 if it takes no arguments)\n    const NVOC_CLASS_INFO* pClassInfo;            // Class info for the parent class of the method\n\n#if NV_PRINTF_STRINGS_ALLOWED\n    const char  *func;                            // Debug info\n#endif\n};\n\nstruct NVOC_EXPORT_INFO {\n    NvU32 numEntries;                             // Number of entries\n    const struct NVOC_EXPORTED_METHOD_DEF *pExportEntries; //An array of exported methods\n};\n"
+        }
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/nvidia/src/libraries/nvoc/src/runtime.c",
+      "bytes": 10607,
+      "sha256": "d1eb84ef953c81cbc8fdd8ddfea5298a93401992c98e41adae6dfe18b14db80d",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/nvidia/src/libraries/nvoc/src/runtime.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/libraries/nvoc/src/runtime.c",
+      "excerpts": [
+        {
+          "start_line": 307,
+          "end_line": 360,
+          "text": "const struct NVOC_EXPORTED_METHOD_DEF* nvocGetExportedMethodDefFromMethodInfo_IMPL(const struct NVOC_EXPORT_INFO *pExportInfo, NvU32 methodId)\n{\n    NvU32 exportLength;\n    const struct NVOC_EXPORTED_METHOD_DEF *exportArray;\n\n    if (pExportInfo == NULL)\n        return NULL;\n\n    exportLength = pExportInfo->numEntries;\n    exportArray =  pExportInfo->pExportEntries;\n\n    if (exportArray != NULL && exportLength > 0)\n    {\n        // The export array is sorted by methodId, so we can binary search it\n        NvU32 low = 0;\n        NvU32 high = exportLength;\n        while (1)\n        {\n            NvU32 mid  = (low + high) / 2;\n\n            if (exportArray[mid].methodId == methodId)\n                return &exportArray[mid];\n\n            if (high == mid || low == mid)\n                break;\n\n            if (exportArray[mid].methodId > methodId)\n                high = mid;\n            else\n                low = mid;\n        }\n    }\n\n    return NULL;\n}\n\nconst struct NVOC_EXPORTED_METHOD_DEF *objGetExportedMethodDef_IMPL(Dynamic *pObj, NvU32 methodId)\n{\n    const struct NVOC_CASTINFO *const pCastInfo = pObj->__nvoc_rtti->pClassDef->pCastInfo;\n    const NvU32 numRelatives = pCastInfo->numRelatives;\n    const struct NVOC_RTTI *const *relatives = pCastInfo->relatives;\n    NvU32 i;\n\n    for (i = 0; i < numRelatives; i++)\n    {\n        const void *pDef = nvocGetExportedMethodDefFromMethodInfo_IMPL(relatives[i]->pClassDef->pExportInfo, methodId);\n        if (pDef != NULL)\n            return pDef;\n    }\n\n    return NULL;\n}\n"
+        }
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/class/cl00de.h",
+      "bytes": 21523,
+      "sha256": "e4f11a480ab931a115564f5659f909e524717b1e6850fce0adea750a5e7850e7",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/common/sdk/nvidia/inc/class/cl00de.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/class/cl00de.h",
+      "excerpts": [
+        {
+          "start_line": 140,
+          "end_line": 146,
+          "text": "} RUSD_PERF_DEVICE_UTILIZATION;\n\ntypedef struct RUSD_PERF_CURRENT_PSTATE {\n    NV_DECLARE_ALIGNED(volatile NvU64 lastModifiedTimestamp, 8);\n    // Provided from NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE\n    NvU32 currentPstate;\n} RUSD_PERF_CURRENT_PSTATE;"
+        }
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080perf.h",
+      "bytes": 36932,
+      "sha256": "3fc94f626120d8dd17d3df4fbef503279c6fbf33189a15a56e97e093e5f58bb1",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080perf.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080perf.h",
+      "excerpts": [
+        {
+          "start_line": 878,
+          "end_line": 901,
+          "text": "/*\n * NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE\n *\n * This command returns the current performance state of the GPU.\n *\n *   currPstate\n *     This parameter returns the current P-state, as defined in\n *     NV2080_CTRL_PERF_PSTATES values.\n *\n * Possible status values returned are:\n *   NV_OK\n *   NV_ERR_INVALID_PARAM_STRUCT\n *   NV_ERR_NOT_SUPPORTED\n *   NV_ERR_INVALID_STATE\n */\n#define NV2080_CTRL_CMD_PERF_GET_CURRENT_PSTATE (0x20802068) /* finn: Evaluated from \"(FINN_NV20_SUBDEVICE_0_PERF_INTERFACE_ID << 8) | NV2080_CTRL_PERF_GET_CURRENT_PSTATE_PARAMS_MESSAGE_ID\" */\n\n#define NV2080_CTRL_PERF_GET_CURRENT_PSTATE_PARAMS_MESSAGE_ID (0x68U)\n\ntypedef struct NV2080_CTRL_PERF_GET_CURRENT_PSTATE_PARAMS {\n    NvU32 currPstate;\n} NV2080_CTRL_PERF_GET_CURRENT_PSTATE_PARAMS;\n\n/*"
+        }
+      ]
+    },
+    {
+      "path": "vendor/research-sources/linux-ctrl.txt",
+      "bytes": 2967,
+      "sha256": "5dfb6d2bf7dea23f5789ef9f94b62bd0f760e9a3fa0189a9b287f203801efe13",
+      "source_commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "source_path": "drivers/gpu/drm/nouveau/nvkm/subdev/gsp/rm/r535/ctrl.c",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/gsp/rm/r535/ctrl.c",
+      "excerpts": [
+        {
+          "start_line": 69,
+          "end_line": 95,
+          "text": "\tstruct nvkm_gsp *gsp = client->gsp;\n\trpc_gsp_rm_control_v03_00 *rpc;\n\n\tnvkm_debug(&gsp->subdev, \"cli:0x%08x obj:0x%08x ctrl cmd:0x%08x params_size:%d\\n\",\n\t\t   client->object.handle, object->handle, cmd, params_size);\n\n\trpc = nvkm_gsp_rpc_get(gsp, NV_VGPU_MSG_FUNCTION_GSP_RM_CONTROL,\n\t\t\t       sizeof(*rpc) + params_size);\n\tif (IS_ERR(rpc))\n\t\treturn rpc;\n\n\trpc->hClient    = client->object.handle;\n\trpc->hObject    = object->handle;\n\trpc->cmd\t= cmd;\n\trpc->status     = 0;\n\trpc->paramsSize = params_size;\n\treturn rpc->params;\n}\n\nconst struct nvkm_rm_api_ctrl\nr535_ctrl = {\n\t.get = r535_gsp_rpc_rm_ctrl_get,\n\t.push = r535_gsp_rpc_rm_ctrl_push,\n\t.done = r535_gsp_rpc_rm_ctrl_done,\n};"
+        }
+      ]
+    },
+    {
+      "path": "vendor/research-sources/linux-nova-gsp.rs",
+      "bytes": 396,
+      "sha256": "ff18af12dbfaab3ff80831d058cf50d56c88bacbe76484c0d65eda2145d18752",
+      "source_commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "source_path": "drivers/gpu/nova-core/gsp.rs",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/nova-core/gsp.rs",
+      "excerpts": [
+        {
+          "start_line": 1,
+          "end_line": 23,
+          "text": "// SPDX-License-Identifier: GPL-2.0\n\nmod boot;\n\nuse kernel::prelude::*;\n\nmod fw;\n\npub(crate) const GSP_PAGE_SHIFT: usize = 12;\npub(crate) const GSP_PAGE_SIZE: usize = 1 << GSP_PAGE_SHIFT;\n\n/// GSP runtime data.\n///\n/// This is an empty pinned placeholder for now.\n#[pin_data]\npub(crate) struct Gsp {}\n\nimpl Gsp {\n    pub(crate) fn new() -> impl PinInit<Self> {\n        pin_init!(Self {})\n    }\n}"
+        }
+      ]
+    }
+  ],
+  "analysis_inputs": [
+    {
+      "path": "research/2026-10-21-callback-origins/check_method_lookup.py",
+      "bytes": 3583,
+      "sha256": "def077ee92cea04657b63470b91018a852840c6c8cbf517dcdc7a883b5b9458e"
+    },
+    {
+      "path": "research/2026-10-21-callback-origins/check_rmapi_layout.py",
+      "bytes": 2817,
+      "sha256": "6664ea240d183449152a931f0c9c2f8cc139d1a91160adc4147cea1c36e359ca"
+    },
+    {
+      "path": "research/2026-10-21-callback-origins/emulate_dispatch.py",
+      "bytes": 6158,
+      "sha256": "c430a3919b846509005c55ed1244230e963a8c4c7e63ad51fc81fdd0e23f9cee"
+    },
+    {
+      "path": "research/2026-10-21-callback-origins/make_manifest.py",
+      "bytes": 3598,
+      "sha256": "198398414e99d28a81cebca7a482a60b60aade752a6dbb57e3ffa6f481baef61"
+    },
+    {
+      "path": "research/2026-10-21-callback-origins/scan_addi.py",
+      "bytes": 1154,
+      "sha256": "d5c6eb8d9dee7bbcfea7e2dbc9b7d9bfd32e69992d4f5d74b225a5d6504fd2b2"
+    },
+    {
+      "path": "research/2026-10-21-callback-origins/scan_contexts.py",
+      "bytes": 1943,
+      "sha256": "690899f706293edcbc242480e7285efde2a18ebed64dd6bdcc9e6e67c89836bc"
+    },
+    {
+      "path": "research/2026-10-21-callback-origins/reproduce.sh",
+      "bytes": 2019,
+      "sha256": "328a4211854ecbdeab257b73eb1921cf933293cae5b1ad69a8761191cb47e278"
+    },
+    {
+      "path": "scripts/run_cpu_only.sh",
+      "bytes": 560,
+      "sha256": "086f93d2ea500d6fd68026c5572c0e56e0f6dad2badd40887bf8e2a355f514c7"
+    },
+    {
+      "path": "scripts/offline_io.py",
+      "bytes": 622,
+      "sha256": "b472bb2513967e0964ef4170d72cd6f47f25cf192e9db605a79d295b8116a601"
+    },
+    {
+      "path": "scripts/extract_nvoc_exports.py",
+      "bytes": 7742,
+      "sha256": "e3aac553e285f97ca51d8fb4a8955687e67d67a833c07d9a1d3128dae2c27773"
+    },
+    {
+      "path": "research/2026-10-21-pstate-writers/export_ranges.py",
+      "bytes": 4329,
+      "sha256": "53c1ee982a7cf1d6683a96f9980ee6352ac5ed25f2c3326ce3e0b374e64cd48f"
+    },
+    {
+      "path": "research/2026-10-21-pstate-writers/scan_stores.py",
+      "bytes": 1590,
+      "sha256": "6eb29e556d5b8d1e597925663373e2d2321e1beacadac6df9a84732bdef7cc4f"
+    }
+  ],
+  "prior_evidence": [
+    {
+      "path": "research/2026-10-21-offline/SHA256SUMS",
+      "bytes": 1227,
+      "sha256": "6c49cac957ad8083bf2f9da0a21b1caf7867527964d1ead3dce9916fb209d528"
+    },
+    {
+      "path": "research/2026-10-21-pstate-dispatch/SHA256SUMS",
+      "bytes": 4367,
+      "sha256": "d5659e6dc09e9674f5f3b4df8967382f04719e5fc0b722786fbbbae976793131"
+    },
+    {
+      "path": "research/2026-10-21-pstate-writers/SHA256SUMS",
+      "bytes": 2369,
+      "sha256": "4626638aee4171fb6c3135e99c4b4d31316b8dd94480927f32f2ef21d3279cae"
+    }
+  ],
+  "source_scope": "Exact detached 615.71.09 public source plus pinned Linux comparison; copied firmware binary offsets remain artifact-specific.",
+  "context": {
+    "firmware_origin": "retained RM ELF from gsp_ga10x 615.71.09; not asserted GA102-exclusive",
+    "historical_board": "RTX 3090/GA102 reported previously",
+    "historical_os_privilege": "UNKNOWN",
+    "current_device_driver_gsp_mode_workload": "UNKNOWN; not queried",
+    "instance_pointers_handles_and_context": "synthetic fixtures; no runtime pointer snapshot"
+  },
+  "isa_reference": {
+    "url": "https://docs.riscv.org/reference/isa/v20260120/unpriv/rv32.html",
+    "scope": "Signed AUIPC/JALR arithmetic only"
+  },
+  "limits": "Static assignment and bounded synthetic consumers, not runtime selection, physical value origin, full security proof or complete firmware map."
+}

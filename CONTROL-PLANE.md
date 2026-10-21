@@ -7,7 +7,7 @@ All further protocol recovery is offline.
 |---|---|---|
 | Application / documented NVML | Public getter contracts; historical outputs/captures | Present health and universal board support |
 | Host libnvidia-ml | Reported x86-64 call sites, strings, dispatch tables and arithmetic in SHA-256 283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95 | Reproducible disassembly excerpts for every claimed function attribution |
-| Kernel RM | Public allocation/control/dispatch structures at source commit ca2d03e6fafd4d4b56b383497d931c25b283bfcf | Exact compatibility with installed 615.71.09 for each private command |
+| Kernel RM | Public allocation/control/dispatch structures; exact 615.71.09 source at 61dcc93722ecb418bb5f2e00923f05b4b8051dd1 | Runtime branch selection and exact installed-binary correspondence for each control |
 | Kernel ↔ GSP | Public transport/serialization code provides source-level routes | Exact private request to firmware consumer mapping for each claimed signal |
 | GSP / FMC / engine firmware | Retained inventories and offline structural RE leads | Complete dispatch, policy, key provenance and all-generation behavior |
 
@@ -38,3 +38,64 @@ rmctl reads regular capture files or decodes an enum; sniffer2 decodes supplied 
 buffers; fake_rm supplies synthetic bytes. None performs driver communication.
 The fixed monitoring collector is the only live entry point; it has no experimental mode.
 No statement here claims every arrow, table, function or unit is completely verified.
+
+## Offline reconciliation — 2026-10-21
+
+Re-exported instructions and raw relocation/table bytes are retained in
+[the offline packet](research/2026-10-21-offline/README.md). The historical
+`table_off=0x2d1180` is a **file offset**, corresponding to host ELF VA `0x2d2180`.
+The 55-qword copy at `0x152a02` instead uses host ELF VA `0x2d1180` (file
+`0x2d0180`), a separate mixed template. Do not join these tables by numeric
+address alone. Runtime ASLR bias remains unknown.
+
+The public P-state export reaches an indirect callback at host VA `0x9966b`.
+The [follow-up dispatch packet](research/2026-10-21-pstate-dispatch/README.md)
+resolves constructor base arithmetic: global `+0x285e0` equals device `+0x28540`
+because the device base includes `+0xa0`. The canonical template resolves
+`0x1218f0`, which conditionally tries the RUSD shared-memory reader before the
+legacy four-byte `0x20802068` route. Static instructions and synthetic execution
+recover the latter's 32-byte NVOS54 envelope (`0xc020462a`) and raw syscall path.
+No transport helper or syscall was executed. The retained log is consistent with
+RUSD but lacks raw mapped records and callback pointers; historical selection
+remains unproven.
+
+Pinned NVIDIA commit `ca2d03e` is release **615.78.08**. The exact **615.71.09**
+source commit is `61dcc93722ecb418bb5f2e00923f05b4b8051dd1`. Generic source
+forwarding routes are compared across these versions; they are not a runtime
+observation of the installed driver.
+
+## Retained firmware method boundary — 2026-10-21
+
+Copied RM ELF SHA-256
+`4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a`
+contains a Subdevice NVOC table at **firmware VA `0x1c59658` / file `0xc59658`**:
+1,183 sorted 32-byte records. All records, sizes, flags, raw bytes, mapped method
+pointers and public literal annotations are in the
+[inventory](research/2026-10-21-pstate-dispatch/gsp-subdevice-exports.json).
+This is one component/class, not every GPU command or runtime permission.
+
+`0x20802068 → firmware VA 0x16be978 → lookup 0x167de40 → indirect object getter
++0x38 → returned entry +0x34 → four-byte payload`. The last field is an object
+value, not a proven hardware register. Internal RUSD `0x20800afe/0x20800aff`
+map to firmware `0x1447738/0x1447ac8`; shared layout length 3,184 and P-state
+record offset `0x8e8` agree with exact-source and host code.
+
+The [writer packet](research/2026-10-21-pstate-writers/README.md) now locates refresh
+`0x143c6ec → writer 0x143bde0 → internal RM API callback`, supplying command
+`0x20802068`, four bytes. Success publishes the raw result through `0x1434cdc`
+using an in-progress timestamp, payload copy and final timestamp. Failure zeroes
+the timestamp while retaining old payload bytes. Callback addresses
+`0x143d998/0x143d878` and the static path from the poll handler are recovered.
+Their actual scheduler execution was not tested.
+
+The [callback-origin packet](research/2026-10-21-callback-origins/README.md)
+locates a copied initialization block assigning firmware `0x14078cc` to object
+`+0x41c0`. Exact-source RM_API layout and the binary agree: API receiver `+0x4188`,
+Control `+0x38`, private context `+0xe8`. The internal-handle path walks copied
+RTTI/export metadata, checks parameter size and calls P-state handler `0x16be978`.
+Synthetic execution follows that assigned callback through actual copied metadata
+to lookup `0x167de40`; the former RM-routing adapter is removed from this path.
+One opaque context-swap service is still stubbed, object instances are synthetic,
+and actual runtime callback selection/replacement remains unobserved. Entry getter
+`+0x38` and entry `+0x34` writers remain unresolved. There is no demonstrated
+physical measurement boundary yet.

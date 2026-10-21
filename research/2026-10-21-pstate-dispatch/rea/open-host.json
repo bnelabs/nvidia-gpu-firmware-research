@@ -1,0 +1,17 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/build/libnvidia-ml-615.71.09.so\",\"format\":\"elf\",\"kind\":\"executable\",\"sha256\":\"283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95\",\"architecture\":\"x86_64\"}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/build/libnvidia-ml-615.71.09.so",
+      "format": "elf",
+      "kind": "executable",
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95",
+      "architecture": "x86_64"
+    }
+  }
+}

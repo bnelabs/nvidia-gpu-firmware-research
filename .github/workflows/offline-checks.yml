@@ -10,6 +10,12 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, pinned 2026-10-21
+      - name: Install pinned CPU disassembler in runner venv
+        shell: bash
+        run: |
+          python3 -m venv "$RUNNER_TEMP/offline-checks"
+          "$RUNNER_TEMP/offline-checks/bin/python" -m pip install --disable-pip-version-check --only-binary=:all: --require-hashes -r tests/requirements-cpu.txt
+          echo "$RUNNER_TEMP/offline-checks/bin" >> "$GITHUB_PATH"
       - name: Build and test without NVIDIA devices
         shell: bash
         run: |

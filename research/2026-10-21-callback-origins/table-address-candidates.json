@@ -1,0 +1,1036 @@
+{
+  "artifact_sha256": "4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a",
+  "immediate": 800,
+  "encoding_candidates": [
+    {
+      "firmware_elf_va": "0x1005d8c",
+      "file_offset": "0x5d8c",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x100a784",
+      "file_offset": "0xa784",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x102e794",
+      "file_offset": "0x2e794",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x105f8be",
+      "file_offset": "0x5f8be",
+      "raw_hex": "93060732",
+      "rd": 13,
+      "rs1": 14
+    },
+    {
+      "firmware_elf_va": "0x106ca64",
+      "file_offset": "0x6ca64",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x1085590",
+      "file_offset": "0x85590",
+      "raw_hex": "93070032",
+      "rd": 15,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x108cfc4",
+      "file_offset": "0x8cfc4",
+      "raw_hex": "938a0a32",
+      "rd": 21,
+      "rs1": 21
+    },
+    {
+      "firmware_elf_va": "0x10a04ea",
+      "file_offset": "0xa04ea",
+      "raw_hex": "93050032",
+      "rd": 11,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x10a121c",
+      "file_offset": "0xa121c",
+      "raw_hex": "93050032",
+      "rd": 11,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x10a229e",
+      "file_offset": "0xa229e",
+      "raw_hex": "93050032",
+      "rd": 11,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x10afeec",
+      "file_offset": "0xafeec",
+      "raw_hex": "13010132",
+      "rd": 2,
+      "rs1": 2
+    },
+    {
+      "firmware_elf_va": "0x10c9acc",
+      "file_offset": "0xc9acc",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x10d0f02",
+      "file_offset": "0xd0f02",
+      "raw_hex": "93060a32",
+      "rd": 13,
+      "rs1": 20
+    },
+    {
+      "firmware_elf_va": "0x10e51ec",
+      "file_offset": "0xe51ec",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x10e7564",
+      "file_offset": "0xe7564",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x10f537c",
+      "file_offset": "0xf537c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x10f73cc",
+      "file_offset": "0xf73cc",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x10fc17a",
+      "file_offset": "0xfc17a",
+      "raw_hex": "13050532",
+      "rd": 10,
+      "rs1": 10
+    },
+    {
+      "firmware_elf_va": "0x110ae54",
+      "file_offset": "0x10ae54",
+      "raw_hex": "93870932",
+      "rd": 15,
+      "rs1": 19
+    },
+    {
+      "firmware_elf_va": "0x110e106",
+      "file_offset": "0x10e106",
+      "raw_hex": "13860432",
+      "rd": 12,
+      "rs1": 9
+    },
+    {
+      "firmware_elf_va": "0x1149054",
+      "file_offset": "0x149054",
+      "raw_hex": "930b0632",
+      "rd": 23,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x11491a6",
+      "file_offset": "0x1491a6",
+      "raw_hex": "13880632",
+      "rd": 16,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x1149efe",
+      "file_offset": "0x149efe",
+      "raw_hex": "13880632",
+      "rd": 16,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x1149f2e",
+      "file_offset": "0x149f2e",
+      "raw_hex": "93050632",
+      "rd": 11,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x114a7ae",
+      "file_offset": "0x14a7ae",
+      "raw_hex": "930b0632",
+      "rd": 23,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x1160b44",
+      "file_offset": "0x160b44",
+      "raw_hex": "93050632",
+      "rd": 11,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x1160b5c",
+      "file_offset": "0x160b5c",
+      "raw_hex": "93850632",
+      "rd": 11,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x11611c0",
+      "file_offset": "0x1611c0",
+      "raw_hex": "93060632",
+      "rd": 13,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x11751ee",
+      "file_offset": "0x1751ee",
+      "raw_hex": "93060032",
+      "rd": 13,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x1175256",
+      "file_offset": "0x175256",
+      "raw_hex": "93060032",
+      "rd": 13,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x1176c86",
+      "file_offset": "0x176c86",
+      "raw_hex": "93050032",
+      "rd": 11,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x1176d46",
+      "file_offset": "0x176d46",
+      "raw_hex": "13070032",
+      "rd": 14,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x1179efc",
+      "file_offset": "0x179efc",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x1189970",
+      "file_offset": "0x189970",
+      "raw_hex": "93850d32",
+      "rd": 11,
+      "rs1": 27
+    },
+    {
+      "firmware_elf_va": "0x118a89c",
+      "file_offset": "0x18a89c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x118e194",
+      "file_offset": "0x18e194",
+      "raw_hex": "13060032",
+      "rd": 12,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x11b6cc4",
+      "file_offset": "0x1b6cc4",
+      "raw_hex": "938d0d32",
+      "rd": 27,
+      "rs1": 27
+    },
+    {
+      "firmware_elf_va": "0x11bb5ee",
+      "file_offset": "0x1bb5ee",
+      "raw_hex": "13070032",
+      "rd": 14,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x11bb660",
+      "file_offset": "0x1bb660",
+      "raw_hex": "13070032",
+      "rd": 14,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x11bb67e",
+      "file_offset": "0x1bb67e",
+      "raw_hex": "13070032",
+      "rd": 14,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x11bfb82",
+      "file_offset": "0x1bfb82",
+      "raw_hex": "93870732",
+      "rd": 15,
+      "rs1": 15
+    },
+    {
+      "firmware_elf_va": "0x11d4a42",
+      "file_offset": "0x1d4a42",
+      "raw_hex": "13070032",
+      "rd": 14,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x11ee8f6",
+      "file_offset": "0x1ee8f6",
+      "raw_hex": "93070032",
+      "rd": 15,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x11eea18",
+      "file_offset": "0x1eea18",
+      "raw_hex": "93070032",
+      "rd": 15,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x11eeb72",
+      "file_offset": "0x1eeb72",
+      "raw_hex": "93070032",
+      "rd": 15,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x1216ccc",
+      "file_offset": "0x216ccc",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1227bc8",
+      "file_offset": "0x227bc8",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x123b07c",
+      "file_offset": "0x23b07c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x124d5e4",
+      "file_offset": "0x24d5e4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1272320",
+      "file_offset": "0x272320",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1272696",
+      "file_offset": "0x272696",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x128659a",
+      "file_offset": "0x28659a",
+      "raw_hex": "93060032",
+      "rd": 13,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x12a6fc4",
+      "file_offset": "0x2a6fc4",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x12d20aa",
+      "file_offset": "0x2d20aa",
+      "raw_hex": "93070032",
+      "rd": 15,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x1323b6c",
+      "file_offset": "0x323b6c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x13626a4",
+      "file_offset": "0x3626a4",
+      "raw_hex": "93050032",
+      "rd": 11,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x13626c4",
+      "file_offset": "0x3626c4",
+      "raw_hex": "13060032",
+      "rd": 12,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x1364fc4",
+      "file_offset": "0x364fc4",
+      "raw_hex": "93890932",
+      "rd": 19,
+      "rs1": 19
+    },
+    {
+      "firmware_elf_va": "0x136c174",
+      "file_offset": "0x36c174",
+      "raw_hex": "13050532",
+      "rd": 10,
+      "rs1": 10
+    },
+    {
+      "firmware_elf_va": "0x1373fc4",
+      "file_offset": "0x373fc4",
+      "raw_hex": "93890932",
+      "rd": 19,
+      "rs1": 19
+    },
+    {
+      "firmware_elf_va": "0x1388fc4",
+      "file_offset": "0x388fc4",
+      "raw_hex": "938b0b32",
+      "rd": 23,
+      "rs1": 23
+    },
+    {
+      "firmware_elf_va": "0x13a9fc4",
+      "file_offset": "0x3a9fc4",
+      "raw_hex": "130a0a32",
+      "rd": 20,
+      "rs1": 20
+    },
+    {
+      "firmware_elf_va": "0x13c15f4",
+      "file_offset": "0x3c15f4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x13c2e32",
+      "file_offset": "0x3c2e32",
+      "raw_hex": "93850432",
+      "rd": 11,
+      "rs1": 9
+    },
+    {
+      "firmware_elf_va": "0x13d4998",
+      "file_offset": "0x3d4998",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x13d4dda",
+      "file_offset": "0x3d4dda",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x13d594a",
+      "file_offset": "0x3d594a",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x13d708a",
+      "file_offset": "0x3d708a",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x13d7292",
+      "file_offset": "0x3d7292",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x13d79f4",
+      "file_offset": "0x3d79f4",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x13e45ec",
+      "file_offset": "0x3e45ec",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1405546",
+      "file_offset": "0x405546",
+      "raw_hex": "13010132",
+      "rd": 2,
+      "rs1": 2
+    },
+    {
+      "firmware_elf_va": "0x1412e7c",
+      "file_offset": "0x412e7c",
+      "raw_hex": "93060732",
+      "rd": 13,
+      "rs1": 14
+    },
+    {
+      "firmware_elf_va": "0x1420044",
+      "file_offset": "0x420044",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1426cea",
+      "file_offset": "0x426cea",
+      "raw_hex": "13050d32",
+      "rd": 10,
+      "rs1": 26
+    },
+    {
+      "firmware_elf_va": "0x143e11c",
+      "file_offset": "0x43e11c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x14951f4",
+      "file_offset": "0x4951f4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1497bd8",
+      "file_offset": "0x497bd8",
+      "raw_hex": "93050032",
+      "rd": 11,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x14aaca4",
+      "file_offset": "0x4aaca4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x159e2cc",
+      "file_offset": "0x59e2cc",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x15c2ab6",
+      "file_offset": "0x5c2ab6",
+      "raw_hex": "93070032",
+      "rd": 15,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x15d4eec",
+      "file_offset": "0x5d4eec",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x15ebf8e",
+      "file_offset": "0x5ebf8e",
+      "raw_hex": "13060932",
+      "rd": 12,
+      "rs1": 18
+    },
+    {
+      "firmware_elf_va": "0x15f6cd2",
+      "file_offset": "0x5f6cd2",
+      "raw_hex": "13010132",
+      "rd": 2,
+      "rs1": 2
+    },
+    {
+      "firmware_elf_va": "0x161ad44",
+      "file_offset": "0x61ad44",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x164ed2c",
+      "file_offset": "0x64ed2c",
+      "raw_hex": "93870732",
+      "rd": 15,
+      "rs1": 15
+    },
+    {
+      "firmware_elf_va": "0x1655664",
+      "file_offset": "0x655664",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1696ad4",
+      "file_offset": "0x696ad4",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x16a620c",
+      "file_offset": "0x6a620c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x16abcec",
+      "file_offset": "0x6abcec",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x176d35c",
+      "file_offset": "0x76d35c",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x177f544",
+      "file_offset": "0x77f544",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x178f274",
+      "file_offset": "0x78f274",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x17d2964",
+      "file_offset": "0x7d2964",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x17ddf2e",
+      "file_offset": "0x7ddf2e",
+      "raw_hex": "13010132",
+      "rd": 2,
+      "rs1": 2
+    },
+    {
+      "firmware_elf_va": "0x182d294",
+      "file_offset": "0x82d294",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x1876b24",
+      "file_offset": "0x876b24",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x187b3ae",
+      "file_offset": "0x87b3ae",
+      "raw_hex": "13060032",
+      "rd": 12,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x1885384",
+      "file_offset": "0x885384",
+      "raw_hex": "93060732",
+      "rd": 13,
+      "rs1": 14
+    },
+    {
+      "firmware_elf_va": "0x1894a6c",
+      "file_offset": "0x894a6c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x18adfd8",
+      "file_offset": "0x8adfd8",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x18c1764",
+      "file_offset": "0x8c1764",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x18e50f4",
+      "file_offset": "0x8e50f4",
+      "raw_hex": "13050532",
+      "rd": 10,
+      "rs1": 10
+    },
+    {
+      "firmware_elf_va": "0x1906fc4",
+      "file_offset": "0x906fc4",
+      "raw_hex": "130b0b32",
+      "rd": 22,
+      "rs1": 22
+    },
+    {
+      "firmware_elf_va": "0x1917238",
+      "file_offset": "0x917238",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x1949820",
+      "file_offset": "0x949820",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x1950e50",
+      "file_offset": "0x950e50",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x1962474",
+      "file_offset": "0x962474",
+      "raw_hex": "93880832",
+      "rd": 17,
+      "rs1": 17
+    },
+    {
+      "firmware_elf_va": "0x1975fd8",
+      "file_offset": "0x975fd8",
+      "raw_hex": "13070732",
+      "rd": 14,
+      "rs1": 14
+    },
+    {
+      "firmware_elf_va": "0x1979dbe",
+      "file_offset": "0x979dbe",
+      "raw_hex": "93060032",
+      "rd": 13,
+      "rs1": 0
+    },
+    {
+      "firmware_elf_va": "0x198a79c",
+      "file_offset": "0x98a79c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x19b50bc",
+      "file_offset": "0x9b50bc",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x19bfc9c",
+      "file_offset": "0x9bfc9c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x19d28e4",
+      "file_offset": "0x9d28e4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x19d3db8",
+      "file_offset": "0x9d3db8",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x19ed2bc",
+      "file_offset": "0x9ed2bc",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x19edef0",
+      "file_offset": "0x9edef0",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x19ee310",
+      "file_offset": "0x9ee310",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x19ee324",
+      "file_offset": "0x9ee324",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x19efab0",
+      "file_offset": "0x9efab0",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x1a1290a",
+      "file_offset": "0xa1290a",
+      "raw_hex": "93840732",
+      "rd": 9,
+      "rs1": 15
+    },
+    {
+      "firmware_elf_va": "0x1a164d4",
+      "file_offset": "0xa164d4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1a164f4",
+      "file_offset": "0xa164f4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1a195b4",
+      "file_offset": "0xa195b4",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x1a29074",
+      "file_offset": "0xa29074",
+      "raw_hex": "13030332",
+      "rd": 6,
+      "rs1": 6
+    },
+    {
+      "firmware_elf_va": "0x1a37b9c",
+      "file_offset": "0xa37b9c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1a439c0",
+      "file_offset": "0xa439c0",
+      "raw_hex": "93870732",
+      "rd": 15,
+      "rs1": 15
+    },
+    {
+      "firmware_elf_va": "0x1a479d4",
+      "file_offset": "0xa479d4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1a8c6fc",
+      "file_offset": "0xa8c6fc",
+      "raw_hex": "130e0e32",
+      "rd": 28,
+      "rs1": 28
+    },
+    {
+      "firmware_elf_va": "0x1aca06c",
+      "file_offset": "0xaca06c",
+      "raw_hex": "13850732",
+      "rd": 10,
+      "rs1": 15
+    },
+    {
+      "firmware_elf_va": "0x1aca094",
+      "file_offset": "0xaca094",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1ace73c",
+      "file_offset": "0xace73c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1aefa1c",
+      "file_offset": "0xaefa1c",
+      "raw_hex": "93860632",
+      "rd": 13,
+      "rs1": 13
+    },
+    {
+      "firmware_elf_va": "0x1b0c71c",
+      "file_offset": "0xb0c71c",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1b46e58",
+      "file_offset": "0xb46e58",
+      "raw_hex": "13030332",
+      "rd": 6,
+      "rs1": 6
+    },
+    {
+      "firmware_elf_va": "0x1b73328",
+      "file_offset": "0xb73328",
+      "raw_hex": "93870732",
+      "rd": 15,
+      "rs1": 15
+    },
+    {
+      "firmware_elf_va": "0x1b790f4",
+      "file_offset": "0xb790f4",
+      "raw_hex": "93870732",
+      "rd": 15,
+      "rs1": 15
+    },
+    {
+      "firmware_elf_va": "0x1b943c4",
+      "file_offset": "0xb943c4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1b943e8",
+      "file_offset": "0xb943e8",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x1b96ce8",
+      "file_offset": "0xb96ce8",
+      "raw_hex": "13030332",
+      "rd": 6,
+      "rs1": 6
+    },
+    {
+      "firmware_elf_va": "0x1bc6fb4",
+      "file_offset": "0xbc6fb4",
+      "raw_hex": "93870732",
+      "rd": 15,
+      "rs1": 15
+    },
+    {
+      "firmware_elf_va": "0x1bd0ea2",
+      "file_offset": "0xbd0ea2",
+      "raw_hex": "13060632",
+      "rd": 12,
+      "rs1": 12
+    },
+    {
+      "firmware_elf_va": "0x1be92d2",
+      "file_offset": "0xbe92d2",
+      "raw_hex": "138b0432",
+      "rd": 22,
+      "rs1": 9
+    },
+    {
+      "firmware_elf_va": "0x1be98bc",
+      "file_offset": "0xbe98bc",
+      "raw_hex": "13860432",
+      "rd": 12,
+      "rs1": 9
+    },
+    {
+      "firmware_elf_va": "0x1bf85a4",
+      "file_offset": "0xbf85a4",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1bf9e84",
+      "file_offset": "0xbf9e84",
+      "raw_hex": "93850532",
+      "rd": 11,
+      "rs1": 11
+    },
+    {
+      "firmware_elf_va": "0x1bfbae4",
+      "file_offset": "0xbfbae4",
+      "raw_hex": "13060032",
+      "rd": 12,
+      "rs1": 0
+    }
+  ],
+  "limits": "Raw halfword-aligned instruction patterns only, not proven references, object identities or CFG paths."
+}

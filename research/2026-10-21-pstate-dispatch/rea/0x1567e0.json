@@ -1,0 +1,149 @@
+{
+  "evidence_id": "ev_2039294d74261d8982d7285f990fd4c8f136eb82ad726f3d6c96b4db0f731330",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0x1567e0"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 66.399,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 66.426,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0x1567e0"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0x1567e0",
+            "fn": {
+              "addr": "0x1567e0",
+              "name": "sub_1567E0",
+              "size": "0x10d"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x1567e0",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x1567e0",
+          "code": "__int64 __fastcall sub_1567E0(int fd, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)\n{\n  __int64 v7; // rax\n  time_t v9; // [rsp+10h] [rbp-50h]\n  struct timespec i; // [rsp+20h] [rbp-40h] BYREF\n\n  v9 = time(timer: nullptr); /*0x15680f*/\n  for ( i = 0; ; nanosleep(requested_time: &i, remaining: nullptr) ) /*0x15681b*/\n  {\n    if ( (int)sub_1546E0(fd) < 0 ) /*0x156859*/\n      return 89; /*0x1568c3*/\n    if ( *a6 != 3 ) /*0x156862*/\n      return 0; /*0x1568d8*/\n    v7 = time(timer: nullptr) - v9; /*0x15686b*/\n    if ( v7 <= 3 ) /*0x156873*/\n    {\n      i.tv_nsec = 100000000; /*0x156828*/\n      i.tv_sec = 0; /*0x156830*/\n      continue; /*0x156830*/\n    }\n    if ( v7 <= 59 ) /*0x156879*/\n    {\n      i = (struct timespec)1uLL; /*0x156883*/\n      continue; /*0x15688b*/\n    }\n    if ( v7 > 86399 ) /*0x156896*/\n      break; /*0x156896*/\n    i = (struct timespec)0xAuLL; /*0x1568a0*/\n  }\n  return 101; /*0x1568b0*/\n}",
+          "line_count": 31,
+          "total_lines": 31,
+          "truncated": false,
+          "cursor": {
+            "done": true
+          },
+          "refs": [
+            {
+              "addr": "0x22730",
+              "name": ".time"
+            },
+            {
+              "addr": "0x223d0",
+              "name": ".nanosleep"
+            },
+            {
+              "addr": "0x1546e0",
+              "name": "sub_1546E0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_1567E0(int fd, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)\n{\n  __int64 v7; // rax\n  time_t v9; // [rsp+10h] [rbp-50h]\n  struct timespec i; // [rsp+20h] [rbp-40h] BYREF\n\n  v9 = time(timer: nullptr); /*0x15680f*/\n  for ( i = 0; ; nanosleep(requested_time: &i, remaining: nullptr) ) /*0x15681b*/\n  {\n    if ( (int)sub_1546E0(fd) < 0 ) /*0x156859*/\n      return 89; /*0x1568c3*/\n    if ( *a6 != 3 ) /*0x156862*/\n      return 0; /*0x1568d8*/\n    v7 = time(timer: nullptr) - v9; /*0x15686b*/\n    if ( v7 <= 3 ) /*0x156873*/\n    {\n      i.tv_nsec = 100000000; /*0x156828*/\n      i.tv_sec = 0; /*0x156830*/\n      continue; /*0x156830*/\n    }\n    if ( v7 <= 59 ) /*0x156879*/\n    {\n      i = (struct timespec)1uLL; /*0x156883*/\n      continue; /*0x15688b*/\n    }\n    if ( v7 > 86399 ) /*0x156896*/\n      break; /*0x156896*/\n    i = (struct timespec)0xAuLL; /*0x1568a0*/\n  }\n  return 101; /*0x1568b0*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0x1567e0"
+    }
+  ],
+  "evidence_links": []
+}

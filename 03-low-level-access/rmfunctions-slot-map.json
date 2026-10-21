@@ -556,5 +556,10 @@
  "address_domain": "reported library virtual addresses; verify image base offline",
  "mapping_status": "candidate tag associations; exact semantic identity and wire contracts not established",
  "header_commit_scope": "pinned_commit identifies public driver reference, not proof of private ABI compatibility",
- "safety": "static analysis only; no invocation of these functions or controls on hardware"
+ "safety": "static analysis only; no invocation of these functions or controls on hardware",
+ "table_off_address_domain": "host library file offset (not ELF VA)",
+ "table_elf_va": "0x2d2180",
+ "elf_load_mapping": "PT_LOAD file 0x21dad0 -> ELF VA 0x21ead0; delta +0x1000",
+ "copy_site_correction": "0x152a02 copies 55 qwords from ELF VA 0x2d1180 (file 0x2d0180), a separate mixed pointer/object template. It does not copy this function table.",
+ "reproduction": "research/2026-10-21-offline/host-evidence.json"
 }

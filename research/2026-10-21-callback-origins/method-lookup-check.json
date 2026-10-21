@@ -1,0 +1,6099 @@
+{
+  "artifact_sha256": "4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a",
+  "engine": "Unicorn 2.1.4",
+  "helper_firmware_elf_va": "0x18eb54c",
+  "hits": 1183,
+  "misses": 18,
+  "results": [
+    {
+      "command": "0x20800102",
+      "entry_firmware_elf_va": "0x1c59658",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800110",
+      "entry_firmware_elf_va": "0x1c59678",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800111",
+      "entry_firmware_elf_va": "0x1c59698",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800112",
+      "entry_firmware_elf_va": "0x1c596b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800118",
+      "entry_firmware_elf_va": "0x1c596d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800119",
+      "entry_firmware_elf_va": "0x1c596f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800122",
+      "entry_firmware_elf_va": "0x1c59718",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800123",
+      "entry_firmware_elf_va": "0x1c59738",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800124",
+      "entry_firmware_elf_va": "0x1c59758",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800125",
+      "entry_firmware_elf_va": "0x1c59778",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080012b",
+      "entry_firmware_elf_va": "0x1c59798",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080012c",
+      "entry_firmware_elf_va": "0x1c597b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080012d",
+      "entry_firmware_elf_va": "0x1c597d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080012f",
+      "entry_firmware_elf_va": "0x1c597f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800130",
+      "entry_firmware_elf_va": "0x1c59818",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800131",
+      "entry_firmware_elf_va": "0x1c59838",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800133",
+      "entry_firmware_elf_va": "0x1c59858",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800134",
+      "entry_firmware_elf_va": "0x1c59878",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800136",
+      "entry_firmware_elf_va": "0x1c59898",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800137",
+      "entry_firmware_elf_va": "0x1c598b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800138",
+      "entry_firmware_elf_va": "0x1c598d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800139",
+      "entry_firmware_elf_va": "0x1c598f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080013b",
+      "entry_firmware_elf_va": "0x1c59918",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080013c",
+      "entry_firmware_elf_va": "0x1c59938",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080013d",
+      "entry_firmware_elf_va": "0x1c59958",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080013f",
+      "entry_firmware_elf_va": "0x1c59978",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800140",
+      "entry_firmware_elf_va": "0x1c59998",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800142",
+      "entry_firmware_elf_va": "0x1c599b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800145",
+      "entry_firmware_elf_va": "0x1c599d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800146",
+      "entry_firmware_elf_va": "0x1c599f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800147",
+      "entry_firmware_elf_va": "0x1c59a18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800149",
+      "entry_firmware_elf_va": "0x1c59a38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080014a",
+      "entry_firmware_elf_va": "0x1c59a58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080014b",
+      "entry_firmware_elf_va": "0x1c59a78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080014c",
+      "entry_firmware_elf_va": "0x1c59a98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080014d",
+      "entry_firmware_elf_va": "0x1c59ab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800153",
+      "entry_firmware_elf_va": "0x1c59ad8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800154",
+      "entry_firmware_elf_va": "0x1c59af8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800155",
+      "entry_firmware_elf_va": "0x1c59b18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800156",
+      "entry_firmware_elf_va": "0x1c59b38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800157",
+      "entry_firmware_elf_va": "0x1c59b58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080015a",
+      "entry_firmware_elf_va": "0x1c59b78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080015b",
+      "entry_firmware_elf_va": "0x1c59b98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080015f",
+      "entry_firmware_elf_va": "0x1c59bb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800160",
+      "entry_firmware_elf_va": "0x1c59bd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800162",
+      "entry_firmware_elf_va": "0x1c59bf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800164",
+      "entry_firmware_elf_va": "0x1c59c18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800165",
+      "entry_firmware_elf_va": "0x1c59c38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800167",
+      "entry_firmware_elf_va": "0x1c59c58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800168",
+      "entry_firmware_elf_va": "0x1c59c78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800169",
+      "entry_firmware_elf_va": "0x1c59c98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080016b",
+      "entry_firmware_elf_va": "0x1c59cb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080016c",
+      "entry_firmware_elf_va": "0x1c59cd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080016d",
+      "entry_firmware_elf_va": "0x1c59cf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080016e",
+      "entry_firmware_elf_va": "0x1c59d18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800170",
+      "entry_firmware_elf_va": "0x1c59d38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800173",
+      "entry_firmware_elf_va": "0x1c59d58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800174",
+      "entry_firmware_elf_va": "0x1c59d78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800175",
+      "entry_firmware_elf_va": "0x1c59d98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800177",
+      "entry_firmware_elf_va": "0x1c59db8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800179",
+      "entry_firmware_elf_va": "0x1c59dd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080017a",
+      "entry_firmware_elf_va": "0x1c59df8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080017b",
+      "entry_firmware_elf_va": "0x1c59e18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080017c",
+      "entry_firmware_elf_va": "0x1c59e38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080017e",
+      "entry_firmware_elf_va": "0x1c59e58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800181",
+      "entry_firmware_elf_va": "0x1c59e78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800182",
+      "entry_firmware_elf_va": "0x1c59e98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800183",
+      "entry_firmware_elf_va": "0x1c59eb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800185",
+      "entry_firmware_elf_va": "0x1c59ed8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800186",
+      "entry_firmware_elf_va": "0x1c59ef8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800187",
+      "entry_firmware_elf_va": "0x1c59f18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800188",
+      "entry_firmware_elf_va": "0x1c59f38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800189",
+      "entry_firmware_elf_va": "0x1c59f58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080018b",
+      "entry_firmware_elf_va": "0x1c59f78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080018c",
+      "entry_firmware_elf_va": "0x1c59f98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080018d",
+      "entry_firmware_elf_va": "0x1c59fb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080018e",
+      "entry_firmware_elf_va": "0x1c59fd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800190",
+      "entry_firmware_elf_va": "0x1c59ff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800191",
+      "entry_firmware_elf_va": "0x1c5a018",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800192",
+      "entry_firmware_elf_va": "0x1c5a038",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800194",
+      "entry_firmware_elf_va": "0x1c5a058",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800195",
+      "entry_firmware_elf_va": "0x1c5a078",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800196",
+      "entry_firmware_elf_va": "0x1c5a098",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800197",
+      "entry_firmware_elf_va": "0x1c5a0b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080019b",
+      "entry_firmware_elf_va": "0x1c5a0d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080019d",
+      "entry_firmware_elf_va": "0x1c5a0f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080019f",
+      "entry_firmware_elf_va": "0x1c5a118",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001a0",
+      "entry_firmware_elf_va": "0x1c5a138",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001a2",
+      "entry_firmware_elf_va": "0x1c5a158",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001a4",
+      "entry_firmware_elf_va": "0x1c5a178",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001a6",
+      "entry_firmware_elf_va": "0x1c5a198",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001a7",
+      "entry_firmware_elf_va": "0x1c5a1b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001a9",
+      "entry_firmware_elf_va": "0x1c5a1d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001aa",
+      "entry_firmware_elf_va": "0x1c5a1f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001ab",
+      "entry_firmware_elf_va": "0x1c5a218",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001ac",
+      "entry_firmware_elf_va": "0x1c5a238",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001ad",
+      "entry_firmware_elf_va": "0x1c5a258",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001ae",
+      "entry_firmware_elf_va": "0x1c5a278",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001af",
+      "entry_firmware_elf_va": "0x1c5a298",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001b0",
+      "entry_firmware_elf_va": "0x1c5a2b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001b1",
+      "entry_firmware_elf_va": "0x1c5a2d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001b2",
+      "entry_firmware_elf_va": "0x1c5a2f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001e3",
+      "entry_firmware_elf_va": "0x1c5a318",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001e4",
+      "entry_firmware_elf_va": "0x1c5a338",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001e5",
+      "entry_firmware_elf_va": "0x1c5a358",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001e6",
+      "entry_firmware_elf_va": "0x1c5a378",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001e8",
+      "entry_firmware_elf_va": "0x1c5a398",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001e9",
+      "entry_firmware_elf_va": "0x1c5a3b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001ea",
+      "entry_firmware_elf_va": "0x1c5a3d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001eb",
+      "entry_firmware_elf_va": "0x1c5a3f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001ec",
+      "entry_firmware_elf_va": "0x1c5a418",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001ef",
+      "entry_firmware_elf_va": "0x1c5a438",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f0",
+      "entry_firmware_elf_va": "0x1c5a458",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f1",
+      "entry_firmware_elf_va": "0x1c5a478",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f2",
+      "entry_firmware_elf_va": "0x1c5a498",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f4",
+      "entry_firmware_elf_va": "0x1c5a4b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f5",
+      "entry_firmware_elf_va": "0x1c5a4d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f6",
+      "entry_firmware_elf_va": "0x1c5a4f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f7",
+      "entry_firmware_elf_va": "0x1c5a518",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f8",
+      "entry_firmware_elf_va": "0x1c5a538",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001f9",
+      "entry_firmware_elf_va": "0x1c5a558",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001fa",
+      "entry_firmware_elf_va": "0x1c5a578",
+      "expected_present": true
+    },
+    {
+      "command": "0x208001fb",
+      "entry_firmware_elf_va": "0x1c5a598",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800301",
+      "entry_firmware_elf_va": "0x1c5a5b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800302",
+      "entry_firmware_elf_va": "0x1c5a5d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800303",
+      "entry_firmware_elf_va": "0x1c5a5f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800304",
+      "entry_firmware_elf_va": "0x1c5a618",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800305",
+      "entry_firmware_elf_va": "0x1c5a638",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800306",
+      "entry_firmware_elf_va": "0x1c5a658",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800308",
+      "entry_firmware_elf_va": "0x1c5a678",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800309",
+      "entry_firmware_elf_va": "0x1c5a698",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080030a",
+      "entry_firmware_elf_va": "0x1c5a6b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080030b",
+      "entry_firmware_elf_va": "0x1c5a6d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800401",
+      "entry_firmware_elf_va": "0x1c5a6f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800402",
+      "entry_firmware_elf_va": "0x1c5a718",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800403",
+      "entry_firmware_elf_va": "0x1c5a738",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800404",
+      "entry_firmware_elf_va": "0x1c5a758",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800406",
+      "entry_firmware_elf_va": "0x1c5a778",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800407",
+      "entry_firmware_elf_va": "0x1c5a798",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800513",
+      "entry_firmware_elf_va": "0x1c5a7b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800601",
+      "entry_firmware_elf_va": "0x1c5a7d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800602",
+      "entry_firmware_elf_va": "0x1c5a7f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800603",
+      "entry_firmware_elf_va": "0x1c5a818",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800604",
+      "entry_firmware_elf_va": "0x1c5a838",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800610",
+      "entry_firmware_elf_va": "0x1c5a858",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800620",
+      "entry_firmware_elf_va": "0x1c5a878",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800801",
+      "entry_firmware_elf_va": "0x1c5a898",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800803",
+      "entry_firmware_elf_va": "0x1c5a8b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800806",
+      "entry_firmware_elf_va": "0x1c5a8d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800807",
+      "entry_firmware_elf_va": "0x1c5a8f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800808",
+      "entry_firmware_elf_va": "0x1c5a918",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800809",
+      "entry_firmware_elf_va": "0x1c5a938",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080080b",
+      "entry_firmware_elf_va": "0x1c5a958",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080080e",
+      "entry_firmware_elf_va": "0x1c5a978",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800810",
+      "entry_firmware_elf_va": "0x1c5a998",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800901",
+      "entry_firmware_elf_va": "0x1c5a9b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800902",
+      "entry_firmware_elf_va": "0x1c5a9d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800905",
+      "entry_firmware_elf_va": "0x1c5a9f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800906",
+      "entry_firmware_elf_va": "0x1c5aa18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800907",
+      "entry_firmware_elf_va": "0x1c5aa38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800908",
+      "entry_firmware_elf_va": "0x1c5aa58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a00",
+      "entry_firmware_elf_va": "0x1c5aa78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a01",
+      "entry_firmware_elf_va": "0x1c5aa98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a02",
+      "entry_firmware_elf_va": "0x1c5aab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a03",
+      "entry_firmware_elf_va": "0x1c5aad8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a04",
+      "entry_firmware_elf_va": "0x1c5aaf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a05",
+      "entry_firmware_elf_va": "0x1c5ab18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a06",
+      "entry_firmware_elf_va": "0x1c5ab38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a07",
+      "entry_firmware_elf_va": "0x1c5ab58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a08",
+      "entry_firmware_elf_va": "0x1c5ab78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a09",
+      "entry_firmware_elf_va": "0x1c5ab98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a0a",
+      "entry_firmware_elf_va": "0x1c5abb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a0c",
+      "entry_firmware_elf_va": "0x1c5abd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a0e",
+      "entry_firmware_elf_va": "0x1c5abf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a10",
+      "entry_firmware_elf_va": "0x1c5ac18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a11",
+      "entry_firmware_elf_va": "0x1c5ac38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a12",
+      "entry_firmware_elf_va": "0x1c5ac58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a13",
+      "entry_firmware_elf_va": "0x1c5ac78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a14",
+      "entry_firmware_elf_va": "0x1c5ac98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a17",
+      "entry_firmware_elf_va": "0x1c5acb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a18",
+      "entry_firmware_elf_va": "0x1c5acd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a1b",
+      "entry_firmware_elf_va": "0x1c5acf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a1c",
+      "entry_firmware_elf_va": "0x1c5ad18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a1d",
+      "entry_firmware_elf_va": "0x1c5ad38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a1e",
+      "entry_firmware_elf_va": "0x1c5ad58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a1f",
+      "entry_firmware_elf_va": "0x1c5ad78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a20",
+      "entry_firmware_elf_va": "0x1c5ad98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a21",
+      "entry_firmware_elf_va": "0x1c5adb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a22",
+      "entry_firmware_elf_va": "0x1c5add8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a23",
+      "entry_firmware_elf_va": "0x1c5adf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a24",
+      "entry_firmware_elf_va": "0x1c5ae18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a25",
+      "entry_firmware_elf_va": "0x1c5ae38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a26",
+      "entry_firmware_elf_va": "0x1c5ae58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a27",
+      "entry_firmware_elf_va": "0x1c5ae78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a28",
+      "entry_firmware_elf_va": "0x1c5ae98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a29",
+      "entry_firmware_elf_va": "0x1c5aeb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a2a",
+      "entry_firmware_elf_va": "0x1c5aed8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a2b",
+      "entry_firmware_elf_va": "0x1c5aef8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a2c",
+      "entry_firmware_elf_va": "0x1c5af18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a2d",
+      "entry_firmware_elf_va": "0x1c5af38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a2e",
+      "entry_firmware_elf_va": "0x1c5af58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a2f",
+      "entry_firmware_elf_va": "0x1c5af78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a30",
+      "entry_firmware_elf_va": "0x1c5af98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a31",
+      "entry_firmware_elf_va": "0x1c5afb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a32",
+      "entry_firmware_elf_va": "0x1c5afd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a33",
+      "entry_firmware_elf_va": "0x1c5aff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a34",
+      "entry_firmware_elf_va": "0x1c5b018",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a35",
+      "entry_firmware_elf_va": "0x1c5b038",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a36",
+      "entry_firmware_elf_va": "0x1c5b058",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a37",
+      "entry_firmware_elf_va": "0x1c5b078",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a38",
+      "entry_firmware_elf_va": "0x1c5b098",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a39",
+      "entry_firmware_elf_va": "0x1c5b0b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a3a",
+      "entry_firmware_elf_va": "0x1c5b0d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a3b",
+      "entry_firmware_elf_va": "0x1c5b0f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a3c",
+      "entry_firmware_elf_va": "0x1c5b118",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a3d",
+      "entry_firmware_elf_va": "0x1c5b138",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a3e",
+      "entry_firmware_elf_va": "0x1c5b158",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a3f",
+      "entry_firmware_elf_va": "0x1c5b178",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a40",
+      "entry_firmware_elf_va": "0x1c5b198",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a41",
+      "entry_firmware_elf_va": "0x1c5b1b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a42",
+      "entry_firmware_elf_va": "0x1c5b1d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a43",
+      "entry_firmware_elf_va": "0x1c5b1f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a44",
+      "entry_firmware_elf_va": "0x1c5b218",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a45",
+      "entry_firmware_elf_va": "0x1c5b238",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a46",
+      "entry_firmware_elf_va": "0x1c5b258",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a47",
+      "entry_firmware_elf_va": "0x1c5b278",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a48",
+      "entry_firmware_elf_va": "0x1c5b298",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a49",
+      "entry_firmware_elf_va": "0x1c5b2b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a4a",
+      "entry_firmware_elf_va": "0x1c5b2d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a4b",
+      "entry_firmware_elf_va": "0x1c5b2f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a4c",
+      "entry_firmware_elf_va": "0x1c5b318",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a4d",
+      "entry_firmware_elf_va": "0x1c5b338",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a4e",
+      "entry_firmware_elf_va": "0x1c5b358",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a4f",
+      "entry_firmware_elf_va": "0x1c5b378",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a50",
+      "entry_firmware_elf_va": "0x1c5b398",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a51",
+      "entry_firmware_elf_va": "0x1c5b3b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a52",
+      "entry_firmware_elf_va": "0x1c5b3d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a53",
+      "entry_firmware_elf_va": "0x1c5b3f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a54",
+      "entry_firmware_elf_va": "0x1c5b418",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a55",
+      "entry_firmware_elf_va": "0x1c5b438",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a56",
+      "entry_firmware_elf_va": "0x1c5b458",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a57",
+      "entry_firmware_elf_va": "0x1c5b478",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a58",
+      "entry_firmware_elf_va": "0x1c5b498",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a59",
+      "entry_firmware_elf_va": "0x1c5b4b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a5a",
+      "entry_firmware_elf_va": "0x1c5b4d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a5b",
+      "entry_firmware_elf_va": "0x1c5b4f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a5c",
+      "entry_firmware_elf_va": "0x1c5b518",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a5d",
+      "entry_firmware_elf_va": "0x1c5b538",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a5e",
+      "entry_firmware_elf_va": "0x1c5b558",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a5f",
+      "entry_firmware_elf_va": "0x1c5b578",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a60",
+      "entry_firmware_elf_va": "0x1c5b598",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a61",
+      "entry_firmware_elf_va": "0x1c5b5b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a62",
+      "entry_firmware_elf_va": "0x1c5b5d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a63",
+      "entry_firmware_elf_va": "0x1c5b5f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a64",
+      "entry_firmware_elf_va": "0x1c5b618",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a65",
+      "entry_firmware_elf_va": "0x1c5b638",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a66",
+      "entry_firmware_elf_va": "0x1c5b658",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a67",
+      "entry_firmware_elf_va": "0x1c5b678",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a68",
+      "entry_firmware_elf_va": "0x1c5b698",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a69",
+      "entry_firmware_elf_va": "0x1c5b6b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a6a",
+      "entry_firmware_elf_va": "0x1c5b6d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a6b",
+      "entry_firmware_elf_va": "0x1c5b6f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a6c",
+      "entry_firmware_elf_va": "0x1c5b718",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a6d",
+      "entry_firmware_elf_va": "0x1c5b738",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a6e",
+      "entry_firmware_elf_va": "0x1c5b758",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a6f",
+      "entry_firmware_elf_va": "0x1c5b778",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a70",
+      "entry_firmware_elf_va": "0x1c5b798",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a71",
+      "entry_firmware_elf_va": "0x1c5b7b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a72",
+      "entry_firmware_elf_va": "0x1c5b7d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a73",
+      "entry_firmware_elf_va": "0x1c5b7f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a74",
+      "entry_firmware_elf_va": "0x1c5b818",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a75",
+      "entry_firmware_elf_va": "0x1c5b838",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a76",
+      "entry_firmware_elf_va": "0x1c5b858",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a77",
+      "entry_firmware_elf_va": "0x1c5b878",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a78",
+      "entry_firmware_elf_va": "0x1c5b898",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a79",
+      "entry_firmware_elf_va": "0x1c5b8b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a7a",
+      "entry_firmware_elf_va": "0x1c5b8d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a7b",
+      "entry_firmware_elf_va": "0x1c5b8f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a7d",
+      "entry_firmware_elf_va": "0x1c5b918",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a7e",
+      "entry_firmware_elf_va": "0x1c5b938",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a7f",
+      "entry_firmware_elf_va": "0x1c5b958",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a80",
+      "entry_firmware_elf_va": "0x1c5b978",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a81",
+      "entry_firmware_elf_va": "0x1c5b998",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a82",
+      "entry_firmware_elf_va": "0x1c5b9b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a83",
+      "entry_firmware_elf_va": "0x1c5b9d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a84",
+      "entry_firmware_elf_va": "0x1c5b9f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a85",
+      "entry_firmware_elf_va": "0x1c5ba18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a86",
+      "entry_firmware_elf_va": "0x1c5ba38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a87",
+      "entry_firmware_elf_va": "0x1c5ba58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a88",
+      "entry_firmware_elf_va": "0x1c5ba78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a89",
+      "entry_firmware_elf_va": "0x1c5ba98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a8a",
+      "entry_firmware_elf_va": "0x1c5bab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a8b",
+      "entry_firmware_elf_va": "0x1c5bad8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a8c",
+      "entry_firmware_elf_va": "0x1c5baf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a8d",
+      "entry_firmware_elf_va": "0x1c5bb18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a8e",
+      "entry_firmware_elf_va": "0x1c5bb38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a8f",
+      "entry_firmware_elf_va": "0x1c5bb58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a90",
+      "entry_firmware_elf_va": "0x1c5bb78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a91",
+      "entry_firmware_elf_va": "0x1c5bb98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a92",
+      "entry_firmware_elf_va": "0x1c5bbb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a93",
+      "entry_firmware_elf_va": "0x1c5bbd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a94",
+      "entry_firmware_elf_va": "0x1c5bbf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a95",
+      "entry_firmware_elf_va": "0x1c5bc18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a96",
+      "entry_firmware_elf_va": "0x1c5bc38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a97",
+      "entry_firmware_elf_va": "0x1c5bc58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a98",
+      "entry_firmware_elf_va": "0x1c5bc78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a99",
+      "entry_firmware_elf_va": "0x1c5bc98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a9a",
+      "entry_firmware_elf_va": "0x1c5bcb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a9b",
+      "entry_firmware_elf_va": "0x1c5bcd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a9c",
+      "entry_firmware_elf_va": "0x1c5bcf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a9d",
+      "entry_firmware_elf_va": "0x1c5bd18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a9e",
+      "entry_firmware_elf_va": "0x1c5bd38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800a9f",
+      "entry_firmware_elf_va": "0x1c5bd58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa0",
+      "entry_firmware_elf_va": "0x1c5bd78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa1",
+      "entry_firmware_elf_va": "0x1c5bd98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa2",
+      "entry_firmware_elf_va": "0x1c5bdb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa3",
+      "entry_firmware_elf_va": "0x1c5bdd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa5",
+      "entry_firmware_elf_va": "0x1c5bdf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa6",
+      "entry_firmware_elf_va": "0x1c5be18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa7",
+      "entry_firmware_elf_va": "0x1c5be38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa8",
+      "entry_firmware_elf_va": "0x1c5be58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aa9",
+      "entry_firmware_elf_va": "0x1c5be78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aaa",
+      "entry_firmware_elf_va": "0x1c5be98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aab",
+      "entry_firmware_elf_va": "0x1c5beb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aac",
+      "entry_firmware_elf_va": "0x1c5bed8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aad",
+      "entry_firmware_elf_va": "0x1c5bef8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aae",
+      "entry_firmware_elf_va": "0x1c5bf18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aaf",
+      "entry_firmware_elf_va": "0x1c5bf38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab0",
+      "entry_firmware_elf_va": "0x1c5bf58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab1",
+      "entry_firmware_elf_va": "0x1c5bf78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab2",
+      "entry_firmware_elf_va": "0x1c5bf98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab3",
+      "entry_firmware_elf_va": "0x1c5bfb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab4",
+      "entry_firmware_elf_va": "0x1c5bfd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab5",
+      "entry_firmware_elf_va": "0x1c5bff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab6",
+      "entry_firmware_elf_va": "0x1c5c018",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab7",
+      "entry_firmware_elf_va": "0x1c5c038",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab8",
+      "entry_firmware_elf_va": "0x1c5c058",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ab9",
+      "entry_firmware_elf_va": "0x1c5c078",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aba",
+      "entry_firmware_elf_va": "0x1c5c098",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800abb",
+      "entry_firmware_elf_va": "0x1c5c0b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800abd",
+      "entry_firmware_elf_va": "0x1c5c0d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800abe",
+      "entry_firmware_elf_va": "0x1c5c0f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800abf",
+      "entry_firmware_elf_va": "0x1c5c118",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac0",
+      "entry_firmware_elf_va": "0x1c5c138",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac1",
+      "entry_firmware_elf_va": "0x1c5c158",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac2",
+      "entry_firmware_elf_va": "0x1c5c178",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac3",
+      "entry_firmware_elf_va": "0x1c5c198",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac4",
+      "entry_firmware_elf_va": "0x1c5c1b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac5",
+      "entry_firmware_elf_va": "0x1c5c1d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac6",
+      "entry_firmware_elf_va": "0x1c5c1f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac7",
+      "entry_firmware_elf_va": "0x1c5c218",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac8",
+      "entry_firmware_elf_va": "0x1c5c238",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ac9",
+      "entry_firmware_elf_va": "0x1c5c258",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aca",
+      "entry_firmware_elf_va": "0x1c5c278",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800acb",
+      "entry_firmware_elf_va": "0x1c5c298",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800acc",
+      "entry_firmware_elf_va": "0x1c5c2b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800acd",
+      "entry_firmware_elf_va": "0x1c5c2d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ace",
+      "entry_firmware_elf_va": "0x1c5c2f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800acf",
+      "entry_firmware_elf_va": "0x1c5c318",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad0",
+      "entry_firmware_elf_va": "0x1c5c338",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad1",
+      "entry_firmware_elf_va": "0x1c5c358",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad2",
+      "entry_firmware_elf_va": "0x1c5c378",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad3",
+      "entry_firmware_elf_va": "0x1c5c398",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad4",
+      "entry_firmware_elf_va": "0x1c5c3b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad5",
+      "entry_firmware_elf_va": "0x1c5c3d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad6",
+      "entry_firmware_elf_va": "0x1c5c3f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad8",
+      "entry_firmware_elf_va": "0x1c5c418",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ad9",
+      "entry_firmware_elf_va": "0x1c5c438",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800adb",
+      "entry_firmware_elf_va": "0x1c5c458",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800adc",
+      "entry_firmware_elf_va": "0x1c5c478",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800add",
+      "entry_firmware_elf_va": "0x1c5c498",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ade",
+      "entry_firmware_elf_va": "0x1c5c4b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800adf",
+      "entry_firmware_elf_va": "0x1c5c4d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ae1",
+      "entry_firmware_elf_va": "0x1c5c4f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ae2",
+      "entry_firmware_elf_va": "0x1c5c518",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ae4",
+      "entry_firmware_elf_va": "0x1c5c538",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ae5",
+      "entry_firmware_elf_va": "0x1c5c558",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ae6",
+      "entry_firmware_elf_va": "0x1c5c578",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ae7",
+      "entry_firmware_elf_va": "0x1c5c598",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ae8",
+      "entry_firmware_elf_va": "0x1c5c5b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800ae9",
+      "entry_firmware_elf_va": "0x1c5c5d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aea",
+      "entry_firmware_elf_va": "0x1c5c5f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aeb",
+      "entry_firmware_elf_va": "0x1c5c618",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aec",
+      "entry_firmware_elf_va": "0x1c5c638",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aed",
+      "entry_firmware_elf_va": "0x1c5c658",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aee",
+      "entry_firmware_elf_va": "0x1c5c678",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aef",
+      "entry_firmware_elf_va": "0x1c5c698",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800af0",
+      "entry_firmware_elf_va": "0x1c5c6b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800af1",
+      "entry_firmware_elf_va": "0x1c5c6d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800af2",
+      "entry_firmware_elf_va": "0x1c5c6f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800af3",
+      "entry_firmware_elf_va": "0x1c5c718",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800af6",
+      "entry_firmware_elf_va": "0x1c5c738",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800afa",
+      "entry_firmware_elf_va": "0x1c5c758",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800afb",
+      "entry_firmware_elf_va": "0x1c5c778",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800afc",
+      "entry_firmware_elf_va": "0x1c5c798",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800afd",
+      "entry_firmware_elf_va": "0x1c5c7b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800afe",
+      "entry_firmware_elf_va": "0x1c5c7d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800aff",
+      "entry_firmware_elf_va": "0x1c5c7f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b01",
+      "entry_firmware_elf_va": "0x1c5c818",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b02",
+      "entry_firmware_elf_va": "0x1c5c838",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b03",
+      "entry_firmware_elf_va": "0x1c5c858",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b04",
+      "entry_firmware_elf_va": "0x1c5c878",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b05",
+      "entry_firmware_elf_va": "0x1c5c898",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b07",
+      "entry_firmware_elf_va": "0x1c5c8b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b08",
+      "entry_firmware_elf_va": "0x1c5c8d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b12",
+      "entry_firmware_elf_va": "0x1c5c8f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b13",
+      "entry_firmware_elf_va": "0x1c5c918",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b14",
+      "entry_firmware_elf_va": "0x1c5c938",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b20",
+      "entry_firmware_elf_va": "0x1c5c958",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800b9c",
+      "entry_firmware_elf_va": "0x1c5c978",
+      "expected_present": true
+    },
+    {
+      "command": "0x20800bad",
+      "entry_firmware_elf_va": "0x1c5c998",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801037",
+      "entry_firmware_elf_va": "0x1c5c9b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801102",
+      "entry_firmware_elf_va": "0x1c5c9d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801108",
+      "entry_firmware_elf_va": "0x1c5c9f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801109",
+      "entry_firmware_elf_va": "0x1c5ca18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080110b",
+      "entry_firmware_elf_va": "0x1c5ca38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080110c",
+      "entry_firmware_elf_va": "0x1c5ca58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080110d",
+      "entry_firmware_elf_va": "0x1c5ca78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080110e",
+      "entry_firmware_elf_va": "0x1c5ca98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801110",
+      "entry_firmware_elf_va": "0x1c5cab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801111",
+      "entry_firmware_elf_va": "0x1c5cad8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801112",
+      "entry_firmware_elf_va": "0x1c5caf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801113",
+      "entry_firmware_elf_va": "0x1c5cb18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801115",
+      "entry_firmware_elf_va": "0x1c5cb38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801116",
+      "entry_firmware_elf_va": "0x1c5cb58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801117",
+      "entry_firmware_elf_va": "0x1c5cb78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801118",
+      "entry_firmware_elf_va": "0x1c5cb98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801119",
+      "entry_firmware_elf_va": "0x1c5cbb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080111a",
+      "entry_firmware_elf_va": "0x1c5cbd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080111b",
+      "entry_firmware_elf_va": "0x1c5cbf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080111c",
+      "entry_firmware_elf_va": "0x1c5cc18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801120",
+      "entry_firmware_elf_va": "0x1c5cc38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801121",
+      "entry_firmware_elf_va": "0x1c5cc58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801122",
+      "entry_firmware_elf_va": "0x1c5cc78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801123",
+      "entry_firmware_elf_va": "0x1c5cc98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801124",
+      "entry_firmware_elf_va": "0x1c5ccb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801125",
+      "entry_firmware_elf_va": "0x1c5ccd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801126",
+      "entry_firmware_elf_va": "0x1c5ccf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801201",
+      "entry_firmware_elf_va": "0x1c5cd18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801205",
+      "entry_firmware_elf_va": "0x1c5cd38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801206",
+      "entry_firmware_elf_va": "0x1c5cd58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801207",
+      "entry_firmware_elf_va": "0x1c5cd78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801208",
+      "entry_firmware_elf_va": "0x1c5cd98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801209",
+      "entry_firmware_elf_va": "0x1c5cdb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080120a",
+      "entry_firmware_elf_va": "0x1c5cdd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080120e",
+      "entry_firmware_elf_va": "0x1c5cdf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080120f",
+      "entry_firmware_elf_va": "0x1c5ce18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801210",
+      "entry_firmware_elf_va": "0x1c5ce38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801211",
+      "entry_firmware_elf_va": "0x1c5ce58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801212",
+      "entry_firmware_elf_va": "0x1c5ce78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801213",
+      "entry_firmware_elf_va": "0x1c5ce98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801215",
+      "entry_firmware_elf_va": "0x1c5ceb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801218",
+      "entry_firmware_elf_va": "0x1c5ced8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801219",
+      "entry_firmware_elf_va": "0x1c5cef8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080121b",
+      "entry_firmware_elf_va": "0x1c5cf18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080121c",
+      "entry_firmware_elf_va": "0x1c5cf38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080121e",
+      "entry_firmware_elf_va": "0x1c5cf58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080121f",
+      "entry_firmware_elf_va": "0x1c5cf78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801220",
+      "entry_firmware_elf_va": "0x1c5cf98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801221",
+      "entry_firmware_elf_va": "0x1c5cfb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801222",
+      "entry_firmware_elf_va": "0x1c5cfd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801227",
+      "entry_firmware_elf_va": "0x1c5cff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801228",
+      "entry_firmware_elf_va": "0x1c5d018",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080122a",
+      "entry_firmware_elf_va": "0x1c5d038",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080122b",
+      "entry_firmware_elf_va": "0x1c5d058",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080122c",
+      "entry_firmware_elf_va": "0x1c5d078",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080122d",
+      "entry_firmware_elf_va": "0x1c5d098",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801230",
+      "entry_firmware_elf_va": "0x1c5d0b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801231",
+      "entry_firmware_elf_va": "0x1c5d0d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801232",
+      "entry_firmware_elf_va": "0x1c5d0f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801233",
+      "entry_firmware_elf_va": "0x1c5d118",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801234",
+      "entry_firmware_elf_va": "0x1c5d138",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801235",
+      "entry_firmware_elf_va": "0x1c5d158",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801236",
+      "entry_firmware_elf_va": "0x1c5d178",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801237",
+      "entry_firmware_elf_va": "0x1c5d198",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801238",
+      "entry_firmware_elf_va": "0x1c5d1b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801239",
+      "entry_firmware_elf_va": "0x1c5d1d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080123a",
+      "entry_firmware_elf_va": "0x1c5d1f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080123b",
+      "entry_firmware_elf_va": "0x1c5d218",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080123c",
+      "entry_firmware_elf_va": "0x1c5d238",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080123d",
+      "entry_firmware_elf_va": "0x1c5d258",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080123e",
+      "entry_firmware_elf_va": "0x1c5d278",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801303",
+      "entry_firmware_elf_va": "0x1c5d298",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080130c",
+      "entry_firmware_elf_va": "0x1c5d2b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080130e",
+      "entry_firmware_elf_va": "0x1c5d2d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801310",
+      "entry_firmware_elf_va": "0x1c5d2f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801313",
+      "entry_firmware_elf_va": "0x1c5d318",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801315",
+      "entry_firmware_elf_va": "0x1c5d338",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801320",
+      "entry_firmware_elf_va": "0x1c5d358",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801322",
+      "entry_firmware_elf_va": "0x1c5d378",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801328",
+      "entry_firmware_elf_va": "0x1c5d398",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080132a",
+      "entry_firmware_elf_va": "0x1c5d3b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080132f",
+      "entry_firmware_elf_va": "0x1c5d3d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801336",
+      "entry_firmware_elf_va": "0x1c5d3f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801337",
+      "entry_firmware_elf_va": "0x1c5d418",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801338",
+      "entry_firmware_elf_va": "0x1c5d438",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080133b",
+      "entry_firmware_elf_va": "0x1c5d458",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080133c",
+      "entry_firmware_elf_va": "0x1c5d478",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080133d",
+      "entry_firmware_elf_va": "0x1c5d498",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080133e",
+      "entry_firmware_elf_va": "0x1c5d4b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080133f",
+      "entry_firmware_elf_va": "0x1c5d4d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801340",
+      "entry_firmware_elf_va": "0x1c5d4f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801341",
+      "entry_firmware_elf_va": "0x1c5d518",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801342",
+      "entry_firmware_elf_va": "0x1c5d538",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801344",
+      "entry_firmware_elf_va": "0x1c5d558",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801346",
+      "entry_firmware_elf_va": "0x1c5d578",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801347",
+      "entry_firmware_elf_va": "0x1c5d598",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801348",
+      "entry_firmware_elf_va": "0x1c5d5b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801350",
+      "entry_firmware_elf_va": "0x1c5d5d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801351",
+      "entry_firmware_elf_va": "0x1c5d5f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801352",
+      "entry_firmware_elf_va": "0x1c5d618",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801353",
+      "entry_firmware_elf_va": "0x1c5d638",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801354",
+      "entry_firmware_elf_va": "0x1c5d658",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801355",
+      "entry_firmware_elf_va": "0x1c5d678",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801356",
+      "entry_firmware_elf_va": "0x1c5d698",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801357",
+      "entry_firmware_elf_va": "0x1c5d6b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801358",
+      "entry_firmware_elf_va": "0x1c5d6d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801360",
+      "entry_firmware_elf_va": "0x1c5d6f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801361",
+      "entry_firmware_elf_va": "0x1c5d718",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801362",
+      "entry_firmware_elf_va": "0x1c5d738",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801363",
+      "entry_firmware_elf_va": "0x1c5d758",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801364",
+      "entry_firmware_elf_va": "0x1c5d778",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801701",
+      "entry_firmware_elf_va": "0x1c5d798",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801702",
+      "entry_firmware_elf_va": "0x1c5d7b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801703",
+      "entry_firmware_elf_va": "0x1c5d7d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080170c",
+      "entry_firmware_elf_va": "0x1c5d7f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080170d",
+      "entry_firmware_elf_va": "0x1c5d818",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080170e",
+      "entry_firmware_elf_va": "0x1c5d838",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080170f",
+      "entry_firmware_elf_va": "0x1c5d858",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801801",
+      "entry_firmware_elf_va": "0x1c5d878",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801803",
+      "entry_firmware_elf_va": "0x1c5d898",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801804",
+      "entry_firmware_elf_va": "0x1c5d8b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801805",
+      "entry_firmware_elf_va": "0x1c5d8d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801812",
+      "entry_firmware_elf_va": "0x1c5d8f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801813",
+      "entry_firmware_elf_va": "0x1c5d918",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801814",
+      "entry_firmware_elf_va": "0x1c5d938",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801815",
+      "entry_firmware_elf_va": "0x1c5d958",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801816",
+      "entry_firmware_elf_va": "0x1c5d978",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801817",
+      "entry_firmware_elf_va": "0x1c5d998",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801818",
+      "entry_firmware_elf_va": "0x1c5d9b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801819",
+      "entry_firmware_elf_va": "0x1c5d9d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801820",
+      "entry_firmware_elf_va": "0x1c5d9f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801823",
+      "entry_firmware_elf_va": "0x1c5da18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801824",
+      "entry_firmware_elf_va": "0x1c5da38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801825",
+      "entry_firmware_elf_va": "0x1c5da58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801826",
+      "entry_firmware_elf_va": "0x1c5da78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801827",
+      "entry_firmware_elf_va": "0x1c5da98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801828",
+      "entry_firmware_elf_va": "0x1c5dab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801829",
+      "entry_firmware_elf_va": "0x1c5dad8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080182a",
+      "entry_firmware_elf_va": "0x1c5daf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080182b",
+      "entry_firmware_elf_va": "0x1c5db18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080182c",
+      "entry_firmware_elf_va": "0x1c5db38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080182d",
+      "entry_firmware_elf_va": "0x1c5db58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080182e",
+      "entry_firmware_elf_va": "0x1c5db78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080182f",
+      "entry_firmware_elf_va": "0x1c5db98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801830",
+      "entry_firmware_elf_va": "0x1c5dbb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801831",
+      "entry_firmware_elf_va": "0x1c5dbd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801832",
+      "entry_firmware_elf_va": "0x1c5dbf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801836",
+      "entry_firmware_elf_va": "0x1c5dc18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801837",
+      "entry_firmware_elf_va": "0x1c5dc38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801838",
+      "entry_firmware_elf_va": "0x1c5dc58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20801839",
+      "entry_firmware_elf_va": "0x1c5dc78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080183a",
+      "entry_firmware_elf_va": "0x1c5dc98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080183b",
+      "entry_firmware_elf_va": "0x1c5dcb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080183c",
+      "entry_firmware_elf_va": "0x1c5dcd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080200a",
+      "entry_firmware_elf_va": "0x1c5dcf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080200b",
+      "entry_firmware_elf_va": "0x1c5dd18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080205a",
+      "entry_firmware_elf_va": "0x1c5dd38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080205b",
+      "entry_firmware_elf_va": "0x1c5dd58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080205d",
+      "entry_firmware_elf_va": "0x1c5dd78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802068",
+      "entry_firmware_elf_va": "0x1c5dd98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802069",
+      "entry_firmware_elf_va": "0x1c5ddb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080206e",
+      "entry_firmware_elf_va": "0x1c5ddd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080206f",
+      "entry_firmware_elf_va": "0x1c5ddf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802087",
+      "entry_firmware_elf_va": "0x1c5de18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802092",
+      "entry_firmware_elf_va": "0x1c5de38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802093",
+      "entry_firmware_elf_va": "0x1c5de58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802096",
+      "entry_firmware_elf_va": "0x1c5de78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802204",
+      "entry_firmware_elf_va": "0x1c5de98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802205",
+      "entry_firmware_elf_va": "0x1c5deb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802207",
+      "entry_firmware_elf_va": "0x1c5ded8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802209",
+      "entry_firmware_elf_va": "0x1c5def8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080220a",
+      "entry_firmware_elf_va": "0x1c5df18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080220b",
+      "entry_firmware_elf_va": "0x1c5df38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080220c",
+      "entry_firmware_elf_va": "0x1c5df58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080220d",
+      "entry_firmware_elf_va": "0x1c5df78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080220e",
+      "entry_firmware_elf_va": "0x1c5df98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802210",
+      "entry_firmware_elf_va": "0x1c5dfb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802211",
+      "entry_firmware_elf_va": "0x1c5dfd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802212",
+      "entry_firmware_elf_va": "0x1c5dff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802213",
+      "entry_firmware_elf_va": "0x1c5e018",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802214",
+      "entry_firmware_elf_va": "0x1c5e038",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802216",
+      "entry_firmware_elf_va": "0x1c5e058",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802300",
+      "entry_firmware_elf_va": "0x1c5e078",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802301",
+      "entry_firmware_elf_va": "0x1c5e098",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802302",
+      "entry_firmware_elf_va": "0x1c5e0b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802303",
+      "entry_firmware_elf_va": "0x1c5e0d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802401",
+      "entry_firmware_elf_va": "0x1c5e0f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802402",
+      "entry_firmware_elf_va": "0x1c5e118",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802409",
+      "entry_firmware_elf_va": "0x1c5e138",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080240b",
+      "entry_firmware_elf_va": "0x1c5e158",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080240c",
+      "entry_firmware_elf_va": "0x1c5e178",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802502",
+      "entry_firmware_elf_va": "0x1c5e198",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802503",
+      "entry_firmware_elf_va": "0x1c5e1b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802609",
+      "entry_firmware_elf_va": "0x1c5e1d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080270d",
+      "entry_firmware_elf_va": "0x1c5e1f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080270e",
+      "entry_firmware_elf_va": "0x1c5e218",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802801",
+      "entry_firmware_elf_va": "0x1c5e238",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802802",
+      "entry_firmware_elf_va": "0x1c5e258",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802806",
+      "entry_firmware_elf_va": "0x1c5e278",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a02",
+      "entry_firmware_elf_va": "0x1c5e298",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a03",
+      "entry_firmware_elf_va": "0x1c5e2b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a05",
+      "entry_firmware_elf_va": "0x1c5e2d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a06",
+      "entry_firmware_elf_va": "0x1c5e2f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a07",
+      "entry_firmware_elf_va": "0x1c5e318",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a08",
+      "entry_firmware_elf_va": "0x1c5e338",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a09",
+      "entry_firmware_elf_va": "0x1c5e358",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a0a",
+      "entry_firmware_elf_va": "0x1c5e378",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a0b",
+      "entry_firmware_elf_va": "0x1c5e398",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a0c",
+      "entry_firmware_elf_va": "0x1c5e3b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a0d",
+      "entry_firmware_elf_va": "0x1c5e3d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a0e",
+      "entry_firmware_elf_va": "0x1c5e3f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a0f",
+      "entry_firmware_elf_va": "0x1c5e418",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a11",
+      "entry_firmware_elf_va": "0x1c5e438",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a12",
+      "entry_firmware_elf_va": "0x1c5e458",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a13",
+      "entry_firmware_elf_va": "0x1c5e478",
+      "expected_present": true
+    },
+    {
+      "command": "0x20802a14",
+      "entry_firmware_elf_va": "0x1c5e498",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803001",
+      "entry_firmware_elf_va": "0x1c5e4b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803002",
+      "entry_firmware_elf_va": "0x1c5e4d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803003",
+      "entry_firmware_elf_va": "0x1c5e4f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803004",
+      "entry_firmware_elf_va": "0x1c5e518",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803005",
+      "entry_firmware_elf_va": "0x1c5e538",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803009",
+      "entry_firmware_elf_va": "0x1c5e558",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080300c",
+      "entry_firmware_elf_va": "0x1c5e578",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080300e",
+      "entry_firmware_elf_va": "0x1c5e598",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803010",
+      "entry_firmware_elf_va": "0x1c5e5b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803011",
+      "entry_firmware_elf_va": "0x1c5e5d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803014",
+      "entry_firmware_elf_va": "0x1c5e5f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803015",
+      "entry_firmware_elf_va": "0x1c5e618",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803018",
+      "entry_firmware_elf_va": "0x1c5e638",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803023",
+      "entry_firmware_elf_va": "0x1c5e658",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803028",
+      "entry_firmware_elf_va": "0x1c5e678",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803029",
+      "entry_firmware_elf_va": "0x1c5e698",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803038",
+      "entry_firmware_elf_va": "0x1c5e6b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803039",
+      "entry_firmware_elf_va": "0x1c5e6d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080303a",
+      "entry_firmware_elf_va": "0x1c5e6f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080303b",
+      "entry_firmware_elf_va": "0x1c5e718",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080303c",
+      "entry_firmware_elf_va": "0x1c5e738",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080303d",
+      "entry_firmware_elf_va": "0x1c5e758",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080303e",
+      "entry_firmware_elf_va": "0x1c5e778",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080303f",
+      "entry_firmware_elf_va": "0x1c5e798",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803040",
+      "entry_firmware_elf_va": "0x1c5e7b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803041",
+      "entry_firmware_elf_va": "0x1c5e7d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803042",
+      "entry_firmware_elf_va": "0x1c5e7f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803043",
+      "entry_firmware_elf_va": "0x1c5e818",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803044",
+      "entry_firmware_elf_va": "0x1c5e838",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803045",
+      "entry_firmware_elf_va": "0x1c5e858",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803046",
+      "entry_firmware_elf_va": "0x1c5e878",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803050",
+      "entry_firmware_elf_va": "0x1c5e898",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803051",
+      "entry_firmware_elf_va": "0x1c5e8b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803052",
+      "entry_firmware_elf_va": "0x1c5e8d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803074",
+      "entry_firmware_elf_va": "0x1c5e8f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803081",
+      "entry_firmware_elf_va": "0x1c5e918",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803082",
+      "entry_firmware_elf_va": "0x1c5e938",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803083",
+      "entry_firmware_elf_va": "0x1c5e958",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803089",
+      "entry_firmware_elf_va": "0x1c5e978",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080308a",
+      "entry_firmware_elf_va": "0x1c5e998",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080308b",
+      "entry_firmware_elf_va": "0x1c5e9b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080308c",
+      "entry_firmware_elf_va": "0x1c5e9d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080308d",
+      "entry_firmware_elf_va": "0x1c5e9f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080308e",
+      "entry_firmware_elf_va": "0x1c5ea18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080308f",
+      "entry_firmware_elf_va": "0x1c5ea38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803091",
+      "entry_firmware_elf_va": "0x1c5ea58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803092",
+      "entry_firmware_elf_va": "0x1c5ea78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803095",
+      "entry_firmware_elf_va": "0x1c5ea98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803097",
+      "entry_firmware_elf_va": "0x1c5eab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803098",
+      "entry_firmware_elf_va": "0x1c5ead8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803099",
+      "entry_firmware_elf_va": "0x1c5eaf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080309a",
+      "entry_firmware_elf_va": "0x1c5eb18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080309b",
+      "entry_firmware_elf_va": "0x1c5eb38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080309c",
+      "entry_firmware_elf_va": "0x1c5eb58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080309d",
+      "entry_firmware_elf_va": "0x1c5eb78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080309e",
+      "entry_firmware_elf_va": "0x1c5eb98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080309f",
+      "entry_firmware_elf_va": "0x1c5ebb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208030a2",
+      "entry_firmware_elf_va": "0x1c5ebd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208030a3",
+      "entry_firmware_elf_va": "0x1c5ebf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803101",
+      "entry_firmware_elf_va": "0x1c5ec18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803118",
+      "entry_firmware_elf_va": "0x1c5ec38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803120",
+      "entry_firmware_elf_va": "0x1c5ec58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803122",
+      "entry_firmware_elf_va": "0x1c5ec78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803123",
+      "entry_firmware_elf_va": "0x1c5ec98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803124",
+      "entry_firmware_elf_va": "0x1c5ecb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803125",
+      "entry_firmware_elf_va": "0x1c5ecd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803126",
+      "entry_firmware_elf_va": "0x1c5ecf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803127",
+      "entry_firmware_elf_va": "0x1c5ed18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803128",
+      "entry_firmware_elf_va": "0x1c5ed38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803129",
+      "entry_firmware_elf_va": "0x1c5ed58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803130",
+      "entry_firmware_elf_va": "0x1c5ed78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803400",
+      "entry_firmware_elf_va": "0x1c5ed98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803401",
+      "entry_firmware_elf_va": "0x1c5edb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803402",
+      "entry_firmware_elf_va": "0x1c5edd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803403",
+      "entry_firmware_elf_va": "0x1c5edf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803404",
+      "entry_firmware_elf_va": "0x1c5ee18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803405",
+      "entry_firmware_elf_va": "0x1c5ee38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803406",
+      "entry_firmware_elf_va": "0x1c5ee58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803501",
+      "entry_firmware_elf_va": "0x1c5ee78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803502",
+      "entry_firmware_elf_va": "0x1c5ee98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803503",
+      "entry_firmware_elf_va": "0x1c5eeb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803504",
+      "entry_firmware_elf_va": "0x1c5eed8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803601",
+      "entry_firmware_elf_va": "0x1c5eef8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803602",
+      "entry_firmware_elf_va": "0x1c5ef18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803603",
+      "entry_firmware_elf_va": "0x1c5ef38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803604",
+      "entry_firmware_elf_va": "0x1c5ef58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803605",
+      "entry_firmware_elf_va": "0x1c5ef78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803606",
+      "entry_firmware_elf_va": "0x1c5ef98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803801",
+      "entry_firmware_elf_va": "0x1c5efb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803b01",
+      "entry_firmware_elf_va": "0x1c5efd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803b02",
+      "entry_firmware_elf_va": "0x1c5eff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803b03",
+      "entry_firmware_elf_va": "0x1c5f018",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803c00",
+      "entry_firmware_elf_va": "0x1c5f038",
+      "expected_present": true
+    },
+    {
+      "command": "0x20803c01",
+      "entry_firmware_elf_va": "0x1c5f058",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804001",
+      "entry_firmware_elf_va": "0x1c5f078",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804002",
+      "entry_firmware_elf_va": "0x1c5f098",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804003",
+      "entry_firmware_elf_va": "0x1c5f0b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804004",
+      "entry_firmware_elf_va": "0x1c5f0d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804005",
+      "entry_firmware_elf_va": "0x1c5f0f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804006",
+      "entry_firmware_elf_va": "0x1c5f118",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804007",
+      "entry_firmware_elf_va": "0x1c5f138",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804008",
+      "entry_firmware_elf_va": "0x1c5f158",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804009",
+      "entry_firmware_elf_va": "0x1c5f178",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080400a",
+      "entry_firmware_elf_va": "0x1c5f198",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080400b",
+      "entry_firmware_elf_va": "0x1c5f1b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080400c",
+      "entry_firmware_elf_va": "0x1c5f1d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080400d",
+      "entry_firmware_elf_va": "0x1c5f1f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080400e",
+      "entry_firmware_elf_va": "0x1c5f218",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080400f",
+      "entry_firmware_elf_va": "0x1c5f238",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804011",
+      "entry_firmware_elf_va": "0x1c5f258",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804012",
+      "entry_firmware_elf_va": "0x1c5f278",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804013",
+      "entry_firmware_elf_va": "0x1c5f298",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804014",
+      "entry_firmware_elf_va": "0x1c5f2b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804101",
+      "entry_firmware_elf_va": "0x1c5f2d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804102",
+      "entry_firmware_elf_va": "0x1c5f2f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804201",
+      "entry_firmware_elf_va": "0x1c5f318",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804402",
+      "entry_firmware_elf_va": "0x1c5f338",
+      "expected_present": true
+    },
+    {
+      "command": "0x20804403",
+      "entry_firmware_elf_va": "0x1c5f358",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808159",
+      "entry_firmware_elf_va": "0x1c5f378",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808161",
+      "entry_firmware_elf_va": "0x1c5f398",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808162",
+      "entry_firmware_elf_va": "0x1c5f3b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808163",
+      "entry_firmware_elf_va": "0x1c5f3d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808164",
+      "entry_firmware_elf_va": "0x1c5f3f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808165",
+      "entry_firmware_elf_va": "0x1c5f418",
+      "expected_present": true
+    },
+    {
+      "command": "0x208081f3",
+      "entry_firmware_elf_va": "0x1c5f438",
+      "expected_present": true
+    },
+    {
+      "command": "0x208081f4",
+      "entry_firmware_elf_va": "0x1c5f458",
+      "expected_present": true
+    },
+    {
+      "command": "0x208081f5",
+      "entry_firmware_elf_va": "0x1c5f478",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808203",
+      "entry_firmware_elf_va": "0x1c5f498",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808501",
+      "entry_firmware_elf_va": "0x1c5f4b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808513",
+      "entry_firmware_elf_va": "0x1c5f4d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808524",
+      "entry_firmware_elf_va": "0x1c5f4f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080852a",
+      "entry_firmware_elf_va": "0x1c5f518",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080852b",
+      "entry_firmware_elf_va": "0x1c5f538",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080852c",
+      "entry_firmware_elf_va": "0x1c5f558",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080852e",
+      "entry_firmware_elf_va": "0x1c5f578",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080852f",
+      "entry_firmware_elf_va": "0x1c5f598",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808530",
+      "entry_firmware_elf_va": "0x1c5f5b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808532",
+      "entry_firmware_elf_va": "0x1c5f5d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808533",
+      "entry_firmware_elf_va": "0x1c5f5f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808534",
+      "entry_firmware_elf_va": "0x1c5f618",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808536",
+      "entry_firmware_elf_va": "0x1c5f638",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808537",
+      "entry_firmware_elf_va": "0x1c5f658",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808539",
+      "entry_firmware_elf_va": "0x1c5f678",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080853a",
+      "entry_firmware_elf_va": "0x1c5f698",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080853b",
+      "entry_firmware_elf_va": "0x1c5f6b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080853c",
+      "entry_firmware_elf_va": "0x1c5f6d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080853e",
+      "entry_firmware_elf_va": "0x1c5f6f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808540",
+      "entry_firmware_elf_va": "0x1c5f718",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808542",
+      "entry_firmware_elf_va": "0x1c5f738",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808543",
+      "entry_firmware_elf_va": "0x1c5f758",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808544",
+      "entry_firmware_elf_va": "0x1c5f778",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808545",
+      "entry_firmware_elf_va": "0x1c5f798",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808546",
+      "entry_firmware_elf_va": "0x1c5f7b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808547",
+      "entry_firmware_elf_va": "0x1c5f7d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808548",
+      "entry_firmware_elf_va": "0x1c5f7f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20808549",
+      "entry_firmware_elf_va": "0x1c5f818",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080854a",
+      "entry_firmware_elf_va": "0x1c5f838",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080854b",
+      "entry_firmware_elf_va": "0x1c5f858",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080854c",
+      "entry_firmware_elf_va": "0x1c5f878",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080880a",
+      "entry_firmware_elf_va": "0x1c5f898",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080880f",
+      "entry_firmware_elf_va": "0x1c5f8b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809001",
+      "entry_firmware_elf_va": "0x1c5f8d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809004",
+      "entry_firmware_elf_va": "0x1c5f8f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809005",
+      "entry_firmware_elf_va": "0x1c5f918",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809006",
+      "entry_firmware_elf_va": "0x1c5f938",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809009",
+      "entry_firmware_elf_va": "0x1c5f958",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080900b",
+      "entry_firmware_elf_va": "0x1c5f978",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080900f",
+      "entry_firmware_elf_va": "0x1c5f998",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809011",
+      "entry_firmware_elf_va": "0x1c5f9b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809014",
+      "entry_firmware_elf_va": "0x1c5f9d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809016",
+      "entry_firmware_elf_va": "0x1c5f9f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809018",
+      "entry_firmware_elf_va": "0x1c5fa18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809019",
+      "entry_firmware_elf_va": "0x1c5fa38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080901a",
+      "entry_firmware_elf_va": "0x1c5fa58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080901b",
+      "entry_firmware_elf_va": "0x1c5fa78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080901c",
+      "entry_firmware_elf_va": "0x1c5fa98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080901d",
+      "entry_firmware_elf_va": "0x1c5fab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080901e",
+      "entry_firmware_elf_va": "0x1c5fad8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080901f",
+      "entry_firmware_elf_va": "0x1c5faf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809021",
+      "entry_firmware_elf_va": "0x1c5fb18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809022",
+      "entry_firmware_elf_va": "0x1c5fb38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809023",
+      "entry_firmware_elf_va": "0x1c5fb58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809025",
+      "entry_firmware_elf_va": "0x1c5fb78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809026",
+      "entry_firmware_elf_va": "0x1c5fb98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809027",
+      "entry_firmware_elf_va": "0x1c5fbb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809029",
+      "entry_firmware_elf_va": "0x1c5fbd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080902a",
+      "entry_firmware_elf_va": "0x1c5fbf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080902b",
+      "entry_firmware_elf_va": "0x1c5fc18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080902c",
+      "entry_firmware_elf_va": "0x1c5fc38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080902e",
+      "entry_firmware_elf_va": "0x1c5fc58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809030",
+      "entry_firmware_elf_va": "0x1c5fc78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809032",
+      "entry_firmware_elf_va": "0x1c5fc98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809033",
+      "entry_firmware_elf_va": "0x1c5fcb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809034",
+      "entry_firmware_elf_va": "0x1c5fcd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809035",
+      "entry_firmware_elf_va": "0x1c5fcf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809038",
+      "entry_firmware_elf_va": "0x1c5fd18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809039",
+      "entry_firmware_elf_va": "0x1c5fd38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809040",
+      "entry_firmware_elf_va": "0x1c5fd58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809042",
+      "entry_firmware_elf_va": "0x1c5fd78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809044",
+      "entry_firmware_elf_va": "0x1c5fd98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809045",
+      "entry_firmware_elf_va": "0x1c5fdb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809046",
+      "entry_firmware_elf_va": "0x1c5fdd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809050",
+      "entry_firmware_elf_va": "0x1c5fdf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809052",
+      "entry_firmware_elf_va": "0x1c5fe18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809054",
+      "entry_firmware_elf_va": "0x1c5fe38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809058",
+      "entry_firmware_elf_va": "0x1c5fe58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809061",
+      "entry_firmware_elf_va": "0x1c5fe78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809062",
+      "entry_firmware_elf_va": "0x1c5fe98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809063",
+      "entry_firmware_elf_va": "0x1c5feb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809064",
+      "entry_firmware_elf_va": "0x1c5fed8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809065",
+      "entry_firmware_elf_va": "0x1c5fef8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809067",
+      "entry_firmware_elf_va": "0x1c5ff18",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809070",
+      "entry_firmware_elf_va": "0x1c5ff38",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809071",
+      "entry_firmware_elf_va": "0x1c5ff58",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809072",
+      "entry_firmware_elf_va": "0x1c5ff78",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809074",
+      "entry_firmware_elf_va": "0x1c5ff98",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809079",
+      "entry_firmware_elf_va": "0x1c5ffb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080907b",
+      "entry_firmware_elf_va": "0x1c5ffd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080907d",
+      "entry_firmware_elf_va": "0x1c5fff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080907e",
+      "entry_firmware_elf_va": "0x1c60018",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080907f",
+      "entry_firmware_elf_va": "0x1c60038",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809080",
+      "entry_firmware_elf_va": "0x1c60058",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809081",
+      "entry_firmware_elf_va": "0x1c60078",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809082",
+      "entry_firmware_elf_va": "0x1c60098",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809083",
+      "entry_firmware_elf_va": "0x1c600b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809084",
+      "entry_firmware_elf_va": "0x1c600d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809085",
+      "entry_firmware_elf_va": "0x1c600f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809087",
+      "entry_firmware_elf_va": "0x1c60118",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809088",
+      "entry_firmware_elf_va": "0x1c60138",
+      "expected_present": true
+    },
+    {
+      "command": "0x208090a0",
+      "entry_firmware_elf_va": "0x1c60158",
+      "expected_present": true
+    },
+    {
+      "command": "0x208090a1",
+      "entry_firmware_elf_va": "0x1c60178",
+      "expected_present": true
+    },
+    {
+      "command": "0x208090a2",
+      "entry_firmware_elf_va": "0x1c60198",
+      "expected_present": true
+    },
+    {
+      "command": "0x208090b0",
+      "entry_firmware_elf_va": "0x1c601b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208090b1",
+      "entry_firmware_elf_va": "0x1c601d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x208090b2",
+      "entry_firmware_elf_va": "0x1c601f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809500",
+      "entry_firmware_elf_va": "0x1c60218",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809502",
+      "entry_firmware_elf_va": "0x1c60238",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809504",
+      "entry_firmware_elf_va": "0x1c60258",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809505",
+      "entry_firmware_elf_va": "0x1c60278",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809507",
+      "entry_firmware_elf_va": "0x1c60298",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809509",
+      "entry_firmware_elf_va": "0x1c602b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080950b",
+      "entry_firmware_elf_va": "0x1c602d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080950c",
+      "entry_firmware_elf_va": "0x1c602f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080950e",
+      "entry_firmware_elf_va": "0x1c60318",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809510",
+      "entry_firmware_elf_va": "0x1c60338",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809512",
+      "entry_firmware_elf_va": "0x1c60358",
+      "expected_present": true
+    },
+    {
+      "command": "0x20809513",
+      "entry_firmware_elf_va": "0x1c60378",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a001",
+      "entry_firmware_elf_va": "0x1c60398",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a005",
+      "entry_firmware_elf_va": "0x1c603b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a006",
+      "entry_firmware_elf_va": "0x1c603d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a009",
+      "entry_firmware_elf_va": "0x1c603f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a00c",
+      "entry_firmware_elf_va": "0x1c60418",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a00d",
+      "entry_firmware_elf_va": "0x1c60438",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a00e",
+      "entry_firmware_elf_va": "0x1c60458",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a00f",
+      "entry_firmware_elf_va": "0x1c60478",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a010",
+      "entry_firmware_elf_va": "0x1c60498",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a014",
+      "entry_firmware_elf_va": "0x1c604b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a015",
+      "entry_firmware_elf_va": "0x1c604d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a020",
+      "entry_firmware_elf_va": "0x1c604f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a021",
+      "entry_firmware_elf_va": "0x1c60518",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a022",
+      "entry_firmware_elf_va": "0x1c60538",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a023",
+      "entry_firmware_elf_va": "0x1c60558",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a024",
+      "entry_firmware_elf_va": "0x1c60578",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a026",
+      "entry_firmware_elf_va": "0x1c60598",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a027",
+      "entry_firmware_elf_va": "0x1c605b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a028",
+      "entry_firmware_elf_va": "0x1c605d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a029",
+      "entry_firmware_elf_va": "0x1c605f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a02a",
+      "entry_firmware_elf_va": "0x1c60618",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a02b",
+      "entry_firmware_elf_va": "0x1c60638",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a02d",
+      "entry_firmware_elf_va": "0x1c60658",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a02e",
+      "entry_firmware_elf_va": "0x1c60678",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a030",
+      "entry_firmware_elf_va": "0x1c60698",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a031",
+      "entry_firmware_elf_va": "0x1c606b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a033",
+      "entry_firmware_elf_va": "0x1c606d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a034",
+      "entry_firmware_elf_va": "0x1c606f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a035",
+      "entry_firmware_elf_va": "0x1c60718",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a036",
+      "entry_firmware_elf_va": "0x1c60738",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a037",
+      "entry_firmware_elf_va": "0x1c60758",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a039",
+      "entry_firmware_elf_va": "0x1c60778",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a03a",
+      "entry_firmware_elf_va": "0x1c60798",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a03b",
+      "entry_firmware_elf_va": "0x1c607b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a03c",
+      "entry_firmware_elf_va": "0x1c607d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a03d",
+      "entry_firmware_elf_va": "0x1c607f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a03e",
+      "entry_firmware_elf_va": "0x1c60818",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a03f",
+      "entry_firmware_elf_va": "0x1c60838",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a042",
+      "entry_firmware_elf_va": "0x1c60858",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a043",
+      "entry_firmware_elf_va": "0x1c60878",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a053",
+      "entry_firmware_elf_va": "0x1c60898",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a054",
+      "entry_firmware_elf_va": "0x1c608b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a05e",
+      "entry_firmware_elf_va": "0x1c608d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a060",
+      "entry_firmware_elf_va": "0x1c608f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a063",
+      "entry_firmware_elf_va": "0x1c60918",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a064",
+      "entry_firmware_elf_va": "0x1c60938",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a066",
+      "entry_firmware_elf_va": "0x1c60958",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a06b",
+      "entry_firmware_elf_va": "0x1c60978",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a06c",
+      "entry_firmware_elf_va": "0x1c60998",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a06d",
+      "entry_firmware_elf_va": "0x1c609b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a06e",
+      "entry_firmware_elf_va": "0x1c609d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a06f",
+      "entry_firmware_elf_va": "0x1c609f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a070",
+      "entry_firmware_elf_va": "0x1c60a18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a071",
+      "entry_firmware_elf_va": "0x1c60a38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a072",
+      "entry_firmware_elf_va": "0x1c60a58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a074",
+      "entry_firmware_elf_va": "0x1c60a78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a075",
+      "entry_firmware_elf_va": "0x1c60a98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a077",
+      "entry_firmware_elf_va": "0x1c60ab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a079",
+      "entry_firmware_elf_va": "0x1c60ad8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a07f",
+      "entry_firmware_elf_va": "0x1c60af8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a080",
+      "entry_firmware_elf_va": "0x1c60b18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a081",
+      "entry_firmware_elf_va": "0x1c60b38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a082",
+      "entry_firmware_elf_va": "0x1c60b58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a084",
+      "entry_firmware_elf_va": "0x1c60b78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a085",
+      "entry_firmware_elf_va": "0x1c60b98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a088",
+      "entry_firmware_elf_va": "0x1c60bb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a089",
+      "entry_firmware_elf_va": "0x1c60bd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a08c",
+      "entry_firmware_elf_va": "0x1c60bf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a08d",
+      "entry_firmware_elf_va": "0x1c60c18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a08e",
+      "entry_firmware_elf_va": "0x1c60c38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a090",
+      "entry_firmware_elf_va": "0x1c60c58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a091",
+      "entry_firmware_elf_va": "0x1c60c78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a095",
+      "entry_firmware_elf_va": "0x1c60c98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a097",
+      "entry_firmware_elf_va": "0x1c60cb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a098",
+      "entry_firmware_elf_va": "0x1c60cd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a099",
+      "entry_firmware_elf_va": "0x1c60cf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a09a",
+      "entry_firmware_elf_va": "0x1c60d18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a09c",
+      "entry_firmware_elf_va": "0x1c60d38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a09d",
+      "entry_firmware_elf_va": "0x1c60d58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a09f",
+      "entry_firmware_elf_va": "0x1c60d78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0a0",
+      "entry_firmware_elf_va": "0x1c60d98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0a4",
+      "entry_firmware_elf_va": "0x1c60db8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0a6",
+      "entry_firmware_elf_va": "0x1c60dd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0a7",
+      "entry_firmware_elf_va": "0x1c60df8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0a8",
+      "entry_firmware_elf_va": "0x1c60e18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0a9",
+      "entry_firmware_elf_va": "0x1c60e38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0ab",
+      "entry_firmware_elf_va": "0x1c60e58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0ac",
+      "entry_firmware_elf_va": "0x1c60e78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0ad",
+      "entry_firmware_elf_va": "0x1c60e98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0b1",
+      "entry_firmware_elf_va": "0x1c60eb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0b2",
+      "entry_firmware_elf_va": "0x1c60ed8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0b3",
+      "entry_firmware_elf_va": "0x1c60ef8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0b5",
+      "entry_firmware_elf_va": "0x1c60f18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0b6",
+      "entry_firmware_elf_va": "0x1c60f38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0b9",
+      "entry_firmware_elf_va": "0x1c60f58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0ba",
+      "entry_firmware_elf_va": "0x1c60f78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0bb",
+      "entry_firmware_elf_va": "0x1c60f98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0bc",
+      "entry_firmware_elf_va": "0x1c60fb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0be",
+      "entry_firmware_elf_va": "0x1c60fd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0bf",
+      "entry_firmware_elf_va": "0x1c60ff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0c0",
+      "entry_firmware_elf_va": "0x1c61018",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0c1",
+      "entry_firmware_elf_va": "0x1c61038",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0c2",
+      "entry_firmware_elf_va": "0x1c61058",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0c4",
+      "entry_firmware_elf_va": "0x1c61078",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0c5",
+      "entry_firmware_elf_va": "0x1c61098",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0c6",
+      "entry_firmware_elf_va": "0x1c610b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0c8",
+      "entry_firmware_elf_va": "0x1c610d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0cc",
+      "entry_firmware_elf_va": "0x1c610f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0cd",
+      "entry_firmware_elf_va": "0x1c61118",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0ce",
+      "entry_firmware_elf_va": "0x1c61138",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0d0",
+      "entry_firmware_elf_va": "0x1c61158",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0d1",
+      "entry_firmware_elf_va": "0x1c61178",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0d2",
+      "entry_firmware_elf_va": "0x1c61198",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0d3",
+      "entry_firmware_elf_va": "0x1c611b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0d4",
+      "entry_firmware_elf_va": "0x1c611d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0d5",
+      "entry_firmware_elf_va": "0x1c611f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0d7",
+      "entry_firmware_elf_va": "0x1c61218",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0e0",
+      "entry_firmware_elf_va": "0x1c61238",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0e1",
+      "entry_firmware_elf_va": "0x1c61258",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0e2",
+      "entry_firmware_elf_va": "0x1c61278",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0e5",
+      "entry_firmware_elf_va": "0x1c61298",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0e6",
+      "entry_firmware_elf_va": "0x1c612b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0e7",
+      "entry_firmware_elf_va": "0x1c612d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0e8",
+      "entry_firmware_elf_va": "0x1c612f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0e9",
+      "entry_firmware_elf_va": "0x1c61318",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0f1",
+      "entry_firmware_elf_va": "0x1c61338",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0f2",
+      "entry_firmware_elf_va": "0x1c61358",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0f3",
+      "entry_firmware_elf_va": "0x1c61378",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0f4",
+      "entry_firmware_elf_va": "0x1c61398",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a0f5",
+      "entry_firmware_elf_va": "0x1c613b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a304",
+      "entry_firmware_elf_va": "0x1c613d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a305",
+      "entry_firmware_elf_va": "0x1c613f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a306",
+      "entry_firmware_elf_va": "0x1c61418",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a30c",
+      "entry_firmware_elf_va": "0x1c61438",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a60b",
+      "entry_firmware_elf_va": "0x1c61458",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a610",
+      "entry_firmware_elf_va": "0x1c61478",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a611",
+      "entry_firmware_elf_va": "0x1c61498",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a612",
+      "entry_firmware_elf_va": "0x1c614b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a613",
+      "entry_firmware_elf_va": "0x1c614d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a616",
+      "entry_firmware_elf_va": "0x1c614f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a618",
+      "entry_firmware_elf_va": "0x1c61518",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a619",
+      "entry_firmware_elf_va": "0x1c61538",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a61a",
+      "entry_firmware_elf_va": "0x1c61558",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a61c",
+      "entry_firmware_elf_va": "0x1c61578",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a61d",
+      "entry_firmware_elf_va": "0x1c61598",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a61f",
+      "entry_firmware_elf_va": "0x1c615b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a620",
+      "entry_firmware_elf_va": "0x1c615d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a621",
+      "entry_firmware_elf_va": "0x1c615f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a622",
+      "entry_firmware_elf_va": "0x1c61618",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a624",
+      "entry_firmware_elf_va": "0x1c61638",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a625",
+      "entry_firmware_elf_va": "0x1c61658",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a626",
+      "entry_firmware_elf_va": "0x1c61678",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a629",
+      "entry_firmware_elf_va": "0x1c61698",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a62b",
+      "entry_firmware_elf_va": "0x1c616b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a630",
+      "entry_firmware_elf_va": "0x1c616d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a631",
+      "entry_firmware_elf_va": "0x1c616f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a632",
+      "entry_firmware_elf_va": "0x1c61718",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a635",
+      "entry_firmware_elf_va": "0x1c61738",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a636",
+      "entry_firmware_elf_va": "0x1c61758",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a637",
+      "entry_firmware_elf_va": "0x1c61778",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a638",
+      "entry_firmware_elf_va": "0x1c61798",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a639",
+      "entry_firmware_elf_va": "0x1c617b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a63a",
+      "entry_firmware_elf_va": "0x1c617d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a63b",
+      "entry_firmware_elf_va": "0x1c617f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a63c",
+      "entry_firmware_elf_va": "0x1c61818",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a63d",
+      "entry_firmware_elf_va": "0x1c61838",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a63e",
+      "entry_firmware_elf_va": "0x1c61858",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a63f",
+      "entry_firmware_elf_va": "0x1c61878",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a640",
+      "entry_firmware_elf_va": "0x1c61898",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a641",
+      "entry_firmware_elf_va": "0x1c618b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a642",
+      "entry_firmware_elf_va": "0x1c618d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a643",
+      "entry_firmware_elf_va": "0x1c618f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a644",
+      "entry_firmware_elf_va": "0x1c61918",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a645",
+      "entry_firmware_elf_va": "0x1c61938",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a702",
+      "entry_firmware_elf_va": "0x1c61958",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a703",
+      "entry_firmware_elf_va": "0x1c61978",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a704",
+      "entry_firmware_elf_va": "0x1c61998",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a707",
+      "entry_firmware_elf_va": "0x1c619b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a708",
+      "entry_firmware_elf_va": "0x1c619d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a709",
+      "entry_firmware_elf_va": "0x1c619f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a70a",
+      "entry_firmware_elf_va": "0x1c61a18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a70c",
+      "entry_firmware_elf_va": "0x1c61a38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a70f",
+      "entry_firmware_elf_va": "0x1c61a58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a7d7",
+      "entry_firmware_elf_va": "0x1c61a78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080a801",
+      "entry_firmware_elf_va": "0x1c61a98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b201",
+      "entry_firmware_elf_va": "0x1c61ab8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b202",
+      "entry_firmware_elf_va": "0x1c61ad8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b205",
+      "entry_firmware_elf_va": "0x1c61af8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b207",
+      "entry_firmware_elf_va": "0x1c61b18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b209",
+      "entry_firmware_elf_va": "0x1c61b38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b210",
+      "entry_firmware_elf_va": "0x1c61b58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b211",
+      "entry_firmware_elf_va": "0x1c61b78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b212",
+      "entry_firmware_elf_va": "0x1c61b98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b213",
+      "entry_firmware_elf_va": "0x1c61bb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b214",
+      "entry_firmware_elf_va": "0x1c61bd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b216",
+      "entry_firmware_elf_va": "0x1c61bf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b217",
+      "entry_firmware_elf_va": "0x1c61c18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b218",
+      "entry_firmware_elf_va": "0x1c61c38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b301",
+      "entry_firmware_elf_va": "0x1c61c58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b302",
+      "entry_firmware_elf_va": "0x1c61c78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b400",
+      "entry_firmware_elf_va": "0x1c61c98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b401",
+      "entry_firmware_elf_va": "0x1c61cb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b402",
+      "entry_firmware_elf_va": "0x1c61cd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b406",
+      "entry_firmware_elf_va": "0x1c61cf8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b407",
+      "entry_firmware_elf_va": "0x1c61d18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b700",
+      "entry_firmware_elf_va": "0x1c61d38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b701",
+      "entry_firmware_elf_va": "0x1c61d58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b702",
+      "entry_firmware_elf_va": "0x1c61d78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080b703",
+      "entry_firmware_elf_va": "0x1c61d98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c52d",
+      "entry_firmware_elf_va": "0x1c61db8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c531",
+      "entry_firmware_elf_va": "0x1c61dd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c535",
+      "entry_firmware_elf_va": "0x1c61df8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c53d",
+      "entry_firmware_elf_va": "0x1c61e18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c541",
+      "entry_firmware_elf_va": "0x1c61e38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c54d",
+      "entry_firmware_elf_va": "0x1c61e58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c601",
+      "entry_firmware_elf_va": "0x1c61e78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c602",
+      "entry_firmware_elf_va": "0x1c61e98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c603",
+      "entry_firmware_elf_va": "0x1c61eb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c604",
+      "entry_firmware_elf_va": "0x1c61ed8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c701",
+      "entry_firmware_elf_va": "0x1c61ef8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080c722",
+      "entry_firmware_elf_va": "0x1c61f18",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d01c",
+      "entry_firmware_elf_va": "0x1c61f38",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d020",
+      "entry_firmware_elf_va": "0x1c61f58",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d024",
+      "entry_firmware_elf_va": "0x1c61f78",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d028",
+      "entry_firmware_elf_va": "0x1c61f98",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d02d",
+      "entry_firmware_elf_va": "0x1c61fb8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d031",
+      "entry_firmware_elf_va": "0x1c61fd8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d036",
+      "entry_firmware_elf_va": "0x1c61ff8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d041",
+      "entry_firmware_elf_va": "0x1c62018",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d047",
+      "entry_firmware_elf_va": "0x1c62038",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d055",
+      "entry_firmware_elf_va": "0x1c62058",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d067",
+      "entry_firmware_elf_va": "0x1c62078",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d069",
+      "entry_firmware_elf_va": "0x1c62098",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d073",
+      "entry_firmware_elf_va": "0x1c620b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d07c",
+      "entry_firmware_elf_va": "0x1c620d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d080",
+      "entry_firmware_elf_va": "0x1c620f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d084",
+      "entry_firmware_elf_va": "0x1c62118",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d088",
+      "entry_firmware_elf_va": "0x1c62138",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d0a3",
+      "entry_firmware_elf_va": "0x1c62158",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d0b3",
+      "entry_firmware_elf_va": "0x1c62178",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d501",
+      "entry_firmware_elf_va": "0x1c62198",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d502",
+      "entry_firmware_elf_va": "0x1c621b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080d503",
+      "entry_firmware_elf_va": "0x1c621d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e019",
+      "entry_firmware_elf_va": "0x1c621f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e025",
+      "entry_firmware_elf_va": "0x1c62218",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e02c",
+      "entry_firmware_elf_va": "0x1c62238",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e038",
+      "entry_firmware_elf_va": "0x1c62258",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e06c",
+      "entry_firmware_elf_va": "0x1c62278",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e06f",
+      "entry_firmware_elf_va": "0x1c62298",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e073",
+      "entry_firmware_elf_va": "0x1c622b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e086",
+      "entry_firmware_elf_va": "0x1c622d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e08a",
+      "entry_firmware_elf_va": "0x1c622f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e09a",
+      "entry_firmware_elf_va": "0x1c62318",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e09c",
+      "entry_firmware_elf_va": "0x1c62338",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0a6",
+      "entry_firmware_elf_va": "0x1c62358",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0aa",
+      "entry_firmware_elf_va": "0x1c62378",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0ab",
+      "entry_firmware_elf_va": "0x1c62398",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0ae",
+      "entry_firmware_elf_va": "0x1c623b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0af",
+      "entry_firmware_elf_va": "0x1c623d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0b0",
+      "entry_firmware_elf_va": "0x1c623f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0b4",
+      "entry_firmware_elf_va": "0x1c62418",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0b7",
+      "entry_firmware_elf_va": "0x1c62438",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0c3",
+      "entry_firmware_elf_va": "0x1c62458",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0c7",
+      "entry_firmware_elf_va": "0x1c62478",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0c9",
+      "entry_firmware_elf_va": "0x1c62498",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0ca",
+      "entry_firmware_elf_va": "0x1c624b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0cb",
+      "entry_firmware_elf_va": "0x1c624d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0cf",
+      "entry_firmware_elf_va": "0x1c624f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0d0",
+      "entry_firmware_elf_va": "0x1c62518",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0d6",
+      "entry_firmware_elf_va": "0x1c62538",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0e1",
+      "entry_firmware_elf_va": "0x1c62558",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0e3",
+      "entry_firmware_elf_va": "0x1c62578",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0e4",
+      "entry_firmware_elf_va": "0x1c62598",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0e5",
+      "entry_firmware_elf_va": "0x1c625b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e0f4",
+      "entry_firmware_elf_va": "0x1c625d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e61b",
+      "entry_firmware_elf_va": "0x1c625f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e61e",
+      "entry_firmware_elf_va": "0x1c62618",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e623",
+      "entry_firmware_elf_va": "0x1c62638",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e627",
+      "entry_firmware_elf_va": "0x1c62658",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e62a",
+      "entry_firmware_elf_va": "0x1c62678",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e633",
+      "entry_firmware_elf_va": "0x1c62698",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e634",
+      "entry_firmware_elf_va": "0x1c626b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e635",
+      "entry_firmware_elf_va": "0x1c626d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e636",
+      "entry_firmware_elf_va": "0x1c626f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e639",
+      "entry_firmware_elf_va": "0x1c62718",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e63a",
+      "entry_firmware_elf_va": "0x1c62738",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e63b",
+      "entry_firmware_elf_va": "0x1c62758",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e802",
+      "entry_firmware_elf_va": "0x1c62778",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080e805",
+      "entry_firmware_elf_va": "0x1c62798",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f208",
+      "entry_firmware_elf_va": "0x1c627b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f212",
+      "entry_firmware_elf_va": "0x1c627d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f214",
+      "entry_firmware_elf_va": "0x1c627f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f219",
+      "entry_firmware_elf_va": "0x1c62818",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f302",
+      "entry_firmware_elf_va": "0x1c62838",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f303",
+      "entry_firmware_elf_va": "0x1c62858",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f304",
+      "entry_firmware_elf_va": "0x1c62878",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f305",
+      "entry_firmware_elf_va": "0x1c62898",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f306",
+      "entry_firmware_elf_va": "0x1c628b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f307",
+      "entry_firmware_elf_va": "0x1c628d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f308",
+      "entry_firmware_elf_va": "0x1c628f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f309",
+      "entry_firmware_elf_va": "0x1c62918",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f30b",
+      "entry_firmware_elf_va": "0x1c62938",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f30d",
+      "entry_firmware_elf_va": "0x1c62958",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f30f",
+      "entry_firmware_elf_va": "0x1c62978",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f310",
+      "entry_firmware_elf_va": "0x1c62998",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f311",
+      "entry_firmware_elf_va": "0x1c629b8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f312",
+      "entry_firmware_elf_va": "0x1c629d8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f313",
+      "entry_firmware_elf_va": "0x1c629f8",
+      "expected_present": true
+    },
+    {
+      "command": "0x2080f315",
+      "entry_firmware_elf_va": "0x1c62a18",
+      "expected_present": true
+    },
+    {
+      "command": "0x0",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0xffffffff",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800103",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800113",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x2080011a",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800126",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x2080012e",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800132",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800135",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x2080013a",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x2080013e",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800141",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800143",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800148",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x2080014e",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800158",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x2080015c",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    },
+    {
+      "command": "0x20800161",
+      "entry_firmware_elf_va": "0x0",
+      "expected_present": false
+    }
+  ],
+  "class_definition": {
+    "firmware_elf_va": "0x1c64e70",
+    "file_offset": "0xc64e70",
+    "raw_hex": "30050000b3014b00986eec0100000000b0b5a40100000000f078ec0100000000382ec60100000000"
+  },
+  "cast_info": {
+    "firmware_elf_va": "0x1ec78f0",
+    "file_offset": "0xec78f0",
+    "raw_hex": "0800000000000000382ac60100000000502ac60100000000682ac60100000000802ac60100000000982ac60100000000402bc60100000000c82cc60100000000e02cc60100000000",
+    "relatives": [
+      {
+        "rtti_firmware_elf_va": "0x1c62a38",
+        "rtti_file_offset": "0xc62a38",
+        "rtti_raw_hex": "704ec6010000000024ada401000000000000000000000000",
+        "class_definition_firmware_elf_va": "0x1c64e70",
+        "class_definition_file_offset": "0xc64e70",
+        "class_definition_raw_hex": "30050000b3014b00986eec0100000000b0b5a40100000000f078ec0100000000382ec60100000000",
+        "export_info_firmware_elf_va": "0x1c62e38"
+      },
+      {
+        "rtti_firmware_elf_va": "0x1c62a50",
+        "rtti_file_offset": "0xc62a50",
+        "rtti_raw_hex": "106ac401000000000c438d01000000000800000000000000",
+        "class_definition_firmware_elf_va": "0x1c46a10",
+        "class_definition_file_offset": "0xc46a10",
+        "class_definition_raw_hex": "080100009f5d5d00986eec01000000005482980100000000f06dec01000000008869c40100000000",
+        "export_info_firmware_elf_va": "0x1c46988"
+      },
+      {
+        "rtti_firmware_elf_va": "0x1c62a68",
+        "rtti_file_offset": "0xc62a68",
+        "rtti_raw_hex": "e869c401000000000c438d01000000001000000000000000",
+        "class_definition_firmware_elf_va": "0x1c469e8",
+        "class_definition_file_offset": "0xc469e8",
+        "class_definition_raw_hex": "b00000000d610300986eec0100000000d8bda30100000000c86dec01000000007869c40100000000",
+        "export_info_firmware_elf_va": "0x1c46978"
+      },
+      {
+        "rtti_firmware_elf_va": "0x1c62a80",
+        "rtti_file_offset": "0xc62a80",
+        "rtti_raw_hex": "c069c401000000000c438d01000000001800000000000000",
+        "class_definition_firmware_elf_va": "0x1c469c0",
+        "class_definition_file_offset": "0xc469c0",
+        "class_definition_raw_hex": "70000000cb51d500986eec01000000001429a40100000000b06dec01000000006869c40100000000",
+        "export_info_firmware_elf_va": "0x1c46968"
+      },
+      {
+        "rtti_firmware_elf_va": "0x1c62a98",
+        "rtti_file_offset": "0xc62a98",
+        "rtti_raw_hex": "186fc401000000000c438d01000000002000000000000000",
+        "class_definition_firmware_elf_va": "0x1c46f18",
+        "class_definition_file_offset": "0xc46f18",
+        "class_definition_raw_hex": "3800000031704900986eec0100000000f0319f0100000000686eec0100000000e06ec40100000000",
+        "export_info_firmware_elf_va": "0x1c46ee0"
+      },
+      {
+        "rtti_firmware_elf_va": "0x1c62b40",
+        "rtti_file_offset": "0xc62b40",
+        "rtti_raw_hex": "9869c401000000000c438d01000000008800000000000000",
+        "class_definition_firmware_elf_va": "0x1c46998",
+        "class_definition_file_offset": "0xc46998",
+        "class_definition_raw_hex": "1000000059f28e00986eec01000000000000000000000000a06dec01000000005869c40100000000",
+        "export_info_firmware_elf_va": "0x1c46958"
+      },
+      {
+        "rtti_firmware_elf_va": "0x1c62cc8",
+        "rtti_file_offset": "0xc62cc8",
+        "rtti_raw_hex": "3096c501000000000c438d01000000001001000000000000",
+        "class_definition_firmware_elf_va": "0x1c59630",
+        "class_definition_file_offset": "0xc59630",
+        "class_definition_raw_hex": "300000003b68a800986eec01000000000000000000000000d878ec0100000000f895c50100000000",
+        "export_info_firmware_elf_va": "0x1c595f8"
+      },
+      {
+        "rtti_firmware_elf_va": "0x1c62ce0",
+        "rtti_file_offset": "0xc62ce0",
+        "rtti_raw_hex": "0896c501000000000c438d01000000001801000000000000",
+        "class_definition_firmware_elf_va": "0x1c59608",
+        "class_definition_file_offset": "0xc59608",
+        "class_definition_raw_hex": "1000000065f9f800986eec01000000000000000000000000c878ec0100000000e895c50100000000",
+        "export_info_firmware_elf_va": "0x1c595e8"
+      }
+    ]
+  },
+  "limits": "Copied method search and immutable metadata only; no control invoked, hardware access, instantiated class proof, permissions or runtime availability."
+}

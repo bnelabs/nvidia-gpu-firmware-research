@@ -1,0 +1,225 @@
+{
+  "status": "source-decoded",
+  "component": "GA102 GspRmBoot PROD",
+  "artifacts": [
+    {
+      "path": "vendor/research-sources/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "source_bytes": 120321,
+      "source_sha256": "7a864f104c9c86587963d78569ef6026a427db2db40c0825428c2f86e4393c9f",
+      "address_domain": "decompressed component file offset; no hardware load address inferred",
+      "image": {
+        "label": "IMAGE_PROD",
+        "source_line": 1223,
+        "storage_bytes": 17936,
+        "compressed_bytes": 17934,
+        "decoded_bytes": 24576,
+        "padding_hex": "0000",
+        "storage_sha256": "b1ff4dec0a91fc7d5beaae1c6c55be0b0f11f893d36a1a54b1a8bed0d151c2a0",
+        "compressed_sha256": "e11966306c553b1b4bf418aad12e34233216d009fd436e66f5a39d29afc7c6e2",
+        "decoded_sha256": "3df651acb174fd5f5561a1996965b192f50c5d763168446ed0d4ead19d895768",
+        "gzip_crc32_isize_hex": "48e18ae300600000"
+      },
+      "descriptor": {
+        "label": "DESC_PROD",
+        "source_line": 2376,
+        "storage_bytes": 48,
+        "compressed_bytes": 42,
+        "decoded_bytes": 84,
+        "padding_hex": "000000000000",
+        "storage_sha256": "f36108f6b069f8e982b49133fc70237245b9194ec31ab14b5585a27b72f07c27",
+        "compressed_sha256": "66d632b616bf79e408a57918f27426791343fcb0d1812279a1838ff978974e24",
+        "decoded_sha256": "cc5a3fc1f4c47f2fe107b1b68f0176d8a448e6dec84b575e5560ccef5262bf15",
+        "gzip_crc32_isize_hex": "d44ba9ea54000000"
+      },
+      "descriptor_hex": "050000000050000080080000805800001000000000000000000000000000000000000000000800000008000000100000001800000029000001000000000000000000000000000000000000000060000000000000",
+      "descriptor_fields": {
+        "version": 5,
+        "bootloaderOffset": 20480,
+        "bootloaderSize": 2176,
+        "bootloaderParamOffset": 22656,
+        "bootloaderParamSize": 16,
+        "riscvElfOffset": 0,
+        "riscvElfSize": 0,
+        "appVersion": 0,
+        "manifestOffset": 0,
+        "manifestSize": 2048,
+        "monitorDataOffset": 2048,
+        "monitorDataSize": 4096,
+        "monitorCodeOffset": 6144,
+        "monitorCodeSize": 10496,
+        "bIsMonitorEnabled": 1,
+        "swbromCodeOffset": 0,
+        "swbromCodeSize": 0,
+        "swbromDataOffset": 0,
+        "swbromDataSize": 0,
+        "fbReservedSize": 24576,
+        "bSignedAsCode": 0
+      },
+      "regions": {
+        "bootloader": {
+          "offset": 20480,
+          "size": 2176,
+          "sha256": "0231b7a5ad4be7546b23bfe82b4c6620c126e360bcb0aa6ca72d281b20f12462",
+          "first_32_bytes_hex": "374118001b0101406f000010011106ec9717000083b707859c633ee497070000"
+        },
+        "bootloaderParam": {
+          "offset": 22656,
+          "size": 16,
+          "sha256": "b3d8b4a8ca07fd4589c0af05945eb836d8d157be1251eb70f4e21835ac3c9f8b",
+          "first_32_bytes_hex": "00600000006000000000000070070000"
+        },
+        "riscvElf": {
+          "offset": 0,
+          "size": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_32_bytes_hex": ""
+        },
+        "manifest": {
+          "offset": 0,
+          "size": 2048,
+          "sha256": "7a69d2adf5bd41a5ac6e00fdd9c42c00c55d267873d57ed3f02b0d6a4e9ac7e6",
+          "first_32_bytes_hex": "8aaaf9341ad74bba286334c334ef4ea535faa34720b8ccd4011548e62d409d03"
+        },
+        "monitorData": {
+          "offset": 2048,
+          "size": 4096,
+          "sha256": "0b7654bdb4c29a5b7907266a2fc61b600f08b515586a78d5a51137064ea58cab",
+          "first_32_bytes_hex": "6708e71e611dc2bb7bd162ff454d59f057630fde18d7cbd7577be17b53158394"
+        },
+        "monitorCode": {
+          "offset": 6144,
+          "size": 10496,
+          "sha256": "30f0ab589d1d05e252f674473983bba47581f9e66d8e03f92b47340c0cff8c4a",
+          "first_32_bytes_hex": "91ed82bcc83dea22e7fc723d489e82ce0de37e4f3f681e06b658bdf66c1a93b2"
+        },
+        "swbromCode": {
+          "offset": 0,
+          "size": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_32_bytes_hex": ""
+        },
+        "swbromData": {
+          "offset": 0,
+          "size": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_32_bytes_hex": ""
+        }
+      },
+      "absent_descriptor_tail": [
+        "bIsSmp",
+        "bIsPlicEnabled"
+      ]
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules/src/nvidia/generated/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "source_bytes": 120320,
+      "source_sha256": "69f0ff1af4ca6907df94b2806ac36d505f3703df162fab846491dbb5aaa313e7",
+      "address_domain": "decompressed component file offset; no hardware load address inferred",
+      "image": {
+        "label": "IMAGE_PROD",
+        "source_line": 1223,
+        "storage_bytes": 17936,
+        "compressed_bytes": 17934,
+        "decoded_bytes": 24576,
+        "padding_hex": "0000",
+        "storage_sha256": "b1ff4dec0a91fc7d5beaae1c6c55be0b0f11f893d36a1a54b1a8bed0d151c2a0",
+        "compressed_sha256": "e11966306c553b1b4bf418aad12e34233216d009fd436e66f5a39d29afc7c6e2",
+        "decoded_sha256": "3df651acb174fd5f5561a1996965b192f50c5d763168446ed0d4ead19d895768",
+        "gzip_crc32_isize_hex": "48e18ae300600000"
+      },
+      "descriptor": {
+        "label": "DESC_PROD",
+        "source_line": 2376,
+        "storage_bytes": 48,
+        "compressed_bytes": 42,
+        "decoded_bytes": 84,
+        "padding_hex": "000000000000",
+        "storage_sha256": "f36108f6b069f8e982b49133fc70237245b9194ec31ab14b5585a27b72f07c27",
+        "compressed_sha256": "66d632b616bf79e408a57918f27426791343fcb0d1812279a1838ff978974e24",
+        "decoded_sha256": "cc5a3fc1f4c47f2fe107b1b68f0176d8a448e6dec84b575e5560ccef5262bf15",
+        "gzip_crc32_isize_hex": "d44ba9ea54000000"
+      },
+      "descriptor_hex": "050000000050000080080000805800001000000000000000000000000000000000000000000800000008000000100000001800000029000001000000000000000000000000000000000000000060000000000000",
+      "descriptor_fields": {
+        "version": 5,
+        "bootloaderOffset": 20480,
+        "bootloaderSize": 2176,
+        "bootloaderParamOffset": 22656,
+        "bootloaderParamSize": 16,
+        "riscvElfOffset": 0,
+        "riscvElfSize": 0,
+        "appVersion": 0,
+        "manifestOffset": 0,
+        "manifestSize": 2048,
+        "monitorDataOffset": 2048,
+        "monitorDataSize": 4096,
+        "monitorCodeOffset": 6144,
+        "monitorCodeSize": 10496,
+        "bIsMonitorEnabled": 1,
+        "swbromCodeOffset": 0,
+        "swbromCodeSize": 0,
+        "swbromDataOffset": 0,
+        "swbromDataSize": 0,
+        "fbReservedSize": 24576,
+        "bSignedAsCode": 0
+      },
+      "regions": {
+        "bootloader": {
+          "offset": 20480,
+          "size": 2176,
+          "sha256": "0231b7a5ad4be7546b23bfe82b4c6620c126e360bcb0aa6ca72d281b20f12462",
+          "first_32_bytes_hex": "374118001b0101406f000010011106ec9717000083b707859c633ee497070000"
+        },
+        "bootloaderParam": {
+          "offset": 22656,
+          "size": 16,
+          "sha256": "b3d8b4a8ca07fd4589c0af05945eb836d8d157be1251eb70f4e21835ac3c9f8b",
+          "first_32_bytes_hex": "00600000006000000000000070070000"
+        },
+        "riscvElf": {
+          "offset": 0,
+          "size": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_32_bytes_hex": ""
+        },
+        "manifest": {
+          "offset": 0,
+          "size": 2048,
+          "sha256": "7a69d2adf5bd41a5ac6e00fdd9c42c00c55d267873d57ed3f02b0d6a4e9ac7e6",
+          "first_32_bytes_hex": "8aaaf9341ad74bba286334c334ef4ea535faa34720b8ccd4011548e62d409d03"
+        },
+        "monitorData": {
+          "offset": 2048,
+          "size": 4096,
+          "sha256": "0b7654bdb4c29a5b7907266a2fc61b600f08b515586a78d5a51137064ea58cab",
+          "first_32_bytes_hex": "6708e71e611dc2bb7bd162ff454d59f057630fde18d7cbd7577be17b53158394"
+        },
+        "monitorCode": {
+          "offset": 6144,
+          "size": 10496,
+          "sha256": "30f0ab589d1d05e252f674473983bba47581f9e66d8e03f92b47340c0cff8c4a",
+          "first_32_bytes_hex": "91ed82bcc83dea22e7fc723d489e82ce0de37e4f3f681e06b658bdf66c1a93b2"
+        },
+        "swbromCode": {
+          "offset": 0,
+          "size": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_32_bytes_hex": ""
+        },
+        "swbromData": {
+          "offset": 0,
+          "size": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_32_bytes_hex": ""
+        }
+      },
+      "absent_descriptor_tail": [
+        "bIsSmp",
+        "bIsPlicEnabled"
+      ]
+    }
+  ],
+  "image_byte_identical": true,
+  "descriptor_byte_identical": true,
+  "limits": "Packaging equality does not prove runtime selection, hardware support, signature validity, or all firmware equality."
+}

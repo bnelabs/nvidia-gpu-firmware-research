@@ -1,0 +1,145 @@
+{
+  "evidence_id": "ev_3f3b19e4367c2ad621aa84dd74824c11860ddf036f017218c6543b497f35d409",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0x161f20"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 66.293,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 66.314,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0x161f20"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0x161f20",
+            "fn": {
+              "addr": "0x161f20",
+              "name": "sub_161F20",
+              "size": "0x4d"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x161f20",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x161f20",
+          "code": "__int64 __fastcall sub_161F20(__int64 a1, _DWORD *a2)\n{\n  unsigned int *v2; // rdx\n  __int64 v3; // rcx\n  __int64 result; // rax\n  __int64 v6; // rsi\n\n  v2 = (unsigned int *)&unk_246690; /*0x161f21*/\n  v3 = 0; /*0x161f28*/\n  LODWORD(result) = 545296386; /*0x161f2a*/\n  v6 = *(unsigned int *)(a1 + 8); /*0x161f3a*/\n  while ( (_DWORD)v6 != (_DWORD)result ) /*0x161f4f*/\n  {\n    result = *v2; /*0x161f40*/\n    v2 += 4; /*0x161f42*/\n    v3 = (unsigned int)(v3 + 1); /*0x161f46*/\n    if ( (_DWORD)result == 0 ) /*0x161f4b*/\n      return result; /*0x161f4b*/\n  }\n  *a2 = (*((__int64 (__fastcall **)(__int64, __int64, unsigned int *))&unk_246680 + 2 * v3 + 1))(a1, a2: v6, a3: v2); /*0x161f60*/\n  return 1; /*0x161f67*/\n}",
+          "line_count": 22,
+          "total_lines": 22,
+          "truncated": false,
+          "cursor": {
+            "done": true
+          },
+          "refs": [
+            {
+              "addr": "0x246690",
+              "name": "unk_246690"
+            },
+            {
+              "addr": "0x246680",
+              "name": "unk_246680"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_161F20(__int64 a1, _DWORD *a2)\n{\n  unsigned int *v2; // rdx\n  __int64 v3; // rcx\n  __int64 result; // rax\n  __int64 v6; // rsi\n\n  v2 = (unsigned int *)&unk_246690; /*0x161f21*/\n  v3 = 0; /*0x161f28*/\n  LODWORD(result) = 545296386; /*0x161f2a*/\n  v6 = *(unsigned int *)(a1 + 8); /*0x161f3a*/\n  while ( (_DWORD)v6 != (_DWORD)result ) /*0x161f4f*/\n  {\n    result = *v2; /*0x161f40*/\n    v2 += 4; /*0x161f42*/\n    v3 = (unsigned int)(v3 + 1); /*0x161f46*/\n    if ( (_DWORD)result == 0 ) /*0x161f4b*/\n      return result; /*0x161f4b*/\n  }\n  *a2 = (*((__int64 (__fastcall **)(__int64, __int64, unsigned int *))&unk_246680 + 2 * v3 + 1))(a1, a2: v6, a3: v2); /*0x161f60*/\n  return 1; /*0x161f67*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0x161f20"
+    }
+  ],
+  "evidence_links": []
+}

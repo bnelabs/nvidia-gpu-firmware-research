@@ -1,0 +1,126 @@
+{
+  "artifact_sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95",
+  "engine": "Unicorn 2.1.4",
+  "status": "source-decoded",
+  "entry_elf_va": "0xf32b0",
+  "schema": {
+    "buffer_offset": 2280,
+    "record_bytes": 16,
+    "value_offset": 8,
+    "poll_mask": 2
+  },
+  "isolation": "copied instruction/data pages and synthetic device/stack/shared/output memory only; all other code fails closed",
+  "fixtures": [
+    {
+      "case": "timestamp-one-is-valid",
+      "synthetic_timestamp": "0x1",
+      "synthetic_raw_pstate": 4,
+      "status_raw": 0,
+      "output_u32": 2,
+      "output_changed": true,
+      "instructions": 142,
+      "timestamp_attempts": 1,
+      "mutations": 0
+    },
+    {
+      "case": "stable-P8",
+      "synthetic_timestamp": "0x1e240",
+      "synthetic_raw_pstate": 256,
+      "status_raw": 0,
+      "output_u32": 8,
+      "output_changed": true,
+      "instructions": 184,
+      "timestamp_attempts": 1,
+      "mutations": 0
+    },
+    {
+      "case": "stable-P0",
+      "synthetic_timestamp": "0x1e240",
+      "synthetic_raw_pstate": 1,
+      "status_raw": 0,
+      "output_u32": 0,
+      "output_changed": true,
+      "instructions": 128,
+      "timestamp_attempts": 1,
+      "mutations": 0
+    },
+    {
+      "case": "invalid-zero-timestamp",
+      "synthetic_timestamp": "0x0",
+      "synthetic_raw_pstate": 4,
+      "status_raw": 10,
+      "output_u32": 3735928559,
+      "output_changed": false,
+      "instructions": 152,
+      "timestamp_attempts": 5,
+      "mutations": 0
+    },
+    {
+      "case": "write-in-progress",
+      "synthetic_timestamp": "0xffffffffffffffff",
+      "synthetic_raw_pstate": 4,
+      "status_raw": 10,
+      "output_u32": 3735928559,
+      "output_changed": false,
+      "instructions": 142,
+      "timestamp_attempts": 5,
+      "mutations": 0
+    },
+    {
+      "case": "sequential-even",
+      "synthetic_timestamp": "0xff00000000000002",
+      "synthetic_raw_pstate": 4,
+      "status_raw": 0,
+      "output_u32": 2,
+      "output_changed": true,
+      "instructions": 141,
+      "timestamp_attempts": 1,
+      "mutations": 0
+    },
+    {
+      "case": "sequential-odd",
+      "synthetic_timestamp": "0xff00000000000003",
+      "synthetic_raw_pstate": 4,
+      "status_raw": 10,
+      "output_u32": 3735928559,
+      "output_changed": false,
+      "instructions": 142,
+      "timestamp_attempts": 5,
+      "mutations": 0
+    },
+    {
+      "case": "invalid-composite-pstate",
+      "synthetic_timestamp": "0x1e240",
+      "synthetic_raw_pstate": 3,
+      "status_raw": 0,
+      "output_u32": 32,
+      "output_changed": true,
+      "instructions": 234,
+      "timestamp_attempts": 1,
+      "mutations": 0
+    },
+    {
+      "case": "single-snapshot-change",
+      "synthetic_timestamp": "0x1e240",
+      "synthetic_raw_pstate": 4,
+      "status_raw": 0,
+      "output_u32": 8,
+      "output_changed": true,
+      "instructions": 203,
+      "timestamp_attempts": 2,
+      "mutations": 1
+    },
+    {
+      "case": "snapshot-never-stable",
+      "synthetic_timestamp": "0x1e240",
+      "synthetic_raw_pstate": 4,
+      "status_raw": 10,
+      "output_u32": 3735928559,
+      "output_changed": false,
+      "instructions": 197,
+      "timestamp_attempts": 5,
+      "mutations": 5
+    }
+  ],
+  "limits": "Synthetic initialization skips allocation, poll requests and hardware; this proves no historical callback selection, buffer contents, sensor state or firmware writer."
+}

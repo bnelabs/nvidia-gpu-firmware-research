@@ -1,0 +1,195 @@
+{
+  "evidence_id": "ev_0f68a1f556775e5769c8e840a016c4c04da8db73d1abb425133382069a888bf3",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0x11e560"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 97.354,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 97.702,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0x11e560"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0x11e560",
+            "fn": {
+              "addr": "0x11e560",
+              "name": "sub_11E560",
+              "size": "0x28d"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x11e560",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x11e560",
+          "code": "__int64 __fastcall sub_11E560(__int64 a1, _DWORD *a2, unsigned int a3)\n{\n  unsigned int v3; // r12d\n  __int64 v8; // rdi\n  int v9; // eax\n  __int64 v10; // rdx\n  __int64 (__fastcall *v11)(__int64, __int64, __int64); // rcx\n  int v12; // eax\n  int v13; // r9d\n  int v14; // eax\n  int v15; // eax\n\n  v3 = 2; /*0x11e56c*/\n  if ( a1 != 0\n    && (*(_BYTE *)a1 == 1\n     || *(_DWORD *)(a1 + 20) != 0 && *(_DWORD *)(a1 + 28) == 0 && *(_DWORD *)(a1 + 16) != 0 && *(_QWORD *)(a1 + 32) != 0) )\n  {\n    if ( *(_DWORD *)(a1 + 1820) == 0 ) /*0x11e5c1*/\n    {\n      while ( (unsigned int)sub_1AB420(a1: a1 + 1824, a2: 1, a3: 0) != 0 ) /*0x11e5e1*/\n        ; /*0x11e5d0*/\n      if ( *(_DWORD *)(a1 + 1820) == 0 ) /*0x11e5eb*/\n      {\n        v8 = *(_QWORD *)(a1 + 165184); /*0x11e648*/\n        v9 = 3; /*0x11e64f*/\n        if ( v8 != 0 ) /*0x11e657*/\n        {\n          v10 = *(_QWORD *)(v8 + 32); /*0x11e659*/\n          if ( v10 != 0 ) /*0x11e660*/\n          {\n            v11 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(v10 + 152); /*0x11e662*/\n            if ( v11 != nullptr ) /*0x11e66c*/\n              v9 = v11(a1: v8, a2: a1, a3: a1 + 1800); /*0x11e678*/\n          }\n        }\n        *(_DWORD *)(a1 + 1828) = v9; /*0x11e67a*/\n        *(_DWORD *)(a1 + 1820) = 1; /*0x11e680*/\n      }\n      sub_1AB430(a1: a1 + 1824, a2: 0); /*0x11e5f8*/\n    }\n    v3 = *(_DWORD *)(a1 + 1828); /*0x11e604*/\n    if ( v3 != 0 )\n    {\n      if ( v3 == 15 )\n      {\n        if ( dword_153D718 > 4 )\n        {\n          sub_1AB3B0(a1: &tp); /*0x11e720*/\n          v14 = syscall(sysno: 186); /*0x11e731*/\n          sub_14C570(\n            a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\tisArchOrNewer error: %d\\n\",\n            a2: (unsigned int)\"DEBUG\",\n            a3: v14,\n            a4: (unsigned int)\"/dvs/p4/build/sw/rel/gpu_drv/r615/r616_69/apps/nvml/dmal/dmal.h\",\n            a5: 66,\n            a6: a3);\n        }\n      }\n      else\n      {\n        if ( dword_153D718 > 1 ) /*0x11e623*/\n        {\n          sub_1AB3B0(a1: &tp); /*0x11e697*/\n          v12 = syscall(sysno: 186); /*0x11e6a8*/\n          sub_14C570( /*0x11e6e1*/\n            a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\tFailure to determine Architecture\\n\",\n            a2: (unsigned int)\"ERROR\",\n            a3: v12,\n            a4: (unsigned int)\"/dvs/p4/build/sw/rel/gpu_drv/r615/r616_69/apps/nvml/dmal/dmal.h\",\n            a5: 70,\n            a6: v13);\n        }\n        *a2 = 0; /*0x11e625*/\n        return 0; /*0x11e62d*/\n      }\n    }\n    else\n    {\n      if ( dword_153D718 > 4 )\n      {\n        sub_1AB3B0(a1: &tp); /*0x11e78e*/\n        v15 = syscall(sysno: 186); /*0x11e79f*/\n        sub_14C570(\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\tisArchOrNewer called: %d %d\\n\",\n          a2: (unsigned int)\"DEBUG\",\n          a3: v15,\n          a4: (unsigned int)\"/dvs/p4/build/sw/rel/gpu_drv/r615/r616_69/apps/nvml/dmal/dmal.h\",\n          a5: 61,\n          a6: a3);\n      }\n      *a2 = *(_DWORD *)(a1 + 1800) >= a3; /*0x11e705*/\n    }\n  }\n  return v3; /*0x11e630*/\n}",
+          "line_count": 95,
+          "total_lines": 95,
+          "truncated": false,
+          "cursor": {
+            "done": true
+          },
+          "refs": [
+            {
+              "addr": "0x1ab420",
+              "name": "sub_1AB420"
+            },
+            {
+              "addr": "0x1ab430",
+              "name": "sub_1AB430"
+            },
+            {
+              "addr": "0x1ab3b0",
+              "name": "sub_1AB3B0"
+            },
+            {
+              "addr": "0x153d700",
+              "name": "tp"
+            },
+            {
+              "addr": "0x226b0",
+              "name": ".syscall"
+            },
+            {
+              "addr": "0x14c570",
+              "name": "sub_14C570"
+            },
+            {
+              "addr": "0x1b2840",
+              "name": "aSTidLlu06fsSDI",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\tisArchOrNewer error: %d\n"
+            },
+            {
+              "addr": "0x1b2395",
+              "name": "aDebug",
+              "string": "DEBUG"
+            },
+            {
+              "addr": "0x1b27c0",
+              "name": "aDvsP4BuildSwRe",
+              "string": "/dvs/p4/build/sw/rel/gpu_drv/r615/r616_69/apps/nvml/dmal/dmal.h"
+            },
+            {
+              "addr": "0x153d718",
+              "name": "dword_153D718"
+            },
+            {
+              "addr": "0x1b2880",
+              "name": "aSTidLlu06fsSDF",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\tFailure to determine Architecture\n"
+            },
+            {
+              "addr": "0x2053db",
+              "name": "aRobustChannelC_21",
+              "string": "ROBUST_CHANNEL_CE10_ERROR"
+            },
+            {
+              "addr": "0x1b2800",
+              "name": "aSTidLlu06fsSDI_0",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\tisArchOrNewer called: %d %d\n"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_11E560(__int64 a1, _DWORD *a2, unsigned int a3)\n{\n  unsigned int v3; // r12d\n  __int64 v8; // rdi\n  int v9; // eax\n  __int64 v10; // rdx\n  __int64 (__fastcall *v11)(__int64, __int64, __int64); // rcx\n  int v12; // eax\n  int v13; // r9d\n  int v14; // eax\n  int v15; // eax\n\n  v3 = 2; /*0x11e56c*/\n  if ( a1 != 0\n    && (*(_BYTE *)a1 == 1\n     || *(_DWORD *)(a1 + 20) != 0 && *(_DWORD *)(a1 + 28) == 0 && *(_DWORD *)(a1 + 16) != 0 && *(_QWORD *)(a1 + 32) != 0) )\n  {\n    if ( *(_DWORD *)(a1 + 1820) == 0 ) /*0x11e5c1*/\n    {\n      while ( (unsigned int)sub_1AB420(a1: a1 + 1824, a2: 1, a3: 0) != 0 ) /*0x11e5e1*/\n        ; /*0x11e5d0*/\n      if ( *(_DWORD *)(a1 + 1820) == 0 ) /*0x11e5eb*/\n      {\n        v8 = *(_QWORD *)(a1 + 165184); /*0x11e648*/\n        v9 = 3; /*0x11e64f*/\n        if ( v8 != 0 ) /*0x11e657*/\n        {\n          v10 = *(_QWORD *)(v8 + 32); /*0x11e659*/\n          if ( v10 != 0 ) /*0x11e660*/\n          {\n            v11 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(v10 + 152); /*0x11e662*/\n            if ( v11 != nullptr ) /*0x11e66c*/\n              v9 = v11(a1: v8, a2: a1, a3: a1 + 1800); /*0x11e678*/\n          }\n        }\n        *(_DWORD *)(a1 + 1828) = v9; /*0x11e67a*/\n        *(_DWORD *)(a1 + 1820) = 1; /*0x11e680*/\n      }\n      sub_1AB430(a1: a1 + 1824, a2: 0); /*0x11e5f8*/\n    }\n    v3 = *(_DWORD *)(a1 + 1828); /*0x11e604*/\n    if ( v3 != 0 )\n    {\n      if ( v3 == 15 )\n      {\n        if ( dword_153D718 > 4 )\n        {\n          sub_1AB3B0(a1: &tp); /*0x11e720*/\n          v14 = syscall(sysno: 186); /*0x11e731*/\n          sub_14C570(\n            a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\tisArchOrNewer error: %d\\n\",\n            a2: (unsigned int)\"DEBUG\",\n            a3: v14,\n            a4: (unsigned int)\"/dvs/p4/build/sw/rel/gpu_drv/r615/r616_69/apps/nvml/dmal/dmal.h\",\n            a5: 66,\n            a6: a3);\n        }\n      }\n      else\n      {\n        if ( dword_153D718 > 1 ) /*0x11e623*/\n        {\n          sub_1AB3B0(a1: &tp); /*0x11e697*/\n          v12 = syscall(sysno: 186); /*0x11e6a8*/\n          sub_14C570( /*0x11e6e1*/\n            a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\tFailure to determine Architecture\\n\",\n            a2: (unsigned int)\"ERROR\",\n            a3: v12,\n            a4: (unsigned int)\"/dvs/p4/build/sw/rel/gpu_drv/r615/r616_69/apps/nvml/dmal/dmal.h\",\n            a5: 70,\n            a6: v13);\n        }\n        *a2 = 0; /*0x11e625*/\n        return 0; /*0x11e62d*/\n      }\n    }\n    else\n    {\n      if ( dword_153D718 > 4 )\n      {\n        sub_1AB3B0(a1: &tp); /*0x11e78e*/\n        v15 = syscall(sysno: 186); /*0x11e79f*/\n        sub_14C570(\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\tisArchOrNewer called: %d %d\\n\",\n          a2: (unsigned int)\"DEBUG\",\n          a3: v15,\n          a4: (unsigned int)\"/dvs/p4/build/sw/rel/gpu_drv/r615/r616_69/apps/nvml/dmal/dmal.h\",\n          a5: 61,\n          a6: a3);\n      }\n      *a2 = *(_DWORD *)(a1 + 1800) >= a3; /*0x11e705*/\n    }\n  }\n  return v3; /*0x11e630*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0x11e560"
+    }
+  ],
+  "evidence_links": []
+}
