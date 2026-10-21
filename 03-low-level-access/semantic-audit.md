@@ -15,4 +15,4 @@ All decoding is offline. [CORRECTIONS.md](../CORRECTIONS.md) overrides older cla
 
 The active tools have no RM allocation/control path. The former claim that rmctl
 propagated every live probe failure was false and is superseded by retiring that path.
-Synthetic byte tests validate bounds/encoding only. See [VALIDATION.md](../VALIDATION.md).
+Synthetic byte tests validate bounds/encoding only. See [VALIDATION.md](../docs/testing.md).

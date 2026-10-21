@@ -1,0 +1,4 @@
+# Keep generated evidence available while collapsing it in GitHub reviews.
+research/**/*.json linguist-generated=true
+research/**/check.log linguist-generated=true
+research/**/SHA256SUMS linguist-generated=true

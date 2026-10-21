@@ -99,3 +99,17 @@ One opaque context-swap service is still stubbed, object instances are synthetic
 and actual runtime callback selection/replacement remains unobserved. Entry getter
 `+0x38` and entry `+0x34` writers remain unresolved. There is no demonstrated
 physical measurement boundary yet.
+# Object/getter provenance checkpoint — 2026-10-21
+
+The [object-origin packet](research/2026-10-21-object-origin/README.md) advances
+the copied firmware path `0x16be978 → 0x167de40`. A child-creation block supplies
+class ID `0xed0b65` (exact-source `Perf`) and output `GPU+0x2000`; `KernelPerf`
+is a separate ID/output. One Perf table construction branch assigns getter
+`0x1757ea0` at table `+0x38` and installs the table at `Perf+0x320`.
+
+The getter returns a pointer-array entry. A copied constructor prefix transfers
+`u32(tag-8 input record+0x0c)` through a temporary record into entry `+0x34`;
+copied insertion/remapping/getter/handler reproduce that transfer on synthetic
+objects. The tagged input producer, actual branch/selection, gate clearing and
+later overrides/writers remain unknown. This is an object-value boundary,
+not a demonstrated physical register or sensor read. See OO-01–08 and raw bytes.

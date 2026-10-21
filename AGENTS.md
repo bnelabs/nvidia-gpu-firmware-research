@@ -4,6 +4,9 @@ Read [CONSTITUTION.md](CONSTITUTION.md), [CORRECTIONS.md](CORRECTIONS.md),
 [LEAD-NEXT.md](LEAD-NEXT.md) and [EVIDENCE.md](EVIDENCE.md) before working.
 The owner's constitutional rule is **never risk the GPU or disrupt its workload**.
 
+The public overview is README.md; the technical map is docs/control-plane.md.
+Superseded worker prompts, roadmaps and validation notes are preserved in archive/.
+
 - Deep offline decompilation, disassembly, firmware/driver/library RE, source comparison,
   container parsing, protocol mapping and CPU-only emulation are authorized.
 - Do not run custom RM/GSP calls, undocumented getters, raw register/config/ROM reads,
