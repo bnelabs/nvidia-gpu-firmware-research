@@ -1,0 +1,50 @@
+{
+  "analysis_json_products": 7,
+  "byte_identical_products": [
+    {
+      "file": "emulation.json",
+      "bytes": 427094,
+      "sha256": "ad21e37601d47b41750654459bff29b4be2b33d93ec08a75ad0687272a1fbc08",
+      "byte_identical": true
+    },
+    {
+      "file": "entry-writer.json",
+      "bytes": 269793,
+      "sha256": "c0dc8cdbe5588f9f1ba0d9d0e71a9935a836cefd7b7909939a40c6960abf4b58",
+      "byte_identical": true
+    },
+    {
+      "file": "metadata.json",
+      "bytes": 17846,
+      "sha256": "1cb563b5b7c37e9d108da2bc58eeacfbda0c16660d24e53a6bde58addfec10e6",
+      "byte_identical": true
+    },
+    {
+      "file": "object-route.json",
+      "bytes": 81577,
+      "sha256": "0896d42e9a23bb093f30841420d8028c41a6f8bde7d973e9851932881f532546",
+      "byte_identical": true
+    },
+    {
+      "file": "source-manifest.json",
+      "bytes": 10019,
+      "sha256": "951c789f2ada94ae433a4b864f42bd4934ce049b47a51265e6983d43c0699137",
+      "byte_identical": true
+    },
+    {
+      "file": "table-factory.json",
+      "bytes": 742725,
+      "sha256": "1e20c5db3c4644c20c78ad6d6c2b9cb6f7ed203856a4d9a7b2cdf33293e49fce",
+      "byte_identical": true
+    },
+    {
+      "file": "table-getter.json",
+      "bytes": 57919,
+      "sha256": "f1138beb518f7d533721a94e1e2925f2f6e83aff5977213810dd7f93799f44ce",
+      "byte_identical": true
+    }
+  ],
+  "repository_gate": "41 Python tests, C/CLI and 29 offline-record checks passed in CPU-only namespace",
+  "firmware_sha256": "4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a",
+  "note": "check.log contains execution timing and is not required to replay byte-for-byte."
+}

@@ -1,0 +1,35 @@
+{
+  "status": "Completed bounded schema/record-producer analysis; raw acquisition leads remain unpromoted",
+  "firmware_sha256": "4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a",
+  "address_domain": "firmware ELF VA with raw file offsets in exports",
+  "question": "Producer of the tag-8 record reaching 0x16870d4",
+  "leads": [
+    "0x176b2a8 selects provider+0x60 table using selector interface+0xd0; passes 0x176b4b8 to 0x17678c8",
+    "0x176b4b8 reaches 0x140b7ac through descriptor helpers; this is sub-descriptor construction, not demonstrated byte acquisition.",
+    "Parsed table +0x28 assignment resolves to 0x17615d4 and is CPU-reproduced.",
+    "New bounded emulation covers copied schema setup, one mask parser branch, record getter and constructor prefix. No transfer service or hardware activity."
+  ],
+  "files": [
+    {
+      "file": "parser-entry-leads.json",
+      "sha256": "fa212898f4e398dc93ae6fc847dc1eb71e906e720c693166347be5e06212d906"
+    },
+    {
+      "file": "parser-acquire.json",
+      "sha256": "4da13ddc27d95961012cbeee96aff688099182513b5c9cc61100e3afa79f7027"
+    },
+    {
+      "file": "parser-transfer.json",
+      "sha256": "2598e1c943c883e4a5a864a67f6a9a5045fd17715a591fd72e028b2e642e4bb2"
+    },
+    {
+      "file": "parser-body.json",
+      "sha256": "d9eb28b8a569ddab9aa0b8bc38a355ad741e4a9b7f7468250e1d81e04dccd398"
+    },
+    {
+      "file": "record-reader.json",
+      "sha256": "15579fdd0df6a347dd4296a62f9e27ffac4a202958ac0bf9cd5301c8dbf58ece"
+    }
+  ],
+  "result": "See README.md and emulation.json; actual transfer/source storage remains unresolved."
+}
