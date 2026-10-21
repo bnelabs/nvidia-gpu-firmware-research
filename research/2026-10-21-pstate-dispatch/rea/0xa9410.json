@@ -1,0 +1,267 @@
+{
+  "evidence_id": "ev_eddc3ccca5c8d3efcf7b68ac5931af36a44d9747a4374d5e36fd81f0678687f1",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0xa9410"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 66.439,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 66.516,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0xa9410"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0xa9410",
+            "fn": {
+              "addr": "0xa9410",
+              "name": "sub_A9410",
+              "size": "0x690"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0xa9410",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0xa9410",
+          "code": "__int64 __fastcall sub_A9410(__int64 a1, __int64 a2)\n{\n  unsigned int v4; // r13d\n  int v6; // edx\n  int v7; // r8d\n  int v8; // eax\n  __int64 v9; // r15\n  int v10; // esi\n  unsigned int v11; // ebx\n  int v12; // eax\n  int v13; // r9d\n  int v14; // r8d\n  int v15; // edx\n  int v16; // eax\n  int v17; // r9d\n  int v18; // r8d\n  int v19; // edx\n  int v20; // eax\n  int v21; // eax\n  int v22; // r9d\n  int v23; // eax\n  int v24; // eax\n  int v25; // eax\n  int v26; // eax\n  int v27; // r9d\n  __int64 v28; // [rsp+18h] [rbp-C8h] BYREF\n  _DWORD v29[48]; // [rsp+20h] [rbp-C0h] BYREF\n\n  if ( *(_BYTE *)a2 == 1 ) /*0xa9427*/\n    return 0; /*0xa9427*/\n  v4 = sub_39300(a1: a2); /*0xa943b*/\n  if ( v4 != 0 ) /*0xa9440*/\n  {\n    if ( dword_153D718 <= 1 ) /*0xa94ba*/\n      return v4; /*0xa94ba*/\n    sub_1AB3B0(a1: &tp); /*0xa94c3*/\n    v6 = syscall(sysno: 186); /*0xa94fa*/\n    v7 = 1649; /*0xa94fd*/\nLABEL_12:\n    sub_14C570( /*0xa9507*/\n      a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n      a2: (unsigned int)\"ERROR\",\n      a3: v6,\n      a4: (unsigned int)\"dmal/common/common_nvml.c\",\n      a5: v7,\n      a6: (unsigned int)\"cDmalCachedAllocateDevice\");\n    return v4; /*0xa9528*/\n  }\n  if ( *(_DWORD *)(a2 + 20) != 0 ) /*0xa9449*/\n    goto LABEL_7; /*0xa9449*/\n  while ( (unsigned int)sub_1AB420(a1: a2 + 24, a2: 1, a3: 0) != 0 ) /*0xa9461*/\n    ; /*0xa9450*/\n  if ( *(_DWORD *)(a2 + 20) == 0 ) /*0xa946a*/\n  {\n    memset(&v29[2], 0, 0x78u); /*0xa9622*/\n    v8 = *(_DWORD *)((char *)&loc_28548 + a2); /*0xa9625*/\n    *(_DWORD *)(a2 + 16) = 1; /*0xa9632*/\n    v9 = *(_QWORD *)(a1 + 16); /*0xa963b*/\n    v28 = 0; /*0xa964c*/\n    v29[0] = v8; /*0xa9657*/\n    v29[1] = -1; /*0xa9664*/\n    v10 = *(_DWORD *)&s[140]; /*0xa966e*/\n    v29[32] = 0; /*0xa9674*/\n    v11 = sub_A5880(a1: v9, a2: v10, a3: v10, a4: 533, a5: (unsigned int)v29, a6: 132, a7: 0); /*0xa9689*/\n    if ( v11 == 0 ) /*0xa968d*/\n    {\n      if ( dword_153D718 > 3 ) /*0xa969d*/\n      {\n        sub_1AB3B0(a1: &tp); /*0xa9a46*/\n        v26 = syscall(sysno: 186); /*0xa9a5a*/\n        sub_14C570( /*0xa9a96*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t\\n\",\n          a2: (unsigned int)\"INFO\",\n          a3: v26,\n          a4: (unsigned int)\"dmal/common/common_nvml.c\",\n          a5: 890,\n          a6: v27);\n      }\n      goto LABEL_22; /*0xa9a96*/\n    }\n    LODWORD(v28) = *(_DWORD *)((char *)&loc_28548 + a2); /*0xa9741*/\n    if ( (unsigned int)sub_A5880( /*0xa976b*/\n                         a1: v9,\n                         a2: *(_DWORD *)&s[140],\n                         a3: *(_DWORD *)&s[140],\n                         a4: 515,\n                         a5: (unsigned int)&v28,\n                         a6: 8,\n                         a7: 0) == 0\n      && HIDWORD(v28) != 0 )\n    {\n      v11 = HIDWORD(v28); /*0xa976b*/\n    }\n    if ( v11 > 0x46 ) /*0xa977a*/\n    {\n      if ( v11 == 89 ) /*0xa9813*/\n      {\n        v11 = 9; /*0xa99f0*/\n        if ( dword_153D718 <= 0 ) /*0xa99f7*/\n          goto LABEL_22; /*0xa99f7*/",
+          "line_count": 100,
+          "total_lines": 240,
+          "truncated": true,
+          "cursor": {
+            "next": 100
+          },
+          "refs": [
+            {
+              "addr": "0x39300",
+              "name": "sub_39300"
+            },
+            {
+              "addr": "0x153d718",
+              "name": "dword_153D718"
+            },
+            {
+              "addr": "0x1ab3b0",
+              "name": "sub_1AB3B0"
+            },
+            {
+              "addr": "0x153d700",
+              "name": "tp"
+            },
+            {
+              "addr": "0x226b0",
+              "name": ".syscall"
+            },
+            {
+              "addr": "0x14c570",
+              "name": "sub_14C570"
+            },
+            {
+              "addr": "0x1b2660",
+              "name": "aSTidLlu06fsSDS_0",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%s %d %d\n"
+            },
+            {
+              "addr": "0x2053db",
+              "name": "aRobustChannelC_21",
+              "string": "ROBUST_CHANNEL_CE10_ERROR"
+            },
+            {
+              "addr": "0x1c344e",
+              "name": "aDmalCommonComm_0",
+              "string": "dmal/common/common_nvml.c"
+            },
+            {
+              "addr": "0x1c52f0",
+              "name": "aCdmalcachedall",
+              "string": "cDmalCachedAllocateDevice"
+            },
+            {
+              "addr": "0x1ab420",
+              "name": "sub_1AB420"
+            },
+            {
+              "addr": "0x28548",
+              "name": "loc_28548"
+            },
+            {
+              "addr": "0x2d2e20",
+              "name": "s"
+            },
+            {
+              "addr": "0xa5880",
+              "name": "sub_A5880"
+            },
+            {
+              "addr": "0x1b2418",
+              "name": "aSTidLlu06fsSD",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t\n"
+            },
+            {
+              "addr": "0x1b23c6",
+              "name": "aInfo",
+              "string": "INFO"
+            },
+            {
+              "addr": "0x1b26b3",
+              "name": "aWarning",
+              "string": "WARNING"
+            },
+            {
+              "addr": "0x1b2798",
+              "name": "aCritical",
+              "string": "CRITICAL"
+            },
+            {
+              "addr": "0x1ab430",
+              "name": "sub_1AB430"
+            },
+            {
+              "addr": "0xa6310",
+              "name": "sub_A6310"
+            },
+            {
+              "addr": "0xa6660",
+              "name": "sub_A6660"
+            }
+          ]
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0xa9410",
+          "offset": 100,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0xa9410",
+          "code": "        sub_1AB3B0(a1: &tp); /*0xa9a04*/\n        v25 = syscall(sysno: 186); /*0xa9a18*/\n        v14 = 902; /*0xa9a2d*/\n        v15 = v25; /*0xa9a33*/\n        goto LABEL_35; /*0xa9a3a*/\n      }\n      if ( v11 == 98 ) /*0xa981c*/\n      {\n        v11 = 16; /*0xa9822*/\n        if ( dword_153D718 <= 1 ) /*0xa982a*/\n          goto LABEL_22; /*0xa982a*/\n        sub_1AB3B0(a1: &tp); /*0xa9837*/\n        v16 = syscall(sysno: 186); /*0xa984b*/\n        v18 = 916; /*0xa9860*/\n        v19 = v16; /*0xa9866*/\nLABEL_40:\n        sub_14C570( /*0xa986d*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v19,\n          a4: (unsigned int)\"dmal/common/common_nvml.c\",\n          a5: v18,\n          a6: v17);\n        goto LABEL_22; /*0xa988c*/\n      }\n    }\n    else\n    {\n      if ( v11 > 0x44 ) /*0xa9783*/\n      {\n        v11 = 11; /*0xa9951*/\n        if ( dword_153D718 <= 0 ) /*0xa9958*/\n          goto LABEL_22; /*0xa9958*/\n        sub_1AB3B0(a1: &tp); /*0xa9965*/\n        v23 = syscall(sysno: 186); /*0xa9979*/\n        v14 = 907; /*0xa998e*/\n        v15 = v23; /*0xa9994*/\n        goto LABEL_35; /*0xa999b*/\n      }\n      if ( v11 == 27 ) /*0xa978c*/\n      {\n        v11 = 4; /*0xa98e2*/\n        if ( dword_153D718 > 2 ) /*0xa98ea*/\n        {\n          sub_1AB3B0(a1: &tp); /*0xa98f7*/\n          v21 = syscall(sysno: 186); /*0xa990b*/\n          sub_14C570( /*0xa9947*/\n            a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t\\n\",\n            a2: (unsigned int)\"WARNING\",\n            a3: v21,\n            a4: (unsigned int)\"dmal/common/common_nvml.c\",\n            a5: 894,\n            a6: v22);\n        }\n        goto LABEL_22; /*0xa994c*/\n      }\n      if ( v11 <= 0x1B ) /*0xa9792*/\n      {\n        if ( v11 == 15 ) /*0xa9894*/\n        {\n          if ( dword_153D718 <= 1 ) /*0xa989d*/\n            goto LABEL_22; /*0xa989d*/\n          sub_1AB3B0(a1: &tp); /*0xa98aa*/\n          v20 = syscall(sysno: 186); /*0xa98be*/\n          v18 = 912; /*0xa98d3*/\n          v19 = v20; /*0xa98d9*/\n          goto LABEL_40; /*0xa98e0*/\n        }\n      }\n      else if ( v11 == 28 ) /*0xa979b*/\n      {\n        v11 = 8; /*0xa97a1*/\n        if ( dword_153D718 <= 0 ) /*0xa97a8*/\n        {\nLABEL_22:\n          *(_DWORD *)(a2 + 28) = v11; /*0xa96a8*/\n          *(_DWORD *)(a2 + 20) = 1; /*0xa96ad*/\n          goto LABEL_6; /*0xa96b6*/\n        }\n        sub_1AB3B0(a1: &tp); /*0xa97b5*/\n        v12 = syscall(sysno: 186); /*0xa97c9*/\n        v14 = 898; /*0xa97de*/\n        v15 = v12; /*0xa97e4*/\nLABEL_35:\n        sub_14C570( /*0xa97eb*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t\\n\",\n          a2: (unsigned int)\"CRITICAL\",\n          a3: v15,\n          a4: (unsigned int)\"dmal/common/common_nvml.c\",\n          a5: v14,\n          a6: v13);\n        goto LABEL_22; /*0xa980a*/\n      }\n    }\n    v11 = 999; /*0xa99a0*/\n    if ( dword_153D718 <= 1 ) /*0xa99a8*/\n      goto LABEL_22; /*0xa99a8*/\n    sub_1AB3B0(a1: &tp); /*0xa99b5*/\n    v24 = syscall(sysno: 186); /*0xa99c9*/\n    v18 = 920; /*0xa99de*/",
+          "line_count": 100,
+          "total_lines": 240,
+          "truncated": true,
+          "cursor": {
+            "next": 200
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0xa9410",
+          "offset": 200,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0xa9410",
+          "code": "    v19 = v24; /*0xa99e4*/\n    goto LABEL_40; /*0xa99eb*/\n  }\nLABEL_6:\n  sub_1AB430(a1: a2 + 24, a2: 0); /*0xa9470*/\nLABEL_7:\n  v4 = *(_DWORD *)(a2 + 28); /*0xa947f*/\n  if ( v4 == 0 ) /*0xa9487*/\n  {\n    v4 = sub_A6310(a1, a2); /*0xa953b*/\n    if ( v4 != 0 ) /*0xa9540*/\n    {\n      if ( dword_153D718 <= 1 ) /*0xa956a*/\n        return v4; /*0xa956a*/\n      sub_1AB3B0(a1: &tp); /*0xa9577*/\n      v6 = syscall(sysno: 186); /*0xa95ae*/\n      v7 = 1658; /*0xa95b1*/\n      goto LABEL_12; /*0xa95bb*/\n    }\n    v4 = sub_A6660(a1: a2); /*0xa954a*/\n    if ( v4 != 0 ) /*0xa954f*/\n    {\n      if ( dword_153D718 <= 1 ) /*0xa96ca*/\n        return v4; /*0xa96ca*/\n      sub_1AB3B0(a1: &tp); /*0xa96d7*/\n      v6 = syscall(sysno: 186); /*0xa970e*/\n      v7 = 1661; /*0xa9711*/\n      goto LABEL_12; /*0xa971b*/\n    }\n    return 0; /*0xa955b*/\n  }\n  if ( dword_153D718 > 1 ) /*0xa9497*/\n  {\n    sub_1AB3B0(a1: &tp); /*0xa95c7*/\n    v6 = syscall(sysno: 186); /*0xa95fe*/\n    v7 = 1655; /*0xa9601*/\n    goto LABEL_12; /*0xa960b*/\n  }\n  return v4; /*0xa949d*/\n}",
+          "line_count": 40,
+          "total_lines": 240,
+          "truncated": true,
+          "cursor": {
+            "done": true
+          }
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_A9410(__int64 a1, __int64 a2)\n{\n  unsigned int v4; // r13d\n  int v6; // edx\n  int v7; // r8d\n  int v8; // eax\n  __int64 v9; // r15\n  int v10; // esi\n  unsigned int v11; // ebx\n  int v12; // eax\n  int v13; // r9d\n  int v14; // r8d\n  int v15; // edx\n  int v16; // eax\n  int v17; // r9d\n  int v18; // r8d\n  int v19; // edx\n  int v20; // eax\n  int v21; // eax\n  int v22; // r9d\n  int v23; // eax\n  int v24; // eax\n  int v25; // eax\n  int v26; // eax\n  int v27; // r9d\n  __int64 v28; // [rsp+18h] [rbp-C8h] BYREF\n  _DWORD v29[48]; // [rsp+20h] [rbp-C0h] BYREF\n\n  if ( *(_BYTE *)a2 == 1 ) /*0xa9427*/\n    return 0; /*0xa9427*/\n  v4 = sub_39300(a1: a2); /*0xa943b*/\n  if ( v4 != 0 ) /*0xa9440*/\n  {\n    if ( dword_153D718 <= 1 ) /*0xa94ba*/\n      return v4; /*0xa94ba*/\n    sub_1AB3B0(a1: &tp); /*0xa94c3*/\n    v6 = syscall(sysno: 186); /*0xa94fa*/\n    v7 = 1649; /*0xa94fd*/\nLABEL_12:\n    sub_14C570( /*0xa9507*/\n      a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n      a2: (unsigned int)\"ERROR\",\n      a3: v6,\n      a4: (unsigned int)\"dmal/common/common_nvml.c\",\n      a5: v7,\n      a6: (unsigned int)\"cDmalCachedAllocateDevice\");\n    return v4; /*0xa9528*/\n  }\n  if ( *(_DWORD *)(a2 + 20) != 0 ) /*0xa9449*/\n    goto LABEL_7; /*0xa9449*/\n  while ( (unsigned int)sub_1AB420(a1: a2 + 24, a2: 1, a3: 0) != 0 ) /*0xa9461*/\n    ; /*0xa9450*/\n  if ( *(_DWORD *)(a2 + 20) == 0 ) /*0xa946a*/\n  {\n    memset(&v29[2], 0, 0x78u); /*0xa9622*/\n    v8 = *(_DWORD *)((char *)&loc_28548 + a2); /*0xa9625*/\n    *(_DWORD *)(a2 + 16) = 1; /*0xa9632*/\n    v9 = *(_QWORD *)(a1 + 16); /*0xa963b*/\n    v28 = 0; /*0xa964c*/\n    v29[0] = v8; /*0xa9657*/\n    v29[1] = -1; /*0xa9664*/\n    v10 = *(_DWORD *)&s[140]; /*0xa966e*/\n    v29[32] = 0; /*0xa9674*/\n    v11 = sub_A5880(a1: v9, a2: v10, a3: v10, a4: 533, a5: (unsigned int)v29, a6: 132, a7: 0); /*0xa9689*/\n    if ( v11 == 0 ) /*0xa968d*/\n    {\n      if ( dword_153D718 > 3 ) /*0xa969d*/\n      {\n        sub_1AB3B0(a1: &tp); /*0xa9a46*/\n        v26 = syscall(sysno: 186); /*0xa9a5a*/\n        sub_14C570( /*0xa9a96*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t\\n\",\n          a2: (unsigned int)\"INFO\",\n          a3: v26,\n          a4: (unsigned int)\"dmal/common/common_nvml.c\",\n          a5: 890,\n          a6: v27);\n      }\n      goto LABEL_22; /*0xa9a96*/\n    }\n    LODWORD(v28) = *(_DWORD *)((char *)&loc_28548 + a2); /*0xa9741*/\n    if ( (unsigned int)sub_A5880( /*0xa976b*/\n                         a1: v9,\n                         a2: *(_DWORD *)&s[140],\n                         a3: *(_DWORD *)&s[140],\n                         a4: 515,\n                         a5: (unsigned int)&v28,\n                         a6: 8,\n                         a7: 0) == 0\n      && HIDWORD(v28) != 0 )\n    {\n      v11 = HIDWORD(v28); /*0xa976b*/\n    }\n    if ( v11 > 0x46 ) /*0xa977a*/\n    {\n      if ( v11 == 89 ) /*0xa9813*/\n      {\n        v11 = 9; /*0xa99f0*/\n        if ( dword_153D718 <= 0 ) /*0xa99f7*/\n          goto LABEL_22; /*0xa99f7*/\n        sub_1AB3B0(a1: &tp); /*0xa9a04*/\n        v25 = syscall(sysno: 186); /*0xa9a18*/\n        v14 = 902; /*0xa9a2d*/\n        v15 = v25; /*0xa9a33*/\n        goto LABEL_35; /*0xa9a3a*/\n      }\n      if ( v11 == 98 ) /*0xa981c*/\n      {\n        v11 = 16; /*0xa9822*/\n        if ( dword_153D718 <= 1 ) /*0xa982a*/\n          goto LABEL_22; /*0xa982a*/\n        sub_1AB3B0(a1: &tp); /*0xa9837*/\n        v16 = syscall(sysno: 186); /*0xa984b*/\n        v18 = 916; /*0xa9860*/\n        v19 = v16; /*0xa9866*/\nLABEL_40:\n        sub_14C570( /*0xa986d*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v19,\n          a4: (unsigned int)\"dmal/common/common_nvml.c\",\n          a5: v18,\n          a6: v17);\n        goto LABEL_22; /*0xa988c*/\n      }\n    }\n    else\n    {\n      if ( v11 > 0x44 ) /*0xa9783*/\n      {\n        v11 = 11; /*0xa9951*/\n        if ( dword_153D718 <= 0 ) /*0xa9958*/\n          goto LABEL_22; /*0xa9958*/\n        sub_1AB3B0(a1: &tp); /*0xa9965*/\n        v23 = syscall(sysno: 186); /*0xa9979*/\n        v14 = 907; /*0xa998e*/\n        v15 = v23; /*0xa9994*/\n        goto LABEL_35; /*0xa999b*/\n      }\n      if ( v11 == 27 ) /*0xa978c*/\n      {\n        v11 = 4; /*0xa98e2*/\n        if ( dword_153D718 > 2 ) /*0xa98ea*/\n        {\n          sub_1AB3B0(a1: &tp); /*0xa98f7*/\n          v21 = syscall(sysno: 186); /*0xa990b*/\n          sub_14C570( /*0xa9947*/\n            a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t\\n\",\n            a2: (unsigned int)\"WARNING\",\n            a3: v21,\n            a4: (unsigned int)\"dmal/common/common_nvml.c\",\n            a5: 894,\n            a6: v22);\n        }\n        goto LABEL_22; /*0xa994c*/\n      }\n      if ( v11 <= 0x1B ) /*0xa9792*/\n      {\n        if ( v11 == 15 ) /*0xa9894*/\n        {\n          if ( dword_153D718 <= 1 ) /*0xa989d*/\n            goto LABEL_22; /*0xa989d*/\n          sub_1AB3B0(a1: &tp); /*0xa98aa*/\n          v20 = syscall(sysno: 186); /*0xa98be*/\n          v18 = 912; /*0xa98d3*/\n          v19 = v20; /*0xa98d9*/\n          goto LABEL_40; /*0xa98e0*/\n        }\n      }\n      else if ( v11 == 28 ) /*0xa979b*/\n      {\n        v11 = 8; /*0xa97a1*/\n        if ( dword_153D718 <= 0 ) /*0xa97a8*/\n        {\nLABEL_22:\n          *(_DWORD *)(a2 + 28) = v11; /*0xa96a8*/\n          *(_DWORD *)(a2 + 20) = 1; /*0xa96ad*/\n          goto LABEL_6; /*0xa96b6*/\n        }\n        sub_1AB3B0(a1: &tp); /*0xa97b5*/\n        v12 = syscall(sysno: 186); /*0xa97c9*/\n        v14 = 898; /*0xa97de*/\n        v15 = v12; /*0xa97e4*/\nLABEL_35:\n        sub_14C570( /*0xa97eb*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t\\n\",\n          a2: (unsigned int)\"CRITICAL\",\n          a3: v15,\n          a4: (unsigned int)\"dmal/common/common_nvml.c\",\n          a5: v14,\n          a6: v13);\n        goto LABEL_22; /*0xa980a*/\n      }\n    }\n    v11 = 999; /*0xa99a0*/\n    if ( dword_153D718 <= 1 ) /*0xa99a8*/\n      goto LABEL_22; /*0xa99a8*/\n    sub_1AB3B0(a1: &tp); /*0xa99b5*/\n    v24 = syscall(sysno: 186); /*0xa99c9*/\n    v18 = 920; /*0xa99de*/\n    v19 = v24; /*0xa99e4*/\n    goto LABEL_40; /*0xa99eb*/\n  }\nLABEL_6:\n  sub_1AB430(a1: a2 + 24, a2: 0); /*0xa9470*/\nLABEL_7:\n  v4 = *(_DWORD *)(a2 + 28); /*0xa947f*/\n  if ( v4 == 0 ) /*0xa9487*/\n  {\n    v4 = sub_A6310(a1, a2); /*0xa953b*/\n    if ( v4 != 0 ) /*0xa9540*/\n    {\n      if ( dword_153D718 <= 1 ) /*0xa956a*/\n        return v4; /*0xa956a*/\n      sub_1AB3B0(a1: &tp); /*0xa9577*/\n      v6 = syscall(sysno: 186); /*0xa95ae*/\n      v7 = 1658; /*0xa95b1*/\n      goto LABEL_12; /*0xa95bb*/\n    }\n    v4 = sub_A6660(a1: a2); /*0xa954a*/\n    if ( v4 != 0 ) /*0xa954f*/\n    {\n      if ( dword_153D718 <= 1 ) /*0xa96ca*/\n        return v4; /*0xa96ca*/\n      sub_1AB3B0(a1: &tp); /*0xa96d7*/\n      v6 = syscall(sysno: 186); /*0xa970e*/\n      v7 = 1661; /*0xa9711*/\n      goto LABEL_12; /*0xa971b*/\n    }\n    return 0; /*0xa955b*/\n  }\n  if ( dword_153D718 > 1 ) /*0xa9497*/\n  {\n    sub_1AB3B0(a1: &tp); /*0xa95c7*/\n    v6 = syscall(sysno: 186); /*0xa95fe*/\n    v7 = 1655; /*0xa9601*/\n    goto LABEL_12; /*0xa960b*/\n  }\n  return v4; /*0xa949d*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0xa9410"
+    }
+  ],
+  "evidence_links": []
+}

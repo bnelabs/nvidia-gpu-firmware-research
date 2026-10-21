@@ -1,0 +1,2 @@
+# GitHub ubuntu-latest x86-64 runner; hashes from https://pypi.org/project/capstone/5.0.7/
+capstone==5.0.7 --hash=sha256:b809a9654844ce0d35099121a851ddd2ab2689df1ff6687037babcedcaae6391

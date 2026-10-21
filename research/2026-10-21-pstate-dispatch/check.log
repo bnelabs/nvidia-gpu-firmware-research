@@ -1,0 +1,47 @@
+test_descriptor_regions_and_version_fail_closed (test_bindata_boot.BindataBootTests.test_descriptor_regions_and_version_fail_closed) ... ok
+test_expansion_size_is_bounded_before_decompression (test_bindata_boot.BindataBootTests.test_expansion_size_is_bounded_before_decompression) ... ok
+test_padding_crc_and_declared_size_are_checked (test_bindata_boot.BindataBootTests.test_padding_crc_and_declared_size_are_checked) ... ok
+test_storage_padding_is_not_descriptor_data (test_bindata_boot.BindataBootTests.test_storage_padding_is_not_descriptor_data) ... ok
+test_truncated_initializer_and_wrong_component_are_rejected (test_bindata_boot.BindataBootTests.test_truncated_initializer_and_wrong_component_are_rejected) ... ok
+test_cooldown_and_concurrent_attempts_fail_closed (test_capture_state.CollectorTests.test_cooldown_and_concurrent_attempts_fail_closed) ... ok
+test_default_plan_cannot_collect (test_capture_state.CollectorTests.test_default_plan_cannot_collect) ... ok
+test_failures_and_identity_mismatch_are_not_measurements (test_capture_state.CollectorTests.test_failures_and_identity_mismatch_are_not_measurements) ... ok
+test_legacy_dry_run_does_not_load_or_sample_nvml (test_capture_state.CollectorTests.test_legacy_dry_run_does_not_load_or_sample_nvml) ... ok
+test_missing_identity_and_arbitrary_flags_rejected_before_collection (test_capture_state.CollectorTests.test_missing_identity_and_arbitrary_flags_rejected_before_collection) ... ok
+test_one_fixed_query_preserves_unsupported_values (test_capture_state.CollectorTests.test_one_fixed_query_preserves_unsupported_values) ... ok
+test_root_refused_before_any_query (test_capture_state.CollectorTests.test_root_refused_before_any_query) ... ok
+test_timeout_stops_without_retry (test_capture_state.CollectorTests.test_timeout_stops_without_retry) ... ok
+test_bounds_and_unsorted_entries_are_rejected (test_nvoc_exports.NvocExportsTests.test_bounds_and_unsorted_entries_are_rejected) ... ok
+test_incomplete_load_is_rejected (test_nvoc_exports.NvocExportsTests.test_incomplete_load_is_rejected) ... ok
+test_preserves_file_va_null_pointer_and_raw_fields (test_nvoc_exports.NvocExportsTests.test_preserves_file_va_null_pointer_and_raw_fields) ... ok
+test_artifact_reader_rejects_pseudo_files_and_symlink_aliases (test_offline_analysis.OfflineAnalysisTests.test_artifact_reader_rejects_pseudo_files_and_symlink_aliases) ... ok
+test_rv64_lui_sign_extension (test_offline_analysis.OfflineAnalysisTests.test_rv64_lui_sign_extension) ... ok
+test_segments_and_entry_point_must_be_in_bounds (test_offline_analysis.OfflineAnalysisTests.test_segments_and_entry_point_must_be_in_bounds) ... ok
+test_short_elf_is_not_a_validated_container (test_offline_analysis.OfflineAnalysisTests.test_short_elf_is_not_a_validated_container) ... ok
+test_xref_checks_source_register_and_last_pair (test_offline_analysis.OfflineAnalysisTests.test_xref_checks_source_register_and_last_pair) ... ok
+test_fetchers_never_execute_downloaded_installers (test_safety_contract.SafetyContractTests.test_fetchers_never_execute_downloaded_installers) ... ok
+test_monitor_is_the_only_live_entry_point (test_safety_contract.SafetyContractTests.test_monitor_is_the_only_live_entry_point) ... ok
+test_no_prebuilt_live_artifacts (test_safety_contract.SafetyContractTests.test_no_prebuilt_live_artifacts) ... ok
+test_offline_c_has_no_hardware_or_interposition_transport (test_safety_contract.SafetyContractTests.test_offline_c_has_no_hardware_or_interposition_transport) ... ok
+test_fixture_end_to_end (test_telemetry_decode.TestTelemetryDecode.test_fixture_end_to_end) ... ok
+test_gsp_features (test_telemetry_decode.TestTelemetryDecode.test_gsp_features) ... ok
+test_invalid_clock_and_empty_samples_remain_missing (test_telemetry_decode.TestTelemetryDecode.test_invalid_clock_and_empty_samples_remain_missing) ... ok
+test_pstate_nononehot_stays_raw (test_telemetry_decode.TestTelemetryDecode.test_pstate_nononehot_stays_raw) ... ok
+test_pstate_onehot_enum (test_telemetry_decode.TestTelemetryDecode.test_pstate_onehot_enum) ... ok
+test_sample_count_capacity_is_checked (test_telemetry_decode.TestTelemetryDecode.test_sample_count_capacity_is_checked) ... ok
+test_adjustment_boundary (test_vbios_bit.ParserTests.test_adjustment_boundary) ... ok
+test_invalid_checksum (test_vbios_bit.ParserTests.test_invalid_checksum) ... ok
+test_invalid_pcir_pointer (test_vbios_bit.ParserTests.test_invalid_pcir_pointer) ... ok
+test_raw_and_wrapped_adjustment (test_vbios_bit.ParserTests.test_raw_and_wrapped_adjustment) ... ok
+test_token_payload_out_of_bounds (test_vbios_bit.ParserTests.test_token_payload_out_of_bounds) ... ok
+test_token_stride_rejected (test_vbios_bit.ParserTests.test_token_stride_rejected) ... ok
+test_truncated_image (test_vbios_bit.ParserTests.test_truncated_image) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.006s
+
+OK
+29 offline record checks passed
+synthetic payload checks passed (not hardware emulation)
+offline RM mask=0x4 -> P2 (not an NVML ordinal)
+CPU-only gate passed; no GPU validation performed

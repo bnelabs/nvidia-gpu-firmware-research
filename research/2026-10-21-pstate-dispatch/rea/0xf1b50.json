@@ -1,0 +1,222 @@
+{
+  "evidence_id": "ev_12dd89dbeaf204a5919aaf9419808186ec45c1df8240641ae7f7fb0200397021",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0xf1b50"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 111.411,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 111.859,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0xf1b50"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0xf1b50",
+            "fn": {
+              "addr": "0xf1b50",
+              "name": "sub_F1B50",
+              "size": "0x257"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0xf1b50",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0xf1b50",
+          "code": "__int64 __fastcall sub_F1B50(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int64 v7; // rdi\n  int v8; // edx\n  bool v9; // cc\n  int v10; // eax\n  int v11; // eax\n  int v12; // ebx\n  int v13; // eax\n  __int64 v14; // [rsp+18h] [rbp-28h] BYREF\n\n  v14 = 0; /*0xf1b5f*/\n  if ( a2 == 0 /*0xf1ba5*/\n    || *(_BYTE *)a2 != 1\n    && (*(_DWORD *)(a2 + 20) == 0 || *(_DWORD *)(a2 + 28) != 0 || *(_DWORD *)(a2 + 16) == 0 || *(_QWORD *)(a2 + 32) == 0)\n    || a1 == 0 )\n  {\n    return 0; /*0xf1ba5*/\n  }\n  if ( (a3 & *(_QWORD *)((_BYTE *)&loc_8B728 + a2)) != a3 ) /*0xf1bb4*/\n  {\n    if ( *(_DWORD *)(a2 + 165576) == 0 ) /*0xf1bc2*/\n    {\n      while ( (unsigned int)sub_1AB420(a1: (char *)&loc_286CC + a2, a2: 1, a3: 0) != 0 ) /*0xf1be1*/\n        ; /*0xf1bd0*/\n      if ( *(_DWORD *)(a2 + 165576) == 0 ) /*0xf1beb*/\n      {\n        v11 = sub_F17D0(a1: *(_QWORD *)(a1 + 16), a2, a3: (char *)&loc_286C0 + a2); /*0xf1d1f*/\n        *(_DWORD *)(a2 + 165576) = 1; /*0xf1d24*/\n        *(_DWORD *)(a2 + 165584) = v11; /*0xf1d2e*/\n      }\n      sub_1AB430(a1: (char *)&loc_286CC + a2, a2: 0); /*0xf1bfc*/\n    }\n    if ( *(_DWORD *)(a2 + 165584) != 0 ) /*0xf1c09*/\n      return 0; /*0xf1c09*/\n    v7 = *(_QWORD *)(a1 + 16); /*0xf1c2f*/\n    v8 = *(_DWORD *)((char *)sub_8B730 + a2); /*0xf1c34*/\n    v14 = a3 | *(_QWORD *)((char *)&loc_8B728 + a2); /*0xf1c48*/\n    if ( (unsigned int)sub_A5880( /*0xf1c64*/\n                         a1: v7,\n                         a2: *(_DWORD *)&s[140],\n                         a3: v8,\n                         a4: (unsigned int)&unk_DE0001,\n                         a5: (unsigned int)&v14,\n                         a6: 8,\n                         a7: 0) == 0 )\n    {\n      v9 = dword_153D718 <= 3; /*0xf1c77*/\n      *(_QWORD *)((char *)&loc_8B728 + a2) |= a3; /*0xf1c7a*/\n      if ( !v9 ) /*0xf1c81*/\n      {\n        v12 = *(_DWORD *)(a2 + 4); /*0xf1d47*/\n        sub_1AB3B0(a1: &tp); /*0xf1d4a*/\n        v13 = syscall(sysno: 186); /*0xf1d5b*/\n        sub_14C570( /*0xf1d9b*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%x %llx %llx\\n\",\n          a2: (unsigned int)\"INFO\",\n          a3: v13,\n          a4: (unsigned int)\"dmal/common/common_user_shared_data.c\",\n          a5: 92,\n          a6: v12);\n      }\n      return 1; /*0xf1d9b*/\n    }\n    if ( dword_153D718 > 0 ) /*0xf1cab*/\n    {\n      sub_1AB3B0(a1: &tp); /*0xf1cb8*/\n      v10 = syscall(sysno: 186); /*0xf1cc9*/\n      sub_14C570( /*0xf1d05*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%llx\\n\",\n        a2: (unsigned int)\"CRITICAL\",\n        a3: v10,\n        a4: (unsigned int)\"dmal/common/common_user_shared_data.c\",\n        a5: 86,\n        a6: a3);\n    }\n    return 0; /*0xf1c19*/\n  }\n  return 1; /*0xf1c0b*/\n}",
+          "line_count": 80,
+          "total_lines": 80,
+          "truncated": false,
+          "cursor": {
+            "done": true
+          },
+          "refs": [
+            {
+              "addr": "0x1ab420",
+              "name": "sub_1AB420"
+            },
+            {
+              "addr": "0x286cc",
+              "name": "loc_286CC"
+            },
+            {
+              "addr": "0xf17d0",
+              "name": "sub_F17D0"
+            },
+            {
+              "addr": "0x286c0",
+              "name": "loc_286C0"
+            },
+            {
+              "addr": "0x1ab430",
+              "name": "sub_1AB430"
+            },
+            {
+              "addr": "0x8b730",
+              "name": "sub_8B730"
+            },
+            {
+              "addr": "0x8b728",
+              "name": "loc_8B728"
+            },
+            {
+              "addr": "0x153d718",
+              "name": "dword_153D718"
+            },
+            {
+              "addr": "0x1ab3b0",
+              "name": "sub_1AB3B0"
+            },
+            {
+              "addr": "0x153d700",
+              "name": "tp"
+            },
+            {
+              "addr": "0x226b0",
+              "name": ".syscall"
+            },
+            {
+              "addr": "0x14c570",
+              "name": "sub_14C570"
+            },
+            {
+              "addr": "0x1de108",
+              "name": "aSTidLlu06fsSDX_12",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%x %llx %llx\n"
+            },
+            {
+              "addr": "0x1b23c6",
+              "name": "aInfo",
+              "string": "INFO"
+            },
+            {
+              "addr": "0x1de0e0",
+              "name": "aDmalCommonComm_29",
+              "string": "dmal/common/common_user_shared_data.c"
+            },
+            {
+              "addr": "0xa5880",
+              "name": "sub_A5880"
+            },
+            {
+              "addr": "0x2d2e20",
+              "name": "s"
+            },
+            {
+              "addr": "0xde0001",
+              "name": "unk_DE0001"
+            },
+            {
+              "addr": "0x1dc168",
+              "name": "aSTidLlu06fsSDL_5",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%llx\n"
+            },
+            {
+              "addr": "0x1b2798",
+              "name": "aCritical",
+              "string": "CRITICAL"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_F1B50(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int64 v7; // rdi\n  int v8; // edx\n  bool v9; // cc\n  int v10; // eax\n  int v11; // eax\n  int v12; // ebx\n  int v13; // eax\n  __int64 v14; // [rsp+18h] [rbp-28h] BYREF\n\n  v14 = 0; /*0xf1b5f*/\n  if ( a2 == 0 /*0xf1ba5*/\n    || *(_BYTE *)a2 != 1\n    && (*(_DWORD *)(a2 + 20) == 0 || *(_DWORD *)(a2 + 28) != 0 || *(_DWORD *)(a2 + 16) == 0 || *(_QWORD *)(a2 + 32) == 0)\n    || a1 == 0 )\n  {\n    return 0; /*0xf1ba5*/\n  }\n  if ( (a3 & *(_QWORD *)((_BYTE *)&loc_8B728 + a2)) != a3 ) /*0xf1bb4*/\n  {\n    if ( *(_DWORD *)(a2 + 165576) == 0 ) /*0xf1bc2*/\n    {\n      while ( (unsigned int)sub_1AB420(a1: (char *)&loc_286CC + a2, a2: 1, a3: 0) != 0 ) /*0xf1be1*/\n        ; /*0xf1bd0*/\n      if ( *(_DWORD *)(a2 + 165576) == 0 ) /*0xf1beb*/\n      {\n        v11 = sub_F17D0(a1: *(_QWORD *)(a1 + 16), a2, a3: (char *)&loc_286C0 + a2); /*0xf1d1f*/\n        *(_DWORD *)(a2 + 165576) = 1; /*0xf1d24*/\n        *(_DWORD *)(a2 + 165584) = v11; /*0xf1d2e*/\n      }\n      sub_1AB430(a1: (char *)&loc_286CC + a2, a2: 0); /*0xf1bfc*/\n    }\n    if ( *(_DWORD *)(a2 + 165584) != 0 ) /*0xf1c09*/\n      return 0; /*0xf1c09*/\n    v7 = *(_QWORD *)(a1 + 16); /*0xf1c2f*/\n    v8 = *(_DWORD *)((char *)sub_8B730 + a2); /*0xf1c34*/\n    v14 = a3 | *(_QWORD *)((char *)&loc_8B728 + a2); /*0xf1c48*/\n    if ( (unsigned int)sub_A5880( /*0xf1c64*/\n                         a1: v7,\n                         a2: *(_DWORD *)&s[140],\n                         a3: v8,\n                         a4: (unsigned int)&unk_DE0001,\n                         a5: (unsigned int)&v14,\n                         a6: 8,\n                         a7: 0) == 0 )\n    {\n      v9 = dword_153D718 <= 3; /*0xf1c77*/\n      *(_QWORD *)((char *)&loc_8B728 + a2) |= a3; /*0xf1c7a*/\n      if ( !v9 ) /*0xf1c81*/\n      {\n        v12 = *(_DWORD *)(a2 + 4); /*0xf1d47*/\n        sub_1AB3B0(a1: &tp); /*0xf1d4a*/\n        v13 = syscall(sysno: 186); /*0xf1d5b*/\n        sub_14C570( /*0xf1d9b*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%x %llx %llx\\n\",\n          a2: (unsigned int)\"INFO\",\n          a3: v13,\n          a4: (unsigned int)\"dmal/common/common_user_shared_data.c\",\n          a5: 92,\n          a6: v12);\n      }\n      return 1; /*0xf1d9b*/\n    }\n    if ( dword_153D718 > 0 ) /*0xf1cab*/\n    {\n      sub_1AB3B0(a1: &tp); /*0xf1cb8*/\n      v10 = syscall(sysno: 186); /*0xf1cc9*/\n      sub_14C570( /*0xf1d05*/\n        a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%llx\\n\",\n        a2: (unsigned int)\"CRITICAL\",\n        a3: v10,\n        a4: (unsigned int)\"dmal/common/common_user_shared_data.c\",\n        a5: 86,\n        a6: a3);\n    }\n    return 0; /*0xf1c19*/\n  }\n  return 1; /*0xf1c0b*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0xf1b50"
+    }
+  ],
+  "evidence_links": []
+}

@@ -1,0 +1,609 @@
+{
+  "evidence_id": "ev_4762cc269ab5252a640618f92cc1413409e1612a31d602881e183a69f9e90dd5",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0x157810"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 9.317,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 10.208,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0x157810"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0x157810",
+            "fn": {
+              "addr": "0x157810",
+              "name": "sub_157810",
+              "size": "0x1a78"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "__int64 __fastcall sub_157810(__int64 a1, unsigned int a2, unsigned int a3, unsigned int *a4, unsigned int a5)\n{\n  unsigned int v5; // r15d\n  unsigned int v6; // r14d\n  unsigned int v7; // r13d\n  unsigned int v9; // ebx\n  unsigned int tv_nsec; // r11d\n  __int64 v12; // rdx\n  __int64 v13; // rdi\n  int v14; // eax\n  __int64 v15; // rdx\n  __int64 v16; // rsi\n  int v17; // edi\n  int v18; // eax\n  unsigned int v19; // r13d\n  int v20; // r11d\n  int v21; // eax\n  __int64 v22; // rsi\n  unsigned int *v23; // rdx\n  __int64 v24; // rax\n  __int64 v25; // rcx\n  __int64 v26; // rdx\n  unsigned int *v27; // rsi\n  __int64 v28; // rdi\n  __int64 v29; // r9\n  unsigned int v30; // ecx\n  __int64 v31; // rax\n  _QWORD *v32; // rax\n  __int64 v33; // rsi\n  __int64 v34; // rax\n  __int64 v35; // rax\n  unsigned int v36; // eax\n  int v37; // ebx\n  __int64 v38; // rax\n  __int64 v39; // r8\n  __syscall_slong_t v40; // rdx\n  unsigned int v41; // esi\n  int v42; // eax\n  char v43; // al\n  _DWORD *v44; // rax\n  char *v45; // rcx\n  __syscall_slong_t *p_tv_nsec; // rdx\n  char *v47; // rdi\n  int v48; // esi\n  int v49; // r13d\n  _DWORD *v50; // rax\n  __int64 v51; // rdx\n  unsigned int v52; // r15d\n  int v53; // eax\n  int v54; // r11d\n  __int64 v55; // rdx\n  _DWORD *v56; // rax\n  __int64 v57; // rax\n  unsigned int v58; // eax\n  int v59; // r13d\n  int v60; // edx\n  _DWORD *v61; // rax\n  _DWORD *v62; // rax\n  int v63; // ecx\n  int *v64; // rax\n  int v65; // edi\n  int v66; // eax\n  int *v67; // rax\n  unsigned int v68; // ecx\n  int v69; // eax\n  int *v70; // rax\n  __int64 v71; // rdi\n  int v72; // ebx\n  _DWORD *v73; // rbx\n  int *v74; // r13\n  int *v75; // r14\n  int *v76; // rax\n  int v77; // edx\n  __int64 v78; // r13\n  int v79; // r14d\n  _DWORD *v80; // rax\n  _DWORD *v81; // rbx\n  int v82; // r12d\n  __int64 v83; // rax\n  __int64 v84; // rdx\n  int v85; // r12d\n  int v86; // eax\n  char *v87; // rax\n  unsigned int v88; // r14d\n  unsigned int v89; // r13d\n  unsigned int v90; // ebx\n  int v91; // r11d\n  int v92; // edi\n  int v93; // r12d\n  int v94; // edx\n  char *v95; // r9\n  int v96; // r15d\n  int *v97; // rax\n  __int64 v98; // rax\n  __int64 v99; // rax\n  int v100; // ebx\n  unsigned int tv_nsec_high; // r14d\n  unsigned int v102; // r11d\n  _DWORD *v103; // rax\n  int v104; // ebx",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 100
+          },
+          "refs": [
+            {
+              "addr": "0x1558b0",
+              "name": "sub_1558B0"
+            },
+            {
+              "addr": "0x22400",
+              "name": ".dup"
+            },
+            {
+              "addr": "0x156100",
+              "name": "sub_156100"
+            },
+            {
+              "addr": "0x156020",
+              "name": "sub_156020"
+            },
+            {
+              "addr": "0x1561a0",
+              "name": "sub_1561A0"
+            },
+            {
+              "addr": "0x1fc0a9",
+              "name": "aDmem",
+              "string": "dmem."
+            },
+            {
+              "addr": "0x1fc0dc",
+              "name": "aDmemMin",
+              "string": "dmem.min"
+            },
+            {
+              "addr": "0x1fc204",
+              "name": "aDmemCurrent",
+              "string": "dmem.current"
+            },
+            {
+              "addr": "0x221e0",
+              "name": ".faccessat"
+            },
+            {
+              "addr": "0x22500",
+              "name": ".close"
+            },
+            {
+              "addr": "0x159f00",
+              "name": "sub_159F00"
+            },
+            {
+              "addr": "0x153d760",
+              "name": "unk_153D760"
+            },
+            {
+              "addr": "0x220d0",
+              "name": ".__errno_location"
+            },
+            {
+              "addr": "0x155e20",
+              "name": "sub_155E20"
+            },
+            {
+              "addr": "0x22af0",
+              "name": ".flock"
+            },
+            {
+              "addr": "0x156380",
+              "name": "sub_156380"
+            },
+            {
+              "addr": "0x156560",
+              "name": "sub_156560"
+            },
+            {
+              "addr": "0x22760",
+              "name": ".openat64"
+            },
+            {
+              "addr": "0x1fc947",
+              "name": "aS04x02x02x1u",
+              "string": "%s/%04x:%02x:%02x.%1u/.."
+            },
+            {
+              "addr": "0x80000",
+              "name": "sub_80000"
+            },
+            {
+              "addr": "0x1568f0",
+              "name": "sub_1568F0"
+            },
+            {
+              "addr": "0x154c80",
+              "name": "sub_154C80"
+            },
+            {
+              "addr": "0x1567e0",
+              "name": "sub_1567E0"
+            },
+            {
+              "addr": "0x1546e0",
+              "name": "sub_1546E0"
+            },
+            {
+              "addr": "0x223d0",
+              "name": ".nanosleep"
+            },
+            {
+              "addr": "0x153eac0",
+              "name": "unk_153EAC0"
+            },
+            {
+              "addr": "0x153d74c",
+              "name": "dword_153D74C"
+            },
+            {
+              "addr": "0x153e0c0",
+              "name": "dword_153E0C0"
+            },
+            {
+              "addr": "0x2d2ab0",
+              "name": "dword_2D2AB0"
+            },
+            {
+              "addr": "0x15cd60",
+              "name": "sub_15CD60"
+            },
+            {
+              "addr": "0x15cbc0",
+              "name": "sub_15CBC0"
+            },
+            {
+              "addr": "0x153e060",
+              "name": "unk_153E060"
+            },
+            {
+              "addr": "0x15cc80",
+              "name": "sub_15CC80"
+            },
+            {
+              "addr": "0x159f70",
+              "name": "sub_159F70"
+            },
+            {
+              "addr": "0x1557b0",
+              "name": "sub_1557B0"
+            },
+            {
+              "addr": "0xfd0104",
+              "name": "unk_FD0104"
+            },
+            {
+              "addr": "0xe00101",
+              "name": "unk_E00101"
+            },
+            {
+              "addr": "0x223b0",
+              "name": ".snprintf"
+            },
+            {
+              "addr": "0x1fc220",
+              "name": "aDevNvidiaCapsI",
+              "string": "/dev/nvidia-caps-imex-channels/channel%d"
+            },
+            {
+              "addr": "0x22880",
+              "name": ".scandir64"
+            },
+            {
+              "addr": "0x1fc250",
+              "name": "dir",
+              "string": "/dev/nvidia-caps-imex-channels"
+            },
+            {
+              "addr": "0x153fad0",
+              "name": "alphasort64"
+            },
+            {
+              "addr": "0x22860",
+              "name": ".__isoc99_sscanf"
+            },
+            {
+              "addr": "0x1fc211",
+              "name": "aChannelD",
+              "string": "channel%d"
+            },
+            {
+              "addr": "0x22a30",
+              "name": ".access"
+            },
+            {
+              "addr": "0x22c80",
+              "name": "free"
+            },
+            {
+              "addr": "0x229c0",
+              "name": ".open64"
+            },
+            {
+              "addr": "0x161f20",
+              "name": "sub_161F20"
+            },
+            {
+              "addr": "0x155bc0",
+              "name": "sub_155BC0"
+            },
+            {
+              "addr": "0x1546f0",
+              "name": "sub_1546F0"
+            },
+            {
+              "addr": "0x155c30",
+              "name": "sub_155C30"
+            },
+            {
+              "addr": "0x153fb88",
+              "name": "stderr"
+            },
+            {
+              "addr": "0x1fc270",
+              "name": "aNvidiaCouldNot_1",
+              "string": "NVIDIA: could not create file for device %u\n"
+            },
+            {
+              "addr": "0x155e40",
+              "name": "sub_155E40"
+            },
+            {
+              "addr": "0x221f0",
+              "name": ".fcntl"
+            },
+            {
+              "addr": "0x22800",
+              "name": ".malloc"
+            },
+            {
+              "addr": "0x153e0a0",
+              "name": "unk_153E0A0"
+            },
+            {
+              "addr": "0x156a00",
+              "name": "sub_156A00"
+            },
+            {
+              "addr": "0x153d7a8",
+              "name": "unk_153D7A8"
+            }
+          ]
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 100,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "  unsigned int v105; // r14d\n  unsigned int v106; // r11d\n  _DWORD *v107; // r13\n  _DWORD *v108; // r15\n  int *v109; // r14\n  unsigned int v110; // r12d\n  int v111; // ecx\n  int *v112; // r8\n  int *v113; // rax\n  int v114; // eax\n  char *v115; // r13\n  _DWORD *v116; // r12\n  int v117; // r11d\n  char *v118; // rbx\n  _DWORD *v119; // r14\n  int *v120; // r12\n  char *v121; // r15\n  int v122; // edx\n  int *v123; // r13\n  int *v124; // rax\n  int v125; // eax\n  __time_t tv_sec; // rdx\n  void *v127; // rdi\n  __int64 v128; // r13\n  __int64 v129; // rbx\n  int v130; // eax\n  _BYTE *v131; // rdi\n  int v132; // r14d\n  int v133; // r13d\n  int v134; // eax\n  int v135; // r12d\n  int v136; // eax\n  int v137; // r9d\n  __int64 v138; // rbx\n  int v139; // r9d\n  __int64 v140; // rdi\n  int v141; // ebx\n  unsigned int v142; // eax\n  int *v143; // rax\n  int v144; // eax\n  unsigned int v145; // eax\n  __int64 v146; // r13\n  __int64 v147; // rdx\n  unsigned int *v148; // r12\n  __int64 v149; // rsi\n  __int64 v150; // r8\n  unsigned int v151; // ecx\n  __int64 v152; // rax\n  int *v153; // rax\n  int v154; // edi\n  unsigned int v155; // r14d\n  __int64 v156; // [rsp+0h] [rbp-B40h]\n  unsigned int v157; // [rsp+10h] [rbp-B30h]\n  unsigned int v158; // [rsp+18h] [rbp-B28h]\n  char v159; // [rsp+28h] [rbp-B18h]\n  char file; // [rsp+30h] [rbp-B10h]\n  char *filea; // [rsp+30h] [rbp-B10h]\n  int fileb; // [rsp+30h] [rbp-B10h]\n  unsigned int nameg; // [rsp+38h] [rbp-B08h]\n  unsigned int nameh; // [rsp+38h] [rbp-B08h]\n  unsigned int name; // [rsp+38h] [rbp-B08h]\n  unsigned int namea; // [rsp+38h] [rbp-B08h]\n  unsigned int nameb; // [rsp+38h] [rbp-B08h]\n  int namei; // [rsp+38h] [rbp-B08h]\n  char *namec; // [rsp+38h] [rbp-B08h]\n  char *named; // [rsp+38h] [rbp-B08h]\n  int namee; // [rsp+38h] [rbp-B08h]\n  int namej; // [rsp+38h] [rbp-B08h]\n  unsigned int namef; // [rsp+38h] [rbp-B08h]\n  int namek; // [rsp+38h] [rbp-B08h]\n  unsigned int v175; // [rsp+48h] [rbp-AF8h] BYREF\n  int v176; // [rsp+4Ch] [rbp-AF4h] BYREF\n  __int128 v177; // [rsp+50h] [rbp-AF0h] BYREF\n  struct timespec namelist[8]; // [rsp+60h] [rbp-AE0h] BYREF\n  struct timespec requested_time[166]; // [rsp+E0h] [rbp-A60h] BYREF\n\n  v5 = a1; /*0x157816*/\n  v6 = a5; /*0x15781b*/\n  v7 = a2; /*0x157820*/\n  v9 = a3; /*0x157829*/\n  switch ( a3 ) /*0x157838*/\n  {\n    case 0x3D0Eu: /*0x157838*/\n      if ( (unsigned __int8)sub_159F00() != 0 ) /*0x15794f*/\n      {\n        if ( *a4 == -1 ) /*0x15795c*/\n          v17 = sub_1558B0(); /*0x158578*/\n        else\n          v17 = dup(fd: *a4); /*0x157967*/\n        if ( v17 >= 0 ) /*0x15796b*/\n        {\n          v18 = sub_156100(); /*0x157971*/\n          v19 = v18; /*0x157976*/\n          if ( v18 >= 0 ) /*0x15797b*/\n          {\n            v20 = sub_156020(fildes: v18); /*0x15798f*/\n            if ( v20 == 0 ) /*0x157994*/\n            {\n              if ( (_BYTE)v176 == 0 || (v21 = faccessat(fd: v19, file: aDmem, type: 0, flag: 512), v20 = 86, v21 == 0) ) /*0x1579c1*/\n              {",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 200
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 200,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "                v20 = sub_1561A0(a1: v19, a2: aDmem, a3: namelist, a4: requested_time, a5: &v177); /*0x157a04*/\n                if ( v20 == 0 ) /*0x157a07*/\n                {\n                  v22 = v177; /*0x157a0d*/\n                  v23 = a4 + 2; /*0x157a14*/\n                  v24 = 0; /*0x157a19*/\n                  for ( a4[1] = v177; v22 != v24; *((_QWORD *)v23 - 2) = v25 ) /*0x157a23*/\n                  {\n                    v23 += 8; /*0x157a2b*/\n                    *(v23 - 8) = *((_DWORD *)&namelist[0].tv_sec + v24); /*0x157a2f*/\n                    v25 = *(&requested_time[0].tv_sec + v24++); /*0x157a32*/\n                  }\n                  v20 = sub_1561A0(a1: v19, a2: \"dmem.min\", a3: namelist, a4: requested_time, a5: &v177); /*0x157a6b*/\n                  if ( v20 == 0 ) /*0x157a6e*/\n                  {\n                    v26 = v177; /*0x157a70*/\n                    if ( a4[1] != (_QWORD)v177 ) /*0x157a7f*/\n                      goto LABEL_40; /*0x157a7f*/\n                    if ( (_QWORD)v177 != 0 ) /*0x157a84*/\n                    {\n                      v27 = a4 + 2; /*0x157a8a*/\n                      v28 = 0; /*0x157a8f*/\n                      v29 = 0; /*0x157a91*/\n                      do /*0x157ac5*/\n                      {\n                        v30 = *v27; /*0x157a98*/\n                        v31 = 0; /*0x157a9a*/\n                        do /*0x157ab8*/\n                        {\n                          if ( *((_DWORD *)&namelist[0].tv_sec + v31) == v30 ) /*0x157aa3*/\n                          {\n                            ++v28; /*0x157aa9*/\n                            *((_QWORD *)v27 + 1) = *(&requested_time[0].tv_sec + v31); /*0x157aad*/\n                          }\n                          ++v31; /*0x157ab1*/\n                        }\n                        while ( v26 != v31 ); /*0x157ab8*/\n                        ++v29; /*0x157aba*/\n                        v27 += 8; /*0x157abe*/\n                      }\n                      while ( v26 != v29 ); /*0x157ac5*/\n                      if ( v26 != v28 ) /*0x157aca*/\n                        goto LABEL_40; /*0x157aca*/\n                    }\n                    v20 = sub_1561A0(a1: v19, a2: \"dmem.current\", a3: namelist, a4: requested_time, a5: &v177); /*0x1590d8*/\n                    if ( v20 == 0 ) /*0x1590db*/\n                    {\n                      v147 = v177; /*0x1590e1*/\n                      if ( a4[1] != (_QWORD)v177 ) /*0x1590f0*/\n                        goto LABEL_40; /*0x1590f0*/\n                      if ( (_QWORD)v177 != 0 ) /*0x1590f9*/\n                      {\n                        v148 = a4 + 2; /*0x1590ff*/\n                        v149 = 0; /*0x159103*/\n                        v150 = 0; /*0x159105*/\n                        do /*0x159136*/\n                        {\n                          v151 = *v148; /*0x159108*/\n                          v152 = 0; /*0x15910c*/\n                          do /*0x159129*/\n                          {\n                            if ( *((_DWORD *)&namelist[0].tv_sec + v152) == v151 ) /*0x159113*/\n                            {\n                              ++v149; /*0x159119*/\n                              *((_QWORD *)v148 + 3) = *(&requested_time[0].tv_sec + v152); /*0x15911d*/\n                            }\n                            ++v152; /*0x159122*/\n                          }\n                          while ( v147 != v152 ); /*0x159129*/\n                          ++v150; /*0x15912b*/\n                          v148 += 8; /*0x15912f*/\n                        }\n                        while ( v147 != v150 ); /*0x159136*/\n                        if ( v147 != v149 ) /*0x15913b*/\nLABEL_40:\n                          v20 = 89; /*0x157ad0*/\n                      }\n                    }\n                  }\n                }\n              }\n            }\n            nameg = v20; /*0x157ad9*/\n            close(fd: v19); /*0x157ae0*/\n            return nameg; /*0x157aec*/\n          }\n        }\n        goto LABEL_136; /*0x15797b*/\n      }\n      break;\n    case 0x3D0Du: /*0x157838*/\n      if ( (unsigned __int8)sub_159F00() != 0 ) /*0x157e37*/\n      {\n        namelist[0].tv_sec = 0; /*0x157e3d*/\n        if ( *a4 == -1 ) /*0x157e4f*/\n          v52 = sub_1558B0(); /*0x1585a0*/\n        else\n          v52 = dup(fd: *a4); /*0x157e5a*/\n        if ( (v52 & 0x80000000) == 0 ) /*0x157e60*/\n        {",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 300
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 300,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "          v53 = faccessat(fd: v52, file: aDmem, type: 0, flag: 512); /*0x157e77*/\n          v54 = 87; /*0x157e7c*/\n          if ( v53 != 0 ) /*0x157e84*/\n            goto LABEL_92; /*0x157e84*/\n          v55 = 0; /*0x157e8d*/\n          v56 = &unk_153D760; /*0x157e8f*/\n          while ( *(_BYTE *)v56 == 0 || v56[4] != a4[1] ) /*0x157ea5*/\n          {\n            ++v55; /*0x157eab*/\n            v56 += 18; /*0x157eaf*/\n            if ( v55 == 32 ) /*0x157eb7*/\n            {\n              v54 = 87; /*0x157eb9*/\n              goto LABEL_92; /*0x157eb9*/\n            }\n          }\n          v87 = (char *)&unk_153D760 + 72 * v55; /*0x1585e6*/\n          v88 = *((_DWORD *)v87 + 1); /*0x1585ea*/\n          v89 = (unsigned __int8)v87[8]; /*0x1585ee*/\n          v90 = (unsigned __int8)v87[9]; /*0x1585f3*/\n          if ( flock(fd: v52, operation: 2) != 0 ) /*0x1585fe*/\n          {\n            v143 = __errno_location(); /*0x158dcc*/\n            v54 = sub_155E20(a1: (unsigned int)*v143); /*0x158dd8*/\n            goto LABEL_92; /*0x158ddb*/\n          }\n          v91 = sub_156380(a1: v52, a2: \"dmem.min\", a3: v88, a4: v89, a5: v90, a6: namelist); /*0x158623*/\n          if ( v91 != 0 ) /*0x158628*/\n            goto LABEL_205; /*0x158628*/\n          v91 = sub_156560(a1: v52, a2: aDmem, a3: v88, a4: v89, a5: v90, a6: *((_QWORD *)a4 + 2)); /*0x15864b*/\n          if ( v91 != 0 ) /*0x158650*/\n            goto LABEL_205; /*0x158650*/\n          v91 = sub_156560(a1: v52, a2: \"dmem.min\", a3: v88, a4: v89, a5: v90, a6: *((_QWORD *)a4 + 1)); /*0x158673*/\n          if ( v91 != 0 ) /*0x158678*/\n            goto LABEL_205; /*0x158678*/\n          filea = (char *)(*((_QWORD *)a4 + 1) - namelist[0].tv_sec); /*0x15868a*/\n          if ( filea == nullptr ) /*0x158691*/\n            goto LABEL_205; /*0x158691*/\n          v92 = dup(fd: v52); /*0x15869f*/\n          if ( v92 >= 0 ) /*0x1586b1*/\n          {\n            nameb = v52; /*0x1586b7*/\n            v93 = v92; /*0x1586be*/\n            while ( 1 ) /*0x15876d*/\n            {\n              v96 = openat64(fd: v93, file: \"..\", oflag: (int)sub_80000); /*0x15876d*/\n              close(fd: v93); /*0x158770*/\n              if ( v96 < 0 ) /*0x158778*/\n                break; /*0x158778*/\n              if ( faccessat(fd: v96, file: \"dmem.min\", type: 0, flag: 512) != 0 ) /*0x1586de*/\n              {\n                v93 = v96; /*0x159247*/\n                v94 = 0; /*0x15924a*/\n                v52 = nameb; /*0x15924c*/\nLABEL_331:\n                namek = v94; /*0x159217*/\n                close(fd: v93); /*0x159220*/\n                v91 = namek; /*0x15922b*/\nLABEL_205:\n                namei = v91; /*0x158794*/\n                flock(fd: v52, operation: 8); /*0x1587a3*/\n                v54 = namei; /*0x1587a8*/\nLABEL_92:\n                nameh = v54; /*0x157ebf*/\n                close(fd: v52); /*0x157ec9*/\n                return nameh; /*0x157ed5*/\n              }\n              requested_time[0].tv_sec = 0; /*0x1586fe*/\n              v94 = sub_156380(a1: (unsigned int)v96, a2: \"dmem.min\", a3: v88, a4: v89, a5: v90, a6: requested_time); /*0x15870e*/\n              if ( v94 != 0 ) /*0x158712*/\n              {\n                v93 = v96; /*0x15923b*/\n                v52 = nameb; /*0x15923e*/\n                goto LABEL_331; /*0x159245*/\n              }\n              v95 = &filea[requested_time[0].tv_sec]; /*0x158728*/\n              v93 = v96; /*0x158737*/\n              if ( (__int64)&filea[requested_time[0].tv_sec] < 0 ) /*0x15873a*/\n                v95 = nullptr; /*0x15873a*/\n              v94 = sub_156560(a1: (unsigned int)v96, a2: \"dmem.min\", a3: v88, a4: v89, a5: v90, a6: v95); /*0x15874a*/\n              if ( v94 != 0 ) /*0x15874e*/\n              {\n                v52 = nameb; /*0x159210*/\n                goto LABEL_331; /*0x159210*/\n              }\n            }\n            v52 = nameb; /*0x15877e*/\n          }\n          v97 = __errno_location(); /*0x158785*/\n          v91 = sub_155E20(a1: (unsigned int)*v97); /*0x158791*/\n          goto LABEL_205; /*0x158791*/\n        }\n        goto LABEL_114; /*0x157e60*/\n      }\n      break;\n    case 0x3D02u: /*0x157838*/\n      *((_QWORD *)a4 + 4) = 0; /*0x157af8*/\n      a1 = sub_1568F0(a1, a2: a4[5]); /*0x157b08*/\n      if ( a1 != 0 ) /*0x157b0e*/\n      {",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 400
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 400,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "        v32 = (_QWORD *)sub_154C80(a1, a2: a4[6]); /*0x157b15*/\n        if ( v32 != nullptr ) /*0x157b1d*/\n          *((_QWORD *)a4 + 4) = *v32; /*0x157b22*/\n      }\n      break;\n    default:\n      switch ( a3 ) /*0x15785c*/\n      {\n        case 0x2080012Eu: /*0x15785c*/\n          v57 = sub_1568F0((unsigned int)a1, a2); /*0x157ee6*/\n          tv_nsec = 34; /*0x157eeb*/\n          if ( v57 == 0 ) /*0x157ef4*/\n            return tv_nsec; /*0x157ef4*/\n          requested_time[0].tv_sec = 0; /*0x157f09*/\n          v58 = sub_1567E0(fd: *(_DWORD *)(v57 + 12)); /*0x157f25*/\n          *a4 = 0; /*0x157f2a*/\n          tv_nsec = v58; /*0x157f32*/\n          if ( v58 != 0 ) /*0x157f37*/\n            return tv_nsec; /*0x157f37*/\nLABEL_73:\n          *a4 = requested_time[0].tv_sec; /*0x157d99*/\n          return tv_nsec; /*0x157da3*/\n        case 0x20803A01u: /*0x15785c*/\n          tv_nsec = 31; /*0x157873*/\n          if ( a4[2] > 0x80 ) /*0x157879*/\n            return tv_nsec; /*0x157879*/\n          v38 = sub_1568F0((unsigned int)a1, a2); /*0x157c86*/\n          tv_nsec = 34; /*0x157c8b*/\n          v39 = v38; /*0x157c91*/\n          if ( v38 == 0 ) /*0x157c97*/\n            return tv_nsec; /*0x157c97*/\n          v40 = *(_QWORD *)(a4 + 1); /*0x157cab*/\n          v41 = a4[2]; /*0x157cb3*/\n          memset(requested_time, 0, 0xA30u); /*0x157cb8*/\n          v42 = *a4; /*0x157cbb*/\n          requested_time[0].tv_nsec = v40; /*0x157cc6*/\n          requested_time[0].tv_sec = __PAIR64__(v5, v42); /*0x157ccd*/\n          LODWORD(requested_time[1].tv_sec) = a4[3]; /*0x157cd8*/\n          requested_time[1].tv_nsec = *((_QWORD *)a4 + 2); /*0x157ce3*/\n          BYTE1(requested_time[2].tv_sec) = *((_BYTE *)a4 + 25); /*0x157cf0*/\n          v43 = *((_BYTE *)a4 + 24); /*0x157cf6*/\n          if ( v43 != 0 ) /*0x157cfe*/\n          {\n            tv_nsec = 31; /*0x157d00*/\n            if ( v43 != 1 ) /*0x157d08*/\n              return tv_nsec; /*0x157d08*/\n            LOBYTE(requested_time[2].tv_sec) = 1; /*0x157d0e*/\n          }\n          if ( v41 != 0 ) /*0x157d17*/\n          {\n            v44 = a4 + 8; /*0x157d1c*/\n            v45 = (char *)&requested_time[2].tv_sec + 4; /*0x157d21*/\n            p_tv_nsec = &requested_time[34].tv_nsec; /*0x157d28*/\n            v47 = (char *)&requested_time[2].tv_sec + 4 * v41 + 4; /*0x157d2f*/\n            do /*0x157d67*/\n            {\n              v48 = *v44; /*0x157d40*/\n              v45 += 4; /*0x157d42*/\n              v44 += 6; /*0x157d46*/\n              ++p_tv_nsec; /*0x157d4a*/\n              *((_DWORD *)v45 - 1) = v48; /*0x157d4e*/\n              *(p_tv_nsec - 1) = *((_QWORD *)v44 - 2); /*0x157d55*/\n              p_tv_nsec[127] = *((_QWORD *)v44 - 1); /*0x157d5d*/\n            }\n            while ( v47 != v45 ); /*0x157d67*/\n          }\n          if ( (int)sub_1546E0(fd: *(_DWORD *)(v39 + 12)) >= 0 ) /*0x157d86*/\n          {\n            tv_nsec = requested_time[162].tv_nsec; /*0x157d8c*/\n            if ( LODWORD(requested_time[162].tv_nsec) != 0 ) /*0x157d93*/\n              return tv_nsec; /*0x157d93*/\n            goto LABEL_73; /*0x157d93*/\n          }\nLABEL_114:\n          v64 = __errno_location(); /*0x158060*/\n          return (unsigned int)sub_155E20(a1: (unsigned int)*v64); /*0x15806f*/\n        case 0x3D07u: /*0x15785c*/\n          tv_nsec = 31; /*0x157f48*/\n          if ( a5 != 8 ) /*0x157f52*/\n            return tv_nsec; /*0x157f52*/\n          v59 = 1; /*0x157f5f*/\n          while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x157f73*/\n          {\n            if ( (_BYTE)++v59 == 0 ) /*0x158177*/\n            {\n              requested_time[0].tv_sec = 0; /*0x158186*/\n              requested_time[0].tv_nsec = 2000000; /*0x158191*/\n              nanosleep(requested_time, remaining: nullptr); /*0x15819c*/\n            }\n          }\n          if ( dword_153D74C != 0 ) /*0x157f83*/\n          {\n            v60 = 0; /*0x157f90*/\n            v61 = &unk_153D760; /*0x157f92*/\n            do /*0x157fb4*/\n            {\n              if ( *(_BYTE *)v61 != 0 && v61[4] == *a4 ) /*0x157fa4*/\n              {\n                tv_nsec = 0; /*0x158093*/\n                a4[1] = *((_DWORD *)&unk_153D760 + 18 * v60 + 14); /*0x15809f*/",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 500
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 500,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "                unk_153EAC0 = 0; /*0x1580a4*/\n                return tv_nsec; /*0x1580ab*/\n              }\n              ++v60; /*0x157faa*/\n              v61 += 18; /*0x157fad*/\n            }\n            while ( v60 != 32 ); /*0x157fb4*/\n          }\n          break;\n        case 0x290u: /*0x15785c*/\n          tv_nsec = 31; /*0x157db0*/\n          if ( a5 != 4 ) /*0x157dba*/\n            return tv_nsec; /*0x157dba*/\n          v49 = 1; /*0x157dc7*/\n          while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x157ddb*/\n          {\n            if ( (_BYTE)++v49 == 0 ) /*0x1584c0*/\n            {\n              requested_time[0].tv_sec = 0; /*0x1584cf*/\n              requested_time[0].tv_nsec = 2000000; /*0x1584da*/\n              nanosleep(requested_time, remaining: nullptr); /*0x1584e5*/\n            }\n          }\n          v50 = &unk_153D760; /*0x157de7*/\n          v51 = 0; /*0x157dee*/\n          if ( dword_153D74C != 0 ) /*0x157df2*/\n          {\n            while ( *(_BYTE *)v50 == 0 || v50[4] != *a4 ) /*0x157e04*/\n            {\n              v51 = (unsigned int)(v51 + 1); /*0x157e0a*/\n              v50 += 18; /*0x157e0d*/\n              if ( (_DWORD)v51 == 32 ) /*0x157e14*/\n                goto LABEL_81; /*0x157e14*/\n            }\n            v65 = dword_153E0C0[20 * v51]; /*0x1580bf*/\n            if ( v65 >= 0 ) /*0x1580c4*/\n            {\n              requested_time[0].tv_sec = 0; /*0x1580d9*/\n              v66 = sub_1546E0(fd: v65); /*0x1580eb*/\n              unk_153EAC0 = 0; /*0x1580f0*/\n              if ( v66 >= 0 ) /*0x1580f9*/\n              {\n                tv_nsec = 0; /*0x158105*/\n                if ( LODWORD(requested_time[0].tv_sec) != 0 ) /*0x15810a*/\n                {\n                  if ( LODWORD(requested_time[0].tv_sec) == -5 ) /*0x158113*/\n                    return HIDWORD(requested_time[0].tv_sec); /*0x158119*/\n                  else\n                    return (unsigned int)sub_155E20(a1: (unsigned int)-LODWORD(requested_time[0].tv_sec)); /*0x158c51*/\n                }\n                return tv_nsec; /*0x158120*/\n              }\n              goto LABEL_114; /*0x1580f9*/\n            }\n          }\n          break;\n        case 0x3D04u: /*0x15785c*/\n          tv_nsec = 0; /*0x15807f*/\n          *a4 = dword_2D2AB0[0]; /*0x158084*/\n          return tv_nsec; /*0x158088*/\n        case 0x27Au: /*0x15785c*/\n          if ( a5 != 8 ) /*0x1578cc*/\n            return 31; /*0x158006*/\n          v12 = *((unsigned __int8 *)a4 + 5); /*0x1578d8*/\n          v13 = *a4 | (unsigned __int8)(v12 | *((_BYTE *)a4 + 4)); /*0x1578ea*/\n          if ( (*a4 | (unsigned __int8)(v12 | *((_BYTE *)a4 + 4))) != 0 ) /*0x1578ed*/\n          {\n            v14 = sub_15CD60( /*0x157905*/\n                    a1: *a4,\n                    a2: *((unsigned __int8 *)a4 + 4),\n                    a3: v12,\n                    a4: *((unsigned __int8 *)a4 + 6),\n                    a5: 1);\n            if ( v14 != 0 ) /*0x15790c*/\n              goto LABEL_17; /*0x15790c*/\n            v15 = *((unsigned __int8 *)a4 + 5); /*0x15790e*/\n            v16 = *((unsigned __int8 *)a4 + 4); /*0x157914*/\n            v13 = *a4; /*0x15791a*/\n          }\n          else\n          {\n            v16 = 0; /*0x1584b0*/\n            v15 = 0; /*0x1584b2*/\n          }\n          v14 = sub_15CBC0(a1: v13, a2: v16, a3: v15, a4: *((unsigned __int8 *)a4 + 6)); /*0x157924*/\n          if ( v14 != 0 ) /*0x15792b*/\n          {\nLABEL_17:\n            if ( v14 == 2 ) /*0x157934*/\n              return 38; /*0x157934*/\nLABEL_136:\n            v67 = __errno_location(); /*0x158230*/\n            return sub_155E20(a1: (unsigned int)*v67); /*0x158248*/\n          }\n          return 0; /*0x15856e*/\n        case 0x278u: /*0x15785c*/\n          tv_nsec = 31; /*0x158130*/\n          if ( a5 != 12 ) /*0x15813a*/\n            return tv_nsec; /*0x15813a*/\n          v159 = 0; /*0x158146*/",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 600
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 600,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "          if ( a4[1] != 1 || (a4[2] & 3) != 3 ) /*0x157fc6*/\n            goto LABEL_125; /*0x157fc6*/\n          v62 = &unk_153D760; /*0x157fcc*/\n          v63 = *a4; /*0x157fd3*/\n          while ( *(_BYTE *)v62 == 0 || v63 != v62[4] ) /*0x157fe8*/\n          {\n            v62 += 18; /*0x157fee*/\n            if ( v62 == (_DWORD *)&unk_153E060 ) /*0x157ff5*/\n              return 31; /*0x157ff5*/\n          }\n          LODWORD(requested_time[0].tv_sec) = v62[1]; /*0x158e85*/\n          HIDWORD(requested_time[0].tv_sec) = *((unsigned __int8 *)v62 + 8); /*0x158e8f*/\n          LODWORD(requested_time[0].tv_nsec) = *((unsigned __int8 *)v62 + 9); /*0x158e99*/\n          v144 = *((unsigned __int8 *)v62 + 10); /*0x158e9f*/\n          v177 = 0; /*0x158ea3*/\n          HIDWORD(requested_time[0].tv_nsec) = v144; /*0x158eaa*/\n          v145 = sub_15CC80(a1: requested_time, a2: &v177); /*0x158eb0*/\n          v71 = v145; /*0x158eb5*/\n          if ( v145 == 0 ) /*0x158eb9*/\n          {\n            v159 = 1; /*0x158ebf*/\n            goto LABEL_125; /*0x158ecd*/\n          }\n          return (unsigned int)sub_155E20(a1: v71); /*0x1582e9*/\n        case 0x3D05u: /*0x15785c*/\n          tv_nsec = 59; /*0x1581b3*/\n          if ( *a4 != 1 ) /*0x1581b9*/\n            return tv_nsec; /*0x1581b9*/\n          v175 = sub_159F70((unsigned int)a1, a2: a4[1], a3: a4 + 4); /*0x1581d1*/\n          tv_nsec = v175; /*0x1581d7*/\n          if ( v175 != 0 || (a4[5] & 1) != 0 ) /*0x1581e8*/\n            return tv_nsec; /*0x1581e8*/\n          goto LABEL_132; /*0x1581e8*/\n        case 0x3D0Au: /*0x15785c*/\n          v175 = sub_159F70((unsigned int)a1, a2: *a4, a3: a4 + 18); /*0x15821e*/\n          tv_nsec = v175; /*0x158224*/\n          if ( v175 != 0 ) /*0x158229*/\n            return tv_nsec; /*0x158229*/\nLABEL_132:\n          v159 = 0; /*0x1581ee*/\n          goto LABEL_125; /*0x1581fc*/\n        default:\n          goto LABEL_45; /*0x158207*/\n      }\nLABEL_81:\n      tv_nsec = 31; /*0x157e16*/\n      unk_153EAC0 = 0; /*0x157e1c*/\n      return tv_nsec; /*0x157e23*/\n  }\nLABEL_45:\n  v159 = 0; /*0x157b30*/\n  if ( v9 == 15627 ) /*0x157b3d*/\n  {\n    file = 0; /*0x158010*/\n    if ( *a4 == -1 ) /*0x15801e*/\n    {\n      v175 = sub_159F70(a1: v5, a2: a4[1], a3: a4); /*0x15803b*/\n      tv_nsec = v175; /*0x158041*/\n      if ( v175 != 0 ) /*0x158046*/\n        return tv_nsec; /*0x158046*/\n      file = 1; /*0x15804c*/\n    }\n    goto LABEL_54; /*0x15805a*/\n  }\n  if ( v9 == 15625 ) /*0x157b49*/\n  {\n    v85 = 1; /*0x1584f6*/\n    while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x15850a*/\n    {\n      if ( (_BYTE)++v85 == 0 ) /*0x158e01*/\n      {\n        requested_time[0].tv_sec = 0; /*0x158e10*/\n        requested_time[0].tv_nsec = 2000000; /*0x158e1b*/\n        nanosleep(requested_time, remaining: nullptr); /*0x158e26*/\n      }\n    }\n    if ( dword_153D74C == 0 ) /*0x15851a*/\n    {\n      tv_nsec = 64; /*0x158f5d*/\n      unk_153EAC0 = 0; /*0x158f63*/\n      return tv_nsec; /*0x158f6a*/\n    }\n    sub_1557B0(a1); /*0x158520*/\n    memset(&unk_153D760, 0, 0x900u); /*0x158540*/\n    v86 = sub_1546E0(fd: dword_2D2AB0[0]); /*0x158551*/\n    tv_nsec = 89; /*0x158556*/\n    unk_153EAC0 = 0; /*0x15855c*/\n    if ( v86 < 0 ) /*0x158565*/\n      return tv_nsec; /*0x158565*/\n    return 0; /*0x158565*/\n  }\n  if ( v9 == (_DWORD)&unk_FD0104 ) /*0x157b55*/\n  {\n    v98 = sub_1568F0(a1: v5, a2: *a4); /*0x1587bb*/\n    if ( v98 != 0 ) /*0x1587c3*/\n    {\n      v99 = **(int **)(v98 + 40); /*0x1587cd*/\n      if ( (int)v99 >= 0 ) /*0x1587d2*/\n      {\n        *((_QWORD *)a4 + 1) = v99; /*0x1587d8*/",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 700
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 700,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "        file = 0; /*0x1587e4*/\n        goto LABEL_54; /*0x1587eb*/\n      }\n    }\n    return 38; /*0x157940*/\n  }\n  if ( v9 == (_DWORD)&unk_E00101 ) /*0x157b61*/\n  {\n    v33 = a4[1]; /*0x157b67*/\n    if ( (_DWORD)v33 != v5 ) /*0x157b6f*/\n    {\n      v34 = sub_1568F0(a1: v5, a2: v33); /*0x157b74*/\n      if ( v34 == 0 ) /*0x157b7c*/\n        return 38; /*0x157b7c*/\n      v35 = **(int **)(v34 + 40); /*0x157b86*/\n      if ( (int)v35 < 0 ) /*0x157b8b*/\n        return 38; /*0x157b8b*/\n      *((_QWORD *)a4 + 130) = v35; /*0x157b91*/\n    }\n    file = 0; /*0x157b99*/\n    goto LABEL_54; /*0x157b99*/\n  }\n  if ( v9 != 3336 ) /*0x158253*/\n  {\nLABEL_125:\n    file = 0; /*0x15815a*/\n    goto LABEL_54; /*0x158161*/\n  }\n  v68 = a4[2]; /*0x158259*/\n  *(_QWORD *)a4 = -1; /*0x15825e*/\n  if ( v68 != -1 ) /*0x158269*/\n  {\n    snprintf(s: (char *)requested_time, maxlen: 0x80u, format: \"/dev/nvidia-caps-imex-channels/channel%d\", v68); /*0x15828e*/\n    name = v5; /*0x15829a*/\n    goto LABEL_140; /*0x15829a*/\n  }\n  v125 = scandir64( /*0x158a77*/\n           dir: \"/dev/nvidia-caps-imex-channels\",\n           (struct dirent64 ***)namelist,\n           selector: nullptr,\n           cmp: (int (*)(const struct dirent64 **, const struct dirent64 **))&alphasort64);\n  tv_nsec = 89; /*0x158a7c*/\n  fileb = v125; /*0x158a82*/\n  if ( v125 < 0 ) /*0x158a8a*/\n    return tv_nsec; /*0x158a8a*/\n  tv_sec = namelist[0].tv_sec; /*0x158a90*/\n  v127 = (void *)namelist[0].tv_sec; /*0x158a97*/\n  if ( v125 == 0 ) /*0x158a9a*/\n  {\n    v139 = 0; /*0x159233*/\n    goto LABEL_277; /*0x159236*/\n  }\n  v156 = (unsigned int)(v125 - 1); /*0x158aaf*/\n  v158 = v7; /*0x158abd*/\n  v128 = (unsigned int)v125; /*0x158ac7*/\n  v129 = 0; /*0x158ad0*/\n  v157 = v6; /*0x158ada*/\n  while ( 1 ) /*0x158b1a*/\n  {\n    v131 = *(_BYTE **)(tv_sec + 8 * v129); /*0x158b1a*/\n    v132 = v129; /*0x158b1e*/\n    if ( v131[19] != 46 || v131[20] != 0 && (v131[20] != 46 || v131[21] != 0) ) /*0x158b3b*/\n    {\n      v130 = __isoc99_sscanf(a1: v131 + 19, a2: \"channel%d\", &v176); /*0x158af8*/\n      tv_sec = namelist[0].tv_sec; /*0x158afd*/\n      if ( v130 != 1 ) /*0x158b07*/\n        goto LABEL_253; /*0x158b07*/\n      snprintf(s: (char *)requested_time, maxlen: 0x80u, format: \"/dev/nvidia-caps-imex-channels/channel%d\", v176); /*0x158b62*/\n      if ( access(name: (const char *)requested_time, type: 4) == 0 ) /*0x158b7a*/\n        break; /*0x158b7a*/\n      tv_sec = namelist[0].tv_sec; /*0x158b80*/\n    }\nLABEL_253:\n    if ( ++v129 == v128 ) /*0x158b14*/\n    {\n      v137 = v132 + 1; /*0x158c59*/\n      v7 = v158; /*0x158c63*/\n      v6 = v157; /*0x158c77*/\n      goto LABEL_273; /*0x158c77*/\n    }\n  }\n  v137 = v129; /*0x159197*/\n  v7 = v158; /*0x1591a1*/\n  v6 = v157; /*0x1591b5*/\n  tv_sec = namelist[0].tv_sec; /*0x1591bc*/\nLABEL_273:\n  v138 = 0; /*0x158c7e*/\n  namee = v137; /*0x158c9b*/\n  while ( 1 ) /*0x158cbf*/\n  {\n    free(ptr: *(void **)(tv_sec + v138)); /*0x158cbf*/\n    if ( 8 * v156 == v138 ) /*0x158cc7*/\n      break; /*0x158cc7*/\n    tv_sec = namelist[0].tv_sec; /*0x158cb0*/\n    v138 += 8; /*0x158cb7*/\n  }\n  v139 = namee; /*0x158cc9*/\n  v9 = 3336; /*0x158cd7*/\n  v127 = (void *)namelist[0].tv_sec; /*0x158cdd*/\nLABEL_277:",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 800
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 800,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "  namej = v139; /*0x158ce4*/\n  free(ptr: v127); /*0x158ceb*/\n  tv_nsec = 27; /*0x158cf7*/\n  if ( fileb == namej ) /*0x158d04*/\n    return tv_nsec; /*0x158d04*/\n  name = v5; /*0x158d11*/\nLABEL_140:\n  while ( 1 ) /*0x1582b4*/\n  {\n    v69 = open64(file: (const char *)requested_time, oflag: (int)sub_80000, 0); /*0x1582b4*/\n    if ( v69 >= 0 ) /*0x1582bb*/\n      break; /*0x1582bb*/\n    v70 = __errno_location(); /*0x1582c1*/\n    v71 = (unsigned int)*v70; /*0x1582c6*/\n    if ( (_DWORD)v71 != 4 && (_DWORD)v71 != 11 ) /*0x1582d0*/\n    {\n      if ( (int)v71 <= 0 ) /*0x1582d4*/\n      {\n        *v70 = 1; /*0x1582d6*/\n        v71 = 1; /*0x1582dc*/\n      }\n      return (unsigned int)sub_155E20(a1: v71); /*0x1582dc*/\n    }\n  }\n  file = 0; /*0x158584*/\n  v5 = name; /*0x15858b*/\n  *(_QWORD *)a4 = v69; /*0x158592*/\nLABEL_54:\n  requested_time[0].tv_sec = __PAIR64__(v7, v5); /*0x157ba7*/\n  requested_time[0].tv_nsec = v9; /*0x157bdc*/\n  requested_time[1].tv_sec = (__time_t)a4; /*0x157be2*/\n  requested_time[1].tv_nsec = v6; /*0x157be9*/\n  if ( (unsigned __int8)sub_161F20(a1: requested_time, a2: &v175) != 0 ) /*0x157bfe*/\n  {\n    v36 = v175; /*0x157c04*/\n  }\n  else\n  {\n    v36 = sub_1567E0(fd: dword_2D2AB0[0]); /*0x1585ca*/\n    v175 = v36; /*0x1585cf*/\n  }\n  if ( v36 != 0 ) /*0x157c0c*/\n  {\n    HIDWORD(requested_time[1].tv_nsec) = v36; /*0x157c12*/\n    goto LABEL_58; /*0x157c12*/\n  }\n  tv_nsec = HIDWORD(requested_time[1].tv_nsec); /*0x1582f0*/\n  if ( HIDWORD(requested_time[1].tv_nsec) != 0 ) /*0x1582fa*/\n  {\nLABEL_58:\n    if ( v9 == 15621 ) /*0x157c1e*/\n    {\n      v141 = 1; /*0x158d53*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158d68*/\n      {\n        if ( (_BYTE)++v141 == 0 ) /*0x158fa8*/\n        {\n          namelist[0].tv_sec = 0; /*0x158fb7*/\n          namelist[0].tv_nsec = 2000000; /*0x158fc2*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x158fcd*/\n        }\n      }\n      sub_155BC0(a1: a4[4]); /*0x158d73*/\n      unk_153EAC0 = 0; /*0x158d78*/\n      a4[4] = -1; /*0x158d7f*/\n      return HIDWORD(requested_time[1].tv_nsec); /*0x158d88*/\n    }\n    if ( v9 == 15626 ) /*0x157c2a*/\n    {\n      v37 = 1; /*0x157c37*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x157c4c*/\n      {\n        if ( (_BYTE)++v37 == 0 ) /*0x158f74*/\n        {\n          namelist[0].tv_sec = 0; /*0x158f83*/\n          namelist[0].tv_nsec = 2000000; /*0x158f8e*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x158f99*/\n        }\n      }\n      sub_155BC0(a1: a4[18]); /*0x157c57*/\n      unk_153EAC0 = 0; /*0x157c5c*/\n      a4[18] = -1; /*0x157c63*/\n      return HIDWORD(requested_time[1].tv_nsec); /*0x157c63*/\n    }\n    if ( v9 == 15627 && file != 0 ) /*0x158b9c*/\n    {\n      v133 = 1; /*0x158ba9*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158bbd*/\n      {\n        if ( (_BYTE)++v133 == 0 ) /*0x158e37*/\n        {\n          namelist[0].tv_sec = 0; /*0x158e46*/\n          namelist[0].tv_nsec = 2000000; /*0x158e51*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x158e5c*/\n        }\n      }\n      sub_155BC0(a1: *a4); /*0x158bc7*/\n      unk_153EAC0 = 0; /*0x158bcc*/\n      *a4 = -1; /*0x158bd3*/\n      return HIDWORD(requested_time[1].tv_nsec); /*0x158bdb*/",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 900
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 900,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "    }\n    if ( v9 == 3336 ) /*0x158d26*/\n    {\n      v140 = *(_QWORD *)a4; /*0x158d2c*/\n      if ( *(_QWORD *)a4 != -1 ) /*0x158d34*/\n        goto LABEL_281; /*0x158d34*/\n    }\n    return HIDWORD(requested_time[1].tv_nsec); /*0x157c73*/\n  }\n  if ( v9 == 632 ) /*0x158306*/\n  {\n    if ( v159 == 0 ) /*0x158d94*/\n      return tv_nsec; /*0x158d94*/\n    v142 = sub_15CD60(a1: (unsigned int)v177, a2: BYTE4(v177), a3: BYTE8(v177), a4: BYTE12(v177), a5: 0); /*0x158db8*/\n    v71 = v142; /*0x158dbd*/\n    if ( v142 != 0 ) /*0x158dc1*/\n      return (unsigned int)sub_155E20(a1: v71); /*0x158dc1*/\n    return HIDWORD(requested_time[1].tv_nsec); /*0x158dc1*/\n  }\n  if ( v9 > 0x278 )\n  {\n    if ( v9 == 649 )\n    {\n      v100 = 1; /*0x1587f7*/\n      tv_nsec_high = HIDWORD(requested_time[1].tv_nsec); /*0x1587ff*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x15880f*/\n      {\n        if ( (_BYTE)++v100 == 0 ) /*0x158fdc*/\n        {\n          namelist[0].tv_sec = 0; /*0x158feb*/\n          namelist[0].tv_nsec = 2000000; /*0x158ff6*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x159001*/\n        }\n      }\n      v102 = tv_nsec_high; /*0x158815*/\n      v103 = &unk_153D760; /*0x15881f*/\n      while ( *(_BYTE *)v103 == 0 || v103[4] != *a4 ) /*0x158834*/\n      {\n        ++v102; /*0x15883a*/\n        v103 += 18; /*0x15883e*/\n        if ( v102 == 32 ) /*0x158846*/\n          goto LABEL_215; /*0x158846*/\n      }\n      if ( dword_153D74C == 0 ) /*0x158eda*/\n      {\nLABEL_215:\n        HIDWORD(requested_time[1].tv_nsec) = 31; /*0x158848*/\n        unk_153EAC0 = 0; /*0x158852*/\n        return 31; /*0x158860*/\n      }\n      v146 = v102; /*0x158ee0*/\n      if ( dword_153E0C0[20 * v102] < 0 )\n      {\n        namef = v102; /*0x158f03*/\n        HIDWORD(requested_time[1].tv_nsec) = sub_1546F0(a1: *((unsigned int *)&unk_153D760 + 18 * v102 + 14)); /*0x158f1d*/\n        if ( HIDWORD(requested_time[1].tv_nsec) != 0 )\n        {\n          sub_155C30(s: stderr, format: \"NVIDIA: could not create file for device %u\\n\", a3: v156);\n          unk_153EAC0 = 0; /*0x158f4a*/\n          return HIDWORD(requested_time[1].tv_nsec); /*0x158f58*/\n        }\n        v134 = sub_155E40(a1: namef, a2: (char *)&requested_time[1].tv_nsec + 4, a3: 2050); /*0x158bef*/\n        v135 = v134; /*0x158bf4*/\n        if ( v134 >= 0 ) /*0x158bf9*/\n        {\n          v136 = fcntl(fd: v134, cmd: 3, 0); /*0x158c06*/\n          if ( v136 < 0 || (BYTE1(v136) &= ~8u, fcntl(fd: v135, cmd: 4, (unsigned int)v136) < 0) ) /*0x158c29*/\n          {\n            v153 = __errno_location(); /*0x159255*/\n            v154 = v135; /*0x15925a*/\n            v135 = -1; /*0x15925d*/\n            v155 = *v153; /*0x159261*/\n            close(fd: v154); /*0x159264*/\n            HIDWORD(requested_time[1].tv_nsec) = sub_155E20(a1: v155); /*0x159271*/\n          }\n        }\n        dword_153E0C0[20 * v146] = v135; /*0x158c33*/\n      }\nLABEL_270:\n      unk_153EAC0 = 0; /*0x158c37*/\n      return HIDWORD(requested_time[1].tv_nsec); /*0x158c45*/\n    }\n    if ( v9 != 3336 ) /*0x158409*/\n      return tv_nsec; /*0x158409*/\n    v78 = *(_QWORD *)a4; /*0x15840f*/\n    if ( *(_QWORD *)a4 == -1 ) /*0x158417*/\n      return tv_nsec; /*0x158417*/\n    namea = HIDWORD(requested_time[1].tv_nsec); /*0x158422*/\n    v79 = requested_time[0].tv_sec; /*0x158429*/\n    v80 = malloc(size: 0x10u); /*0x158430*/\n    v81 = v80; /*0x15843f*/\n    if ( v80 != nullptr ) /*0x158442*/\n    {\n      v80[1] = v78; /*0x15844f*/\n      v82 = 1; /*0x158453*/\n      *((_QWORD *)v80 + 1) = 0; /*0x15845c*/\n      *v80 = v79; /*0x158464*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158477*/\n      {\n        if ( (_BYTE)++v82 == 0 ) /*0x159168*/",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 1000
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 1000,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "        {\n          namelist[0].tv_sec = 0; /*0x159177*/\n          namelist[0].tv_nsec = 2000000; /*0x159182*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x15918d*/\n        }\n      }\n      tv_nsec = namea; /*0x158484*/\n      v83 = unk_153E0A0; /*0x158487*/\n      if ( unk_153E0A0 != 0 ) /*0x15848e*/\n      {\n        do /*0x15849e*/\n        {\n          v84 = v83; /*0x158494*/\n          v83 = *(_QWORD *)(v83 + 8); /*0x158497*/\n        }\n        while ( v83 != 0 ); /*0x15849e*/\n        *(_QWORD *)(v84 + 8) = v81; /*0x1584a0*/\n      }\n      else\n      {\n        unk_153E0A0 = v81; /*0x159158*/\n      }\n      unk_153EAC0 = 0; /*0x1584a4*/\n      return tv_nsec; /*0x1584ab*/\n    }\n    HIDWORD(requested_time[1].tv_nsec) = 81; /*0x159146*/\n    LODWORD(v140) = v78; /*0x159150*/\nLABEL_281:\n    close(fd: v140); /*0x158d3a*/\n    *(_QWORD *)a4 = -1; /*0x158d3f*/\n    return HIDWORD(requested_time[1].tv_nsec); /*0x158d47*/\n  }\n  if ( v9 != 533 ) /*0x158318*/\n  {\n    if ( v9 != 534 ) /*0x158324*/\n      return tv_nsec; /*0x158324*/\n    v72 = 1; /*0x158331*/\n    while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158346*/\n    {\n      if ( (_BYTE)++v72 == 0 ) /*0x159044*/\n      {\n        namelist[0].tv_sec = 0; /*0x159053*/\n        namelist[0].tv_nsec = 2000000; /*0x15905e*/\n        nanosleep(requested_time: namelist, remaining: nullptr); /*0x159069*/\n      }\n    }\n    v73 = &unk_153D760; /*0x15834c*/\n    v74 = dword_153E0C0; /*0x158353*/\n    do /*0x1583a3*/\n    {\n      if ( *(_BYTE *)v73 != 0 ) /*0x1583ac*/\n      {\n        v75 = nullptr; /*0x1583b4*/\n        v76 = (int *)(a4 + 1); /*0x1583b7*/\n        v77 = *a4; /*0x1583c6*/\n        if ( dword_153D74C != 0 ) /*0x1583ca*/\n          v75 = v74; /*0x1583ca*/\n        if ( v77 == 0xFFFF ) /*0x1583d4*/\n        {\nLABEL_154:\n          if ( v75[2] == 0 && *v75 >= 0 ) /*0x15837d*/\n          {\n            close(fd: *v75); /*0x15837f*/\n            *v75 = -1; /*0x158384*/\n          }\n        }\n        else\n        {\n          while ( v77 != -1 ) /*0x1583f3*/\n          {\n            if ( v77 == v73[4] ) /*0x1583e3*/\n              goto LABEL_154; /*0x1583e3*/\n            if ( a4 + 32 == (unsigned int *)v76 ) /*0x1583e8*/\n              break; /*0x1583e8*/\n            v77 = *v76++; /*0x1583ea*/\n          }\n        }\n      }\n      v73 += 18; /*0x158398*/\n      v74 += 20; /*0x15839c*/\n    }\n    while ( v73 != (_DWORD *)&unk_153E060 ); /*0x1583a3*/\n    goto LABEL_270; /*0x1583a3*/\n  }\n  v104 = 1; /*0x15886c*/\n  v105 = HIDWORD(requested_time[1].tv_nsec); /*0x158874*/\n  while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158884*/\n  {\n    if ( (_BYTE)++v104 == 0 ) /*0x159010*/\n    {\n      namelist[0].tv_sec = 0; /*0x15901f*/\n      namelist[0].tv_nsec = 2000000; /*0x15902a*/\n      nanosleep(requested_time: namelist, remaining: nullptr); /*0x159035*/\n    }\n  }\n  v106 = v105; /*0x158891*/\n  v107 = &unk_153D760; /*0x1588a4*/\n  v108 = a4; /*0x1588a7*/\n  v109 = dword_153E0C0; /*0x1588aa*/\n  v110 = v106; /*0x1588b4*/",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 1100
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 1100,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "  while ( 2 ) /*0x1588f3*/\n  {\n    if ( *(_BYTE *)v107 == 0 ) /*0x1588f3*/\n    {\nLABEL_220:\n      ++v110; /*0x1588d8*/\n      v107 += 18; /*0x1588dc*/\n      v109 += 20; /*0x1588e0*/\n      if ( v110 == 32 ) /*0x1588e8*/\n      {\n        unk_153EAC0 = 0; /*0x158de7*/\n        return HIDWORD(requested_time[1].tv_nsec); /*0x158df5*/\n      }\n      continue; /*0x1588e8*/\n    }\n    break;\n  }\n  v111 = *v108; /*0x1588fc*/\n  v112 = nullptr; /*0x1588ff*/\n  v113 = v108 + 1; /*0x158902*/\n  if ( dword_153D74C != 0 ) /*0x158910*/\n    v112 = v109; /*0x158910*/\n  if ( v111 != 0xFFFF ) /*0x15891a*/\n  {\n    while ( v111 != -1 ) /*0x158934*/\n    {\n      if ( v107[4] == v111 ) /*0x158924*/\n        goto LABEL_219; /*0x158924*/\n      if ( v113 == v108 + 32 ) /*0x158929*/\n        break; /*0x158929*/\n      v111 = *v113++; /*0x15892b*/\n    }\n    goto LABEL_220; /*0x158929*/\n  }\nLABEL_219:\n  if ( *v112 >= 0 ) /*0x1588d6*/\n    goto LABEL_220; /*0x1588d6*/\n  namec = (char *)v112; /*0x15893c*/\n  HIDWORD(requested_time[1].tv_nsec) = sub_1546F0(a1: (unsigned int)v107[14]); /*0x158951*/\n  if ( HIDWORD(requested_time[1].tv_nsec) == 0 ) /*0x158957*/\n  {\n    v114 = sub_156A00(a1: v110, a2: (char *)&requested_time[1].tv_nsec + 4); /*0x15896e*/\n    *(_DWORD *)namec = v114; /*0x15897a*/\n    if ( v114 < 0 ) /*0x15897f*/\n    {\n      v115 = (char *)v110; /*0x158985*/\n      v116 = v108; /*0x15898f*/\n      v117 = (int)v115; /*0x158999*/\n      goto LABEL_234; /*0x158999*/\n    }\n    goto LABEL_220; /*0x15897f*/\n  }\n  v115 = (char *)v110; /*0x1591c8*/\n  v116 = v108; /*0x1591d2*/\n  sub_155C30(s: stderr, format: \"NVIDIA: could not create file for device %u\\n\", a3: v156);\n  v117 = (int)v115; /*0x159204*/\nLABEL_234:\n  if ( v117 != 0 ) /*0x15899f*/\n  {\n    v118 = (char *)&unk_153D760; /*0x1589b7*/\n    v119 = v116; /*0x1589c2*/\n    named = v115; /*0x1589cf*/\n    v120 = dword_153E0C0; /*0x1589d6*/\n    v121 = (char *)&unk_153D7A8 + 72 * (unsigned int)(v117 - 1); /*0x1589e0*/\n    do /*0x158a08*/\n    {\n      if ( *v118 != 0 ) /*0x158a11*/\n      {\n        v122 = *v119; /*0x158a19*/\n        v123 = nullptr; /*0x158a1c*/\n        v124 = v119 + 1; /*0x158a1f*/\n        if ( dword_153D74C != 0 ) /*0x158a2c*/\n          v123 = v120; /*0x158a2c*/\n        if ( v122 == 0xFFFF ) /*0x158a36*/\n        {\nLABEL_236:\n          if ( *v123 >= 0 ) /*0x1589eb*/\n          {\n            close(fd: *v123); /*0x1589ed*/\n            *v123 = -1; /*0x1589f2*/\n          }\n        }\n        else\n        {\n          while ( v122 != -1 ) /*0x158a53*/\n          {\n            if ( *((_DWORD *)v118 + 4) == v122 ) /*0x158a43*/\n              goto LABEL_236; /*0x158a43*/\n            if ( v119 + 32 == v124 ) /*0x158a48*/\n              break; /*0x158a48*/\n            v122 = *v124++; /*0x158a4a*/\n          }\n        }\n      }\n      v118 += 72; /*0x1589fd*/\n      v120 += 20; /*0x158a01*/\n    }\n    while ( v121 != v118 ); /*0x158a08*/\n    v116 = v119; /*0x159073*/\n    v115 = named; /*0x159076*/",
+          "line_count": 100,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "next": 1200
+          }
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x157810",
+          "offset": 1200,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x157810",
+          "code": "  }\n  v116[32] = *((_DWORD *)&unk_153D760 + 18 * (_QWORD)v115 + 4); /*0x159095*/\n  unk_153EAC0 = 0; /*0x15909d*/\n  return HIDWORD(requested_time[1].tv_nsec); /*0x15787f*/\n}",
+          "line_count": 5,
+          "total_lines": 1205,
+          "truncated": true,
+          "cursor": {
+            "done": true
+          }
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_157810(__int64 a1, unsigned int a2, unsigned int a3, unsigned int *a4, unsigned int a5)\n{\n  unsigned int v5; // r15d\n  unsigned int v6; // r14d\n  unsigned int v7; // r13d\n  unsigned int v9; // ebx\n  unsigned int tv_nsec; // r11d\n  __int64 v12; // rdx\n  __int64 v13; // rdi\n  int v14; // eax\n  __int64 v15; // rdx\n  __int64 v16; // rsi\n  int v17; // edi\n  int v18; // eax\n  unsigned int v19; // r13d\n  int v20; // r11d\n  int v21; // eax\n  __int64 v22; // rsi\n  unsigned int *v23; // rdx\n  __int64 v24; // rax\n  __int64 v25; // rcx\n  __int64 v26; // rdx\n  unsigned int *v27; // rsi\n  __int64 v28; // rdi\n  __int64 v29; // r9\n  unsigned int v30; // ecx\n  __int64 v31; // rax\n  _QWORD *v32; // rax\n  __int64 v33; // rsi\n  __int64 v34; // rax\n  __int64 v35; // rax\n  unsigned int v36; // eax\n  int v37; // ebx\n  __int64 v38; // rax\n  __int64 v39; // r8\n  __syscall_slong_t v40; // rdx\n  unsigned int v41; // esi\n  int v42; // eax\n  char v43; // al\n  _DWORD *v44; // rax\n  char *v45; // rcx\n  __syscall_slong_t *p_tv_nsec; // rdx\n  char *v47; // rdi\n  int v48; // esi\n  int v49; // r13d\n  _DWORD *v50; // rax\n  __int64 v51; // rdx\n  unsigned int v52; // r15d\n  int v53; // eax\n  int v54; // r11d\n  __int64 v55; // rdx\n  _DWORD *v56; // rax\n  __int64 v57; // rax\n  unsigned int v58; // eax\n  int v59; // r13d\n  int v60; // edx\n  _DWORD *v61; // rax\n  _DWORD *v62; // rax\n  int v63; // ecx\n  int *v64; // rax\n  int v65; // edi\n  int v66; // eax\n  int *v67; // rax\n  unsigned int v68; // ecx\n  int v69; // eax\n  int *v70; // rax\n  __int64 v71; // rdi\n  int v72; // ebx\n  _DWORD *v73; // rbx\n  int *v74; // r13\n  int *v75; // r14\n  int *v76; // rax\n  int v77; // edx\n  __int64 v78; // r13\n  int v79; // r14d\n  _DWORD *v80; // rax\n  _DWORD *v81; // rbx\n  int v82; // r12d\n  __int64 v83; // rax\n  __int64 v84; // rdx\n  int v85; // r12d\n  int v86; // eax\n  char *v87; // rax\n  unsigned int v88; // r14d\n  unsigned int v89; // r13d\n  unsigned int v90; // ebx\n  int v91; // r11d\n  int v92; // edi\n  int v93; // r12d\n  int v94; // edx\n  char *v95; // r9\n  int v96; // r15d\n  int *v97; // rax\n  __int64 v98; // rax\n  __int64 v99; // rax\n  int v100; // ebx\n  unsigned int tv_nsec_high; // r14d\n  unsigned int v102; // r11d\n  _DWORD *v103; // rax\n  int v104; // ebx\n  unsigned int v105; // r14d\n  unsigned int v106; // r11d\n  _DWORD *v107; // r13\n  _DWORD *v108; // r15\n  int *v109; // r14\n  unsigned int v110; // r12d\n  int v111; // ecx\n  int *v112; // r8\n  int *v113; // rax\n  int v114; // eax\n  char *v115; // r13\n  _DWORD *v116; // r12\n  int v117; // r11d\n  char *v118; // rbx\n  _DWORD *v119; // r14\n  int *v120; // r12\n  char *v121; // r15\n  int v122; // edx\n  int *v123; // r13\n  int *v124; // rax\n  int v125; // eax\n  __time_t tv_sec; // rdx\n  void *v127; // rdi\n  __int64 v128; // r13\n  __int64 v129; // rbx\n  int v130; // eax\n  _BYTE *v131; // rdi\n  int v132; // r14d\n  int v133; // r13d\n  int v134; // eax\n  int v135; // r12d\n  int v136; // eax\n  int v137; // r9d\n  __int64 v138; // rbx\n  int v139; // r9d\n  __int64 v140; // rdi\n  int v141; // ebx\n  unsigned int v142; // eax\n  int *v143; // rax\n  int v144; // eax\n  unsigned int v145; // eax\n  __int64 v146; // r13\n  __int64 v147; // rdx\n  unsigned int *v148; // r12\n  __int64 v149; // rsi\n  __int64 v150; // r8\n  unsigned int v151; // ecx\n  __int64 v152; // rax\n  int *v153; // rax\n  int v154; // edi\n  unsigned int v155; // r14d\n  __int64 v156; // [rsp+0h] [rbp-B40h]\n  unsigned int v157; // [rsp+10h] [rbp-B30h]\n  unsigned int v158; // [rsp+18h] [rbp-B28h]\n  char v159; // [rsp+28h] [rbp-B18h]\n  char file; // [rsp+30h] [rbp-B10h]\n  char *filea; // [rsp+30h] [rbp-B10h]\n  int fileb; // [rsp+30h] [rbp-B10h]\n  unsigned int nameg; // [rsp+38h] [rbp-B08h]\n  unsigned int nameh; // [rsp+38h] [rbp-B08h]\n  unsigned int name; // [rsp+38h] [rbp-B08h]\n  unsigned int namea; // [rsp+38h] [rbp-B08h]\n  unsigned int nameb; // [rsp+38h] [rbp-B08h]\n  int namei; // [rsp+38h] [rbp-B08h]\n  char *namec; // [rsp+38h] [rbp-B08h]\n  char *named; // [rsp+38h] [rbp-B08h]\n  int namee; // [rsp+38h] [rbp-B08h]\n  int namej; // [rsp+38h] [rbp-B08h]\n  unsigned int namef; // [rsp+38h] [rbp-B08h]\n  int namek; // [rsp+38h] [rbp-B08h]\n  unsigned int v175; // [rsp+48h] [rbp-AF8h] BYREF\n  int v176; // [rsp+4Ch] [rbp-AF4h] BYREF\n  __int128 v177; // [rsp+50h] [rbp-AF0h] BYREF\n  struct timespec namelist[8]; // [rsp+60h] [rbp-AE0h] BYREF\n  struct timespec requested_time[166]; // [rsp+E0h] [rbp-A60h] BYREF\n\n  v5 = a1; /*0x157816*/\n  v6 = a5; /*0x15781b*/\n  v7 = a2; /*0x157820*/\n  v9 = a3; /*0x157829*/\n  switch ( a3 ) /*0x157838*/\n  {\n    case 0x3D0Eu: /*0x157838*/\n      if ( (unsigned __int8)sub_159F00() != 0 ) /*0x15794f*/\n      {\n        if ( *a4 == -1 ) /*0x15795c*/\n          v17 = sub_1558B0(); /*0x158578*/\n        else\n          v17 = dup(fd: *a4); /*0x157967*/\n        if ( v17 >= 0 ) /*0x15796b*/\n        {\n          v18 = sub_156100(); /*0x157971*/\n          v19 = v18; /*0x157976*/\n          if ( v18 >= 0 ) /*0x15797b*/\n          {\n            v20 = sub_156020(fildes: v18); /*0x15798f*/\n            if ( v20 == 0 ) /*0x157994*/\n            {\n              if ( (_BYTE)v176 == 0 || (v21 = faccessat(fd: v19, file: aDmem, type: 0, flag: 512), v20 = 86, v21 == 0) ) /*0x1579c1*/\n              {\n                v20 = sub_1561A0(a1: v19, a2: aDmem, a3: namelist, a4: requested_time, a5: &v177); /*0x157a04*/\n                if ( v20 == 0 ) /*0x157a07*/\n                {\n                  v22 = v177; /*0x157a0d*/\n                  v23 = a4 + 2; /*0x157a14*/\n                  v24 = 0; /*0x157a19*/\n                  for ( a4[1] = v177; v22 != v24; *((_QWORD *)v23 - 2) = v25 ) /*0x157a23*/\n                  {\n                    v23 += 8; /*0x157a2b*/\n                    *(v23 - 8) = *((_DWORD *)&namelist[0].tv_sec + v24); /*0x157a2f*/\n                    v25 = *(&requested_time[0].tv_sec + v24++); /*0x157a32*/\n                  }\n                  v20 = sub_1561A0(a1: v19, a2: \"dmem.min\", a3: namelist, a4: requested_time, a5: &v177); /*0x157a6b*/\n                  if ( v20 == 0 ) /*0x157a6e*/\n                  {\n                    v26 = v177; /*0x157a70*/\n                    if ( a4[1] != (_QWORD)v177 ) /*0x157a7f*/\n                      goto LABEL_40; /*0x157a7f*/\n                    if ( (_QWORD)v177 != 0 ) /*0x157a84*/\n                    {\n                      v27 = a4 + 2; /*0x157a8a*/\n                      v28 = 0; /*0x157a8f*/\n                      v29 = 0; /*0x157a91*/\n                      do /*0x157ac5*/\n                      {\n                        v30 = *v27; /*0x157a98*/\n                        v31 = 0; /*0x157a9a*/\n                        do /*0x157ab8*/\n                        {\n                          if ( *((_DWORD *)&namelist[0].tv_sec + v31) == v30 ) /*0x157aa3*/\n                          {\n                            ++v28; /*0x157aa9*/\n                            *((_QWORD *)v27 + 1) = *(&requested_time[0].tv_sec + v31); /*0x157aad*/\n                          }\n                          ++v31; /*0x157ab1*/\n                        }\n                        while ( v26 != v31 ); /*0x157ab8*/\n                        ++v29; /*0x157aba*/\n                        v27 += 8; /*0x157abe*/\n                      }\n                      while ( v26 != v29 ); /*0x157ac5*/\n                      if ( v26 != v28 ) /*0x157aca*/\n                        goto LABEL_40; /*0x157aca*/\n                    }\n                    v20 = sub_1561A0(a1: v19, a2: \"dmem.current\", a3: namelist, a4: requested_time, a5: &v177); /*0x1590d8*/\n                    if ( v20 == 0 ) /*0x1590db*/\n                    {\n                      v147 = v177; /*0x1590e1*/\n                      if ( a4[1] != (_QWORD)v177 ) /*0x1590f0*/\n                        goto LABEL_40; /*0x1590f0*/\n                      if ( (_QWORD)v177 != 0 ) /*0x1590f9*/\n                      {\n                        v148 = a4 + 2; /*0x1590ff*/\n                        v149 = 0; /*0x159103*/\n                        v150 = 0; /*0x159105*/\n                        do /*0x159136*/\n                        {\n                          v151 = *v148; /*0x159108*/\n                          v152 = 0; /*0x15910c*/\n                          do /*0x159129*/\n                          {\n                            if ( *((_DWORD *)&namelist[0].tv_sec + v152) == v151 ) /*0x159113*/\n                            {\n                              ++v149; /*0x159119*/\n                              *((_QWORD *)v148 + 3) = *(&requested_time[0].tv_sec + v152); /*0x15911d*/\n                            }\n                            ++v152; /*0x159122*/\n                          }\n                          while ( v147 != v152 ); /*0x159129*/\n                          ++v150; /*0x15912b*/\n                          v148 += 8; /*0x15912f*/\n                        }\n                        while ( v147 != v150 ); /*0x159136*/\n                        if ( v147 != v149 ) /*0x15913b*/\nLABEL_40:\n                          v20 = 89; /*0x157ad0*/\n                      }\n                    }\n                  }\n                }\n              }\n            }\n            nameg = v20; /*0x157ad9*/\n            close(fd: v19); /*0x157ae0*/\n            return nameg; /*0x157aec*/\n          }\n        }\n        goto LABEL_136; /*0x15797b*/\n      }\n      break;\n    case 0x3D0Du: /*0x157838*/\n      if ( (unsigned __int8)sub_159F00() != 0 ) /*0x157e37*/\n      {\n        namelist[0].tv_sec = 0; /*0x157e3d*/\n        if ( *a4 == -1 ) /*0x157e4f*/\n          v52 = sub_1558B0(); /*0x1585a0*/\n        else\n          v52 = dup(fd: *a4); /*0x157e5a*/\n        if ( (v52 & 0x80000000) == 0 ) /*0x157e60*/\n        {\n          v53 = faccessat(fd: v52, file: aDmem, type: 0, flag: 512); /*0x157e77*/\n          v54 = 87; /*0x157e7c*/\n          if ( v53 != 0 ) /*0x157e84*/\n            goto LABEL_92; /*0x157e84*/\n          v55 = 0; /*0x157e8d*/\n          v56 = &unk_153D760; /*0x157e8f*/\n          while ( *(_BYTE *)v56 == 0 || v56[4] != a4[1] ) /*0x157ea5*/\n          {\n            ++v55; /*0x157eab*/\n            v56 += 18; /*0x157eaf*/\n            if ( v55 == 32 ) /*0x157eb7*/\n            {\n              v54 = 87; /*0x157eb9*/\n              goto LABEL_92; /*0x157eb9*/\n            }\n          }\n          v87 = (char *)&unk_153D760 + 72 * v55; /*0x1585e6*/\n          v88 = *((_DWORD *)v87 + 1); /*0x1585ea*/\n          v89 = (unsigned __int8)v87[8]; /*0x1585ee*/\n          v90 = (unsigned __int8)v87[9]; /*0x1585f3*/\n          if ( flock(fd: v52, operation: 2) != 0 ) /*0x1585fe*/\n          {\n            v143 = __errno_location(); /*0x158dcc*/\n            v54 = sub_155E20(a1: (unsigned int)*v143); /*0x158dd8*/\n            goto LABEL_92; /*0x158ddb*/\n          }\n          v91 = sub_156380(a1: v52, a2: \"dmem.min\", a3: v88, a4: v89, a5: v90, a6: namelist); /*0x158623*/\n          if ( v91 != 0 ) /*0x158628*/\n            goto LABEL_205; /*0x158628*/\n          v91 = sub_156560(a1: v52, a2: aDmem, a3: v88, a4: v89, a5: v90, a6: *((_QWORD *)a4 + 2)); /*0x15864b*/\n          if ( v91 != 0 ) /*0x158650*/\n            goto LABEL_205; /*0x158650*/\n          v91 = sub_156560(a1: v52, a2: \"dmem.min\", a3: v88, a4: v89, a5: v90, a6: *((_QWORD *)a4 + 1)); /*0x158673*/\n          if ( v91 != 0 ) /*0x158678*/\n            goto LABEL_205; /*0x158678*/\n          filea = (char *)(*((_QWORD *)a4 + 1) - namelist[0].tv_sec); /*0x15868a*/\n          if ( filea == nullptr ) /*0x158691*/\n            goto LABEL_205; /*0x158691*/\n          v92 = dup(fd: v52); /*0x15869f*/\n          if ( v92 >= 0 ) /*0x1586b1*/\n          {\n            nameb = v52; /*0x1586b7*/\n            v93 = v92; /*0x1586be*/\n            while ( 1 ) /*0x15876d*/\n            {\n              v96 = openat64(fd: v93, file: \"..\", oflag: (int)sub_80000); /*0x15876d*/\n              close(fd: v93); /*0x158770*/\n              if ( v96 < 0 ) /*0x158778*/\n                break; /*0x158778*/\n              if ( faccessat(fd: v96, file: \"dmem.min\", type: 0, flag: 512) != 0 ) /*0x1586de*/\n              {\n                v93 = v96; /*0x159247*/\n                v94 = 0; /*0x15924a*/\n                v52 = nameb; /*0x15924c*/\nLABEL_331:\n                namek = v94; /*0x159217*/\n                close(fd: v93); /*0x159220*/\n                v91 = namek; /*0x15922b*/\nLABEL_205:\n                namei = v91; /*0x158794*/\n                flock(fd: v52, operation: 8); /*0x1587a3*/\n                v54 = namei; /*0x1587a8*/\nLABEL_92:\n                nameh = v54; /*0x157ebf*/\n                close(fd: v52); /*0x157ec9*/\n                return nameh; /*0x157ed5*/\n              }\n              requested_time[0].tv_sec = 0; /*0x1586fe*/\n              v94 = sub_156380(a1: (unsigned int)v96, a2: \"dmem.min\", a3: v88, a4: v89, a5: v90, a6: requested_time); /*0x15870e*/\n              if ( v94 != 0 ) /*0x158712*/\n              {\n                v93 = v96; /*0x15923b*/\n                v52 = nameb; /*0x15923e*/\n                goto LABEL_331; /*0x159245*/\n              }\n              v95 = &filea[requested_time[0].tv_sec]; /*0x158728*/\n              v93 = v96; /*0x158737*/\n              if ( (__int64)&filea[requested_time[0].tv_sec] < 0 ) /*0x15873a*/\n                v95 = nullptr; /*0x15873a*/\n              v94 = sub_156560(a1: (unsigned int)v96, a2: \"dmem.min\", a3: v88, a4: v89, a5: v90, a6: v95); /*0x15874a*/\n              if ( v94 != 0 ) /*0x15874e*/\n              {\n                v52 = nameb; /*0x159210*/\n                goto LABEL_331; /*0x159210*/\n              }\n            }\n            v52 = nameb; /*0x15877e*/\n          }\n          v97 = __errno_location(); /*0x158785*/\n          v91 = sub_155E20(a1: (unsigned int)*v97); /*0x158791*/\n          goto LABEL_205; /*0x158791*/\n        }\n        goto LABEL_114; /*0x157e60*/\n      }\n      break;\n    case 0x3D02u: /*0x157838*/\n      *((_QWORD *)a4 + 4) = 0; /*0x157af8*/\n      a1 = sub_1568F0(a1, a2: a4[5]); /*0x157b08*/\n      if ( a1 != 0 ) /*0x157b0e*/\n      {\n        v32 = (_QWORD *)sub_154C80(a1, a2: a4[6]); /*0x157b15*/\n        if ( v32 != nullptr ) /*0x157b1d*/\n          *((_QWORD *)a4 + 4) = *v32; /*0x157b22*/\n      }\n      break;\n    default:\n      switch ( a3 ) /*0x15785c*/\n      {\n        case 0x2080012Eu: /*0x15785c*/\n          v57 = sub_1568F0((unsigned int)a1, a2); /*0x157ee6*/\n          tv_nsec = 34; /*0x157eeb*/\n          if ( v57 == 0 ) /*0x157ef4*/\n            return tv_nsec; /*0x157ef4*/\n          requested_time[0].tv_sec = 0; /*0x157f09*/\n          v58 = sub_1567E0(fd: *(_DWORD *)(v57 + 12)); /*0x157f25*/\n          *a4 = 0; /*0x157f2a*/\n          tv_nsec = v58; /*0x157f32*/\n          if ( v58 != 0 ) /*0x157f37*/\n            return tv_nsec; /*0x157f37*/\nLABEL_73:\n          *a4 = requested_time[0].tv_sec; /*0x157d99*/\n          return tv_nsec; /*0x157da3*/\n        case 0x20803A01u: /*0x15785c*/\n          tv_nsec = 31; /*0x157873*/\n          if ( a4[2] > 0x80 ) /*0x157879*/\n            return tv_nsec; /*0x157879*/\n          v38 = sub_1568F0((unsigned int)a1, a2); /*0x157c86*/\n          tv_nsec = 34; /*0x157c8b*/\n          v39 = v38; /*0x157c91*/\n          if ( v38 == 0 ) /*0x157c97*/\n            return tv_nsec; /*0x157c97*/\n          v40 = *(_QWORD *)(a4 + 1); /*0x157cab*/\n          v41 = a4[2]; /*0x157cb3*/\n          memset(requested_time, 0, 0xA30u); /*0x157cb8*/\n          v42 = *a4; /*0x157cbb*/\n          requested_time[0].tv_nsec = v40; /*0x157cc6*/\n          requested_time[0].tv_sec = __PAIR64__(v5, v42); /*0x157ccd*/\n          LODWORD(requested_time[1].tv_sec) = a4[3]; /*0x157cd8*/\n          requested_time[1].tv_nsec = *((_QWORD *)a4 + 2); /*0x157ce3*/\n          BYTE1(requested_time[2].tv_sec) = *((_BYTE *)a4 + 25); /*0x157cf0*/\n          v43 = *((_BYTE *)a4 + 24); /*0x157cf6*/\n          if ( v43 != 0 ) /*0x157cfe*/\n          {\n            tv_nsec = 31; /*0x157d00*/\n            if ( v43 != 1 ) /*0x157d08*/\n              return tv_nsec; /*0x157d08*/\n            LOBYTE(requested_time[2].tv_sec) = 1; /*0x157d0e*/\n          }\n          if ( v41 != 0 ) /*0x157d17*/\n          {\n            v44 = a4 + 8; /*0x157d1c*/\n            v45 = (char *)&requested_time[2].tv_sec + 4; /*0x157d21*/\n            p_tv_nsec = &requested_time[34].tv_nsec; /*0x157d28*/\n            v47 = (char *)&requested_time[2].tv_sec + 4 * v41 + 4; /*0x157d2f*/\n            do /*0x157d67*/\n            {\n              v48 = *v44; /*0x157d40*/\n              v45 += 4; /*0x157d42*/\n              v44 += 6; /*0x157d46*/\n              ++p_tv_nsec; /*0x157d4a*/\n              *((_DWORD *)v45 - 1) = v48; /*0x157d4e*/\n              *(p_tv_nsec - 1) = *((_QWORD *)v44 - 2); /*0x157d55*/\n              p_tv_nsec[127] = *((_QWORD *)v44 - 1); /*0x157d5d*/\n            }\n            while ( v47 != v45 ); /*0x157d67*/\n          }\n          if ( (int)sub_1546E0(fd: *(_DWORD *)(v39 + 12)) >= 0 ) /*0x157d86*/\n          {\n            tv_nsec = requested_time[162].tv_nsec; /*0x157d8c*/\n            if ( LODWORD(requested_time[162].tv_nsec) != 0 ) /*0x157d93*/\n              return tv_nsec; /*0x157d93*/\n            goto LABEL_73; /*0x157d93*/\n          }\nLABEL_114:\n          v64 = __errno_location(); /*0x158060*/\n          return (unsigned int)sub_155E20(a1: (unsigned int)*v64); /*0x15806f*/\n        case 0x3D07u: /*0x15785c*/\n          tv_nsec = 31; /*0x157f48*/\n          if ( a5 != 8 ) /*0x157f52*/\n            return tv_nsec; /*0x157f52*/\n          v59 = 1; /*0x157f5f*/\n          while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x157f73*/\n          {\n            if ( (_BYTE)++v59 == 0 ) /*0x158177*/\n            {\n              requested_time[0].tv_sec = 0; /*0x158186*/\n              requested_time[0].tv_nsec = 2000000; /*0x158191*/\n              nanosleep(requested_time, remaining: nullptr); /*0x15819c*/\n            }\n          }\n          if ( dword_153D74C != 0 ) /*0x157f83*/\n          {\n            v60 = 0; /*0x157f90*/\n            v61 = &unk_153D760; /*0x157f92*/\n            do /*0x157fb4*/\n            {\n              if ( *(_BYTE *)v61 != 0 && v61[4] == *a4 ) /*0x157fa4*/\n              {\n                tv_nsec = 0; /*0x158093*/\n                a4[1] = *((_DWORD *)&unk_153D760 + 18 * v60 + 14); /*0x15809f*/\n                unk_153EAC0 = 0; /*0x1580a4*/\n                return tv_nsec; /*0x1580ab*/\n              }\n              ++v60; /*0x157faa*/\n              v61 += 18; /*0x157fad*/\n            }\n            while ( v60 != 32 ); /*0x157fb4*/\n          }\n          break;\n        case 0x290u: /*0x15785c*/\n          tv_nsec = 31; /*0x157db0*/\n          if ( a5 != 4 ) /*0x157dba*/\n            return tv_nsec; /*0x157dba*/\n          v49 = 1; /*0x157dc7*/\n          while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x157ddb*/\n          {\n            if ( (_BYTE)++v49 == 0 ) /*0x1584c0*/\n            {\n              requested_time[0].tv_sec = 0; /*0x1584cf*/\n              requested_time[0].tv_nsec = 2000000; /*0x1584da*/\n              nanosleep(requested_time, remaining: nullptr); /*0x1584e5*/\n            }\n          }\n          v50 = &unk_153D760; /*0x157de7*/\n          v51 = 0; /*0x157dee*/\n          if ( dword_153D74C != 0 ) /*0x157df2*/\n          {\n            while ( *(_BYTE *)v50 == 0 || v50[4] != *a4 ) /*0x157e04*/\n            {\n              v51 = (unsigned int)(v51 + 1); /*0x157e0a*/\n              v50 += 18; /*0x157e0d*/\n              if ( (_DWORD)v51 == 32 ) /*0x157e14*/\n                goto LABEL_81; /*0x157e14*/\n            }\n            v65 = dword_153E0C0[20 * v51]; /*0x1580bf*/\n            if ( v65 >= 0 ) /*0x1580c4*/\n            {\n              requested_time[0].tv_sec = 0; /*0x1580d9*/\n              v66 = sub_1546E0(fd: v65); /*0x1580eb*/\n              unk_153EAC0 = 0; /*0x1580f0*/\n              if ( v66 >= 0 ) /*0x1580f9*/\n              {\n                tv_nsec = 0; /*0x158105*/\n                if ( LODWORD(requested_time[0].tv_sec) != 0 ) /*0x15810a*/\n                {\n                  if ( LODWORD(requested_time[0].tv_sec) == -5 ) /*0x158113*/\n                    return HIDWORD(requested_time[0].tv_sec); /*0x158119*/\n                  else\n                    return (unsigned int)sub_155E20(a1: (unsigned int)-LODWORD(requested_time[0].tv_sec)); /*0x158c51*/\n                }\n                return tv_nsec; /*0x158120*/\n              }\n              goto LABEL_114; /*0x1580f9*/\n            }\n          }\n          break;\n        case 0x3D04u: /*0x15785c*/\n          tv_nsec = 0; /*0x15807f*/\n          *a4 = dword_2D2AB0[0]; /*0x158084*/\n          return tv_nsec; /*0x158088*/\n        case 0x27Au: /*0x15785c*/\n          if ( a5 != 8 ) /*0x1578cc*/\n            return 31; /*0x158006*/\n          v12 = *((unsigned __int8 *)a4 + 5); /*0x1578d8*/\n          v13 = *a4 | (unsigned __int8)(v12 | *((_BYTE *)a4 + 4)); /*0x1578ea*/\n          if ( (*a4 | (unsigned __int8)(v12 | *((_BYTE *)a4 + 4))) != 0 ) /*0x1578ed*/\n          {\n            v14 = sub_15CD60( /*0x157905*/\n                    a1: *a4,\n                    a2: *((unsigned __int8 *)a4 + 4),\n                    a3: v12,\n                    a4: *((unsigned __int8 *)a4 + 6),\n                    a5: 1);\n            if ( v14 != 0 ) /*0x15790c*/\n              goto LABEL_17; /*0x15790c*/\n            v15 = *((unsigned __int8 *)a4 + 5); /*0x15790e*/\n            v16 = *((unsigned __int8 *)a4 + 4); /*0x157914*/\n            v13 = *a4; /*0x15791a*/\n          }\n          else\n          {\n            v16 = 0; /*0x1584b0*/\n            v15 = 0; /*0x1584b2*/\n          }\n          v14 = sub_15CBC0(a1: v13, a2: v16, a3: v15, a4: *((unsigned __int8 *)a4 + 6)); /*0x157924*/\n          if ( v14 != 0 ) /*0x15792b*/\n          {\nLABEL_17:\n            if ( v14 == 2 ) /*0x157934*/\n              return 38; /*0x157934*/\nLABEL_136:\n            v67 = __errno_location(); /*0x158230*/\n            return sub_155E20(a1: (unsigned int)*v67); /*0x158248*/\n          }\n          return 0; /*0x15856e*/\n        case 0x278u: /*0x15785c*/\n          tv_nsec = 31; /*0x158130*/\n          if ( a5 != 12 ) /*0x15813a*/\n            return tv_nsec; /*0x15813a*/\n          v159 = 0; /*0x158146*/\n          if ( a4[1] != 1 || (a4[2] & 3) != 3 ) /*0x157fc6*/\n            goto LABEL_125; /*0x157fc6*/\n          v62 = &unk_153D760; /*0x157fcc*/\n          v63 = *a4; /*0x157fd3*/\n          while ( *(_BYTE *)v62 == 0 || v63 != v62[4] ) /*0x157fe8*/\n          {\n            v62 += 18; /*0x157fee*/\n            if ( v62 == (_DWORD *)&unk_153E060 ) /*0x157ff5*/\n              return 31; /*0x157ff5*/\n          }\n          LODWORD(requested_time[0].tv_sec) = v62[1]; /*0x158e85*/\n          HIDWORD(requested_time[0].tv_sec) = *((unsigned __int8 *)v62 + 8); /*0x158e8f*/\n          LODWORD(requested_time[0].tv_nsec) = *((unsigned __int8 *)v62 + 9); /*0x158e99*/\n          v144 = *((unsigned __int8 *)v62 + 10); /*0x158e9f*/\n          v177 = 0; /*0x158ea3*/\n          HIDWORD(requested_time[0].tv_nsec) = v144; /*0x158eaa*/\n          v145 = sub_15CC80(a1: requested_time, a2: &v177); /*0x158eb0*/\n          v71 = v145; /*0x158eb5*/\n          if ( v145 == 0 ) /*0x158eb9*/\n          {\n            v159 = 1; /*0x158ebf*/\n            goto LABEL_125; /*0x158ecd*/\n          }\n          return (unsigned int)sub_155E20(a1: v71); /*0x1582e9*/\n        case 0x3D05u: /*0x15785c*/\n          tv_nsec = 59; /*0x1581b3*/\n          if ( *a4 != 1 ) /*0x1581b9*/\n            return tv_nsec; /*0x1581b9*/\n          v175 = sub_159F70((unsigned int)a1, a2: a4[1], a3: a4 + 4); /*0x1581d1*/\n          tv_nsec = v175; /*0x1581d7*/\n          if ( v175 != 0 || (a4[5] & 1) != 0 ) /*0x1581e8*/\n            return tv_nsec; /*0x1581e8*/\n          goto LABEL_132; /*0x1581e8*/\n        case 0x3D0Au: /*0x15785c*/\n          v175 = sub_159F70((unsigned int)a1, a2: *a4, a3: a4 + 18); /*0x15821e*/\n          tv_nsec = v175; /*0x158224*/\n          if ( v175 != 0 ) /*0x158229*/\n            return tv_nsec; /*0x158229*/\nLABEL_132:\n          v159 = 0; /*0x1581ee*/\n          goto LABEL_125; /*0x1581fc*/\n        default:\n          goto LABEL_45; /*0x158207*/\n      }\nLABEL_81:\n      tv_nsec = 31; /*0x157e16*/\n      unk_153EAC0 = 0; /*0x157e1c*/\n      return tv_nsec; /*0x157e23*/\n  }\nLABEL_45:\n  v159 = 0; /*0x157b30*/\n  if ( v9 == 15627 ) /*0x157b3d*/\n  {\n    file = 0; /*0x158010*/\n    if ( *a4 == -1 ) /*0x15801e*/\n    {\n      v175 = sub_159F70(a1: v5, a2: a4[1], a3: a4); /*0x15803b*/\n      tv_nsec = v175; /*0x158041*/\n      if ( v175 != 0 ) /*0x158046*/\n        return tv_nsec; /*0x158046*/\n      file = 1; /*0x15804c*/\n    }\n    goto LABEL_54; /*0x15805a*/\n  }\n  if ( v9 == 15625 ) /*0x157b49*/\n  {\n    v85 = 1; /*0x1584f6*/\n    while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x15850a*/\n    {\n      if ( (_BYTE)++v85 == 0 ) /*0x158e01*/\n      {\n        requested_time[0].tv_sec = 0; /*0x158e10*/\n        requested_time[0].tv_nsec = 2000000; /*0x158e1b*/\n        nanosleep(requested_time, remaining: nullptr); /*0x158e26*/\n      }\n    }\n    if ( dword_153D74C == 0 ) /*0x15851a*/\n    {\n      tv_nsec = 64; /*0x158f5d*/\n      unk_153EAC0 = 0; /*0x158f63*/\n      return tv_nsec; /*0x158f6a*/\n    }\n    sub_1557B0(a1); /*0x158520*/\n    memset(&unk_153D760, 0, 0x900u); /*0x158540*/\n    v86 = sub_1546E0(fd: dword_2D2AB0[0]); /*0x158551*/\n    tv_nsec = 89; /*0x158556*/\n    unk_153EAC0 = 0; /*0x15855c*/\n    if ( v86 < 0 ) /*0x158565*/\n      return tv_nsec; /*0x158565*/\n    return 0; /*0x158565*/\n  }\n  if ( v9 == (_DWORD)&unk_FD0104 ) /*0x157b55*/\n  {\n    v98 = sub_1568F0(a1: v5, a2: *a4); /*0x1587bb*/\n    if ( v98 != 0 ) /*0x1587c3*/\n    {\n      v99 = **(int **)(v98 + 40); /*0x1587cd*/\n      if ( (int)v99 >= 0 ) /*0x1587d2*/\n      {\n        *((_QWORD *)a4 + 1) = v99; /*0x1587d8*/\n        file = 0; /*0x1587e4*/\n        goto LABEL_54; /*0x1587eb*/\n      }\n    }\n    return 38; /*0x157940*/\n  }\n  if ( v9 == (_DWORD)&unk_E00101 ) /*0x157b61*/\n  {\n    v33 = a4[1]; /*0x157b67*/\n    if ( (_DWORD)v33 != v5 ) /*0x157b6f*/\n    {\n      v34 = sub_1568F0(a1: v5, a2: v33); /*0x157b74*/\n      if ( v34 == 0 ) /*0x157b7c*/\n        return 38; /*0x157b7c*/\n      v35 = **(int **)(v34 + 40); /*0x157b86*/\n      if ( (int)v35 < 0 ) /*0x157b8b*/\n        return 38; /*0x157b8b*/\n      *((_QWORD *)a4 + 130) = v35; /*0x157b91*/\n    }\n    file = 0; /*0x157b99*/\n    goto LABEL_54; /*0x157b99*/\n  }\n  if ( v9 != 3336 ) /*0x158253*/\n  {\nLABEL_125:\n    file = 0; /*0x15815a*/\n    goto LABEL_54; /*0x158161*/\n  }\n  v68 = a4[2]; /*0x158259*/\n  *(_QWORD *)a4 = -1; /*0x15825e*/\n  if ( v68 != -1 ) /*0x158269*/\n  {\n    snprintf(s: (char *)requested_time, maxlen: 0x80u, format: \"/dev/nvidia-caps-imex-channels/channel%d\", v68); /*0x15828e*/\n    name = v5; /*0x15829a*/\n    goto LABEL_140; /*0x15829a*/\n  }\n  v125 = scandir64( /*0x158a77*/\n           dir: \"/dev/nvidia-caps-imex-channels\",\n           (struct dirent64 ***)namelist,\n           selector: nullptr,\n           cmp: (int (*)(const struct dirent64 **, const struct dirent64 **))&alphasort64);\n  tv_nsec = 89; /*0x158a7c*/\n  fileb = v125; /*0x158a82*/\n  if ( v125 < 0 ) /*0x158a8a*/\n    return tv_nsec; /*0x158a8a*/\n  tv_sec = namelist[0].tv_sec; /*0x158a90*/\n  v127 = (void *)namelist[0].tv_sec; /*0x158a97*/\n  if ( v125 == 0 ) /*0x158a9a*/\n  {\n    v139 = 0; /*0x159233*/\n    goto LABEL_277; /*0x159236*/\n  }\n  v156 = (unsigned int)(v125 - 1); /*0x158aaf*/\n  v158 = v7; /*0x158abd*/\n  v128 = (unsigned int)v125; /*0x158ac7*/\n  v129 = 0; /*0x158ad0*/\n  v157 = v6; /*0x158ada*/\n  while ( 1 ) /*0x158b1a*/\n  {\n    v131 = *(_BYTE **)(tv_sec + 8 * v129); /*0x158b1a*/\n    v132 = v129; /*0x158b1e*/\n    if ( v131[19] != 46 || v131[20] != 0 && (v131[20] != 46 || v131[21] != 0) ) /*0x158b3b*/\n    {\n      v130 = __isoc99_sscanf(a1: v131 + 19, a2: \"channel%d\", &v176); /*0x158af8*/\n      tv_sec = namelist[0].tv_sec; /*0x158afd*/\n      if ( v130 != 1 ) /*0x158b07*/\n        goto LABEL_253; /*0x158b07*/\n      snprintf(s: (char *)requested_time, maxlen: 0x80u, format: \"/dev/nvidia-caps-imex-channels/channel%d\", v176); /*0x158b62*/\n      if ( access(name: (const char *)requested_time, type: 4) == 0 ) /*0x158b7a*/\n        break; /*0x158b7a*/\n      tv_sec = namelist[0].tv_sec; /*0x158b80*/\n    }\nLABEL_253:\n    if ( ++v129 == v128 ) /*0x158b14*/\n    {\n      v137 = v132 + 1; /*0x158c59*/\n      v7 = v158; /*0x158c63*/\n      v6 = v157; /*0x158c77*/\n      goto LABEL_273; /*0x158c77*/\n    }\n  }\n  v137 = v129; /*0x159197*/\n  v7 = v158; /*0x1591a1*/\n  v6 = v157; /*0x1591b5*/\n  tv_sec = namelist[0].tv_sec; /*0x1591bc*/\nLABEL_273:\n  v138 = 0; /*0x158c7e*/\n  namee = v137; /*0x158c9b*/\n  while ( 1 ) /*0x158cbf*/\n  {\n    free(ptr: *(void **)(tv_sec + v138)); /*0x158cbf*/\n    if ( 8 * v156 == v138 ) /*0x158cc7*/\n      break; /*0x158cc7*/\n    tv_sec = namelist[0].tv_sec; /*0x158cb0*/\n    v138 += 8; /*0x158cb7*/\n  }\n  v139 = namee; /*0x158cc9*/\n  v9 = 3336; /*0x158cd7*/\n  v127 = (void *)namelist[0].tv_sec; /*0x158cdd*/\nLABEL_277:\n  namej = v139; /*0x158ce4*/\n  free(ptr: v127); /*0x158ceb*/\n  tv_nsec = 27; /*0x158cf7*/\n  if ( fileb == namej ) /*0x158d04*/\n    return tv_nsec; /*0x158d04*/\n  name = v5; /*0x158d11*/\nLABEL_140:\n  while ( 1 ) /*0x1582b4*/\n  {\n    v69 = open64(file: (const char *)requested_time, oflag: (int)sub_80000, 0); /*0x1582b4*/\n    if ( v69 >= 0 ) /*0x1582bb*/\n      break; /*0x1582bb*/\n    v70 = __errno_location(); /*0x1582c1*/\n    v71 = (unsigned int)*v70; /*0x1582c6*/\n    if ( (_DWORD)v71 != 4 && (_DWORD)v71 != 11 ) /*0x1582d0*/\n    {\n      if ( (int)v71 <= 0 ) /*0x1582d4*/\n      {\n        *v70 = 1; /*0x1582d6*/\n        v71 = 1; /*0x1582dc*/\n      }\n      return (unsigned int)sub_155E20(a1: v71); /*0x1582dc*/\n    }\n  }\n  file = 0; /*0x158584*/\n  v5 = name; /*0x15858b*/\n  *(_QWORD *)a4 = v69; /*0x158592*/\nLABEL_54:\n  requested_time[0].tv_sec = __PAIR64__(v7, v5); /*0x157ba7*/\n  requested_time[0].tv_nsec = v9; /*0x157bdc*/\n  requested_time[1].tv_sec = (__time_t)a4; /*0x157be2*/\n  requested_time[1].tv_nsec = v6; /*0x157be9*/\n  if ( (unsigned __int8)sub_161F20(a1: requested_time, a2: &v175) != 0 ) /*0x157bfe*/\n  {\n    v36 = v175; /*0x157c04*/\n  }\n  else\n  {\n    v36 = sub_1567E0(fd: dword_2D2AB0[0]); /*0x1585ca*/\n    v175 = v36; /*0x1585cf*/\n  }\n  if ( v36 != 0 ) /*0x157c0c*/\n  {\n    HIDWORD(requested_time[1].tv_nsec) = v36; /*0x157c12*/\n    goto LABEL_58; /*0x157c12*/\n  }\n  tv_nsec = HIDWORD(requested_time[1].tv_nsec); /*0x1582f0*/\n  if ( HIDWORD(requested_time[1].tv_nsec) != 0 ) /*0x1582fa*/\n  {\nLABEL_58:\n    if ( v9 == 15621 ) /*0x157c1e*/\n    {\n      v141 = 1; /*0x158d53*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158d68*/\n      {\n        if ( (_BYTE)++v141 == 0 ) /*0x158fa8*/\n        {\n          namelist[0].tv_sec = 0; /*0x158fb7*/\n          namelist[0].tv_nsec = 2000000; /*0x158fc2*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x158fcd*/\n        }\n      }\n      sub_155BC0(a1: a4[4]); /*0x158d73*/\n      unk_153EAC0 = 0; /*0x158d78*/\n      a4[4] = -1; /*0x158d7f*/\n      return HIDWORD(requested_time[1].tv_nsec); /*0x158d88*/\n    }\n    if ( v9 == 15626 ) /*0x157c2a*/\n    {\n      v37 = 1; /*0x157c37*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x157c4c*/\n      {\n        if ( (_BYTE)++v37 == 0 ) /*0x158f74*/\n        {\n          namelist[0].tv_sec = 0; /*0x158f83*/\n          namelist[0].tv_nsec = 2000000; /*0x158f8e*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x158f99*/\n        }\n      }\n      sub_155BC0(a1: a4[18]); /*0x157c57*/\n      unk_153EAC0 = 0; /*0x157c5c*/\n      a4[18] = -1; /*0x157c63*/\n      return HIDWORD(requested_time[1].tv_nsec); /*0x157c63*/\n    }\n    if ( v9 == 15627 && file != 0 ) /*0x158b9c*/\n    {\n      v133 = 1; /*0x158ba9*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158bbd*/\n      {\n        if ( (_BYTE)++v133 == 0 ) /*0x158e37*/\n        {\n          namelist[0].tv_sec = 0; /*0x158e46*/\n          namelist[0].tv_nsec = 2000000; /*0x158e51*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x158e5c*/\n        }\n      }\n      sub_155BC0(a1: *a4); /*0x158bc7*/\n      unk_153EAC0 = 0; /*0x158bcc*/\n      *a4 = -1; /*0x158bd3*/\n      return HIDWORD(requested_time[1].tv_nsec); /*0x158bdb*/\n    }\n    if ( v9 == 3336 ) /*0x158d26*/\n    {\n      v140 = *(_QWORD *)a4; /*0x158d2c*/\n      if ( *(_QWORD *)a4 != -1 ) /*0x158d34*/\n        goto LABEL_281; /*0x158d34*/\n    }\n    return HIDWORD(requested_time[1].tv_nsec); /*0x157c73*/\n  }\n  if ( v9 == 632 ) /*0x158306*/\n  {\n    if ( v159 == 0 ) /*0x158d94*/\n      return tv_nsec; /*0x158d94*/\n    v142 = sub_15CD60(a1: (unsigned int)v177, a2: BYTE4(v177), a3: BYTE8(v177), a4: BYTE12(v177), a5: 0); /*0x158db8*/\n    v71 = v142; /*0x158dbd*/\n    if ( v142 != 0 ) /*0x158dc1*/\n      return (unsigned int)sub_155E20(a1: v71); /*0x158dc1*/\n    return HIDWORD(requested_time[1].tv_nsec); /*0x158dc1*/\n  }\n  if ( v9 > 0x278 )\n  {\n    if ( v9 == 649 )\n    {\n      v100 = 1; /*0x1587f7*/\n      tv_nsec_high = HIDWORD(requested_time[1].tv_nsec); /*0x1587ff*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x15880f*/\n      {\n        if ( (_BYTE)++v100 == 0 ) /*0x158fdc*/\n        {\n          namelist[0].tv_sec = 0; /*0x158feb*/\n          namelist[0].tv_nsec = 2000000; /*0x158ff6*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x159001*/\n        }\n      }\n      v102 = tv_nsec_high; /*0x158815*/\n      v103 = &unk_153D760; /*0x15881f*/\n      while ( *(_BYTE *)v103 == 0 || v103[4] != *a4 ) /*0x158834*/\n      {\n        ++v102; /*0x15883a*/\n        v103 += 18; /*0x15883e*/\n        if ( v102 == 32 ) /*0x158846*/\n          goto LABEL_215; /*0x158846*/\n      }\n      if ( dword_153D74C == 0 ) /*0x158eda*/\n      {\nLABEL_215:\n        HIDWORD(requested_time[1].tv_nsec) = 31; /*0x158848*/\n        unk_153EAC0 = 0; /*0x158852*/\n        return 31; /*0x158860*/\n      }\n      v146 = v102; /*0x158ee0*/\n      if ( dword_153E0C0[20 * v102] < 0 )\n      {\n        namef = v102; /*0x158f03*/\n        HIDWORD(requested_time[1].tv_nsec) = sub_1546F0(a1: *((unsigned int *)&unk_153D760 + 18 * v102 + 14)); /*0x158f1d*/\n        if ( HIDWORD(requested_time[1].tv_nsec) != 0 )\n        {\n          sub_155C30(s: stderr, format: \"NVIDIA: could not create file for device %u\\n\", a3: v156);\n          unk_153EAC0 = 0; /*0x158f4a*/\n          return HIDWORD(requested_time[1].tv_nsec); /*0x158f58*/\n        }\n        v134 = sub_155E40(a1: namef, a2: (char *)&requested_time[1].tv_nsec + 4, a3: 2050); /*0x158bef*/\n        v135 = v134; /*0x158bf4*/\n        if ( v134 >= 0 ) /*0x158bf9*/\n        {\n          v136 = fcntl(fd: v134, cmd: 3, 0); /*0x158c06*/\n          if ( v136 < 0 || (BYTE1(v136) &= ~8u, fcntl(fd: v135, cmd: 4, (unsigned int)v136) < 0) ) /*0x158c29*/\n          {\n            v153 = __errno_location(); /*0x159255*/\n            v154 = v135; /*0x15925a*/\n            v135 = -1; /*0x15925d*/\n            v155 = *v153; /*0x159261*/\n            close(fd: v154); /*0x159264*/\n            HIDWORD(requested_time[1].tv_nsec) = sub_155E20(a1: v155); /*0x159271*/\n          }\n        }\n        dword_153E0C0[20 * v146] = v135; /*0x158c33*/\n      }\nLABEL_270:\n      unk_153EAC0 = 0; /*0x158c37*/\n      return HIDWORD(requested_time[1].tv_nsec); /*0x158c45*/\n    }\n    if ( v9 != 3336 ) /*0x158409*/\n      return tv_nsec; /*0x158409*/\n    v78 = *(_QWORD *)a4; /*0x15840f*/\n    if ( *(_QWORD *)a4 == -1 ) /*0x158417*/\n      return tv_nsec; /*0x158417*/\n    namea = HIDWORD(requested_time[1].tv_nsec); /*0x158422*/\n    v79 = requested_time[0].tv_sec; /*0x158429*/\n    v80 = malloc(size: 0x10u); /*0x158430*/\n    v81 = v80; /*0x15843f*/\n    if ( v80 != nullptr ) /*0x158442*/\n    {\n      v80[1] = v78; /*0x15844f*/\n      v82 = 1; /*0x158453*/\n      *((_QWORD *)v80 + 1) = 0; /*0x15845c*/\n      *v80 = v79; /*0x158464*/\n      while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158477*/\n      {\n        if ( (_BYTE)++v82 == 0 ) /*0x159168*/\n        {\n          namelist[0].tv_sec = 0; /*0x159177*/\n          namelist[0].tv_nsec = 2000000; /*0x159182*/\n          nanosleep(requested_time: namelist, remaining: nullptr); /*0x15918d*/\n        }\n      }\n      tv_nsec = namea; /*0x158484*/\n      v83 = unk_153E0A0; /*0x158487*/\n      if ( unk_153E0A0 != 0 ) /*0x15848e*/\n      {\n        do /*0x15849e*/\n        {\n          v84 = v83; /*0x158494*/\n          v83 = *(_QWORD *)(v83 + 8); /*0x158497*/\n        }\n        while ( v83 != 0 ); /*0x15849e*/\n        *(_QWORD *)(v84 + 8) = v81; /*0x1584a0*/\n      }\n      else\n      {\n        unk_153E0A0 = v81; /*0x159158*/\n      }\n      unk_153EAC0 = 0; /*0x1584a4*/\n      return tv_nsec; /*0x1584ab*/\n    }\n    HIDWORD(requested_time[1].tv_nsec) = 81; /*0x159146*/\n    LODWORD(v140) = v78; /*0x159150*/\nLABEL_281:\n    close(fd: v140); /*0x158d3a*/\n    *(_QWORD *)a4 = -1; /*0x158d3f*/\n    return HIDWORD(requested_time[1].tv_nsec); /*0x158d47*/\n  }\n  if ( v9 != 533 ) /*0x158318*/\n  {\n    if ( v9 != 534 ) /*0x158324*/\n      return tv_nsec; /*0x158324*/\n    v72 = 1; /*0x158331*/\n    while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158346*/\n    {\n      if ( (_BYTE)++v72 == 0 ) /*0x159044*/\n      {\n        namelist[0].tv_sec = 0; /*0x159053*/\n        namelist[0].tv_nsec = 2000000; /*0x15905e*/\n        nanosleep(requested_time: namelist, remaining: nullptr); /*0x159069*/\n      }\n    }\n    v73 = &unk_153D760; /*0x15834c*/\n    v74 = dword_153E0C0; /*0x158353*/\n    do /*0x1583a3*/\n    {\n      if ( *(_BYTE *)v73 != 0 ) /*0x1583ac*/\n      {\n        v75 = nullptr; /*0x1583b4*/\n        v76 = (int *)(a4 + 1); /*0x1583b7*/\n        v77 = *a4; /*0x1583c6*/\n        if ( dword_153D74C != 0 ) /*0x1583ca*/\n          v75 = v74; /*0x1583ca*/\n        if ( v77 == 0xFFFF ) /*0x1583d4*/\n        {\nLABEL_154:\n          if ( v75[2] == 0 && *v75 >= 0 ) /*0x15837d*/\n          {\n            close(fd: *v75); /*0x15837f*/\n            *v75 = -1; /*0x158384*/\n          }\n        }\n        else\n        {\n          while ( v77 != -1 ) /*0x1583f3*/\n          {\n            if ( v77 == v73[4] ) /*0x1583e3*/\n              goto LABEL_154; /*0x1583e3*/\n            if ( a4 + 32 == (unsigned int *)v76 ) /*0x1583e8*/\n              break; /*0x1583e8*/\n            v77 = *v76++; /*0x1583ea*/\n          }\n        }\n      }\n      v73 += 18; /*0x158398*/\n      v74 += 20; /*0x15839c*/\n    }\n    while ( v73 != (_DWORD *)&unk_153E060 ); /*0x1583a3*/\n    goto LABEL_270; /*0x1583a3*/\n  }\n  v104 = 1; /*0x15886c*/\n  v105 = HIDWORD(requested_time[1].tv_nsec); /*0x158874*/\n  while ( _InterlockedCompareExchange((volatile signed __int32 *)&unk_153EAC0, 1, 0) != 0 ) /*0x158884*/\n  {\n    if ( (_BYTE)++v104 == 0 ) /*0x159010*/\n    {\n      namelist[0].tv_sec = 0; /*0x15901f*/\n      namelist[0].tv_nsec = 2000000; /*0x15902a*/\n      nanosleep(requested_time: namelist, remaining: nullptr); /*0x159035*/\n    }\n  }\n  v106 = v105; /*0x158891*/\n  v107 = &unk_153D760; /*0x1588a4*/\n  v108 = a4; /*0x1588a7*/\n  v109 = dword_153E0C0; /*0x1588aa*/\n  v110 = v106; /*0x1588b4*/\n  while ( 2 ) /*0x1588f3*/\n  {\n    if ( *(_BYTE *)v107 == 0 ) /*0x1588f3*/\n    {\nLABEL_220:\n      ++v110; /*0x1588d8*/\n      v107 += 18; /*0x1588dc*/\n      v109 += 20; /*0x1588e0*/\n      if ( v110 == 32 ) /*0x1588e8*/\n      {\n        unk_153EAC0 = 0; /*0x158de7*/\n        return HIDWORD(requested_time[1].tv_nsec); /*0x158df5*/\n      }\n      continue; /*0x1588e8*/\n    }\n    break;\n  }\n  v111 = *v108; /*0x1588fc*/\n  v112 = nullptr; /*0x1588ff*/\n  v113 = v108 + 1; /*0x158902*/\n  if ( dword_153D74C != 0 ) /*0x158910*/\n    v112 = v109; /*0x158910*/\n  if ( v111 != 0xFFFF ) /*0x15891a*/\n  {\n    while ( v111 != -1 ) /*0x158934*/\n    {\n      if ( v107[4] == v111 ) /*0x158924*/\n        goto LABEL_219; /*0x158924*/\n      if ( v113 == v108 + 32 ) /*0x158929*/\n        break; /*0x158929*/\n      v111 = *v113++; /*0x15892b*/\n    }\n    goto LABEL_220; /*0x158929*/\n  }\nLABEL_219:\n  if ( *v112 >= 0 ) /*0x1588d6*/\n    goto LABEL_220; /*0x1588d6*/\n  namec = (char *)v112; /*0x15893c*/\n  HIDWORD(requested_time[1].tv_nsec) = sub_1546F0(a1: (unsigned int)v107[14]); /*0x158951*/\n  if ( HIDWORD(requested_time[1].tv_nsec) == 0 ) /*0x158957*/\n  {\n    v114 = sub_156A00(a1: v110, a2: (char *)&requested_time[1].tv_nsec + 4); /*0x15896e*/\n    *(_DWORD *)namec = v114; /*0x15897a*/\n    if ( v114 < 0 ) /*0x15897f*/\n    {\n      v115 = (char *)v110; /*0x158985*/\n      v116 = v108; /*0x15898f*/\n      v117 = (int)v115; /*0x158999*/\n      goto LABEL_234; /*0x158999*/\n    }\n    goto LABEL_220; /*0x15897f*/\n  }\n  v115 = (char *)v110; /*0x1591c8*/\n  v116 = v108; /*0x1591d2*/\n  sub_155C30(s: stderr, format: \"NVIDIA: could not create file for device %u\\n\", a3: v156);\n  v117 = (int)v115; /*0x159204*/\nLABEL_234:\n  if ( v117 != 0 ) /*0x15899f*/\n  {\n    v118 = (char *)&unk_153D760; /*0x1589b7*/\n    v119 = v116; /*0x1589c2*/\n    named = v115; /*0x1589cf*/\n    v120 = dword_153E0C0; /*0x1589d6*/\n    v121 = (char *)&unk_153D7A8 + 72 * (unsigned int)(v117 - 1); /*0x1589e0*/\n    do /*0x158a08*/\n    {\n      if ( *v118 != 0 ) /*0x158a11*/\n      {\n        v122 = *v119; /*0x158a19*/\n        v123 = nullptr; /*0x158a1c*/\n        v124 = v119 + 1; /*0x158a1f*/\n        if ( dword_153D74C != 0 ) /*0x158a2c*/\n          v123 = v120; /*0x158a2c*/\n        if ( v122 == 0xFFFF ) /*0x158a36*/\n        {\nLABEL_236:\n          if ( *v123 >= 0 ) /*0x1589eb*/\n          {\n            close(fd: *v123); /*0x1589ed*/\n            *v123 = -1; /*0x1589f2*/\n          }\n        }\n        else\n        {\n          while ( v122 != -1 ) /*0x158a53*/\n          {\n            if ( *((_DWORD *)v118 + 4) == v122 ) /*0x158a43*/\n              goto LABEL_236; /*0x158a43*/\n            if ( v119 + 32 == v124 ) /*0x158a48*/\n              break; /*0x158a48*/\n            v122 = *v124++; /*0x158a4a*/\n          }\n        }\n      }\n      v118 += 72; /*0x1589fd*/\n      v120 += 20; /*0x158a01*/\n    }\n    while ( v121 != v118 ); /*0x158a08*/\n    v116 = v119; /*0x159073*/\n    v115 = named; /*0x159076*/\n  }\n  v116[32] = *((_DWORD *)&unk_153D760 + 18 * (_QWORD)v115 + 4); /*0x159095*/\n  unk_153EAC0 = 0; /*0x15909d*/\n  return HIDWORD(requested_time[1].tv_nsec); /*0x15787f*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0x157810"
+    }
+  ],
+  "evidence_links": []
+}

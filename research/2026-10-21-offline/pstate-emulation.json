@@ -1,0 +1,213 @@
+{
+  "status": "source-decoded",
+  "engine": "Unicorn 2.1.4",
+  "artifact_sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95",
+  "domain": "host-library link-time ELF VA, load bias zero",
+  "routine_va": "0x376e0",
+  "routine_end_va_exclusive": "0x37720",
+  "code_page_file_offset": "0x37000",
+  "table_page_file_offset": "0x245000",
+  "table_va": "0x246220",
+  "table_hex": "01000000000000003e651b000000000002000000010000004000200000000000040000000200000041651b0000000000080000000300000044651b0000000000100000000400000047651b000000000020000000050000004a651b000000000040000000060000004d651b0000000000800000000700000050651b0000000000000100000800000053651b0000000000000200000900000056651b0000000000000400000a00000059651b0000000000000800000b0000005d651b0000000000001000000c00000061651b0000000000002000000d00000065651b0000000000004000000e00000069651b0000000000008000000f0000006d651b0000000000",
+  "table_rows_u32_le": [
+    [
+      1,
+      0,
+      1795390,
+      0
+    ],
+    [
+      2,
+      1,
+      2097216,
+      0
+    ],
+    [
+      4,
+      2,
+      1795393,
+      0
+    ],
+    [
+      8,
+      3,
+      1795396,
+      0
+    ],
+    [
+      16,
+      4,
+      1795399,
+      0
+    ],
+    [
+      32,
+      5,
+      1795402,
+      0
+    ],
+    [
+      64,
+      6,
+      1795405,
+      0
+    ],
+    [
+      128,
+      7,
+      1795408,
+      0
+    ],
+    [
+      256,
+      8,
+      1795411,
+      0
+    ],
+    [
+      512,
+      9,
+      1795414,
+      0
+    ],
+    [
+      1024,
+      10,
+      1795417,
+      0
+    ],
+    [
+      2048,
+      11,
+      1795421,
+      0
+    ],
+    [
+      4096,
+      12,
+      1795425,
+      0
+    ],
+    [
+      8192,
+      13,
+      1795429,
+      0
+    ],
+    [
+      16384,
+      14,
+      1795433,
+      0
+    ],
+    [
+      32768,
+      15,
+      1795437,
+      0
+    ]
+  ],
+  "synthetic_inputs": [
+    {
+      "input_u32": 1,
+      "returned_u32": 0,
+      "instructions": 10
+    },
+    {
+      "input_u32": 2,
+      "returned_u32": 1,
+      "instructions": 17
+    },
+    {
+      "input_u32": 4,
+      "returned_u32": 2,
+      "instructions": 24
+    },
+    {
+      "input_u32": 8,
+      "returned_u32": 3,
+      "instructions": 31
+    },
+    {
+      "input_u32": 16,
+      "returned_u32": 4,
+      "instructions": 38
+    },
+    {
+      "input_u32": 32,
+      "returned_u32": 5,
+      "instructions": 45
+    },
+    {
+      "input_u32": 64,
+      "returned_u32": 6,
+      "instructions": 52
+    },
+    {
+      "input_u32": 128,
+      "returned_u32": 7,
+      "instructions": 59
+    },
+    {
+      "input_u32": 256,
+      "returned_u32": 8,
+      "instructions": 66
+    },
+    {
+      "input_u32": 512,
+      "returned_u32": 9,
+      "instructions": 73
+    },
+    {
+      "input_u32": 1024,
+      "returned_u32": 10,
+      "instructions": 80
+    },
+    {
+      "input_u32": 2048,
+      "returned_u32": 11,
+      "instructions": 87
+    },
+    {
+      "input_u32": 4096,
+      "returned_u32": 12,
+      "instructions": 94
+    },
+    {
+      "input_u32": 8192,
+      "returned_u32": 13,
+      "instructions": 101
+    },
+    {
+      "input_u32": 16384,
+      "returned_u32": 14,
+      "instructions": 108
+    },
+    {
+      "input_u32": 32768,
+      "returned_u32": 15,
+      "instructions": 115
+    },
+    {
+      "input_u32": 0,
+      "returned_u32": 32,
+      "instructions": 116
+    },
+    {
+      "input_u32": 3,
+      "returned_u32": 32,
+      "instructions": 116
+    },
+    {
+      "input_u32": 65536,
+      "returned_u32": 32,
+      "instructions": 116
+    },
+    {
+      "input_u32": 4294967295,
+      "returned_u32": 32,
+      "instructions": 116
+    }
+  ],
+  "limits": "Pure conversion only. Synthetic inputs establish no current hardware P-state, callback selection, or GSP response."
+}

@@ -1,0 +1,11 @@
+7903b0be605c1894ce7602b6b638dbf98ded7f0c6178bf5e58664c764c1abb2f  research/2026-10-21-offline/PLAN.md
+9770689048aa11040006e51770aa4cc97a412c09eaf060faf77f36fa66ed987c  research/2026-10-21-offline/README.md
+a2ebd35cbb98fafde31880161ffaec5455f505e3eb1b07cdafcacfec45d87144  research/2026-10-21-offline/check.log
+e7193f49f51a7e32494dc2f7f19d2a3bbf6e8621831fb8dcaa6a33b5b634416d  research/2026-10-21-offline/disassemble_boot.py
+108694dff0532a1e79c7011b70a588bfa8d51e982ca0628592ab92423a84565d  research/2026-10-21-offline/export_host.py
+d8308be8acbb040cab25efcf546dc14a60b608f3771c9772ccb61ee556bbb9a7  research/2026-10-21-offline/ga102-boot-comparison.json
+34d34f940f563065332b64b31310be40f0ee9dc4b4a7ae80ee8f224fec8e62c5  research/2026-10-21-offline/ga102-boot-disassembly.json
+3b0c3908667909ba26436303050c1a1ed9490dd73736ed2aa335e0fc39b3a2b0  research/2026-10-21-offline/host-evidence.json
+f60e0092129b94db6b22d2eb4b98d05a00ecd27acf02a87f3fadff04925449db  research/2026-10-21-offline/pstate-emulation.json
+6e4cad4bd3f69e360b78026ff7e6d56a4ceaec2e42fcaa41b863a2cbc9cc6386  research/2026-10-21-offline/reproduce.sh
+b5bdd3fe587e1e87237632ee243862c8b2645d71b77e0b0018a4a82007b806ef  research/2026-10-21-offline/source-manifest.json

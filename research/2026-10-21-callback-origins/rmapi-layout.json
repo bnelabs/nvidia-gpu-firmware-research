@@ -1,0 +1,83 @@
+{
+  "source_path": "vendor/open-gpu-kernel-modules-615.71.09/src/nvidia/inc/kernel/rmapi/rmapi.h",
+  "source_sha256": "052dd05795e6b7392031cac1f06d0ee872d2d212e1b7829c852cbcc8d0596447",
+  "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "declaration_start_line": 172,
+  "extracted_struct_sha256": "926be42069f30ccc5540b342fe2dcfa2f8cb4f5d411ec157a97722d6453edafa",
+  "compiled_source": "#include <stddef.h>\n#include <stdio.h>\n#include \"nvtypes.h\"\n#include \"nvos.h\"\n#include \"nvsecurityinfo.h\"\ntypedef struct _RM_API RM_API;\nstruct _RM_API\n{\n    // Allocate a resource with default security attributes and local pointers (no NvP64)\n    NV_STATUS (*Alloc)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hParent,\n                       NvHandle *phObject, NvU32 hClass, void *pAllocParams, NvU32 paramsSize);\n\n    // Allocate a resource with default security attributes and local pointers (no NvP64)\n    // and client assigned handle\n    NV_STATUS (*AllocWithHandle)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hParent,\n                                 NvHandle hObject, NvU32 hClass, void *pAllocParams, NvU32 paramsSize);\n\n    // Allocate a resource\n    NV_STATUS (*AllocWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hParent,\n                                  NvHandle *phObject, NvU32 hClass, NvP64 pAllocParams, NvU32 paramsSize,\n                                  NvU32 flags, NvP64 pRightsRequested, API_SECURITY_INFO *pSecInfo);\n\n    // Free a resource with default security attributes\n    NV_STATUS (*Free)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject);\n\n    // Free a resource\n    NV_STATUS (*FreeWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject,\n                                 NvU32 flags, API_SECURITY_INFO *pSecInfo);\n\n    // Disables all clients in the list, with default security attributes\n    NV_STATUS (*DisableClients)(struct _RM_API *pRmApi, NvHandle *phClientList, NvU32 numClients);\n\n    // Disables all clients in the list\n    NV_STATUS (*DisableClientsWithSecInfo)(struct _RM_API *pRmApi, NvHandle *phClientList,\n                                        NvU32 numClients, API_SECURITY_INFO *pSecInfo);\n\n    // Invoke a control with default security attributes and local pointers (no NvP64)\n    NV_STATUS (*Control)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject, NvU32 cmd,\n                         void *pParams, NvU32 paramsSize);\n\n    // Invoke a control\n    NV_STATUS (*ControlWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject, NvU32 cmd,\n                                    NvP64 pParams, NvU32 paramsSize, NvU32 flags, API_SECURITY_INFO *pSecInfo);\n\n    // Prefetch a control parameters into the control call cache (0000, 0080 and 2080 classes only)\n    NV_STATUS (*ControlPrefetch)(struct _RM_API *pRmApi, NvU32 cmd);\n\n    // Dup an object with default security attributes\n    NV_STATUS (*DupObject)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hParent, NvHandle *phObject,\n                           NvHandle hClientSrc, NvHandle hObjectSrc, NvU32 flags);\n\n    // Dup an object\n    NV_STATUS (*DupObjectWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hParent,\n                                      NvHandle *phObject, NvHandle hClientSrc, NvHandle hObjectSrc, NvU32 flags,\n                                      API_SECURITY_INFO *pSecInfo);\n\n    // Share an object with default security attributes\n    NV_STATUS (*Share)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject,\n                       RS_SHARE_POLICY *pSharePolicy);\n\n    // Share an object\n    NV_STATUS (*ShareWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hObject,\n                                  RS_SHARE_POLICY *pSharePolicy, API_SECURITY_INFO *pSecInfo);\n\n    // Map memory with default security attributes and local pointers (no NvP64). Provides\n    // RM internal implementation for NvRmMapMemory().\n    NV_STATUS (*MapToCpu)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hDevice, NvHandle hMemory,\n                          NvU64 offset, NvU64 length, void **ppCpuVirtAddr, NvU32 flags);\n\n    // Map memory. Provides RM internal implementation for NvRmMapMemory().\n    NV_STATUS (*MapToCpuWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hDevice, NvHandle hMemory,\n                                     NvU64 offset, NvU64 length, NvP64 *ppCpuVirtAddr, NvU32 flags, API_SECURITY_INFO *pSecInfo);\n\n    // Map memory v2. Pass in flags as a pointer for in/out access\n    NV_STATUS (*MapToCpuWithSecInfoV2)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hDevice, NvHandle hMemory,\n                                       NvU64 offset, NvU64 length, NvP64 *ppCpuVirtAddr, NvU32 *flags, API_SECURITY_INFO *pSecInfo);\n\n    // Unmap memory with default security attributes and local pointers (no NvP64)\n    NV_STATUS (*UnmapFromCpu)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hDevice, NvHandle hMemory, void *pLinearAddress,\n                              NvU32 flags, NvU32 ProcessId);\n\n    // Unmap memory\n    NV_STATUS (*UnmapFromCpuWithSecInfo)(struct _RM_API *pRmApi, NvHandle hClient, NvHandle hDevice, NvHandle hMemory,\n                                         NvP64 pLinearAddress, NvU32 flags, NvU32 ProcessId, API_SECURITY_INFO *pSecInfo);\n\n    // Map dma memory with default security attributes. Provides RM internal implementation for NvRmMapMemoryDma().\n    NV_STATUS (*Map)(struct _RM_API *pRmApi, NVOS46_PARAMETERS *pParms);\n\n    // Map dma memory. Provides RM internal implementation for NvRmMapMemoryDma().\n    NV_STATUS (*MapWithSecInfo)(struct _RM_API *pRmApi, NVOS46_PARAMETERS *pParms, API_SECURITY_INFO *pSecInfo);\n\n    // Unmap dma memory with default security attributes\n    NV_STATUS (*Unmap)(struct _RM_API *pRmApi, NVOS47_PARAMETERS *pParms);\n\n    // Unmap dma memory\n    NV_STATUS (*UnmapWithSecInfo)(struct _RM_API *pRmApi, NVOS47_PARAMETERS *pParms, API_SECURITY_INFO *pSecInfo);\n\n\n    API_SECURITY_INFO  defaultSecInfo;\n    NvBool             bHasDefaultSecInfo;\n    NvBool             bTlsInternal;\n    NvBool             bApiLockInternal;\n    NvBool             bRmSemaInternal;\n    NvBool             bGpuLockInternal;\n    void              *pPrivateContext;\n};\nint main(void) {\nprintf(\"{\\\"size\\\":%zu,\\\"Control\\\":%zu,\\\"AllocWithHandle\\\":%zu,\\\"Free\\\":%zu,\\\"defaultSecInfo\\\":%zu,\\\"pPrivateContext\\\":%zu,\\\"RS_PRIV_LEVEL_KERNEL\\\":%u,\\\"PARAM_LOCATION_KERNEL\\\":%u}\\n\",\nsizeof(RM_API),offsetof(RM_API,Control),offsetof(RM_API,AllocWithHandle),offsetof(RM_API,Free),offsetof(RM_API,defaultSecInfo),offsetof(RM_API,pPrivateContext),(unsigned)RS_PRIV_LEVEL_KERNEL,(unsigned)PARAM_LOCATION_KERNEL);\n}\n",
+  "compiled_source_sha256": "9614cc4f8d865b3d344d669a21ae902fe6192a57f44f48a972423daddd3e1a1f",
+  "layout": {
+    "size": 240,
+    "Control": 56,
+    "AllocWithHandle": 8,
+    "Free": 24,
+    "defaultSecInfo": 184,
+    "pPrivateContext": 232,
+    "RS_PRIV_LEVEL_KERNEL": 2,
+    "PARAM_LOCATION_KERNEL": 1
+  },
+  "compiled_vendor_header_inputs": [
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/class/cl9010.h",
+      "bytes": 1971,
+      "sha256": "f388882c995687540d7515e25f68613e3f8a67a35add99d761afd005656a49c7"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/class/cl9010_callback.h",
+      "bytes": 1308,
+      "sha256": "2571a29472ad80a60c60f2bcaedc8354179b45c6248c98792503349dae419ba8"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/cpuopsys.h",
+      "bytes": 11713,
+      "sha256": "329ab764372bace3e1445315bb7a3766d4f60aacb8523ac3e3c760c79358f4fb"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvcfg_sdk.h",
+      "bytes": 1304,
+      "sha256": "cb9b9ddf1d9d55527e182c1864fb45dcc7331e6de1498a71814cfc5bbe0c62c8"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvgputypes.h",
+      "bytes": 7866,
+      "sha256": "dcb4bf6a0eae9883ef36438dac4765a47a90555a01e887c380caf0690c7be08d"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvmisc.h",
+      "bytes": 48773,
+      "sha256": "52fa10e9d9d35e0e5c7b71621eda632a97af29f7ca7117b0f4b91704ca1ce775"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvos.h",
+      "bytes": 158029,
+      "sha256": "27adc076fe1a265d41374f7c865a6afb6a2f1025fc4e136d03431a638570f35c"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvsecurityinfo.h",
+      "bytes": 2649,
+      "sha256": "5614686e8fb70bb647c23dba7903916536ea69386e41ef7f5b0242a36db1621c"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvstatus.h",
+      "bytes": 4565,
+      "sha256": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvstatuscodes.h",
+      "bytes": 19637,
+      "sha256": "4a9a39b51862d21cfa446414135386616a4a4914dd34dc83f98099295fea7b56"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/nvtypes.h",
+      "bytes": 30226,
+      "sha256": "da23dbc28805c390d62338dba5603eb12b2e94c8aaf873c1c42c1a5f10f26b79"
+    },
+    {
+      "path": "vendor/open-gpu-kernel-modules-615.71.09/src/common/sdk/nvidia/inc/rs_access.h",
+      "bytes": 9561,
+      "sha256": "ee3174aa565a08594f66c325b06d24bd8e798d933bf74ff12c803cf3614bb117"
+    }
+  ],
+  "compiler": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "limits": "Host 64-bit C layout of exact isolated declaration, corroborated against copied RV64 offsets; no driver build, execution or runtime state."
+}

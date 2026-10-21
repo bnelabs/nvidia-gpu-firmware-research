@@ -1,0 +1,185 @@
+{
+  "evidence_id": "ev_06a173bbcbb1800f4ecb9249428293a60ce808e6b834915b43f3752a9b51b34e",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0xf1f70"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 111.921,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 111.942,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0xf1f70"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0xf1f70",
+            "fn": {
+              "addr": "0xf1f70",
+              "name": "sub_F1F70",
+              "size": "0xf7"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0xf1f70",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0xf1f70",
+          "code": "__int64 __fastcall sub_F1F70(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)\n{\n  unsigned int v7; // r12d\n  int v10; // eax\n  char v11[8]; // [rsp+10h] [rbp-40h] BYREF\n  int v12; // [rsp+18h] [rbp-38h]\n  int v13; // [rsp+1Ch] [rbp-34h]\n\n  v7 = 21; /*0xf1f8a*/\n  if ( (unsigned __int8)sub_F1B50(a1, a2, a3: 8) != 0 ) /*0xf1f9f*/\n  {\n    v7 = sub_F1DB0(a1, a2, a3: 2296, a4: 0x10u, a5: v11); /*0xf1fba*/\n    if ( v7 != 0 ) /*0xf1fbf*/\n    {\n      if ( dword_153D718 > 1 ) /*0xf1ffa*/\n      {\n        sub_1AB3B0(a1: &tp); /*0xf2003*/\n        v10 = syscall(sysno: 186); /*0xf2014*/\n        sub_14C570( /*0xf205b*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v10,\n          a4: (unsigned int)\"dmal/common/common_user_shared_data.c\",\n          a5: 358,\n          a6: (unsigned int)\"cDeviceGetRusdPowerLimitGpu\");\n      }\n    }\n    else\n    {\n      if ( a3 != nullptr ) /*0xf1fc4*/\n        *a3 = v12; /*0xf1fc9*/\n      if ( a4 != nullptr ) /*0xf1fcf*/\n        *a4 = v13; /*0xf1fd4*/\n    }\n  }\n  return v7; /*0xf1fd6*/\n}",
+          "line_count": 37,
+          "total_lines": 37,
+          "truncated": false,
+          "cursor": {
+            "done": true
+          },
+          "refs": [
+            {
+              "addr": "0xf1db0",
+              "name": "sub_F1DB0"
+            },
+            {
+              "addr": "0x1ab3b0",
+              "name": "sub_1AB3B0"
+            },
+            {
+              "addr": "0x153d700",
+              "name": "tp"
+            },
+            {
+              "addr": "0x226b0",
+              "name": ".syscall"
+            },
+            {
+              "addr": "0x14c570",
+              "name": "sub_14C570"
+            },
+            {
+              "addr": "0x1b2660",
+              "name": "aSTidLlu06fsSDS_0",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%s %d %d\n"
+            },
+            {
+              "addr": "0x2053db",
+              "name": "aRobustChannelC_21",
+              "string": "ROBUST_CHANNEL_CE10_ERROR"
+            },
+            {
+              "addr": "0x1de0e0",
+              "name": "aDmalCommonComm_29",
+              "string": "dmal/common/common_user_shared_data.c"
+            },
+            {
+              "addr": "0x1de5a0",
+              "name": "aCdevicegetrusd_0",
+              "string": "cDeviceGetRusdPowerLimitGpu"
+            },
+            {
+              "addr": "0x153d718",
+              "name": "dword_153D718"
+            },
+            {
+              "addr": "0xf1b50",
+              "name": "sub_F1B50"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_F1F70(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)\n{\n  unsigned int v7; // r12d\n  int v10; // eax\n  char v11[8]; // [rsp+10h] [rbp-40h] BYREF\n  int v12; // [rsp+18h] [rbp-38h]\n  int v13; // [rsp+1Ch] [rbp-34h]\n\n  v7 = 21; /*0xf1f8a*/\n  if ( (unsigned __int8)sub_F1B50(a1, a2, a3: 8) != 0 ) /*0xf1f9f*/\n  {\n    v7 = sub_F1DB0(a1, a2, a3: 2296, a4: 0x10u, a5: v11); /*0xf1fba*/\n    if ( v7 != 0 ) /*0xf1fbf*/\n    {\n      if ( dword_153D718 > 1 ) /*0xf1ffa*/\n      {\n        sub_1AB3B0(a1: &tp); /*0xf2003*/\n        v10 = syscall(sysno: 186); /*0xf2014*/\n        sub_14C570( /*0xf205b*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v10,\n          a4: (unsigned int)\"dmal/common/common_user_shared_data.c\",\n          a5: 358,\n          a6: (unsigned int)\"cDeviceGetRusdPowerLimitGpu\");\n      }\n    }\n    else\n    {\n      if ( a3 != nullptr ) /*0xf1fc4*/\n        *a3 = v12; /*0xf1fc9*/\n      if ( a4 != nullptr ) /*0xf1fcf*/\n        *a4 = v13; /*0xf1fd4*/\n    }\n  }\n  return v7; /*0xf1fd6*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0xf1f70"
+    }
+  ],
+  "evidence_links": []
+}

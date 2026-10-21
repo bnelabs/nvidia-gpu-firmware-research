@@ -1,0 +1,222 @@
+{
+  "sources": [
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/version.mk",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "version.mk",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/version.mk",
+      "sha256": "6471ef382479c791313eb8fc14a5675f27632362427369389cc151ebdfa12b0a",
+      "bytes": 317
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/common/sdk/nvidia/inc/ctrl/ctrl0000/ctrl0000gpu.h",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/common/sdk/nvidia/inc/ctrl/ctrl0000/ctrl0000gpu.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/common/sdk/nvidia/inc/ctrl/ctrl0000/ctrl0000gpu.h",
+      "sha256": "af306168bc3f575c02b499e66a7631d8881d2cee897c680e15ea54cddf2ad6db",
+      "bytes": 43493
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080perf.h",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080perf.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080perf.h",
+      "sha256": "3fc94f626120d8dd17d3df4fbef503279c6fbf33189a15a56e97e093e5f58bb1",
+      "bytes": 36932
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/arch/nvalloc/common/inc/rmRiscvUcode.h",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/arch/nvalloc/common/inc/rmRiscvUcode.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/arch/nvalloc/common/inc/rmRiscvUcode.h",
+      "sha256": "d12b3b33a22b0626300e24eb4e2ecc74da9ac3de91b17655d671c9fb1be593b8",
+      "bytes": 3155
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/generated/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/generated/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/generated/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "sha256": "69f0ff1af4ca6907df94b2806ac36d505f3703df162fab846491dbb5aaa313e7",
+      "bytes": 120320
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/nouveau/extract-firmware-nouveau.py",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "nouveau/extract-firmware-nouveau.py",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/nouveau/extract-firmware-nouveau.py",
+      "sha256": "e07b545773647f4851f33add7b8e44f7bb49e418afe3b29cecfe4331a2a14345",
+      "bytes": 48844
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/src/kernel/core/bin_data.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/src/kernel/core/bin_data.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/core/bin_data.c",
+      "sha256": "080ad8e8d357bb379e2aec1da54766a18624bb31c40e189bc19554c65e4d1b55",
+      "bytes": 8769
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_ga102.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_ga102.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gsp/arch/ampere/kernel_gsp_ga102.c",
+      "sha256": "39e9c2bbb25de2c17c5a4035dc890066ebd18bfbba3c25495800022cd320225c",
+      "bytes": 4811
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c",
+      "sha256": "ed6d7020a8a1772bc44608178aa13a77a72b8bf0eabe3293c12bc9d2b122c6c9",
+      "bytes": 272591
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/arch/nvalloc/unix/src/escape.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/arch/nvalloc/unix/src/escape.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/arch/nvalloc/unix/src/escape.c",
+      "sha256": "43bf7520b5d161b8f6de82404d209fca34c2779bd290d6db748fc3a353c3c1ed",
+      "bytes": 33366
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/src/kernel/rmapi/control.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/src/kernel/rmapi/control.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/rmapi/control.c",
+      "sha256": "61733dd1df92cc29967f782ee3abc4e41150875575a09dd92fe569a127c50766",
+      "bytes": 40261
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/src/kernel/rmapi/resource.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/src/kernel/rmapi/resource.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/rmapi/resource.c",
+      "sha256": "97d2faff44b579da4d5cb16058611051ff6c6668d671fbfa45894b55ebc1f818",
+      "bytes": 9931
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/generated/g_subdevice_nvoc.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/generated/g_subdevice_nvoc.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/generated/g_subdevice_nvoc.c",
+      "sha256": "81bc346087a35f5185158fdc32f88cc8b083f7a04660d54b54d442bcb14804f5",
+      "bytes": 699693
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/generated/g_subdevice_nvoc.h",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/generated/g_subdevice_nvoc.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/generated/g_subdevice_nvoc.h",
+      "sha256": "52ab935cd497cffe6eac6e670a6ca6f60b90e9224002698377b6980d09fd99ec",
+      "bytes": 569713
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/inc/kernel/rmapi/control.h",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/inc/kernel/rmapi/control.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/inc/kernel/rmapi/control.h",
+      "sha256": "97ad0672655e41a8599c5f7ca74dc90b6fbac7df809507239f0d180cc0684bfa",
+      "bytes": 15913
+    },
+    {
+      "local_path": "vendor/open-gpu-kernel-modules/src/nvidia/src/kernel/vgpu/rpc.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "source_path": "src/nvidia/src/kernel/vgpu/rpc.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/vgpu/rpc.c",
+      "sha256": "0357e3bbedaeb64c982644d352037c183236416967fe03c35e334eca5bdcc3e2",
+      "bytes": 436538
+    },
+    {
+      "local_path": "vendor/research-sources/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/nvidia/generated/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_bindata_kgspGetBinArchiveGspRmBoot_GA102.c",
+      "sha256": "7a864f104c9c86587963d78569ef6026a427db2db40c0825428c2f86e4393c9f",
+      "bytes": 120321
+    },
+    {
+      "local_path": "vendor/research-sources/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/rmRiscvUcode.h",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/nvidia/arch/nvalloc/common/inc/rmRiscvUcode.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/arch/nvalloc/common/inc/rmRiscvUcode.h",
+      "sha256": "d12b3b33a22b0626300e24eb4e2ecc74da9ac3de91b17655d671c9fb1be593b8",
+      "bytes": 3155
+    },
+    {
+      "local_path": "vendor/research-sources/prev-perf.txt",
+      "source_repository": "NVIDIA/open-gpu-kernel-modules",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_path": "src/nvidia/src/kernel/gpu/perf/kern_perf_ctrl.c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/perf/kern_perf_ctrl.c",
+      "sha256": "8d62c77839adf2500304e159cf870444d201a56f163f5946587ccd636005acf8",
+      "bytes": 11251
+    },
+    {
+      "local_path": "vendor/research-sources/linux-ctrl.txt",
+      "source_repository": "torvalds/linux",
+      "source_commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "source_path": "drivers/gpu/drm/nouveau/nvkm/subdev/gsp/rm/r535/ctrl.c",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/gsp/rm/r535/ctrl.c",
+      "sha256": "5dfb6d2bf7dea23f5789ef9f94b62bd0f760e9a3fa0189a9b287f203801efe13",
+      "bytes": 2967
+    },
+    {
+      "local_path": "vendor/research-sources/linux-rpc.txt",
+      "source_repository": "torvalds/linux",
+      "source_commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "source_path": "drivers/gpu/drm/nouveau/nvkm/subdev/gsp/rm/r535/rpc.c",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/gsp/rm/r535/rpc.c",
+      "sha256": "c9c6e80b9e3ff89e0e4738de75fe4412bec67b464b92f78801b70448e8905dd8",
+      "bytes": 17687
+    },
+    {
+      "local_path": "vendor/research-sources/linux-gsp-main.txt",
+      "source_repository": "torvalds/linux",
+      "source_commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "source_path": "drivers/gpu/drm/nouveau/nvkm/subdev/gsp/rm/r535/gsp.c",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/gsp/rm/r535/gsp.c",
+      "sha256": "d56a676665175c844026d2c84361bfa7a5c5a6a053cc1fcc9793589201c5cb76",
+      "bytes": 61889
+    },
+    {
+      "local_path": "vendor/research-sources/linux-7d0a66e4bb9081d75c82ec4957c50034cb0ea449/ga102.c",
+      "source_repository": "torvalds/linux",
+      "source_commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "source_path": "drivers/gpu/drm/nouveau/nvkm/subdev/gsp/ga102.c",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/gsp/ga102.c",
+      "sha256": "96ab675c3d3a7fb7978a68e7ba900f180670b6b3fa3ae7e360c79a378d275bc8",
+      "bytes": 5805
+    },
+    {
+      "local_path": "vendor/research-sources/envytools-f102b82381f3f11cee113d16374c87091db039d9/intro.rst",
+      "source_repository": "envytools/envytools",
+      "source_commit": "f102b82381f3f11cee113d16374c87091db039d9",
+      "source_path": "docs/hw/falcon/intro.rst",
+      "url": "https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/docs/hw/falcon/intro.rst",
+      "sha256": "46ffcfa38424a470795e1e51da6af383c0072c3d3e6a9397e770e4431a55469b",
+      "bytes": 3227
+    }
+  ],
+  "source_storage": "Ignored copied source files; acquire exact commit/path URLs as UTF-8 text, never execute downloaded source or installers. SHA-256 records the local retained bytes.",
+  "compatibility": "615.78.08 source is not the exact 615.71.09 runtime; Linux v6.18 r535 protocol code is a separate implementation, not evidence of this query executing on that driver."
+}

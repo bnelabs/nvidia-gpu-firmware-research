@@ -1,0 +1,221 @@
+{
+  "evidence_id": "ev_c8923f465ec08f818fd4e315000ee5678fc592c0d93b192ae9ff0389b4972431",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0x1218f0"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 66.326,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 66.383,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0x1218f0"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0x1218f0",
+            "fn": {
+              "addr": "0x1218f0",
+              "name": "sub_1218F0",
+              "size": "0x422"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x1218f0",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x1218f0",
+          "code": "__int64 __fastcall sub_1218F0(__int64 a1, __int64 a2, _DWORD *a3)\n{\n  _QWORD *v6; // rdi\n  __int64 v7; // rax\n  void (__fastcall *v8)(_QWORD *, __int64, unsigned int *); // rax\n  __int64 (__fastcall **v9)(_QWORD *, __int64, __int64, _DWORD *); // rax\n  __int64 (__fastcall *v10)(_QWORD *, __int64, __int64, _DWORD *); // rax\n  unsigned int v11; // r13d\n  int v13; // eax\n  int v14; // eax\n  int v15; // eax\n  __int64 v16; // rax\n  void (__fastcall *v17)(_QWORD *, __int64, unsigned int *); // rax\n  __int64 v18; // rax\n  __int64 (__fastcall *v19)(_QWORD *, __int64, _DWORD *); // rax\n  unsigned int v20; // [rsp+18h] [rbp-28h] BYREF\n  _DWORD v21[9]; // [rsp+1Ch] [rbp-24h] BYREF\n\n  if ( unk_251648 == 0 || (v21[0] = 0, (unsigned int)sub_11E560(a1: a2, a2: v21, a3: 10) != 0) || v21[0] == 0 ) /*0x121942*/\n  {\n    v20 = 0; /*0x121a15*/\n    v6 = *(_QWORD **)(a2 + 165184); /*0x121a1c*/\n    goto LABEL_12; /*0x121a2d*/\n  }\n  v6 = *(_QWORD **)(a2 + 165184); /*0x12194d*/\n  if ( *(_BYTE *)a2 == 1 || *(_QWORD *)(a2 + 32) != 0 ) /*0x12195f*/\n  {\n    LOBYTE(v20) = 0; /*0x121961*/\n    if ( v6 != nullptr ) /*0x121968*/\n    {\n      v7 = v6[7]; /*0x12196e*/\n      if ( v7 != 0 ) /*0x121975*/\n      {\n        v8 = *(void (__fastcall **)(_QWORD *, __int64, unsigned int *))(v7 + 128); /*0x12197b*/\n        if ( v8 != nullptr ) /*0x121985*/\n        {\n          v8(a1: v6, a2, a3: &v20); /*0x121992*/\n          if ( (_BYTE)v20 != 0 ) /*0x121998*/\n          {\nLABEL_10:\n            v6 = *(_QWORD **)(a2 + 165184); /*0x12199e*/\n            goto LABEL_11; /*0x1219a3*/\n          }\n          v6 = *(_QWORD **)(a2 + 165184); /*0x121b7e*/\n        }\n      }\n    }\n    LOBYTE(v20) = 0; /*0x121b90*/\n    if ( v6 == nullptr ) /*0x121b97*/\n      goto LABEL_11; /*0x121b97*/\n    v16 = v6[7]; /*0x121b99*/\n    if ( v16 != 0 ) /*0x121ba0*/\n    {\n      v17 = *(void (__fastcall **)(_QWORD *, __int64, unsigned int *))(v16 + 136); /*0x121ba2*/\n      if ( v17 != nullptr ) /*0x121bac*/\n      {\n        v17(a1: v6, a2, a3: &v20); /*0x121bb5*/\n        if ( (_BYTE)v20 != 0 ) /*0x121bbb*/\n          goto LABEL_10; /*0x121bbb*/\n        v6 = *(_QWORD **)(a2 + 165184); /*0x121bc1*/\n      }\n    }\n    if ( v6 == nullptr ) /*0x121bd3*/\n      goto LABEL_11; /*0x121bd3*/\n    v18 = v6[36]; /*0x121bd5*/\n    if ( v18 == 0 ) /*0x121bdf*/\n      goto LABEL_11; /*0x121bdf*/\n    v19 = *(__int64 (__fastcall **)(_QWORD *, __int64, _DWORD *))(v18 + 48); /*0x121be1*/\n    if ( v19 == nullptr ) /*0x121be8*/\n      goto LABEL_11; /*0x121be8*/\n    v11 = v19(a1: v6, a2, a3); /*0x121bf2*/\n    if ( v11 == 0 ) /*0x121bf7*/\n      return v11; /*0x121bf7*/\n    goto LABEL_10; /*0x121bf7*/\n  }\nLABEL_11:\n  v20 = 0; /*0x1219ab*/\nLABEL_12:\n  if ( v6 == nullptr /*0x1219cf*/\n    || (v9 = (__int64 (__fastcall **)(_QWORD *, __int64, __int64, _DWORD *))v6[10]) == nullptr\n    || (v10 = *v9) == nullptr )\n  {\n    v11 = 3; /*0x121a37*/\n    if ( dword_153D718 > 1 ) /*0x121a40*/\n      goto LABEL_20; /*0x121a40*/\n    return v11; /*0x121a05*/\n  }\n  v11 = v10(a1: v6, a2, a3: 8320, a4: v21); /*0x1219df*/\n  if ( v11 == 0 ) /*0x1219e4*/\n  {\n    v11 = sub_A5880( /*0x121b60*/\n            a1: *(_QWORD *)(a1 + 16),\n            a2: *(_DWORD *)&s[140],\n            a3: v21[0],\n            a4: 545267816,\n            a5: (unsigned int)&v20,\n            a6: 4,\n            a7: 0);\n    switch ( v11 ) /*0x121b7c*/\n    {",
+          "line_count": 100,
+          "total_lines": 183,
+          "truncated": true,
+          "cursor": {
+            "next": 100
+          },
+          "refs": [
+            {
+              "addr": "0x251648",
+              "name": "unk_251648"
+            },
+            {
+              "addr": "0x11e560",
+              "name": "sub_11E560"
+            },
+            {
+              "addr": "0x153d718",
+              "name": "dword_153D718"
+            },
+            {
+              "addr": "0xa5880",
+              "name": "sub_A5880"
+            },
+            {
+              "addr": "0x2d2e20",
+              "name": "s"
+            },
+            {
+              "addr": "0x376e0",
+              "name": "sub_376E0"
+            },
+            {
+              "addr": "0x1ab3b0",
+              "name": "sub_1AB3B0"
+            },
+            {
+              "addr": "0x153d700",
+              "name": "tp"
+            },
+            {
+              "addr": "0x226b0",
+              "name": ".syscall"
+            },
+            {
+              "addr": "0x14c570",
+              "name": "sub_14C570"
+            },
+            {
+              "addr": "0x1b2660",
+              "name": "aSTidLlu06fsSDS_0",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%s %d %d\n"
+            },
+            {
+              "addr": "0x2053db",
+              "name": "aRobustChannelC_21",
+              "string": "ROBUST_CHANNEL_CE10_ERROR"
+            },
+            {
+              "addr": "0x1e75d0",
+              "name": "aDmalCommonComm_33",
+              "string": "dmal/common/common_clock.c"
+            },
+            {
+              "addr": "0x1ed020",
+              "name": "aCdevicegetperf_6",
+              "string": "cDeviceGetPerformanceStateRmapi"
+            },
+            {
+              "addr": "0x1ed040",
+              "name": "aCdevicegetperf_7",
+              "string": "cDeviceGetPerformanceState"
+            }
+          ]
+        }
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x1218f0",
+          "offset": 100,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x1218f0",
+          "code": "      case 0u: /*0x121b7c*/\n        *a3 = ((__int64 (__fastcall *)(_QWORD))sub_376E0)(a1: v20); /*0x121c70*/\n        return v11; /*0x121c73*/\n      case 3u: /*0x121b7c*/\n      case 0x66u: /*0x121b7c*/\n        v11 = 10; /*0x121c5b*/\n        v14 = dword_153D718; /*0x121c61*/\n        goto LABEL_21; /*0x121c63*/\n      case 0xFu: /*0x121b7c*/\n        v14 = dword_153D718; /*0x121ca7*/\n        goto LABEL_21; /*0x121ca9*/\n      case 0x17u: /*0x121b7c*/\n      case 0x63u: /*0x121b7c*/\n        v11 = 19; /*0x121c47*/\n        v14 = dword_153D718; /*0x121c4d*/\n        goto LABEL_21; /*0x121c4f*/\n      case 0x1Au: /*0x121b7c*/\n        v11 = 23; /*0x121c93*/\n        v14 = dword_153D718; /*0x121c99*/\n        goto LABEL_21; /*0x121c9b*/\n      case 0x1Bu: /*0x121b7c*/\n        v11 = 4; /*0x121c7f*/\n        v14 = dword_153D718; /*0x121c85*/\n        goto LABEL_21; /*0x121c87*/\n      case 0x1Fu: /*0x121b7c*/\n      case 0x3Bu: /*0x121b7c*/\n      case 0x54u: /*0x121b7c*/\n        v11 = 2; /*0x121c33*/\n        v14 = dword_153D718; /*0x121c39*/\n        goto LABEL_21; /*0x121c3b*/\n      case 0x51u: /*0x121b7c*/\n        v11 = 20; /*0x121d05*/\n        v14 = dword_153D718; /*0x121d0b*/\n        goto LABEL_21; /*0x121d0d*/\n      case 0x55u: /*0x121b7c*/\n        v11 = 27; /*0x121cdd*/\n        v14 = dword_153D718; /*0x121ce3*/\n        goto LABEL_21; /*0x121ce5*/\n      case 0x56u: /*0x121b7c*/\n        v11 = 3; /*0x121cc9*/\n        v14 = dword_153D718; /*0x121ccf*/\n        goto LABEL_21; /*0x121cd1*/\n      case 0x59u: /*0x121b7c*/\n        v11 = 17; /*0x121cb5*/\n        v14 = dword_153D718; /*0x121cbb*/\n        goto LABEL_21; /*0x121cbd*/\n      case 0x62u: /*0x121b7c*/\n        v11 = 16; /*0x121cf1*/\n        v14 = dword_153D718; /*0x121cf7*/\n        goto LABEL_21; /*0x121cf9*/\n      default:\n        v11 = 999; /*0x121c1f*/\n        v14 = dword_153D718; /*0x121c25*/\n        goto LABEL_21; /*0x121c27*/\n    }\n  }\n  if ( dword_153D718 <= 1 ) /*0x1219f4*/\n    return v11; /*0x1219f4*/\nLABEL_20:\n  sub_1AB3B0(a1: &tp); /*0x121a42*/\n  v13 = syscall(sysno: 186); /*0x121a5a*/\n  sub_14C570( /*0x121aa1*/\n    a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n    a2: (unsigned int)\"ERROR\",\n    a3: v13,\n    a4: (unsigned int)\"dmal/common/common_clock.c\",\n    a5: 4006,\n    a6: (unsigned int)\"cDeviceGetPerformanceStateRmapi\");\n  v14 = dword_153D718; /*0x121aa6*/\nLABEL_21:\n  if ( v14 <= 1 ) /*0x121aae*/\n    return v11; /*0x121aae*/\n  sub_1AB3B0(a1: &tp); /*0x121abb*/\n  v15 = syscall(sysno: 186); /*0x121acc*/\n  sub_14C570( /*0x121b13*/\n    a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n    a2: (unsigned int)\"ERROR\",\n    a3: v15,\n    a4: (unsigned int)\"dmal/common/common_clock.c\",\n    a5: 4022,\n    a6: (unsigned int)\"cDeviceGetPerformanceState\");\n  return v11; /*0x1219f6*/\n}",
+          "line_count": 83,
+          "total_lines": 183,
+          "truncated": true,
+          "cursor": {
+            "done": true
+          }
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_1218F0(__int64 a1, __int64 a2, _DWORD *a3)\n{\n  _QWORD *v6; // rdi\n  __int64 v7; // rax\n  void (__fastcall *v8)(_QWORD *, __int64, unsigned int *); // rax\n  __int64 (__fastcall **v9)(_QWORD *, __int64, __int64, _DWORD *); // rax\n  __int64 (__fastcall *v10)(_QWORD *, __int64, __int64, _DWORD *); // rax\n  unsigned int v11; // r13d\n  int v13; // eax\n  int v14; // eax\n  int v15; // eax\n  __int64 v16; // rax\n  void (__fastcall *v17)(_QWORD *, __int64, unsigned int *); // rax\n  __int64 v18; // rax\n  __int64 (__fastcall *v19)(_QWORD *, __int64, _DWORD *); // rax\n  unsigned int v20; // [rsp+18h] [rbp-28h] BYREF\n  _DWORD v21[9]; // [rsp+1Ch] [rbp-24h] BYREF\n\n  if ( unk_251648 == 0 || (v21[0] = 0, (unsigned int)sub_11E560(a1: a2, a2: v21, a3: 10) != 0) || v21[0] == 0 ) /*0x121942*/\n  {\n    v20 = 0; /*0x121a15*/\n    v6 = *(_QWORD **)(a2 + 165184); /*0x121a1c*/\n    goto LABEL_12; /*0x121a2d*/\n  }\n  v6 = *(_QWORD **)(a2 + 165184); /*0x12194d*/\n  if ( *(_BYTE *)a2 == 1 || *(_QWORD *)(a2 + 32) != 0 ) /*0x12195f*/\n  {\n    LOBYTE(v20) = 0; /*0x121961*/\n    if ( v6 != nullptr ) /*0x121968*/\n    {\n      v7 = v6[7]; /*0x12196e*/\n      if ( v7 != 0 ) /*0x121975*/\n      {\n        v8 = *(void (__fastcall **)(_QWORD *, __int64, unsigned int *))(v7 + 128); /*0x12197b*/\n        if ( v8 != nullptr ) /*0x121985*/\n        {\n          v8(a1: v6, a2, a3: &v20); /*0x121992*/\n          if ( (_BYTE)v20 != 0 ) /*0x121998*/\n          {\nLABEL_10:\n            v6 = *(_QWORD **)(a2 + 165184); /*0x12199e*/\n            goto LABEL_11; /*0x1219a3*/\n          }\n          v6 = *(_QWORD **)(a2 + 165184); /*0x121b7e*/\n        }\n      }\n    }\n    LOBYTE(v20) = 0; /*0x121b90*/\n    if ( v6 == nullptr ) /*0x121b97*/\n      goto LABEL_11; /*0x121b97*/\n    v16 = v6[7]; /*0x121b99*/\n    if ( v16 != 0 ) /*0x121ba0*/\n    {\n      v17 = *(void (__fastcall **)(_QWORD *, __int64, unsigned int *))(v16 + 136); /*0x121ba2*/\n      if ( v17 != nullptr ) /*0x121bac*/\n      {\n        v17(a1: v6, a2, a3: &v20); /*0x121bb5*/\n        if ( (_BYTE)v20 != 0 ) /*0x121bbb*/\n          goto LABEL_10; /*0x121bbb*/\n        v6 = *(_QWORD **)(a2 + 165184); /*0x121bc1*/\n      }\n    }\n    if ( v6 == nullptr ) /*0x121bd3*/\n      goto LABEL_11; /*0x121bd3*/\n    v18 = v6[36]; /*0x121bd5*/\n    if ( v18 == 0 ) /*0x121bdf*/\n      goto LABEL_11; /*0x121bdf*/\n    v19 = *(__int64 (__fastcall **)(_QWORD *, __int64, _DWORD *))(v18 + 48); /*0x121be1*/\n    if ( v19 == nullptr ) /*0x121be8*/\n      goto LABEL_11; /*0x121be8*/\n    v11 = v19(a1: v6, a2, a3); /*0x121bf2*/\n    if ( v11 == 0 ) /*0x121bf7*/\n      return v11; /*0x121bf7*/\n    goto LABEL_10; /*0x121bf7*/\n  }\nLABEL_11:\n  v20 = 0; /*0x1219ab*/\nLABEL_12:\n  if ( v6 == nullptr /*0x1219cf*/\n    || (v9 = (__int64 (__fastcall **)(_QWORD *, __int64, __int64, _DWORD *))v6[10]) == nullptr\n    || (v10 = *v9) == nullptr )\n  {\n    v11 = 3; /*0x121a37*/\n    if ( dword_153D718 > 1 ) /*0x121a40*/\n      goto LABEL_20; /*0x121a40*/\n    return v11; /*0x121a05*/\n  }\n  v11 = v10(a1: v6, a2, a3: 8320, a4: v21); /*0x1219df*/\n  if ( v11 == 0 ) /*0x1219e4*/\n  {\n    v11 = sub_A5880( /*0x121b60*/\n            a1: *(_QWORD *)(a1 + 16),\n            a2: *(_DWORD *)&s[140],\n            a3: v21[0],\n            a4: 545267816,\n            a5: (unsigned int)&v20,\n            a6: 4,\n            a7: 0);\n    switch ( v11 ) /*0x121b7c*/\n    {\n      case 0u: /*0x121b7c*/\n        *a3 = ((__int64 (__fastcall *)(_QWORD))sub_376E0)(a1: v20); /*0x121c70*/\n        return v11; /*0x121c73*/\n      case 3u: /*0x121b7c*/\n      case 0x66u: /*0x121b7c*/\n        v11 = 10; /*0x121c5b*/\n        v14 = dword_153D718; /*0x121c61*/\n        goto LABEL_21; /*0x121c63*/\n      case 0xFu: /*0x121b7c*/\n        v14 = dword_153D718; /*0x121ca7*/\n        goto LABEL_21; /*0x121ca9*/\n      case 0x17u: /*0x121b7c*/\n      case 0x63u: /*0x121b7c*/\n        v11 = 19; /*0x121c47*/\n        v14 = dword_153D718; /*0x121c4d*/\n        goto LABEL_21; /*0x121c4f*/\n      case 0x1Au: /*0x121b7c*/\n        v11 = 23; /*0x121c93*/\n        v14 = dword_153D718; /*0x121c99*/\n        goto LABEL_21; /*0x121c9b*/\n      case 0x1Bu: /*0x121b7c*/\n        v11 = 4; /*0x121c7f*/\n        v14 = dword_153D718; /*0x121c85*/\n        goto LABEL_21; /*0x121c87*/\n      case 0x1Fu: /*0x121b7c*/\n      case 0x3Bu: /*0x121b7c*/\n      case 0x54u: /*0x121b7c*/\n        v11 = 2; /*0x121c33*/\n        v14 = dword_153D718; /*0x121c39*/\n        goto LABEL_21; /*0x121c3b*/\n      case 0x51u: /*0x121b7c*/\n        v11 = 20; /*0x121d05*/\n        v14 = dword_153D718; /*0x121d0b*/\n        goto LABEL_21; /*0x121d0d*/\n      case 0x55u: /*0x121b7c*/\n        v11 = 27; /*0x121cdd*/\n        v14 = dword_153D718; /*0x121ce3*/\n        goto LABEL_21; /*0x121ce5*/\n      case 0x56u: /*0x121b7c*/\n        v11 = 3; /*0x121cc9*/\n        v14 = dword_153D718; /*0x121ccf*/\n        goto LABEL_21; /*0x121cd1*/\n      case 0x59u: /*0x121b7c*/\n        v11 = 17; /*0x121cb5*/\n        v14 = dword_153D718; /*0x121cbb*/\n        goto LABEL_21; /*0x121cbd*/\n      case 0x62u: /*0x121b7c*/\n        v11 = 16; /*0x121cf1*/\n        v14 = dword_153D718; /*0x121cf7*/\n        goto LABEL_21; /*0x121cf9*/\n      default:\n        v11 = 999; /*0x121c1f*/\n        v14 = dword_153D718; /*0x121c25*/\n        goto LABEL_21; /*0x121c27*/\n    }\n  }\n  if ( dword_153D718 <= 1 ) /*0x1219f4*/\n    return v11; /*0x1219f4*/\nLABEL_20:\n  sub_1AB3B0(a1: &tp); /*0x121a42*/\n  v13 = syscall(sysno: 186); /*0x121a5a*/\n  sub_14C570( /*0x121aa1*/\n    a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n    a2: (unsigned int)\"ERROR\",\n    a3: v13,\n    a4: (unsigned int)\"dmal/common/common_clock.c\",\n    a5: 4006,\n    a6: (unsigned int)\"cDeviceGetPerformanceStateRmapi\");\n  v14 = dword_153D718; /*0x121aa6*/\nLABEL_21:\n  if ( v14 <= 1 ) /*0x121aae*/\n    return v11; /*0x121aae*/\n  sub_1AB3B0(a1: &tp); /*0x121abb*/\n  v15 = syscall(sysno: 186); /*0x121acc*/\n  sub_14C570( /*0x121b13*/\n    a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n    a2: (unsigned int)\"ERROR\",\n    a3: v15,\n    a4: (unsigned int)\"dmal/common/common_clock.c\",\n    a5: 4022,\n    a6: (unsigned int)\"cDeviceGetPerformanceState\");\n  return v11; /*0x1219f6*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0x1218f0"
+    }
+  ],
+  "evidence_links": []
+}

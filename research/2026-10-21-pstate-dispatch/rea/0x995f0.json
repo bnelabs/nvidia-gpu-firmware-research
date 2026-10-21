@@ -1,0 +1,195 @@
+{
+  "evidence_id": "ev_830faedb51d8723c8169468a9f65a39af83925eac5c70a384fc73e075b54314e",
+  "subject": {
+    "name": "libnvidia-ml-615.71.09.so",
+    "digest": {
+      "sha256": "283793c0c30dc32f87c0e9fc9b5326fe764bad156e61afa3e997684c47b29a95"
+    },
+    "local_path": "/build/libnvidia-ml-615.71.09.so",
+    "format": "elf",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "ida",
+    "name": "IDA MCP adapter",
+    "version": "1"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "ida",
+      "name": "IDA MCP adapter",
+      "version": "1"
+    },
+    "parameters": {
+      "version_scope": "rea-ida-adapter",
+      "engine_version": null,
+      "upstream_distribution_version": null,
+      "mode": "headless",
+      "compatibility_profile": "database-supervisor",
+      "database_revision": null,
+      "cache_policy": "live",
+      "registration_digest": "a75c78487c62e4ff6bb9f42d99a227a5fa4e3137354eabd0627f2658c2c03f4d"
+    },
+    "digest": "91ba1dacf4398441b996b5354893027321b21ea7fe666a920e1b62a46b6c5157"
+  },
+  "predicate_type": "rea.analysis",
+  "operation": "procedure_pseudo_code",
+  "parameters": {
+    "procedure": "0x995f0"
+  },
+  "raw_result": {
+    "upstream": {
+      "name": "ida-pro-mcp",
+      "version": "1.0.0"
+    },
+    "metadata_before": {
+      "status": "ok",
+      "uptime_sec": 10.337,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "metadata_after": {
+      "status": "ok",
+      "uptime_sec": 10.476,
+      "idb_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so.i64",
+      "module": "libnvidia-ml-615.71.09.so",
+      "input_path": "/tmp/rea-ida-4nqwU8/libnvidia-ml-615.71.09.so",
+      "imagebase": "0x0",
+      "auto_analysis_ready": true,
+      "hexrays_ready": true,
+      "strings_cache_ready": true,
+      "strings_cache_size": 7245
+    },
+    "observations": [
+      {
+        "tool": "lookup_funcs",
+        "arguments": {
+          "queries": [
+            "0x995f0"
+          ],
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": [
+          {
+            "query": "0x995f0",
+            "fn": {
+              "addr": "0x995f0",
+              "name": "sub_995F0",
+              "size": "0x249"
+            },
+            "error": null
+          }
+        ]
+      },
+      {
+        "tool": "decompile",
+        "arguments": {
+          "addr": "0x995f0",
+          "offset": 0,
+          "max_lines": 100,
+          "database": "rea-10fbcf97-d81e-40b6-9398-ba5534568439"
+        },
+        "result": {
+          "addr": "0x995f0",
+          "code": "__int64 __fastcall sub_995F0(__int64 a1, int *a2)\n{\n  unsigned int v4; // r13d\n  __int64 v5; // rdi\n  __int64 v6; // rax\n  __int64 (__fastcall *v7)(__int64, __int64, int *); // rax\n  int v9; // eax\n  int v10; // ebx\n  int v11; // eax\n  int v12; // r15d\n  int v13; // eax\n\n  if ( a1 != 0 ) /*0x99604*/\n  {\n    if ( *(_BYTE *)a1 != 1 ) /*0x99613*/\n    {\n      v4 = 2; /*0x99618*/\n      if ( *(_DWORD *)(a1 + 20) == 0 /*0x99638*/\n        || *(_DWORD *)(a1 + 28) != 0\n        || *(_DWORD *)(a1 + 16) == 0\n        || *(_QWORD *)(a1 + 32) == 0 )\n      {\n        return v4; /*0x99638*/\n      }\n    }\n    if ( a2 != nullptr ) /*0x9963d*/\n    {\n      v5 = *(_QWORD *)(a1 + 165184); /*0x99643*/\n      if ( v5 == 0 /*0x99663*/\n        || (v6 = *(_QWORD *)(v5 + 368)) == 0\n        || (v7 = *(__int64 (__fastcall **)(__int64, __int64, int *))(v6 + 72)) == nullptr )\n      {\n        v4 = 3; /*0x996a7*/\n        if ( unk_153D718 <= 1 ) /*0x996b0*/\n          return v4; /*0x996b0*/\n        goto LABEL_15; /*0x996b0*/\n      }\n      v4 = v7(a1: v5, a2: a1, a3: a2); /*0x9966d*/\n      if ( v4 != 0 ) /*0x99672*/\n      {\n        if ( unk_153D718 <= 1 ) /*0x99682*/\n          return v4; /*0x99682*/\nLABEL_15:\n        sub_1AB3B0(a1: &tp); /*0x996b2*/\n        v9 = syscall(sysno: 186); /*0x996ca*/\n        sub_14C570( /*0x99711*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v9,\n          a4: (unsigned int)\"api.c\",\n          a5: 3563,\n          a6: (unsigned int)\"tsapiDeviceGetPerformanceState\");\n        return v4; /*0x99718*/\n      }\n      if ( (unsigned int)sub_99530(a1) != 0 ) /*0x9972a*/\n      {\n        if ( unk_153D718 > 4 ) /*0x9973b*/\n        {\n          v12 = *a2; /*0x997df*/\n          sub_1AB3B0(a1: &tp); /*0x997e2*/\n          v13 = syscall(sysno: 186); /*0x997f3*/\n          sub_14C570( /*0x9982f*/\n            a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d\\n\",\n            a2: (unsigned int)\"DEBUG\",\n            a3: v13,\n            a4: (unsigned int)\"api.c\",\n            a5: 3567,\n            a6: v12);\n        }\n        if ( *a2 == 0 ) /*0x99745*/\n        {\n          v4 = sub_3C480(a1, a2); /*0x9975a*/\n          if ( unk_153D718 > 4 ) /*0x9975d*/\n          {\n            v10 = *a2; /*0x9976a*/\n            sub_1AB3B0(a1: &tp); /*0x9976c*/\n            v11 = syscall(sysno: 186); /*0x9977d*/\n            sub_14C570( /*0x997b9*/\n              a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d\\n\",\n              a2: (unsigned int)\"DEBUG\",\n              a3: v11,\n              a4: (unsigned int)\"api.c\",\n              a5: 3572,\n              a6: v10);\n          }\n        }\n      }\n      return v4; /*0x99684*/\n    }\n  }\n  return 2; /*0x997ce*/\n}",
+          "line_count": 92,
+          "total_lines": 92,
+          "truncated": false,
+          "cursor": {
+            "done": true
+          },
+          "refs": [
+            {
+              "addr": "0x153d718",
+              "name": "unk_153D718"
+            },
+            {
+              "addr": "0x1ab3b0",
+              "name": "sub_1AB3B0"
+            },
+            {
+              "addr": "0x153d700",
+              "name": "tp"
+            },
+            {
+              "addr": "0x226b0",
+              "name": ".syscall"
+            },
+            {
+              "addr": "0x14c570",
+              "name": "sub_14C570"
+            },
+            {
+              "addr": "0x1b2660",
+              "name": "aSTidLlu06fsSDS_0",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%s %d %d\n"
+            },
+            {
+              "addr": "0x2053db",
+              "name": "aRobustChannelC_21",
+              "string": "ROBUST_CHANNEL_CE10_ERROR"
+            },
+            {
+              "addr": "0x1b6a10",
+              "name": "aApiC",
+              "string": "api.c"
+            },
+            {
+              "addr": "0x1c2e70",
+              "name": "aTsapideviceget_30",
+              "string": "tsapiDeviceGetPerformanceState"
+            },
+            {
+              "addr": "0x1b2468",
+              "name": "aSTidLlu06fsSDD",
+              "string": "%s:\t[tid %llu]\t[%.06fs - %s:%d]\t%d\n"
+            },
+            {
+              "addr": "0x1b2395",
+              "name": "aDebug",
+              "string": "DEBUG"
+            },
+            {
+              "addr": "0x3c480",
+              "name": "sub_3C480"
+            },
+            {
+              "addr": "0x99530",
+              "name": "sub_99530"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "normalized_result": "__int64 __fastcall sub_995F0(__int64 a1, int *a2)\n{\n  unsigned int v4; // r13d\n  __int64 v5; // rdi\n  __int64 v6; // rax\n  __int64 (__fastcall *v7)(__int64, __int64, int *); // rax\n  int v9; // eax\n  int v10; // ebx\n  int v11; // eax\n  int v12; // r15d\n  int v13; // eax\n\n  if ( a1 != 0 ) /*0x99604*/\n  {\n    if ( *(_BYTE *)a1 != 1 ) /*0x99613*/\n    {\n      v4 = 2; /*0x99618*/\n      if ( *(_DWORD *)(a1 + 20) == 0 /*0x99638*/\n        || *(_DWORD *)(a1 + 28) != 0\n        || *(_DWORD *)(a1 + 16) == 0\n        || *(_QWORD *)(a1 + 32) == 0 )\n      {\n        return v4; /*0x99638*/\n      }\n    }\n    if ( a2 != nullptr ) /*0x9963d*/\n    {\n      v5 = *(_QWORD *)(a1 + 165184); /*0x99643*/\n      if ( v5 == 0 /*0x99663*/\n        || (v6 = *(_QWORD *)(v5 + 368)) == 0\n        || (v7 = *(__int64 (__fastcall **)(__int64, __int64, int *))(v6 + 72)) == nullptr )\n      {\n        v4 = 3; /*0x996a7*/\n        if ( unk_153D718 <= 1 ) /*0x996b0*/\n          return v4; /*0x996b0*/\n        goto LABEL_15; /*0x996b0*/\n      }\n      v4 = v7(a1: v5, a2: a1, a3: a2); /*0x9966d*/\n      if ( v4 != 0 ) /*0x99672*/\n      {\n        if ( unk_153D718 <= 1 ) /*0x99682*/\n          return v4; /*0x99682*/\nLABEL_15:\n        sub_1AB3B0(a1: &tp); /*0x996b2*/\n        v9 = syscall(sysno: 186); /*0x996ca*/\n        sub_14C570( /*0x99711*/\n          a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%s %d %d\\n\",\n          a2: (unsigned int)\"ERROR\",\n          a3: v9,\n          a4: (unsigned int)\"api.c\",\n          a5: 3563,\n          a6: (unsigned int)\"tsapiDeviceGetPerformanceState\");\n        return v4; /*0x99718*/\n      }\n      if ( (unsigned int)sub_99530(a1) != 0 ) /*0x9972a*/\n      {\n        if ( unk_153D718 > 4 ) /*0x9973b*/\n        {\n          v12 = *a2; /*0x997df*/\n          sub_1AB3B0(a1: &tp); /*0x997e2*/\n          v13 = syscall(sysno: 186); /*0x997f3*/\n          sub_14C570( /*0x9982f*/\n            a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d\\n\",\n            a2: (unsigned int)\"DEBUG\",\n            a3: v13,\n            a4: (unsigned int)\"api.c\",\n            a5: 3567,\n            a6: v12);\n        }\n        if ( *a2 == 0 ) /*0x99745*/\n        {\n          v4 = sub_3C480(a1, a2); /*0x9975a*/\n          if ( unk_153D718 > 4 ) /*0x9975d*/\n          {\n            v10 = *a2; /*0x9976a*/\n            sub_1AB3B0(a1: &tp); /*0x9976c*/\n            v11 = syscall(sysno: 186); /*0x9977d*/\n            sub_14C570( /*0x997b9*/\n              a1: (unsigned int)\"%s:\\t[tid %llu]\\t[%.06fs - %s:%d]\\t%d\\n\",\n              a2: (unsigned int)\"DEBUG\",\n              a3: v11,\n              a4: (unsigned int)\"api.c\",\n              a5: 3572,\n              a6: v10);\n          }\n        }\n      }\n      return v4; /*0x99684*/\n    }\n  }\n  return 2; /*0x997ce*/\n}",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Provider version identifies the REA IDA adapter. IDA engine and upstream distribution versions are unknown unless separately observed; MCP serverInfo is reported independently.",
+    "Results describe the current IDA analysis database. Input identity does not prove an unmodified database; patches, annotations, analysis completeness, and database revision remain unknown.",
+    "Live results are never replayed from analysis snapshots. Target checks before and after a request do not provide an atomic lock against external GUI changes.",
+    "Caller cancellation drains the in-flight MCP request before cleanup; it does not prove that IDA engine work was interrupted.",
+    "Headless workers are released through the upstream database lifecycle. Abrupt termination of REA, its proxy, or the supervisor cannot prove worker cleanup; inspect upstream inventory after an interrupted process.",
+    "Complete function body ranges, typed references, unresolved indirect calls, referenced data, and basic blocks are unavailable in this adapter. Empty unsupported dossier facets are unknown, not observed absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "/build/libnvidia-ml-615.71.09.so"
+    },
+    {
+      "kind": "address",
+      "address": "0x995f0"
+    }
+  ],
+  "evidence_links": []
+}
