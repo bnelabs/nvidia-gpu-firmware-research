@@ -1,0 +1,51 @@
+{
+  "artifact_sha256": "4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a",
+  "address_domain": "firmware ELF VA with file offsets",
+  "jump_table": {
+    "firmware_elf_va": "0x1e13bb4",
+    "file_offset": "0xe13bb4",
+    "bytes": 28,
+    "raw_hex": "7e4695ff744095ff8a3f95ff5c3f95ffb63f95ff283f95fff83e95ff",
+    "sha256": "a5c27231a8d03350d2f3a60adb6f92e230a866f9ac47a26fc60fd61ed50f6528",
+    "load_flags_raw": 5,
+    "cases": [
+      {
+        "format_byte": 0,
+        "relative_i32": -6994306,
+        "target_firmware_elf_va": "0x1768232"
+      },
+      {
+        "format_byte": 1,
+        "relative_i32": -6995852,
+        "target_firmware_elf_va": "0x1767c28"
+      },
+      {
+        "format_byte": 2,
+        "relative_i32": -6996086,
+        "target_firmware_elf_va": "0x1767b3e"
+      },
+      {
+        "format_byte": 3,
+        "relative_i32": -6996132,
+        "target_firmware_elf_va": "0x1767b10"
+      },
+      {
+        "format_byte": 4,
+        "relative_i32": -6996042,
+        "target_firmware_elf_va": "0x1767b6a"
+      },
+      {
+        "format_byte": 5,
+        "relative_i32": -6996184,
+        "target_firmware_elf_va": "0x1767adc"
+      },
+      {
+        "format_byte": 6,
+        "relative_i32": -6996232,
+        "target_firmware_elf_va": "0x1767aac"
+      }
+    ]
+  },
+  "interpretation": "Format byte 1 selects the copied 12-byte internal mask construction branch; format 0 selects an error branch. These are artifact-specific selectors, not public wire-format names.",
+  "limits": "Raw table plus demonstrated dispatch consumer at 0x1767a2c; no real source table bytes or runtime format observed."
+}

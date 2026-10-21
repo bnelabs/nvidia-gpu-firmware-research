@@ -81,3 +81,25 @@ search matches 1,183 existing records and rejects 18 absent IDs; these are pure
 CPU lookups, not control invocations. Ten analysis JSON files replay byte-for-byte;
 41 Python tests and the C/CLI gate pass. Actual runtime callback selection, later
 overrides, table construction and entry `+0x34` writers remain unknown.
+
+[2026-10-21 object and entry origins](research/2026-10-21-object-origin/README.md)
+adds OO-01–08: exact-source class-ID discrimination for GPU `+0x2000`, copied
+class/cast metadata, a conditional table construction chain assigning getter
+`0x1757ea0`, and one entry `+0x34` writer from a tag-8 input record `+0x0c`.
+The copied constructor prefix, array insertion/remapping and handler/getter
+execute on synthetic objects with an explicit CPU heap allocator. Five raw-word
+cases and two negative cases check transfer/error behavior. Seven deterministic
+JSON products replay byte-for-byte; 41 Python tests, C/CLI and offline-record
+checks pass. Exact NVIDIA source, pinned nouveau/Nova and independent envytools
+formats are compared without equating their schemas. The earlier record producer,
+current-index policy, runtime gate/branch selection and all alternate writers
+remain unknown; there is no physical measurement or exhaustive access proof.
+
+[2026-10-21 serialized record producer](research/2026-10-21-record-producer/README.md)
+adds RP-01–07: copied schema setup establishes a 20-byte header, 556-byte stride
+and selector 6. The parsed object's getter returns a present record directly
+from that buffer; the copied constructor transfers its `+0x0c` word into entry
+`+0x34`. A sparse-mask fixture checks two present records and one absent index.
+The acquisition callback creates a memory sub-descriptor; its transfer worker
+and actual source storage remain unresolved. Seven JSON products replay exactly;
+41 Python tests and C/CLI/offline-record checks pass without GPU access.

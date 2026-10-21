@@ -1,0 +1,71 @@
+{
+  "reason": "Move historical workflow material out of the repository front page; contents preserved byte-for-byte. Old relative links refer to the former root layout.",
+  "files": [
+    {
+      "original_path": "WORKER-PROMPT.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/WORKER-PROMPT.md",
+      "bytes": 1983,
+      "sha256": "68dcb69a590e290bd52ecb2fe04797ac88bd5c30956d1c09bc85f14a8f6b4831"
+    },
+    {
+      "original_path": "VALIDATION.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/VALIDATION.md",
+      "bytes": 2840,
+      "sha256": "8e88a2a5cb70c10a03cdd0413214ec1139817869bdeea088d758dc730c9e3cbb"
+    },
+    {
+      "original_path": "TECHNIQUES.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/TECHNIQUES.md",
+      "bytes": 1491,
+      "sha256": "540dea68f1ee30bf9d787b6a1fc027063abf0499af1246abadd860bffbe2f982"
+    },
+    {
+      "original_path": "RESEARCH-DIRECTION.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/RESEARCH-DIRECTION.md",
+      "bytes": 1516,
+      "sha256": "c2bba0311d3b1d0137570a12b44102a8e5dc09168901747d0a69f265ba2eee40"
+    },
+    {
+      "original_path": "ROADMAP.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/ROADMAP.md",
+      "bytes": 1484,
+      "sha256": "41b5cb496112dbbe1ba84af64a7aca64b44d4ced331b00f6a3a58d0d03165a4d"
+    },
+    {
+      "original_path": "DOCUMENT-STATUS.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/DOCUMENT-STATUS.md",
+      "bytes": 4227,
+      "sha256": "41ef138af7084993e05c5a7f057cd3769aeb09755c0dff0bcdfbab0b2d2f8a71"
+    },
+    {
+      "original_path": "REVIEW.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/REVIEW.md",
+      "bytes": 6307,
+      "sha256": "997beffdb688a56e5b26243b1401707c563f880345751a61b62f2b04a9346b7e"
+    },
+    {
+      "original_path": "SOURCES.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/SOURCES.md",
+      "bytes": 7009,
+      "sha256": "2cf90b86209bab94d8da68833b37e9219fbabf0e6c217794c56fe8c81bc3e4f4"
+    },
+    {
+      "original_path": "LOG.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/LOG.md",
+      "bytes": 57398,
+      "sha256": "1c111ae5e7061ce957a7c59bf34e193d18da5aeec3ed44fa12db34b53abccbde"
+    },
+    {
+      "original_path": "CONTROL-PLANE.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/CONTROL-PLANE.md",
+      "bytes": 7826,
+      "sha256": "60da9f8b3168ccece3efeb99b664e7d2e9d70ace7e1bc1dafd8e1ddb4444bee0"
+    },
+    {
+      "original_path": "LEAD-NEXT.md",
+      "archive_path": "archive/2026-10-21-workflow-notes/LEAD-NEXT.md",
+      "bytes": 9041,
+      "sha256": "3fd9ddfde9042d6ea4d55c92a0d952987d90778e4e08bbd8e1ac2971dcc1e801"
+    }
+  ]
+}

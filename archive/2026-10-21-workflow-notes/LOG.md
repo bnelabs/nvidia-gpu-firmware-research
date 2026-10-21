@@ -744,3 +744,27 @@ Owner permits deep offline RE and non-intrusive documented monitoring only. The 
 - The remaining research target is object/table construction leading to getter
   +0x38 and entry +0x34 writers. No new physical-value or runtime-selection claim
   is added by publication.
+# 2026-10-21 — offline object/getter and tagged-record value provenance
+
+- Continued from merged main `6f8e387a693a03f9f5d9ec1f3e841f4c1b347292`
+  (PR #5, including PR #4) in new worktree/branch
+  `nvidia-offline-object-origin-20261021` /
+  `research/offline-object-origin-20261021`. Original dirty checkout and prior
+  publication checkout remain intact; copied ignored artifacts/source inputs
+  were compared before any existing-file reuse.
+- Added [OO-01–08](research/2026-10-21-object-origin/README.md): class-ID and
+  factory-out-parameter evidence identifies Perf at GPU `+0x2000`, separates
+  KernelPerf, recovers one table construction branch and getter `0x1757ea0`,
+  and locates entry `+0x34` initialization from a tag-8 input record `+0x0c`.
+- Bounded CPU execution covers the table constructor prefix and entry constructor
+  prefix, copied insertion/mask/remapping and direct handler/getter. Five raw
+  input cases and two gate/index errors retain outputs/statuses. Heap allocation,
+  instance graph, feature flags, selection/gate and input records are explicit
+  fixtures; no complete parser/boot or physical measurement is claimed.
+- Compared exact NVIDIA source and pinned Linux/nouveau/Nova and envytools
+  parsers. Their distinct representations are retained. Earlier record origin,
+  actual availability/selection and alternative construction/writer paths remain
+  unknown. Next: parsed-table record producer at `0x176591c` and its interface.
+- Seven analysis JSON products replay byte-for-byte; CPU-only `tests/check.sh`
+  passes 41 Python tests plus C/CLI/offline-record checks. No collector, GPU API,
+  device query, tracer, sudo, configuration change or firmware operation used.

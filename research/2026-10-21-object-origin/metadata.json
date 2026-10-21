@@ -1,0 +1,423 @@
+{
+  "artifact_path": "firmware-store/gsp-kernels/615-kernel-10.elf",
+  "artifact_bytes": 17305752,
+  "artifact_sha256": "4ac95cbbe55b5e61572053d0c8a410b4de7693eaa2881d1878c76b6405426f2a",
+  "class_records": [
+    {
+      "source_identity": "OBJGPU",
+      "source_path": "src/nvidia/generated/g_gpu_nvoc.h",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_sha256": "93457a85b421052b0a5a4949aaac9bdef353fe4ab206fc0e57977b4ba3b150f7",
+      "source_line": 1565,
+      "class_definition": {
+        "firmware_elf_va": "0x1e19c58",
+        "file_offset": "0xe19c58",
+        "bytes": 40,
+        "load_flags_raw": 5,
+        "raw_hex": "28570000cbf37e00986eec0100000000dcfe96010000000030b7ec01000000004871e10100000000",
+        "sha256": "ed41a2a0854090975fde21eb24e7be56138cc8fb617ad60342ff7d68043e1721"
+      },
+      "object_bytes": 22312,
+      "class_id_raw": "0x7ef3cb",
+      "provider_pointer_raw": "0x1ec6e98",
+      "create_firmware_elf_va": "0x196fedc",
+      "cast_info": {
+        "firmware_elf_va": "0x1ecb730",
+        "file_offset": "0xecb730",
+        "bytes": 48,
+        "load_flags_raw": 5,
+        "raw_hex": "0500000000000000d070e10100000000e870e101000000000071e101000000001871e101000000003071e10100000000",
+        "sha256": "f71d964c99ab6f7bbdd248e929fcd0687b00296180df6b9a778f3465db354944"
+      },
+      "relatives": [
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1e170d0",
+            "file_offset": "0xe170d0",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "589ce10100000000a4f39601000000000000000000000000",
+            "sha256": "b63177ccde53bc5c3e72b3079c3e5c538953bdf79a1188e80051f82d4bd46df6"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1e19c58",
+            "file_offset": "0xe19c58",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "28570000cbf37e00986eec0100000000dcfe96010000000030b7ec01000000004871e10100000000",
+            "sha256": "ed41a2a0854090975fde21eb24e7be56138cc8fb617ad60342ff7d68043e1721"
+          },
+          "dtor_firmware_elf_va": "0x196f3a4",
+          "subobject_offset_raw": 0,
+          "class_id_raw": "0x7ef3cb"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1e170e8",
+            "file_offset": "0xe170e8",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "186fc401000000000c438d01000000000800000000000000",
+            "sha256": "cd3188931be1390ff6c51708dffb55a45930e4469d08d0f3c4be308128622665"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c46f18",
+            "file_offset": "0xc46f18",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "3800000031704900986eec0100000000f0319f0100000000686eec0100000000e06ec40100000000",
+            "sha256": "4df50e6e414b81e18d9f76ebc1d2be2273edb5138ba649041070280d3aac9c39"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 8,
+          "class_id_raw": "0x497031"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1e17100",
+            "file_offset": "0xe17100",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "f06ec401000000000c438d01000000004000000000000000",
+            "sha256": "c7afe35df0af7076460147f89fcc03533027324c8bb5a963a4a5e4f4496d4c3e"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c46ef0",
+            "file_offset": "0xc46ef0",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "1800000071bc7400986eec01000000000000000000000000586eec0100000000d06ec40100000000",
+            "sha256": "5a7f598027ddfdae841a7bba757fa87efe83728a689c2938059896cd38dec1ce"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 64,
+          "class_id_raw": "0x74bc71"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1e17118",
+            "file_offset": "0xe17118",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "a870e101000000000c438d01000000005800000000000000",
+            "sha256": "799e996859b4b02b972ff2fd02598ff486ce557f0a65703775004375315aac74"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1e170a8",
+            "file_offset": "0xe170a8",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "18000000d6a63400986eec0100000000000000000000000020b7ec01000000009870e10100000000",
+            "sha256": "333c10a21572017d09ad07c83c5ab5cadd9a6403e94086a155bb27fee5391e57"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 88,
+          "class_id_raw": "0x34a6d6"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1e17130",
+            "file_offset": "0xe17130",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "f88cc801000000000c438d01000000007000000000000000",
+            "sha256": "4e5d20ade410b88150c7af7b56cd71d0c701d88cffd1c554290f8eaff78e015f"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c88cf8",
+            "file_offset": "0xc88cf8",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "10000000d2056300986eec010000000000000000000000005098ec0100000000d88cc80100000000",
+            "sha256": "affa888a6e927f40378b69c04ef552aedd890f4eae62ba6bbf38a5629ec4d84c"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 112,
+          "class_id_raw": "0x6305d2"
+        }
+      ],
+      "export_info": {
+        "firmware_elf_va": "0x1e17148",
+        "file_offset": "0xe17148",
+        "bytes": 16,
+        "load_flags_raw": 5,
+        "raw_hex": "00000000000000000000000000000000",
+        "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+      }
+    },
+    {
+      "source_identity": "Perf",
+      "source_path": "src/nvidia/generated/g_eng_desc_nvoc.h",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_sha256": "1275b29992d6f145c78b3a14175e4aec843802320a286297cf77002dcc88176e",
+      "source_line": 313,
+      "class_definition": {
+        "firmware_elf_va": "0x1cb0978",
+        "file_offset": "0xcb0978",
+        "bytes": 40,
+        "load_flags_raw": 5,
+        "raw_hex": "280a0900650bed00986eec0100000000dcfea0010000000000a5ec01000000006004cb0100000000",
+        "sha256": "79be301116f456baf56fc9f12cb6ab22abcc994bdf1b37029675509fafea82de"
+      },
+      "object_bytes": 592424,
+      "class_id_raw": "0xed0b65",
+      "provider_pointer_raw": "0x1ec6e98",
+      "create_firmware_elf_va": "0x1a0fedc",
+      "cast_info": {
+        "firmware_elf_va": "0x1eca500",
+        "file_offset": "0xeca500",
+        "bytes": 48,
+        "load_flags_raw": 5,
+        "raw_hex": "050000000000000050a5ca010000000068a5ca010000000080a5ca010000000008a6ca010000000040a6ca0100000000",
+        "sha256": "78dc31eeb22f9c7f9466124e98550643b55ffb1b1d8794ed91864d2045933657"
+      },
+      "relatives": [
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1caa550",
+            "file_offset": "0xcaa550",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "7809cb0100000000d8fba001000000000000000000000000",
+            "sha256": "6d411a9a935d140416e48c004b10c649842fe559e88c5a4c296c9ece09a2dc6d"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1cb0978",
+            "file_offset": "0xcb0978",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "280a0900650bed00986eec0100000000dcfea0010000000000a5ec01000000006004cb0100000000",
+            "sha256": "79be301116f456baf56fc9f12cb6ab22abcc994bdf1b37029675509fafea82de"
+          },
+          "dtor_firmware_elf_va": "0x1a0fbd8",
+          "subobject_offset_raw": 0,
+          "class_id_raw": "0xed0b65"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1caa568",
+            "file_offset": "0xcaa568",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "b091c801000000000c438d01000000000800000000000000",
+            "sha256": "c75dc3bfbf1643da368a519d71f105bd90886f91d52b83da5cef0e34c55fb0e3"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c891b0",
+            "file_offset": "0xc891b0",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "e8000000d67e7a00986eec01000000000043960100000000d898ec01000000002891c80100000000",
+            "sha256": "5f5064c2086856ea5676dd8b9f95654b92c72c4ce61acb8951ac9cb654526de4"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 8,
+          "class_id_raw": "0x7a7ed6"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1caa580",
+            "file_offset": "0xcaa580",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "186fc401000000000c438d01000000001000000000000000",
+            "sha256": "c0bc879a13b5290bef4c64ee23871b06da0b370c7885274c2201a4178153a78e"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c46f18",
+            "file_offset": "0xc46f18",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "3800000031704900986eec0100000000f0319f0100000000686eec0100000000e06ec40100000000",
+            "sha256": "4df50e6e414b81e18d9f76ebc1d2be2273edb5138ba649041070280d3aac9c39"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 16,
+          "class_id_raw": "0x497031"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1caa608",
+            "file_offset": "0xcaa608",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "8891c801000000000c438d0100000000f000000000000000",
+            "sha256": "066a77c1aef8fb07cedc4dd154e534a8e54191f37a5af47e5696a6c6afeaf6a7"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c89188",
+            "file_offset": "0xc89188",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "18000000ceca8800986eec01000000000000000000000000c898ec01000000001891c80100000000",
+            "sha256": "e43e6a3cf2a3e150172ef2230e58c14f264db5ad6f85a56307892b4179e1bc3a"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 240,
+          "class_id_raw": "0x88cace"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1caa640",
+            "file_offset": "0xcaa640",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "f88cc801000000000c438d01000000000801000000000000",
+            "sha256": "26f7f8e9ca4a9595b6c473970171576470870d6d1e9f830cc4e3556cb463f343"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c88cf8",
+            "file_offset": "0xc88cf8",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "10000000d2056300986eec010000000000000000000000005098ec0100000000d88cc80100000000",
+            "sha256": "affa888a6e927f40378b69c04ef552aedd890f4eae62ba6bbf38a5629ec4d84c"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 264,
+          "class_id_raw": "0x6305d2"
+        }
+      ],
+      "export_info": {
+        "firmware_elf_va": "0x1cb0460",
+        "file_offset": "0xcb0460",
+        "bytes": 16,
+        "load_flags_raw": 5,
+        "raw_hex": "00000000000000000000000000000000",
+        "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+      }
+    },
+    {
+      "source_identity": "KernelPerf",
+      "source_path": "src/nvidia/generated/g_eng_desc_nvoc.h",
+      "source_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "source_sha256": "1275b29992d6f145c78b3a14175e4aec843802320a286297cf77002dcc88176e",
+      "source_line": 321,
+      "class_definition": {
+        "firmware_elf_va": "0x1cb0950",
+        "file_offset": "0xcb0950",
+        "bytes": 40,
+        "load_flags_raw": 5,
+        "raw_hex": "28010000573ac500986eec010000000020729b0100000000e0a4ec01000000005004cb0100000000",
+        "sha256": "fd0c70ba1f3c312f695ecbf479899cc5a2cad2a6de8d8e199db9253f87e59953"
+      },
+      "object_bytes": 296,
+      "class_id_raw": "0xc53a57",
+      "provider_pointer_raw": "0x1ec6e98",
+      "create_firmware_elf_va": "0x19b7220",
+      "cast_info": {
+        "firmware_elf_va": "0x1eca4e0",
+        "file_offset": "0xeca4e0",
+        "bytes": 32,
+        "load_flags_raw": 5,
+        "raw_hex": "030000000000000028a4ca010000000040a4ca010000000058a4ca0100000000",
+        "sha256": "af0b10be35d05c67ef4c456ecdd610aa0b8bf125e65be6457263ab18204957dc"
+      },
+      "relatives": [
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1caa428",
+            "file_offset": "0xcaa428",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "5009cb0100000000dcaf9a01000000000000000000000000",
+            "sha256": "e9e80ad0de5665b665be096f66364c2519725286058602d82c750d5f49d1ca53"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1cb0950",
+            "file_offset": "0xcb0950",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "28010000573ac500986eec010000000020729b0100000000e0a4ec01000000005004cb0100000000",
+            "sha256": "fd0c70ba1f3c312f695ecbf479899cc5a2cad2a6de8d8e199db9253f87e59953"
+          },
+          "dtor_firmware_elf_va": "0x19aafdc",
+          "subobject_offset_raw": 0,
+          "class_id_raw": "0xc53a57"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1caa440",
+            "file_offset": "0xcaa440",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "b091c801000000000c438d01000000000800000000000000",
+            "sha256": "c75dc3bfbf1643da368a519d71f105bd90886f91d52b83da5cef0e34c55fb0e3"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c891b0",
+            "file_offset": "0xc891b0",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "e8000000d67e7a00986eec01000000000043960100000000d898ec01000000002891c80100000000",
+            "sha256": "5f5064c2086856ea5676dd8b9f95654b92c72c4ce61acb8951ac9cb654526de4"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 8,
+          "class_id_raw": "0x7a7ed6"
+        },
+        {
+          "rtti": {
+            "firmware_elf_va": "0x1caa458",
+            "file_offset": "0xcaa458",
+            "bytes": 24,
+            "load_flags_raw": 5,
+            "raw_hex": "186fc401000000000c438d01000000001000000000000000",
+            "sha256": "c0bc879a13b5290bef4c64ee23871b06da0b370c7885274c2201a4178153a78e"
+          },
+          "class_definition": {
+            "firmware_elf_va": "0x1c46f18",
+            "file_offset": "0xc46f18",
+            "bytes": 40,
+            "load_flags_raw": 5,
+            "raw_hex": "3800000031704900986eec0100000000f0319f0100000000686eec0100000000e06ec40100000000",
+            "sha256": "4df50e6e414b81e18d9f76ebc1d2be2273edb5138ba649041070280d3aac9c39"
+          },
+          "dtor_firmware_elf_va": "0x18d430c",
+          "subobject_offset_raw": 16,
+          "class_id_raw": "0x497031"
+        }
+      ],
+      "export_info": {
+        "firmware_elf_va": "0x1cb0450",
+        "file_offset": "0xcb0450",
+        "bytes": 16,
+        "load_flags_raw": 5,
+        "raw_hex": "00000000000000000000000000000000",
+        "sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+      }
+    }
+  ],
+  "selected_metadata_bytes": [
+    {
+      "firmware_elf_va": "0x1caa550",
+      "file_offset": "0xcaa550",
+      "bytes": 384,
+      "load_flags_raw": 5,
+      "raw_hex": "7809cb0100000000d8fba001000000000000000000000000b091c801000000000c438d01000000000800000000000000186fc401000000000c438d01000000001000000000000000e432a0010000000094cd860100000000a4cd860100000000b4cd860100000000fc32a00100000000d4cd860100000000e4cd8601000000001433a001000000002c33a0010000000024ce8601000000004433a0010000000034ce8601000000005c33a0010000000054ce8601000000008891c801000000000c438d0100000000f0000000000000007433a001000000009033a00100000000ac33a00100000000c833a00100000000f88cc801000000000c438d010000000008010000000000004c6f640100000000b87d6601000000004c70660100000000ccf665010000000018bf6601000000000012660100000000ecc7660100000000286d670100000000fcc7660100000000046e670100000000e433a00100000000f833a001000000000c34a001000000002034a001000000003434a00100000000",
+      "sha256": "6dff2d4c89ad441c39efd422477775f578d62f6a746e47b3adccdc51ab050b8c"
+    },
+    {
+      "firmware_elf_va": "0x1ecb278",
+      "file_offset": "0xecb278",
+      "bytes": 24,
+      "load_flags_raw": 5,
+      "raw_hex": "e001000000000000e0e4670100000000a4c9660100000000",
+      "sha256": "2f1f8be493ac751ca110447f3fdbd595b04cc4b8385044805954a2eafc717374"
+    }
+  ],
+  "exact_target_call_candidates": [
+    {
+      "raw_pair": {
+        "firmware_elf_va": "0x1668540",
+        "file_offset": "0x668540",
+        "bytes": 8,
+        "load_flags_raw": 5,
+        "raw_hex": "97105800e78000d1",
+        "sha256": "bf735ab0768d522547ca0d50bd97624bdb1ec42d25b4c4c7a38de90122317844"
+      },
+      "target_firmware_elf_va": "0x1be9250"
+    }
+  ],
+  "limits": "Source class IDs identify retained metadata, not matching public/private object layouts or current instances. Metadata slots are raw offsets unless their consumer is demonstrated. Exact-target raw instruction pairs require caller/dataflow validation; runtime overrides and availability remain unknown."
+}

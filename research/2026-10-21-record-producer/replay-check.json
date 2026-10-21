@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "file": "descriptor-boundary.json",
+      "bytes": 228272,
+      "sha256": "b37512c8ee5b3e3bdd410b0988387da302b9d5e55a3bdcd023f284402b0aaf1b",
+      "byte_identical": true
+    },
+    {
+      "file": "emulation.json",
+      "bytes": 169384,
+      "sha256": "7e78f60fdd17e1231decf09369f71f8a41978bce07950ec4b72b81686fcea040",
+      "byte_identical": true
+    },
+    {
+      "file": "layout.json",
+      "bytes": 1651,
+      "sha256": "0e072a0ba7dcd95380d6223cd20fa36b8235a31eeb8a5e25960a76346298d9f8",
+      "byte_identical": true
+    },
+    {
+      "file": "mask-helpers.json",
+      "bytes": 85330,
+      "sha256": "fcdc0e576975d448cf2317bdcec5301e9be0d3c62078f8c97a4de697d61d73ff",
+      "byte_identical": true
+    },
+    {
+      "file": "parser-selection.json",
+      "bytes": 260987,
+      "sha256": "00a3c61a7caf11278b92ff4e32158fbe3cccb3584ca527044bd53f65f510f884",
+      "byte_identical": true
+    },
+    {
+      "file": "record-pointer.json",
+      "bytes": 38558,
+      "sha256": "3623932353b84d54f37386ba304d28a4bb5e7dd26e789f6a858457cedf6f95c6",
+      "byte_identical": true
+    },
+    {
+      "file": "source-manifest.json",
+      "bytes": 6467,
+      "sha256": "eabf620d3d1407ee71569a7972ad455207a83240a71afe81d59c7739ed28220b",
+      "byte_identical": true
+    }
+  ],
+  "json_products": 7,
+  "all_byte_identical": true,
+  "gate": "41 Python tests, 29 offline-record checks and C/CLI checks passed in CPU-only namespace"
+}

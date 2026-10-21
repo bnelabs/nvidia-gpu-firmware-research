@@ -1,47 +1,71 @@
-# NVIDIA GPU firmware and driver research
-Deep offline reverse engineering, evidence comparison and non-intrusive monitoring.
-Owner rule: **never risk the GPU or disrupt its running workload.**
+# NVIDIA GPU Firmware Research
 
-Read [CONSTITUTION.md](CONSTITUTION.md), [CORRECTIONS.md](CORRECTIONS.md),
-[EVIDENCE.md](EVIDENCE.md) and [LEAD-NEXT.md](LEAD-NEXT.md) first.
-The rule applies to all workers. It has no bench, waiver or unsafe-flag exception.
+This project investigates how NVIDIA's Linux driver, NVML library and GPU
+firmware communicate. It contains binary analysis, source comparisons and tools
+for inspecting copied firmware and recorded driver traffic.
 
-## Research scope
-Decompile and disassemble firmware, bootloaders, kernel drivers, NVML and related
-libraries from existing copies; recover structures, call graphs, protocol boundaries,
-units and policies; compare source, binaries, versions and architectures. CPU-only
-emulation and synthetic fixtures are welcome. Do not connect that environment to a
-physical GPU, hardware service, PCI resource or remote device.
+The most detailed work follows performance-state telemetry through the 615.71.09
+driver and GSP firmware. Other studies cover firmware containers, bootloaders,
+vBIOS tables and differences between GPU generations. Each finding links back
+to the bytes and source version used to establish it.
 
-Live activity is limited to the existing configuration's ordinary documented telemetry.
-No custom RM/GSP calls, undocumented getters, raw PCI/BAR/MMIO/ROM/fuse access,
-injection/tracing, resets, firmware/driver changes, settings changes or stress tests.
-A GET label is not a safety argument. Keep missing knowledge explicitly unresolved.
+## Findings
 
-## Tools and validation
-- scripts/capture_state.sh: default is an offline plan, with no hardware contact.
-- scripts/capture_state.py: an explicit live request performs one fixed, documented
-  nvidia-smi query for a known UUID, unprivileged, with a bounded wait and no retries.
-  It refuses arbitrary fields/commands, preserves N/A and stops on identity mismatch.
-  A local lock refuses concurrent requests and attempts less than 10 seconds apart.
-- 07-prototype/rmctl.c: offline enum decoding and retained regular-file byte display.
-- 07-prototype/sniffer2.c: offline NVOS54 record decoding; no process attachment,
-  pointer dereference, ioctl forwarding, NVML loading or interposition.
-- 07-prototype/fake_rm.c: synthetic byte fixtures, not a driver or hardware emulator.
-- scripts/parse_vbios_bit.py, inventory_firmware.py, riscv_xref.py: offline analysis.
-- tests/check.sh: the CPU-only gate. Run it without any GPU access.
+- **NVML can read a shared cache before issuing a control request.** The retained
+  implementation has a five-attempt reader and accepts a valid timestamp without
+  checking its age. [Read the dispatch analysis](research/2026-10-21-pstate-dispatch/README.md).
+- **One firmware P-state path returns a table-entry field.** The recovered
+  code traces that field to a tagged record in a serialized table. The source
+  of the table's bytes and the GPU's runtime selection are still unknown.
+  [Follow the value through the firmware](research/2026-10-21-record-producer/README.md).
+- **Two nearby releases contain identical GA102 boot components.** The decoded
+  PROD GSP boot image and descriptor match byte-for-byte in 615.71.09 and
+  615.78.08. [See the comparison](research/2026-10-21-offline/README.md).
 
-The live RM client, preload tracers and direct ABI probe have been retired, and tracked
-prebuilt binaries removed. Earlier implementations remain in Git history for static RE.
-Do not restore their execution paths. Tests do not establish live hardware safety.
+These findings describe particular binaries and code paths. They do not establish
+complete firmware coverage or the physical origin of every reported value.
+The [control-plane map](docs/control-plane.md) connects the results, and
+[corrections](CORRECTIONS.md) records earlier claims that did not hold up.
 
-## Reading order and status
-[CONTROL-PLANE.md](CONTROL-PLANE.md) separates host code from firmware.
-[ROADMAP.md](ROADMAP.md) is the current plan; completion claims in old logs are superseded.
-[DOCUMENT-STATUS.md](DOCUMENT-STATUS.md) identifies current, historical and reference notes.
-[WORKER-PROMPT.md](WORKER-PROMPT.md) is the handoff to the active worker.
+## Use the tools
 
-Historical captures are retained unchanged in 06-ground-truth. They do not establish
-present GPU health, that inference was uninterrupted, or that another worker is contained.
-Replaced narrative documents are preserved under archive/2026-10-21-pre-constitution;
-hardware recipes there are not authorized runbooks. Firmware binaries stay out of Git.
+The analysis tools read copied files and synthetic fixtures. On Linux, the
+included Bubblewrap wrapper runs them without GPU devices, network access or
+host service sockets:
+
+```sh
+# Run the offline test suite.
+bash scripts/run_cpu_only.sh bash tests/check.sh
+
+# Inspect a copied firmware container.
+bash scripts/run_cpu_only.sh python3 scripts/inventory_firmware.py firmware-store/copied-gsp.elf
+
+# Decode the BIT directory and performance-table pointers in a copied vBIOS.
+bash scripts/run_cpu_only.sh python3 scripts/parse_vbios_bit.py firmware-store/copied.rom --perf
+```
+
+The test suite needs Python 3, a C compiler and Capstone. Firmware emulation also
+uses Unicorn. See [testing and reproduction](docs/testing.md) for dependencies
+and commands. Firmware binaries and vendor source trees are kept outside Git;
+the reports record their hashes and provenance.
+
+## Repository guide
+
+| Location | Contents |
+|---|---|
+| [research/](research/) | Reproducible analyses, raw disassembly, hashes and emulation results |
+| [docs/control-plane.md](docs/control-plane.md) | The telemetry path recovered so far |
+| [docs/sources.md](docs/sources.md) | NVIDIA, Linux and independent source references |
+| [scripts/](scripts/) and [tests/](tests/) | File parsers, decoders, emulators and regression checks |
+| `01-generations/` through `10-monitor/` | Earlier topic studies, captures and prototypes; consult the correction notices |
+| [archive/](archive/) | Historical reports and superseded workflow notes |
+
+Reverse engineering here uses copied artifacts, retained captures and CPU-only
+execution. Live activity is restricted to the documented monitoring collector;
+its default produces a plan without contacting a GPU. Custom hardware probes,
+live tracing, settings changes and firmware operations are outside the project's
+scope. The full rule is in [CONSTITUTION.md](CONSTITUTION.md).
+
+For research contributions, include the artifact hash, source commit, address
+domain, reproduction command and remaining uncertainty. The
+[evidence protocol](EVIDENCE.md) describes the record format.

@@ -86,3 +86,28 @@ unlocated-writer checkpoint, without changing historical runtime uncertainty.
 
 The second table-entry callback remains unresolved. Raw SD/ADDI displacement
 candidates are not constructor identities or pointer-assignment proof.
+
+## Object and entry-value origin follow-up — 2026-10-21
+
+| Earlier unknown / possible overinterpretation | Current disposition | Evidence |
+|---|---|---|
+| GPU `+0x2000` has no source-backed class discriminator | Child creation passes exact-source class ID `0xed0b65` (`Perf`) with output GPU `+0x2000`; `KernelPerf` is a separate ID/output. This does not transfer public object layouts. | OO-01–02, retained class/cast records and bounded argument capture in the [object packet](research/2026-10-21-object-origin/README.md). |
+| Table `+0x38` getter and entry `+0x34` writer are wholly unresolved | One construction branch assigns `0x1757ea0`, a pointer-array getter. Entry constructor `0x16870d4` copies a tag-8 input record's `+0x0c` word through a temporary into entry `+0x34`. Other branches/overrides/writers and the earlier input producer remain unknown. | OO-03–07; copied constructor prefix, insertion/remapping/getter/handler execute with synthetic memory. |
+| A returned RM P-state word is thereby a demonstrated physical measurement or internally enforced one-hot value | Unsupported. The proven origin in this branch is an input-record field. Synthetic raw `3` is copied through the bounded prefix and consumer; upstream/later validation and actual runtime inputs remain unknown. | OO-06–08; exact RM enum compared separately from private record representation. |
+
+The older dated raw packets are unchanged. These results supersede only their
+unresolved checkpoints for this demonstrated construction branch; actual runtime
+selection, gate clearing, physical provenance and complete firmware coverage are
+not established.
+
+## Serialized record origin — 2026-10-21
+
+The [record-producer analysis](research/2026-10-21-record-producer/README.md)
+advances the earlier tag-8 input boundary to a record pointer into a serialized
+table buffer. Copied setup establishes header 20, stride 556 and source selector
+6. The selected mask format byte is 1; raw jump-table case 0 is an error branch.
+The parsed object's span includes absent indices, rather than counting set bits.
+
+The preliminary acquisition lead reaches memory sub-descriptor construction,
+matching exact-source `memdescCreateSubMem`. It does not prove byte transfer,
+CPU-readable storage, VBIOS origin or physical measurement. Those remain unknown.
