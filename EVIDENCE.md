@@ -35,6 +35,16 @@ by copied reader prefixes. Large PRE_OS data operands are not silently relabeled
 as PRI addresses. No synthetic timeout, HALTED result or copied image is an
 observation of this outage or permission to reload firmware.
 
+The argument follow-up matches interface ID `0x0e` to copied PRE_OS D[`0x1c`],
+executes selector-1 record stores and bounded writer `0x6b04` with explicit
+synthetic PRI/IO responses, and retains alignment/bounds/trap/stall cases.
+The separate flag at record `+6` controls the recurring/exit branches; word
+`+8` bit 6 selects initialization callback work through `0x1484`/`0x5c8f`.
+Conditional return fragments reach cleanup, whose own `exit` is at `0x7a85`.
+Crypto/IO prerequisites and full callback execution are unmodeled. NVIDIA
+DMEM port definitions, generic nouveau transfer code and independent Falcon
+ISA documentation are compared with compatibility limits in the packet.
+
 ## Claim record
 For each finding store:
 - ID and narrow question, competing explanations, and status.

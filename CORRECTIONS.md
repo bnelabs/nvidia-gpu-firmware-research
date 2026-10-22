@@ -23,6 +23,11 @@ against physical hardware. See [CONSTITUTION.md](CONSTITUTION.md).
 - PRE_OS D[0x140205e4] and FWSEC PRI `0x205e4` remain distinct address domains.
   Their matching low operand and bit are a correspondence lead, not a proved
   GA102 aperture mapping, host-access contract or live measurement.
+- Selector 1's `0x40` word alone does not select PRE_OS's finite exit route.
+  A separate store clears argument `+6` bit 0. Word `+8` bit 6 instead selects
+  work in initialization callback `0x5d51`, through unexecuted `0x1484`/`0x5c8f`.
+- PRE_OS cleanup `0x7a14` contains its own `exit` at `0x7a85` before its `ret`.
+  Do not assume it returns to startup `0x79fd` or entry's `exit` at `0xc`.
 
 Raw evidence and limits: [boot packet](research/2026-10-21-gfw-boot/README.md).
 

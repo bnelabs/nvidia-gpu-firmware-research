@@ -34,12 +34,19 @@ Copied prefixes read those differences; physical meanings remain unknown.
 PRE_OS sets bit 9 at D[0x140205e4], matching the alternate wait's low PRI operand
 and bit. Its physical aperture mapping is unproved here; do not equate domains.
 
-Next: trace parameter publication by loader `0x6b04` into PRE_OS's interface
-(legacy descriptor offset `0xec`) and the PRE_OS conditions that reach a halt.
-Follow the selector-1 `0x40` argument from its actual stores, rather than assigning
-it a command name. PRE_OS entry also waits on D[0x14001724] bit 29 before its
-unexecuted callbacks; preserve that separate dependency. No full loader/callback
-success or actual card state is supplied by the synthetic HALTED cases.
+Follow-up resolves interface ID `0x0e` to copied PRE_OS D[`0x1c`], twelve bytes.
+Selector 1 clears record `+6` bit 0 and separately writes `0x40` at `+8`.
+Writer `0x6b04` checks alignment/capacity/span and emits three DMEM words;
+its PRI/IO services are synthetic, including stalled/error cases. The cleared
+flag selects exit callbacks. Word `+8` bit 6 selects work in last init callback
+`0x5d51`: call `0x1484`, then `0x5c8f` only after a zero service return.
+Cleanup `0x7a14` contains `exit` at `0x7a85` before its `ret`; do not assume
+it returns to entry `0xc`. Crypto/IO operations and full callbacks remain unknown.
+
+Next: trace PRE_OS `0x1484` and `0x5c8f`, selected by that bit-6 consumer.
+Resolve acquired data and required services before assigning physical functions.
+Entry still waits on D[0x14001724] bit 29 before unexecuted callbacks. No whole
+loader/callback success or actual card state is supplied by these replays.
 Keep GPU PRI, Falcon IO/data space, ROM offsets and PCI configuration separate.
 Decoded debug IMEM SHA-256:
 `dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb`.

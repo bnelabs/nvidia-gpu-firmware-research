@@ -465,8 +465,70 @@ component comparison with:
 bash scripts/run_cpu_only.sh python3 research/2026-10-21-gfw-boot/inspect_preos.py --compare firmware-store/gfw-boot
 ```
 
-Next: trace loader parameter publication at `0x6b04` into PRE_OS's interface,
-then the PRE_OS conditions that reach a halt. Follow the actual raw `0x40`
-argument stores before assigning it a command name. Missing runtime inputs,
-installed-byte identity and debug/production equivalence remain missing; this
-work establishes no additional live recovery operation.
+### Argument publication and PRE_OS exit
+
+The copied interface at PRE_OS D[`0xec`] has header `01 04 08 09`: nine
+eight-byte entries. ID `0x0e`, version 1, points to D[`0x1c`]. Its twelve
+original bytes are `01000c000200010016000000`. The FWSEC interface finder
+`0x686c`, record check `0x6371` and loader `0x43a8` retain the lookup/read
+instructions; the new replay parses the file rather than pretending those PIO
+reads ran. Selector 1's copied stores at FWSEC `0x44af` produce
+`01000c000200000040000000`: clear bit 0 of the halfword at record `+6`, and
+write `0x40` to word `+8`. These are two separate changes.
+
+Copied call setup passes destination `0x1c`, size 12 and the local record to
+writer `0x6b04`. The writer checks nonnull pointers, four-byte alignment and
+destination/size/span against `(PRI[engine_base+0x108] >> 9 & 0x1ff) << 8`.
+Its selected port control is `engine_base+0x1c0`, value `0x0100001c`, followed
+by three words through `engine_base+0x1c4`. Exact GA102 headers name those
+DMEMC/DMEMD offsets and write auto-increment bit 24. Generic nouveau Falcon
+source uses the same transfer pattern. The GA102 header inspected here does
+not name HWCFG bits 17:9; the capacity arithmetic comes from the copied code.
+Envytools' older data-port description covers fewer address bits than GA102's
+DMEMC definition; their agreement at this low destination does not settle
+the full address width.
+
+The transfer also runs FWSEC `0x66de` and `0x673a`. Actual helper `0x1014`
+emits Falcon IO writes and loops while I[`0x1c000`] bits 14:12 equal 1.
+The later status check can trap at `0x6786`; a completed per-word poll is
+therefore not proof the whole writer succeeded. The CPU replay supplies
+capacity and bus responses explicitly, retains all port events, reconstructs
+only a file buffer using documented auto-increment, and rejects absent
+capacity/status or a stalled transport. It does not emulate a physical bus.
+
+In PRE_OS, `0x169` tests **record `+6` bit 0**, not word `+8`. Clearing it
+selects exit-callback dispatch at `0x1d5`; keeping it set selects recurring
+work, which can also leave through a separate request bit at D[`0x14001404`].
+The same flag test at `0x1fe` lets the cleared case skip an additional register
+cleanup path. Synthetic counterexamples keep `0x40` with flag 1, and keep
+`0x16` with flag 0: the branch follows the flag in both cases.
+
+Word `+8` does have a proven consumer. Last initialization callback `0x5d51`
+tests bit 6. `0x40` selects call `0x1484`; a zero return then selects `0x5c8f`.
+The original `0x16` skips that call. Separate continuation cases preserve
+synthetic service results and the callback's conditional upper-half status
+publication. Neither callee is replaced with an asserted successful operation.
+No command name or physical function is assigned to this bit yet.
+
+Copied tables contain ten initialization, five recurring and eight exit
+callbacks. Dispatch replays stop at init `0x6c85` and exit `0x5e92` after
+executing two trivial exit callbacks. Entry's D[`0x14001724`] bit-29 wait,
+other callbacks and the IO predicate still have to complete. After unexecuted
+exit callbacks, copied return fragments extract the upper-half status from
+D[`0x14001404`] and reach startup cleanup `0x7a14`.
+
+Inspection of the **whole cleanup** matters: it contains its own Falcon
+`exit` at `0x7a85`, before its trailing `ret`. Its integer-register-clearing
+tail executes separately in the model and stops before that exit. Crypto,
+IO and `cauth` operations before the tail remain unexecuted. Returning from
+cleanup to startup `0x79fd` and then entry's `exit` at `0xc` is not the normal
+copied path and is not supplied as a successful synthetic return.
+
+[Replay and raw cases](preos-arguments-replay.json), [FWSEC instructions](preos-arguments-fwsec.dis),
+[PRE_OS instructions](preos-arguments-preos.dis) and [pinned source comparisons](preos-arguments-sources.json)
+are included in the regular reproduction command. This resolves the intended
+argument/exit mechanism, not the outage's failed prerequisite or a recovery.
+
+Next: trace PRE_OS `0x1484` and then `0x5c8f`, selected by word `+8` bit 6.
+Keep their data acquisition, validation and execution boundaries explicit.
+Installed-byte identity and debug/production equivalence remain unresolved.

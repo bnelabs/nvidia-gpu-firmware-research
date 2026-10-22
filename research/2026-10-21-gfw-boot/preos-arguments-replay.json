@@ -1,0 +1,4414 @@
+{
+  "fwsec_debug_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb",
+  "preos_imem_sha256": "45ed86ec62e8ceba8fb402e472f5a3ceea206c37c22772e2ef922e78bf89c6fc",
+  "preos_dmem_sha256": "43ce5dd0047975c5f707d7b901abbed364dd9b45bbb5247a6cd8ba4571b051bd",
+  "interface_file_parse": {
+    "header_dmem_offset": "0xec",
+    "header_raw": "01040809",
+    "entries": [
+      {
+        "entry_dmem_offset": "0xf0",
+        "id": "0xe",
+        "target_dmem_offset": "0x1c",
+        "raw": "0e0000001c000000",
+        "target_first_word_raw": "01000c00"
+      },
+      {
+        "entry_dmem_offset": "0xf8",
+        "id": "0x9",
+        "target_dmem_offset": "0x28",
+        "raw": "0900000028000000",
+        "target_first_word_raw": "01002400"
+      },
+      {
+        "entry_dmem_offset": "0x100",
+        "id": "0xa",
+        "target_dmem_offset": "0x58c",
+        "raw": "0a0000008c050000",
+        "target_first_word_raw": "01002c00"
+      },
+      {
+        "entry_dmem_offset": "0x108",
+        "id": "0xc",
+        "target_dmem_offset": "0x6a",
+        "raw": "0c0000006a000000",
+        "target_first_word_raw": "01000c00"
+      },
+      {
+        "entry_dmem_offset": "0x110",
+        "id": "0x6",
+        "target_dmem_offset": "0x80",
+        "raw": "0600000080000000",
+        "target_first_word_raw": "01001800"
+      },
+      {
+        "entry_dmem_offset": "0x118",
+        "id": "0x7",
+        "target_dmem_offset": "0x98",
+        "raw": "0700000098000000",
+        "target_first_word_raw": "01001000"
+      },
+      {
+        "entry_dmem_offset": "0x120",
+        "id": "0xf",
+        "target_dmem_offset": "0xa8",
+        "raw": "0f000000a8000000",
+        "target_first_word_raw": "01003000"
+      },
+      {
+        "entry_dmem_offset": "0x128",
+        "id": "0xb",
+        "target_dmem_offset": "0xd8",
+        "raw": "0b000000d8000000",
+        "target_first_word_raw": "01000c00"
+      },
+      {
+        "entry_dmem_offset": "0x130",
+        "id": "0x12",
+        "target_dmem_offset": "0xe4",
+        "raw": "12000000e4000000",
+        "target_first_word_raw": "01000800"
+      }
+    ],
+    "selected_offset": "0x1c",
+    "original_record_raw": "01000c000200010016000000"
+  },
+  "selector1_patch": {
+    "after_raw": "01000c000200000040000000",
+    "result": {
+      "stop_pc": "0x44da",
+      "stop_reason": "before_parameter_publication_setup",
+      "events": [],
+      "trace": [
+        [
+          "0x44af",
+          "0x44b2"
+        ],
+        [
+          "0x44b2",
+          "0x44b4"
+        ],
+        [
+          "0x44b4",
+          "0x44b7"
+        ],
+        [
+          "0x44b7",
+          "0x44ba"
+        ],
+        [
+          "0x44ba",
+          "0x44be"
+        ],
+        [
+          "0x44be",
+          "0x44c0"
+        ],
+        [
+          "0x44c0",
+          "0x44c3"
+        ],
+        [
+          "0x44c3",
+          "0x44da"
+        ]
+      ]
+    }
+  },
+  "publication_call_setup": {
+    "stop_pc": "0x44ee",
+    "stop_reason": "before_writer_call",
+    "events": [],
+    "trace": [
+      [
+        "0x44da",
+        "0x44dd"
+      ],
+      [
+        "0x44dd",
+        "0x44e0"
+      ],
+      [
+        "0x44e0",
+        "0x44e2"
+      ],
+      [
+        "0x44e2",
+        "0x44e4"
+      ],
+      [
+        "0x44e4",
+        "0x44e6"
+      ],
+      [
+        "0x44e6",
+        "0x44e9"
+      ],
+      [
+        "0x44e9",
+        "0x44ec"
+      ],
+      [
+        "0x44ec",
+        "0x44ee"
+      ]
+    ]
+  },
+  "writer_cases": [
+    {
+      "name": "three_words_complete",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 4096,
+        "12": 28,
+        "13": 12
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": "01000c000200000040000000",
+      "result": {
+        "stop_pc": "0xffff",
+        "stop_reason": "writer_return",
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x10a108",
+            "value": 8192
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x10a1c0",
+            "value": 16777244
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x122118",
+            "value": 2779096511
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x122118",
+            "value": 631612863
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x122118",
+            "value": 631612863
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x122118",
+            "value": 2779096483
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c100",
+            "value": 1089988,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c200",
+            "value": 786433,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c000",
+            "value": 2147483891,
+            "instruction": "iowrs"
+          },
+          {
+            "kind": "synthetic_falcon_io_read",
+            "address": "0x1c000",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c100",
+            "value": 1089988,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c200",
+            "value": 2,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c000",
+            "value": 2147483891,
+            "instruction": "iowrs"
+          },
+          {
+            "kind": "synthetic_falcon_io_read",
+            "address": "0x1c000",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c100",
+            "value": 1089988,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c200",
+            "value": 64,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c000",
+            "value": 2147483891,
+            "instruction": "iowrs"
+          },
+          {
+            "kind": "synthetic_falcon_io_read",
+            "address": "0x1c000",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x1221fc",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x122128",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x122118",
+            "value": 2779096483
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x122118",
+            "value": 631612834
+          }
+        ],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b28"
+          ],
+          [
+            "0x6b28",
+            "0x6b2b"
+          ],
+          [
+            "0x6b2b",
+            "0x6b30"
+          ],
+          [
+            "0x6b30",
+            "0x6b32"
+          ],
+          [
+            "0x6b32",
+            "0x6b35"
+          ],
+          [
+            "0x6b35",
+            "0x6b3a"
+          ],
+          [
+            "0x6b3a",
+            "0x6b3d"
+          ],
+          [
+            "0x6b3d",
+            "0x6b42"
+          ],
+          [
+            "0x6b42",
+            "0x6b44"
+          ],
+          [
+            "0x6b44",
+            "0x6b49"
+          ],
+          [
+            "0x6b49",
+            "0x6b4e"
+          ],
+          [
+            "0x6b4e",
+            "0x6b52"
+          ],
+          [
+            "0x6b52",
+            "0x6b56"
+          ],
+          [
+            "0x6b56",
+            "0x6b59"
+          ],
+          [
+            "0x6b59",
+            "0x6b5b"
+          ],
+          [
+            "0x6b5b",
+            "0x6b60"
+          ],
+          [
+            "0x6b60",
+            "0x6b62"
+          ],
+          [
+            "0x6b62",
+            "0x6b67"
+          ],
+          [
+            "0x6b67",
+            "0x6b6a"
+          ],
+          [
+            "0x6b6a",
+            "0x6b6c"
+          ],
+          [
+            "0x6b6c",
+            "0x6b71"
+          ],
+          [
+            "0x6b71",
+            "0x6b76"
+          ],
+          [
+            "0x6b76",
+            "0x6b7b"
+          ],
+          [
+            "0x6b7b",
+            "0x6b7e"
+          ],
+          [
+            "0x6b7e",
+            "0x6b82"
+          ],
+          [
+            "0x6b82",
+            "0x66de"
+          ],
+          [
+            "0x66de",
+            "0x66e1"
+          ],
+          [
+            "0x66e1",
+            "0x66e3"
+          ],
+          [
+            "0x66e3",
+            "0x66e8"
+          ],
+          [
+            "0x66e8",
+            "0x66ea"
+          ],
+          [
+            "0x66ea",
+            "0x66ed"
+          ],
+          [
+            "0x66ed",
+            "0x66f1"
+          ],
+          [
+            "0x66f1",
+            "0x66f4"
+          ],
+          [
+            "0x66f4",
+            "0x66f6"
+          ],
+          [
+            "0x66f6",
+            "0x66fa"
+          ],
+          [
+            "0x66fa",
+            "0x66ff"
+          ],
+          [
+            "0x66ff",
+            "0x6702"
+          ],
+          [
+            "0x6702",
+            "0x6706"
+          ],
+          [
+            "0x6706",
+            "0x670a"
+          ],
+          [
+            "0x670a",
+            "0x670e"
+          ],
+          [
+            "0x670e",
+            "0x6712"
+          ],
+          [
+            "0x6712",
+            "0x6717"
+          ],
+          [
+            "0x6717",
+            "0x671a"
+          ],
+          [
+            "0x671a",
+            "0x671c"
+          ],
+          [
+            "0x671c",
+            "0x6720"
+          ],
+          [
+            "0x6720",
+            "0x6723"
+          ],
+          [
+            "0x6723",
+            "0x6726"
+          ],
+          [
+            "0x6726",
+            "0x672a"
+          ],
+          [
+            "0x672a",
+            "0x672c"
+          ],
+          [
+            "0x672c",
+            "0x672e"
+          ],
+          [
+            "0x672e",
+            "0x6730"
+          ],
+          [
+            "0x6730",
+            "0x6737"
+          ],
+          [
+            "0x6737",
+            "0x6b86"
+          ],
+          [
+            "0x6b86",
+            "0x6b98"
+          ],
+          [
+            "0x6b98",
+            "0x6b8a"
+          ],
+          [
+            "0x6b8a",
+            "0x6b8c"
+          ],
+          [
+            "0x6b8c",
+            "0x6b8f"
+          ],
+          [
+            "0x6b8f",
+            "0x6b92"
+          ],
+          [
+            "0x6b92",
+            "0x6b94"
+          ],
+          [
+            "0x6b94",
+            "0x1014"
+          ],
+          [
+            "0x1014",
+            "0x1019"
+          ],
+          [
+            "0x1019",
+            "0x101b"
+          ],
+          [
+            "0x101b",
+            "0x101e"
+          ],
+          [
+            "0x101e",
+            "0x1021"
+          ],
+          [
+            "0x1021",
+            "0x1023"
+          ],
+          [
+            "0x1023",
+            "0x1027"
+          ],
+          [
+            "0x1027",
+            "0x102a"
+          ],
+          [
+            "0x102a",
+            "0x102f"
+          ],
+          [
+            "0x102f",
+            "0x1032"
+          ],
+          [
+            "0x1032",
+            "0x1037"
+          ],
+          [
+            "0x1037",
+            "0x103c"
+          ],
+          [
+            "0x103c",
+            "0x103f"
+          ],
+          [
+            "0x103f",
+            "0x1043"
+          ],
+          [
+            "0x1043",
+            "0x1046"
+          ],
+          [
+            "0x1046",
+            "0x1049"
+          ],
+          [
+            "0x1049",
+            "0x104d"
+          ],
+          [
+            "0x104d",
+            "0x1050"
+          ],
+          [
+            "0x1050",
+            "0x1052"
+          ],
+          [
+            "0x1052",
+            "0x1057"
+          ],
+          [
+            "0x1057",
+            "0x1059"
+          ],
+          [
+            "0x1059",
+            "0x105b"
+          ],
+          [
+            "0x105b",
+            "0x1062"
+          ],
+          [
+            "0x1062",
+            "0x1065"
+          ],
+          [
+            "0x1065",
+            "0x6b98"
+          ],
+          [
+            "0x6b98",
+            "0x6b8a"
+          ],
+          [
+            "0x6b8a",
+            "0x6b8c"
+          ],
+          [
+            "0x6b8c",
+            "0x6b8f"
+          ],
+          [
+            "0x6b8f",
+            "0x6b92"
+          ],
+          [
+            "0x6b92",
+            "0x6b94"
+          ],
+          [
+            "0x6b94",
+            "0x1014"
+          ],
+          [
+            "0x1014",
+            "0x1019"
+          ],
+          [
+            "0x1019",
+            "0x101b"
+          ],
+          [
+            "0x101b",
+            "0x101e"
+          ],
+          [
+            "0x101e",
+            "0x1021"
+          ],
+          [
+            "0x1021",
+            "0x1023"
+          ],
+          [
+            "0x1023",
+            "0x1027"
+          ],
+          [
+            "0x1027",
+            "0x102a"
+          ],
+          [
+            "0x102a",
+            "0x102f"
+          ],
+          [
+            "0x102f",
+            "0x1032"
+          ],
+          [
+            "0x1032",
+            "0x1037"
+          ],
+          [
+            "0x1037",
+            "0x103c"
+          ],
+          [
+            "0x103c",
+            "0x103f"
+          ],
+          [
+            "0x103f",
+            "0x1043"
+          ],
+          [
+            "0x1043",
+            "0x1046"
+          ],
+          [
+            "0x1046",
+            "0x1049"
+          ],
+          [
+            "0x1049",
+            "0x104d"
+          ],
+          [
+            "0x104d",
+            "0x1050"
+          ],
+          [
+            "0x1050",
+            "0x1052"
+          ],
+          [
+            "0x1052",
+            "0x1057"
+          ],
+          [
+            "0x1057",
+            "0x1059"
+          ],
+          [
+            "0x1059",
+            "0x105b"
+          ],
+          [
+            "0x105b",
+            "0x1062"
+          ],
+          [
+            "0x1062",
+            "0x1065"
+          ],
+          [
+            "0x1065",
+            "0x6b98"
+          ],
+          [
+            "0x6b98",
+            "0x6b8a"
+          ],
+          [
+            "0x6b8a",
+            "0x6b8c"
+          ],
+          [
+            "0x6b8c",
+            "0x6b8f"
+          ],
+          [
+            "0x6b8f",
+            "0x6b92"
+          ],
+          [
+            "0x6b92",
+            "0x6b94"
+          ],
+          [
+            "0x6b94",
+            "0x1014"
+          ],
+          [
+            "0x1014",
+            "0x1019"
+          ],
+          [
+            "0x1019",
+            "0x101b"
+          ],
+          [
+            "0x101b",
+            "0x101e"
+          ],
+          [
+            "0x101e",
+            "0x1021"
+          ],
+          [
+            "0x1021",
+            "0x1023"
+          ],
+          [
+            "0x1023",
+            "0x1027"
+          ],
+          [
+            "0x1027",
+            "0x102a"
+          ],
+          [
+            "0x102a",
+            "0x102f"
+          ],
+          [
+            "0x102f",
+            "0x1032"
+          ],
+          [
+            "0x1032",
+            "0x1037"
+          ],
+          [
+            "0x1037",
+            "0x103c"
+          ],
+          [
+            "0x103c",
+            "0x103f"
+          ],
+          [
+            "0x103f",
+            "0x1043"
+          ],
+          [
+            "0x1043",
+            "0x1046"
+          ],
+          [
+            "0x1046",
+            "0x1049"
+          ],
+          [
+            "0x1049",
+            "0x104d"
+          ],
+          [
+            "0x104d",
+            "0x1050"
+          ],
+          [
+            "0x1050",
+            "0x1052"
+          ],
+          [
+            "0x1052",
+            "0x1057"
+          ],
+          [
+            "0x1057",
+            "0x1059"
+          ],
+          [
+            "0x1059",
+            "0x105b"
+          ],
+          [
+            "0x105b",
+            "0x1062"
+          ],
+          [
+            "0x1062",
+            "0x1065"
+          ],
+          [
+            "0x1065",
+            "0x6b98"
+          ],
+          [
+            "0x6b98",
+            "0x6b9c"
+          ],
+          [
+            "0x6b9c",
+            "0x673a"
+          ],
+          [
+            "0x673a",
+            "0x673f"
+          ],
+          [
+            "0x673f",
+            "0x6741"
+          ],
+          [
+            "0x6741",
+            "0x6744"
+          ],
+          [
+            "0x6744",
+            "0x6747"
+          ],
+          [
+            "0x6747",
+            "0x674b"
+          ],
+          [
+            "0x674b",
+            "0x674d"
+          ],
+          [
+            "0x674d",
+            "0x674f"
+          ],
+          [
+            "0x674f",
+            "0x6753"
+          ],
+          [
+            "0x6753",
+            "0x6757"
+          ],
+          [
+            "0x6757",
+            "0x675b"
+          ],
+          [
+            "0x675b",
+            "0x675e"
+          ],
+          [
+            "0x675e",
+            "0x6761"
+          ],
+          [
+            "0x6761",
+            "0x6764"
+          ],
+          [
+            "0x6764",
+            "0x6788"
+          ],
+          [
+            "0x6788",
+            "0x678c"
+          ],
+          [
+            "0x678c",
+            "0x6790"
+          ],
+          [
+            "0x6790",
+            "0x6795"
+          ],
+          [
+            "0x6795",
+            "0x6798"
+          ],
+          [
+            "0x6798",
+            "0x679c"
+          ],
+          [
+            "0x679c",
+            "0x679f"
+          ],
+          [
+            "0x679f",
+            "0x67a3"
+          ],
+          [
+            "0x67a3",
+            "0x67a6"
+          ],
+          [
+            "0x67a6",
+            "0x67a8"
+          ],
+          [
+            "0x67a8",
+            "0x67ad"
+          ],
+          [
+            "0x67ad",
+            "0x67af"
+          ],
+          [
+            "0x67af",
+            "0x67b1"
+          ],
+          [
+            "0x67b1",
+            "0x67b8"
+          ],
+          [
+            "0x67b8",
+            "0x67bb"
+          ],
+          [
+            "0x67bb",
+            "0x6ba0"
+          ],
+          [
+            "0x6ba0",
+            "0x6ba3"
+          ],
+          [
+            "0x6ba3",
+            "0x6ba6"
+          ],
+          [
+            "0x6ba6",
+            "0x6ba8"
+          ],
+          [
+            "0x6ba8",
+            "0x6bad"
+          ],
+          [
+            "0x6bad",
+            "0x6baf"
+          ],
+          [
+            "0x6baf",
+            "0x6bb1"
+          ],
+          [
+            "0x6bb1",
+            "0x6bb8"
+          ],
+          [
+            "0x6bb8",
+            "0xffff"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "null_engine",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 0,
+        "11": 4096,
+        "12": 28,
+        "13": 12
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6b20",
+        "stop_reason": "copied_trap_boundary",
+        "events": [],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b20"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "null_source",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 0,
+        "12": 28,
+        "13": 12
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6b26",
+        "stop_reason": "copied_trap_boundary",
+        "events": [],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b26"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "unaligned_destination",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 4096,
+        "12": 29,
+        "13": 12
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6b2e",
+        "stop_reason": "copied_trap_boundary",
+        "events": [],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b28"
+          ],
+          [
+            "0x6b28",
+            "0x6b2b"
+          ],
+          [
+            "0x6b2b",
+            "0x6b2e"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "unaligned_source",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 4097,
+        "12": 28,
+        "13": 12
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6b38",
+        "stop_reason": "copied_trap_boundary",
+        "events": [],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b28"
+          ],
+          [
+            "0x6b28",
+            "0x6b2b"
+          ],
+          [
+            "0x6b2b",
+            "0x6b30"
+          ],
+          [
+            "0x6b30",
+            "0x6b32"
+          ],
+          [
+            "0x6b32",
+            "0x6b35"
+          ],
+          [
+            "0x6b35",
+            "0x6b38"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "unaligned_size",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 4096,
+        "12": 28,
+        "13": 11
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6b40",
+        "stop_reason": "copied_trap_boundary",
+        "events": [],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b28"
+          ],
+          [
+            "0x6b28",
+            "0x6b2b"
+          ],
+          [
+            "0x6b2b",
+            "0x6b30"
+          ],
+          [
+            "0x6b30",
+            "0x6b32"
+          ],
+          [
+            "0x6b32",
+            "0x6b35"
+          ],
+          [
+            "0x6b35",
+            "0x6b3a"
+          ],
+          [
+            "0x6b3a",
+            "0x6b3d"
+          ],
+          [
+            "0x6b3d",
+            "0x6b40"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "destination_at_capacity",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 4096,
+        "12": 4096,
+        "13": 12
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6b5e",
+        "stop_reason": "copied_trap_boundary",
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x10a108",
+            "value": 8192
+          }
+        ],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b28"
+          ],
+          [
+            "0x6b28",
+            "0x6b2b"
+          ],
+          [
+            "0x6b2b",
+            "0x6b30"
+          ],
+          [
+            "0x6b30",
+            "0x6b32"
+          ],
+          [
+            "0x6b32",
+            "0x6b35"
+          ],
+          [
+            "0x6b35",
+            "0x6b3a"
+          ],
+          [
+            "0x6b3a",
+            "0x6b3d"
+          ],
+          [
+            "0x6b3d",
+            "0x6b42"
+          ],
+          [
+            "0x6b42",
+            "0x6b44"
+          ],
+          [
+            "0x6b44",
+            "0x6b49"
+          ],
+          [
+            "0x6b49",
+            "0x6b4e"
+          ],
+          [
+            "0x6b4e",
+            "0x6b52"
+          ],
+          [
+            "0x6b52",
+            "0x6b56"
+          ],
+          [
+            "0x6b56",
+            "0x6b59"
+          ],
+          [
+            "0x6b59",
+            "0x6b5b"
+          ],
+          [
+            "0x6b5b",
+            "0x6b5e"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "size_exceeds_capacity",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 4096,
+        "12": 28,
+        "13": 4100
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6b65",
+        "stop_reason": "copied_trap_boundary",
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x10a108",
+            "value": 8192
+          }
+        ],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b28"
+          ],
+          [
+            "0x6b28",
+            "0x6b2b"
+          ],
+          [
+            "0x6b2b",
+            "0x6b30"
+          ],
+          [
+            "0x6b30",
+            "0x6b32"
+          ],
+          [
+            "0x6b32",
+            "0x6b35"
+          ],
+          [
+            "0x6b35",
+            "0x6b3a"
+          ],
+          [
+            "0x6b3a",
+            "0x6b3d"
+          ],
+          [
+            "0x6b3d",
+            "0x6b42"
+          ],
+          [
+            "0x6b42",
+            "0x6b44"
+          ],
+          [
+            "0x6b44",
+            "0x6b49"
+          ],
+          [
+            "0x6b49",
+            "0x6b4e"
+          ],
+          [
+            "0x6b4e",
+            "0x6b52"
+          ],
+          [
+            "0x6b52",
+            "0x6b56"
+          ],
+          [
+            "0x6b56",
+            "0x6b59"
+          ],
+          [
+            "0x6b59",
+            "0x6b5b"
+          ],
+          [
+            "0x6b5b",
+            "0x6b60"
+          ],
+          [
+            "0x6b60",
+            "0x6b62"
+          ],
+          [
+            "0x6b62",
+            "0x6b65"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "span_exceeds_capacity",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 4096,
+        "12": 4092,
+        "13": 12
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 0,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6b6f",
+        "stop_reason": "copied_trap_boundary",
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x10a108",
+            "value": 8192
+          }
+        ],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b28"
+          ],
+          [
+            "0x6b28",
+            "0x6b2b"
+          ],
+          [
+            "0x6b2b",
+            "0x6b30"
+          ],
+          [
+            "0x6b30",
+            "0x6b32"
+          ],
+          [
+            "0x6b32",
+            "0x6b35"
+          ],
+          [
+            "0x6b35",
+            "0x6b3a"
+          ],
+          [
+            "0x6b3a",
+            "0x6b3d"
+          ],
+          [
+            "0x6b3d",
+            "0x6b42"
+          ],
+          [
+            "0x6b42",
+            "0x6b44"
+          ],
+          [
+            "0x6b44",
+            "0x6b49"
+          ],
+          [
+            "0x6b49",
+            "0x6b4e"
+          ],
+          [
+            "0x6b4e",
+            "0x6b52"
+          ],
+          [
+            "0x6b52",
+            "0x6b56"
+          ],
+          [
+            "0x6b56",
+            "0x6b59"
+          ],
+          [
+            "0x6b59",
+            "0x6b5b"
+          ],
+          [
+            "0x6b5b",
+            "0x6b60"
+          ],
+          [
+            "0x6b60",
+            "0x6b62"
+          ],
+          [
+            "0x6b62",
+            "0x6b67"
+          ],
+          [
+            "0x6b67",
+            "0x6b6a"
+          ],
+          [
+            "0x6b6a",
+            "0x6b6c"
+          ],
+          [
+            "0x6b6c",
+            "0x6b6f"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "post_transfer_status_40_traps",
+      "synthetic_arguments": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "10": 8192,
+        "11": 4096,
+        "12": 28,
+        "13": 12
+      },
+      "synthetic_pri_initial": {
+        "0x10a108": 8192,
+        "0x122118": 2779096511,
+        "0x122128": 1073741824,
+        "0x143c": 0,
+        "0x12212c": 0
+      },
+      "synthetic_io_status": 0,
+      "reconstructed_argument_raw": null,
+      "result": {
+        "stop_pc": "0x6786",
+        "stop_reason": "copied_trap_boundary",
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x10a108",
+            "value": 8192
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x10a1c0",
+            "value": 16777244
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x122118",
+            "value": 2779096511
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x122118",
+            "value": 631612863
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x122118",
+            "value": 631612863
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x122118",
+            "value": 2779096483
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c100",
+            "value": 1089988,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c200",
+            "value": 786433,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c000",
+            "value": 2147483891,
+            "instruction": "iowrs"
+          },
+          {
+            "kind": "synthetic_falcon_io_read",
+            "address": "0x1c000",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c100",
+            "value": 1089988,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c200",
+            "value": 2,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c000",
+            "value": 2147483891,
+            "instruction": "iowrs"
+          },
+          {
+            "kind": "synthetic_falcon_io_read",
+            "address": "0x1c000",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c100",
+            "value": 1089988,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c200",
+            "value": 64,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x1c000",
+            "value": 2147483891,
+            "instruction": "iowrs"
+          },
+          {
+            "kind": "synthetic_falcon_io_read",
+            "address": "0x1c000",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x1221fc",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x122128",
+            "value": 1073741824
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x143c",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_read",
+            "address": "0x12212c",
+            "value": 0
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x1440",
+            "value": 0
+          }
+        ],
+        "trace": [
+          [
+            "0x6b04",
+            "0x6b07"
+          ],
+          [
+            "0x6b07",
+            "0x6b0c"
+          ],
+          [
+            "0x6b0c",
+            "0x6b0e"
+          ],
+          [
+            "0x6b0e",
+            "0x6b10"
+          ],
+          [
+            "0x6b10",
+            "0x6b13"
+          ],
+          [
+            "0x6b13",
+            "0x6b16"
+          ],
+          [
+            "0x6b16",
+            "0x6b18"
+          ],
+          [
+            "0x6b18",
+            "0x6b1a"
+          ],
+          [
+            "0x6b1a",
+            "0x6b1c"
+          ],
+          [
+            "0x6b1c",
+            "0x6b22"
+          ],
+          [
+            "0x6b22",
+            "0x6b28"
+          ],
+          [
+            "0x6b28",
+            "0x6b2b"
+          ],
+          [
+            "0x6b2b",
+            "0x6b30"
+          ],
+          [
+            "0x6b30",
+            "0x6b32"
+          ],
+          [
+            "0x6b32",
+            "0x6b35"
+          ],
+          [
+            "0x6b35",
+            "0x6b3a"
+          ],
+          [
+            "0x6b3a",
+            "0x6b3d"
+          ],
+          [
+            "0x6b3d",
+            "0x6b42"
+          ],
+          [
+            "0x6b42",
+            "0x6b44"
+          ],
+          [
+            "0x6b44",
+            "0x6b49"
+          ],
+          [
+            "0x6b49",
+            "0x6b4e"
+          ],
+          [
+            "0x6b4e",
+            "0x6b52"
+          ],
+          [
+            "0x6b52",
+            "0x6b56"
+          ],
+          [
+            "0x6b56",
+            "0x6b59"
+          ],
+          [
+            "0x6b59",
+            "0x6b5b"
+          ],
+          [
+            "0x6b5b",
+            "0x6b60"
+          ],
+          [
+            "0x6b60",
+            "0x6b62"
+          ],
+          [
+            "0x6b62",
+            "0x6b67"
+          ],
+          [
+            "0x6b67",
+            "0x6b6a"
+          ],
+          [
+            "0x6b6a",
+            "0x6b6c"
+          ],
+          [
+            "0x6b6c",
+            "0x6b71"
+          ],
+          [
+            "0x6b71",
+            "0x6b76"
+          ],
+          [
+            "0x6b76",
+            "0x6b7b"
+          ],
+          [
+            "0x6b7b",
+            "0x6b7e"
+          ],
+          [
+            "0x6b7e",
+            "0x6b82"
+          ],
+          [
+            "0x6b82",
+            "0x66de"
+          ],
+          [
+            "0x66de",
+            "0x66e1"
+          ],
+          [
+            "0x66e1",
+            "0x66e3"
+          ],
+          [
+            "0x66e3",
+            "0x66e8"
+          ],
+          [
+            "0x66e8",
+            "0x66ea"
+          ],
+          [
+            "0x66ea",
+            "0x66ed"
+          ],
+          [
+            "0x66ed",
+            "0x66f1"
+          ],
+          [
+            "0x66f1",
+            "0x66f4"
+          ],
+          [
+            "0x66f4",
+            "0x66f6"
+          ],
+          [
+            "0x66f6",
+            "0x66fa"
+          ],
+          [
+            "0x66fa",
+            "0x66ff"
+          ],
+          [
+            "0x66ff",
+            "0x6702"
+          ],
+          [
+            "0x6702",
+            "0x6706"
+          ],
+          [
+            "0x6706",
+            "0x670a"
+          ],
+          [
+            "0x670a",
+            "0x670e"
+          ],
+          [
+            "0x670e",
+            "0x6712"
+          ],
+          [
+            "0x6712",
+            "0x6717"
+          ],
+          [
+            "0x6717",
+            "0x671a"
+          ],
+          [
+            "0x671a",
+            "0x671c"
+          ],
+          [
+            "0x671c",
+            "0x6720"
+          ],
+          [
+            "0x6720",
+            "0x6723"
+          ],
+          [
+            "0x6723",
+            "0x6726"
+          ],
+          [
+            "0x6726",
+            "0x672a"
+          ],
+          [
+            "0x672a",
+            "0x672c"
+          ],
+          [
+            "0x672c",
+            "0x672e"
+          ],
+          [
+            "0x672e",
+            "0x6730"
+          ],
+          [
+            "0x6730",
+            "0x6737"
+          ],
+          [
+            "0x6737",
+            "0x6b86"
+          ],
+          [
+            "0x6b86",
+            "0x6b98"
+          ],
+          [
+            "0x6b98",
+            "0x6b8a"
+          ],
+          [
+            "0x6b8a",
+            "0x6b8c"
+          ],
+          [
+            "0x6b8c",
+            "0x6b8f"
+          ],
+          [
+            "0x6b8f",
+            "0x6b92"
+          ],
+          [
+            "0x6b92",
+            "0x6b94"
+          ],
+          [
+            "0x6b94",
+            "0x1014"
+          ],
+          [
+            "0x1014",
+            "0x1019"
+          ],
+          [
+            "0x1019",
+            "0x101b"
+          ],
+          [
+            "0x101b",
+            "0x101e"
+          ],
+          [
+            "0x101e",
+            "0x1021"
+          ],
+          [
+            "0x1021",
+            "0x1023"
+          ],
+          [
+            "0x1023",
+            "0x1027"
+          ],
+          [
+            "0x1027",
+            "0x102a"
+          ],
+          [
+            "0x102a",
+            "0x102f"
+          ],
+          [
+            "0x102f",
+            "0x1032"
+          ],
+          [
+            "0x1032",
+            "0x1037"
+          ],
+          [
+            "0x1037",
+            "0x103c"
+          ],
+          [
+            "0x103c",
+            "0x103f"
+          ],
+          [
+            "0x103f",
+            "0x1043"
+          ],
+          [
+            "0x1043",
+            "0x1046"
+          ],
+          [
+            "0x1046",
+            "0x1049"
+          ],
+          [
+            "0x1049",
+            "0x104d"
+          ],
+          [
+            "0x104d",
+            "0x1050"
+          ],
+          [
+            "0x1050",
+            "0x1052"
+          ],
+          [
+            "0x1052",
+            "0x1057"
+          ],
+          [
+            "0x1057",
+            "0x1059"
+          ],
+          [
+            "0x1059",
+            "0x105b"
+          ],
+          [
+            "0x105b",
+            "0x1062"
+          ],
+          [
+            "0x1062",
+            "0x1065"
+          ],
+          [
+            "0x1065",
+            "0x6b98"
+          ],
+          [
+            "0x6b98",
+            "0x6b8a"
+          ],
+          [
+            "0x6b8a",
+            "0x6b8c"
+          ],
+          [
+            "0x6b8c",
+            "0x6b8f"
+          ],
+          [
+            "0x6b8f",
+            "0x6b92"
+          ],
+          [
+            "0x6b92",
+            "0x6b94"
+          ],
+          [
+            "0x6b94",
+            "0x1014"
+          ],
+          [
+            "0x1014",
+            "0x1019"
+          ],
+          [
+            "0x1019",
+            "0x101b"
+          ],
+          [
+            "0x101b",
+            "0x101e"
+          ],
+          [
+            "0x101e",
+            "0x1021"
+          ],
+          [
+            "0x1021",
+            "0x1023"
+          ],
+          [
+            "0x1023",
+            "0x1027"
+          ],
+          [
+            "0x1027",
+            "0x102a"
+          ],
+          [
+            "0x102a",
+            "0x102f"
+          ],
+          [
+            "0x102f",
+            "0x1032"
+          ],
+          [
+            "0x1032",
+            "0x1037"
+          ],
+          [
+            "0x1037",
+            "0x103c"
+          ],
+          [
+            "0x103c",
+            "0x103f"
+          ],
+          [
+            "0x103f",
+            "0x1043"
+          ],
+          [
+            "0x1043",
+            "0x1046"
+          ],
+          [
+            "0x1046",
+            "0x1049"
+          ],
+          [
+            "0x1049",
+            "0x104d"
+          ],
+          [
+            "0x104d",
+            "0x1050"
+          ],
+          [
+            "0x1050",
+            "0x1052"
+          ],
+          [
+            "0x1052",
+            "0x1057"
+          ],
+          [
+            "0x1057",
+            "0x1059"
+          ],
+          [
+            "0x1059",
+            "0x105b"
+          ],
+          [
+            "0x105b",
+            "0x1062"
+          ],
+          [
+            "0x1062",
+            "0x1065"
+          ],
+          [
+            "0x1065",
+            "0x6b98"
+          ],
+          [
+            "0x6b98",
+            "0x6b8a"
+          ],
+          [
+            "0x6b8a",
+            "0x6b8c"
+          ],
+          [
+            "0x6b8c",
+            "0x6b8f"
+          ],
+          [
+            "0x6b8f",
+            "0x6b92"
+          ],
+          [
+            "0x6b92",
+            "0x6b94"
+          ],
+          [
+            "0x6b94",
+            "0x1014"
+          ],
+          [
+            "0x1014",
+            "0x1019"
+          ],
+          [
+            "0x1019",
+            "0x101b"
+          ],
+          [
+            "0x101b",
+            "0x101e"
+          ],
+          [
+            "0x101e",
+            "0x1021"
+          ],
+          [
+            "0x1021",
+            "0x1023"
+          ],
+          [
+            "0x1023",
+            "0x1027"
+          ],
+          [
+            "0x1027",
+            "0x102a"
+          ],
+          [
+            "0x102a",
+            "0x102f"
+          ],
+          [
+            "0x102f",
+            "0x1032"
+          ],
+          [
+            "0x1032",
+            "0x1037"
+          ],
+          [
+            "0x1037",
+            "0x103c"
+          ],
+          [
+            "0x103c",
+            "0x103f"
+          ],
+          [
+            "0x103f",
+            "0x1043"
+          ],
+          [
+            "0x1043",
+            "0x1046"
+          ],
+          [
+            "0x1046",
+            "0x1049"
+          ],
+          [
+            "0x1049",
+            "0x104d"
+          ],
+          [
+            "0x104d",
+            "0x1050"
+          ],
+          [
+            "0x1050",
+            "0x1052"
+          ],
+          [
+            "0x1052",
+            "0x1057"
+          ],
+          [
+            "0x1057",
+            "0x1059"
+          ],
+          [
+            "0x1059",
+            "0x105b"
+          ],
+          [
+            "0x105b",
+            "0x1062"
+          ],
+          [
+            "0x1062",
+            "0x1065"
+          ],
+          [
+            "0x1065",
+            "0x6b98"
+          ],
+          [
+            "0x6b98",
+            "0x6b9c"
+          ],
+          [
+            "0x6b9c",
+            "0x673a"
+          ],
+          [
+            "0x673a",
+            "0x673f"
+          ],
+          [
+            "0x673f",
+            "0x6741"
+          ],
+          [
+            "0x6741",
+            "0x6744"
+          ],
+          [
+            "0x6744",
+            "0x6747"
+          ],
+          [
+            "0x6747",
+            "0x674b"
+          ],
+          [
+            "0x674b",
+            "0x674d"
+          ],
+          [
+            "0x674d",
+            "0x674f"
+          ],
+          [
+            "0x674f",
+            "0x6753"
+          ],
+          [
+            "0x6753",
+            "0x6757"
+          ],
+          [
+            "0x6757",
+            "0x675b"
+          ],
+          [
+            "0x675b",
+            "0x675e"
+          ],
+          [
+            "0x675e",
+            "0x6761"
+          ],
+          [
+            "0x6761",
+            "0x6764"
+          ],
+          [
+            "0x6764",
+            "0x6767"
+          ],
+          [
+            "0x6767",
+            "0x676a"
+          ],
+          [
+            "0x676a",
+            "0x676e"
+          ],
+          [
+            "0x676e",
+            "0x6771"
+          ],
+          [
+            "0x6771",
+            "0x6775"
+          ],
+          [
+            "0x6775",
+            "0x6779"
+          ],
+          [
+            "0x6779",
+            "0x677d"
+          ],
+          [
+            "0x677d",
+            "0x677f"
+          ],
+          [
+            "0x677f",
+            "0x6782"
+          ],
+          [
+            "0x6782",
+            "0x6786"
+          ]
+        ]
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "name": "transport_stalled",
+      "outcome": "instruction budget, not firmware timeout"
+    },
+    {
+      "name": "missing_capacity",
+      "outcome": "missing synthetic PRI value 10a108"
+    },
+    {
+      "name": "missing_transport_status",
+      "outcome": "missing synthetic Falcon IO value 1c000"
+    }
+  ],
+  "preos_branch_cases": [
+    {
+      "name": "copied_default",
+      "flag_halfword": 1,
+      "raw_word_plus8": 22,
+      "result": {
+        "stop_pc": "0x176",
+        "stop_reason": "recurring_callback_dispatch",
+        "events": [],
+        "trace": [
+          [
+            "0x169",
+            "0x16d"
+          ],
+          [
+            "0x16d",
+            "0x170"
+          ],
+          [
+            "0x170",
+            "0x173"
+          ],
+          [
+            "0x173",
+            "0x176"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "copied_default",
+      "flag_halfword": 1,
+      "raw_word_plus8": 22,
+      "result": {
+        "stop_pc": "0x20b",
+        "stop_reason": "additional_cleanup_register_path",
+        "events": [],
+        "trace": [
+          [
+            "0x1fe",
+            "0x202"
+          ],
+          [
+            "0x202",
+            "0x205"
+          ],
+          [
+            "0x205",
+            "0x208"
+          ],
+          [
+            "0x208",
+            "0x20b"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "selector1",
+      "flag_halfword": 0,
+      "raw_word_plus8": 64,
+      "result": {
+        "stop_pc": "0x1d5",
+        "stop_reason": "exit_callback_dispatch",
+        "events": [],
+        "trace": [
+          [
+            "0x169",
+            "0x16d"
+          ],
+          [
+            "0x16d",
+            "0x170"
+          ],
+          [
+            "0x170",
+            "0x173"
+          ],
+          [
+            "0x173",
+            "0x1d5"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "selector1",
+      "flag_halfword": 0,
+      "raw_word_plus8": 64,
+      "result": {
+        "stop_pc": "0x25d",
+        "stop_reason": "return_tail",
+        "events": [],
+        "trace": [
+          [
+            "0x1fe",
+            "0x202"
+          ],
+          [
+            "0x202",
+            "0x205"
+          ],
+          [
+            "0x205",
+            "0x208"
+          ],
+          [
+            "0x208",
+            "0x25d"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "word40_flag_retained",
+      "flag_halfword": 1,
+      "raw_word_plus8": 64,
+      "result": {
+        "stop_pc": "0x176",
+        "stop_reason": "recurring_callback_dispatch",
+        "events": [],
+        "trace": [
+          [
+            "0x169",
+            "0x16d"
+          ],
+          [
+            "0x16d",
+            "0x170"
+          ],
+          [
+            "0x170",
+            "0x173"
+          ],
+          [
+            "0x173",
+            "0x176"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "word40_flag_retained",
+      "flag_halfword": 1,
+      "raw_word_plus8": 64,
+      "result": {
+        "stop_pc": "0x20b",
+        "stop_reason": "additional_cleanup_register_path",
+        "events": [],
+        "trace": [
+          [
+            "0x1fe",
+            "0x202"
+          ],
+          [
+            "0x202",
+            "0x205"
+          ],
+          [
+            "0x205",
+            "0x208"
+          ],
+          [
+            "0x208",
+            "0x20b"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "flag_cleared_word16",
+      "flag_halfword": 0,
+      "raw_word_plus8": 22,
+      "result": {
+        "stop_pc": "0x1d5",
+        "stop_reason": "exit_callback_dispatch",
+        "events": [],
+        "trace": [
+          [
+            "0x169",
+            "0x16d"
+          ],
+          [
+            "0x16d",
+            "0x170"
+          ],
+          [
+            "0x170",
+            "0x173"
+          ],
+          [
+            "0x173",
+            "0x1d5"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "flag_cleared_word16",
+      "flag_halfword": 0,
+      "raw_word_plus8": 22,
+      "result": {
+        "stop_pc": "0x25d",
+        "stop_reason": "return_tail",
+        "events": [],
+        "trace": [
+          [
+            "0x1fe",
+            "0x202"
+          ],
+          [
+            "0x202",
+            "0x205"
+          ],
+          [
+            "0x205",
+            "0x208"
+          ],
+          [
+            "0x208",
+            "0x25d"
+          ]
+        ]
+      }
+    }
+  ],
+  "copied_callback_tables": {
+    "init": [
+      {
+        "entry_dmem_offset": "0x13c",
+        "raw": "856c0000",
+        "target_imem_va": "0x6c85"
+      },
+      {
+        "entry_dmem_offset": "0x140",
+        "raw": "77020000",
+        "target_imem_va": "0x277"
+      },
+      {
+        "entry_dmem_offset": "0x144",
+        "raw": "e7600000",
+        "target_imem_va": "0x60e7"
+      },
+      {
+        "entry_dmem_offset": "0x148",
+        "raw": "54040000",
+        "target_imem_va": "0x454"
+      },
+      {
+        "entry_dmem_offset": "0x14c",
+        "raw": "14090000",
+        "target_imem_va": "0x914"
+      },
+      {
+        "entry_dmem_offset": "0x150",
+        "raw": "741a0000",
+        "target_imem_va": "0x1a74"
+      },
+      {
+        "entry_dmem_offset": "0x154",
+        "raw": "865a0000",
+        "target_imem_va": "0x5a86"
+      },
+      {
+        "entry_dmem_offset": "0x158",
+        "raw": "0b100000",
+        "target_imem_va": "0x100b"
+      },
+      {
+        "entry_dmem_offset": "0x15c",
+        "raw": "bb5d0000",
+        "target_imem_va": "0x5dbb"
+      },
+      {
+        "entry_dmem_offset": "0x160",
+        "raw": "515d0000",
+        "target_imem_va": "0x5d51"
+      }
+    ],
+    "recurring": [
+      {
+        "entry_dmem_offset": "0x164",
+        "raw": "77000000e8030000",
+        "target_imem_va": "0x77"
+      },
+      {
+        "entry_dmem_offset": "0x16c",
+        "raw": "790200000a000000",
+        "target_imem_va": "0x279"
+      },
+      {
+        "entry_dmem_offset": "0x174",
+        "raw": "b25e00000a000000",
+        "target_imem_va": "0x5eb2"
+      },
+      {
+        "entry_dmem_offset": "0x17c",
+        "raw": "99020000e8030000",
+        "target_imem_va": "0x299"
+      },
+      {
+        "entry_dmem_offset": "0x184",
+        "raw": "5d1e000004000000",
+        "target_imem_va": "0x1e5d"
+      }
+    ],
+    "exit": [
+      {
+        "entry_dmem_offset": "0x18c",
+        "raw": "836c0000",
+        "target_imem_va": "0x6c83"
+      },
+      {
+        "entry_dmem_offset": "0x190",
+        "raw": "7b020000",
+        "target_imem_va": "0x27b"
+      },
+      {
+        "entry_dmem_offset": "0x194",
+        "raw": "925e0000",
+        "target_imem_va": "0x5e92"
+      },
+      {
+        "entry_dmem_offset": "0x198",
+        "raw": "97020000",
+        "target_imem_va": "0x297"
+      },
+      {
+        "entry_dmem_offset": "0x19c",
+        "raw": "16090000",
+        "target_imem_va": "0x916"
+      },
+      {
+        "entry_dmem_offset": "0x1a0",
+        "raw": "a4180000",
+        "target_imem_va": "0x18a4"
+      },
+      {
+        "entry_dmem_offset": "0x1a4",
+        "raw": "680f0000",
+        "target_imem_va": "0xf68"
+      },
+      {
+        "entry_dmem_offset": "0x1a8",
+        "raw": "905e0000",
+        "target_imem_va": "0x5e90"
+      }
+    ]
+  },
+  "callback_boundaries": [
+    {
+      "name": "first_init_callback",
+      "result": {
+        "stop_pc": "0x6c85",
+        "stop_reason": "unexecuted_init_callback",
+        "events": [],
+        "trace": [
+          [
+            "0x116",
+            "0x11a"
+          ],
+          [
+            "0x11a",
+            "0x11c"
+          ],
+          [
+            "0x11c",
+            "0x11e"
+          ],
+          [
+            "0x11e",
+            "0x122"
+          ],
+          [
+            "0x122",
+            "0x12e"
+          ],
+          [
+            "0x12e",
+            "0x131"
+          ],
+          [
+            "0x131",
+            "0x133"
+          ],
+          [
+            "0x133",
+            "0x126"
+          ],
+          [
+            "0x126",
+            "0x129"
+          ],
+          [
+            "0x129",
+            "0x12c"
+          ],
+          [
+            "0x12c",
+            "0x6c85"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "third_exit_callback",
+      "result": {
+        "stop_pc": "0x5e92",
+        "stop_reason": "unexecuted_exit_callback",
+        "events": [],
+        "trace": [
+          [
+            "0x1d5",
+            "0x1d9"
+          ],
+          [
+            "0x1d9",
+            "0x1db"
+          ],
+          [
+            "0x1db",
+            "0x1dd"
+          ],
+          [
+            "0x1dd",
+            "0x1e1"
+          ],
+          [
+            "0x1e1",
+            "0x1f6"
+          ],
+          [
+            "0x1f6",
+            "0x1f9"
+          ],
+          [
+            "0x1f9",
+            "0x1fb"
+          ],
+          [
+            "0x1fb",
+            "0x1ee"
+          ],
+          [
+            "0x1ee",
+            "0x1f1"
+          ],
+          [
+            "0x1f1",
+            "0x1f4"
+          ],
+          [
+            "0x1f4",
+            "0x6c83"
+          ],
+          [
+            "0x6c83",
+            "0x1f6"
+          ],
+          [
+            "0x1f6",
+            "0x1f9"
+          ],
+          [
+            "0x1f9",
+            "0x1fb"
+          ],
+          [
+            "0x1fb",
+            "0x1ee"
+          ],
+          [
+            "0x1ee",
+            "0x1f1"
+          ],
+          [
+            "0x1f1",
+            "0x1f4"
+          ],
+          [
+            "0x1f4",
+            "0x27b"
+          ],
+          [
+            "0x27b",
+            "0x1f6"
+          ],
+          [
+            "0x1f6",
+            "0x1f9"
+          ],
+          [
+            "0x1f9",
+            "0x1fb"
+          ],
+          [
+            "0x1fb",
+            "0x1ee"
+          ],
+          [
+            "0x1ee",
+            "0x1f1"
+          ],
+          [
+            "0x1f1",
+            "0x1f4"
+          ],
+          [
+            "0x1f4",
+            "0x5e92"
+          ]
+        ]
+      }
+    }
+  ],
+  "conditional_return_cases": [
+    {
+      "input_synthetic_status_word": 0,
+      "returned_main_status": 0,
+      "post_scratch_word": 2779078655,
+      "result": {
+        "stop_pc": "0x79f9",
+        "stop_reason": "before_unexecuted_crypto_cleanup",
+        "events": [
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x28",
+            "value": 0,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x14",
+            "value": 1,
+            "instruction": "iowr"
+          }
+        ],
+        "trace": [
+          [
+            "0x1fe",
+            "0x202"
+          ],
+          [
+            "0x202",
+            "0x205"
+          ],
+          [
+            "0x205",
+            "0x208"
+          ],
+          [
+            "0x208",
+            "0x25d"
+          ],
+          [
+            "0x25d",
+            "0x262"
+          ],
+          [
+            "0x262",
+            "0x264"
+          ],
+          [
+            "0x264",
+            "0x266"
+          ],
+          [
+            "0x266",
+            "0x268"
+          ],
+          [
+            "0x268",
+            "0x26b"
+          ],
+          [
+            "0x26b",
+            "0x26d"
+          ],
+          [
+            "0x26d",
+            "0x26f"
+          ],
+          [
+            "0x26f",
+            "0x272"
+          ],
+          [
+            "0x272",
+            "0x275"
+          ],
+          [
+            "0x275",
+            "0x79bc"
+          ],
+          [
+            "0x79bc",
+            "0x79be"
+          ],
+          [
+            "0x79be",
+            "0x79ff"
+          ],
+          [
+            "0x79ff",
+            "0x7a01"
+          ],
+          [
+            "0x7a01",
+            "0x79c2"
+          ],
+          [
+            "0x79c2",
+            "0x79cc"
+          ],
+          [
+            "0x79cc",
+            "0x79d1"
+          ],
+          [
+            "0x79d1",
+            "0x79d3"
+          ],
+          [
+            "0x79d3",
+            "0x79d6"
+          ],
+          [
+            "0x79d6",
+            "0x79d9"
+          ],
+          [
+            "0x79d9",
+            "0x79dd"
+          ],
+          [
+            "0x79dd",
+            "0x79e0"
+          ],
+          [
+            "0x79e0",
+            "0x79e3"
+          ],
+          [
+            "0x79e3",
+            "0x79e5"
+          ],
+          [
+            "0x79e5",
+            "0x79ea"
+          ],
+          [
+            "0x79ea",
+            "0x79ec"
+          ],
+          [
+            "0x79ec",
+            "0x79f0"
+          ],
+          [
+            "0x79f0",
+            "0x79f3"
+          ],
+          [
+            "0x79f3",
+            "0x79f7"
+          ],
+          [
+            "0x79f7",
+            "0x79f9"
+          ]
+        ]
+      }
+    },
+    {
+      "input_synthetic_status_word": 305397760,
+      "returned_main_status": 4660,
+      "post_scratch_word": 2779078655,
+      "result": {
+        "stop_pc": "0x79f9",
+        "stop_reason": "before_unexecuted_crypto_cleanup",
+        "events": [
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x28",
+            "value": 0,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x14",
+            "value": 1,
+            "instruction": "iowr"
+          }
+        ],
+        "trace": [
+          [
+            "0x1fe",
+            "0x202"
+          ],
+          [
+            "0x202",
+            "0x205"
+          ],
+          [
+            "0x205",
+            "0x208"
+          ],
+          [
+            "0x208",
+            "0x25d"
+          ],
+          [
+            "0x25d",
+            "0x262"
+          ],
+          [
+            "0x262",
+            "0x264"
+          ],
+          [
+            "0x264",
+            "0x266"
+          ],
+          [
+            "0x266",
+            "0x268"
+          ],
+          [
+            "0x268",
+            "0x26b"
+          ],
+          [
+            "0x26b",
+            "0x26d"
+          ],
+          [
+            "0x26d",
+            "0x26f"
+          ],
+          [
+            "0x26f",
+            "0x272"
+          ],
+          [
+            "0x272",
+            "0x275"
+          ],
+          [
+            "0x275",
+            "0x79bc"
+          ],
+          [
+            "0x79bc",
+            "0x79be"
+          ],
+          [
+            "0x79be",
+            "0x79ff"
+          ],
+          [
+            "0x79ff",
+            "0x7a01"
+          ],
+          [
+            "0x7a01",
+            "0x79c2"
+          ],
+          [
+            "0x79c2",
+            "0x79cc"
+          ],
+          [
+            "0x79cc",
+            "0x79d1"
+          ],
+          [
+            "0x79d1",
+            "0x79d3"
+          ],
+          [
+            "0x79d3",
+            "0x79d6"
+          ],
+          [
+            "0x79d6",
+            "0x79e5"
+          ],
+          [
+            "0x79e5",
+            "0x79ea"
+          ],
+          [
+            "0x79ea",
+            "0x79ec"
+          ],
+          [
+            "0x79ec",
+            "0x79f0"
+          ],
+          [
+            "0x79f0",
+            "0x79f3"
+          ],
+          [
+            "0x79f3",
+            "0x79f7"
+          ],
+          [
+            "0x79f7",
+            "0x79f9"
+          ]
+        ]
+      }
+    },
+    {
+      "input_synthetic_status_word": 4294944165,
+      "returned_main_status": 65535,
+      "post_scratch_word": 2779078655,
+      "result": {
+        "stop_pc": "0x79f9",
+        "stop_reason": "before_unexecuted_crypto_cleanup",
+        "events": [
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x28",
+            "value": 0,
+            "instruction": "iowr"
+          },
+          {
+            "kind": "synthetic_falcon_io_write",
+            "address": "0x14",
+            "value": 1,
+            "instruction": "iowr"
+          }
+        ],
+        "trace": [
+          [
+            "0x1fe",
+            "0x202"
+          ],
+          [
+            "0x202",
+            "0x205"
+          ],
+          [
+            "0x205",
+            "0x208"
+          ],
+          [
+            "0x208",
+            "0x25d"
+          ],
+          [
+            "0x25d",
+            "0x262"
+          ],
+          [
+            "0x262",
+            "0x264"
+          ],
+          [
+            "0x264",
+            "0x266"
+          ],
+          [
+            "0x266",
+            "0x268"
+          ],
+          [
+            "0x268",
+            "0x26b"
+          ],
+          [
+            "0x26b",
+            "0x26d"
+          ],
+          [
+            "0x26d",
+            "0x26f"
+          ],
+          [
+            "0x26f",
+            "0x272"
+          ],
+          [
+            "0x272",
+            "0x275"
+          ],
+          [
+            "0x275",
+            "0x79bc"
+          ],
+          [
+            "0x79bc",
+            "0x79be"
+          ],
+          [
+            "0x79be",
+            "0x79ff"
+          ],
+          [
+            "0x79ff",
+            "0x7a01"
+          ],
+          [
+            "0x7a01",
+            "0x79c2"
+          ],
+          [
+            "0x79c2",
+            "0x79cc"
+          ],
+          [
+            "0x79cc",
+            "0x79d1"
+          ],
+          [
+            "0x79d1",
+            "0x79d3"
+          ],
+          [
+            "0x79d3",
+            "0x79d6"
+          ],
+          [
+            "0x79d6",
+            "0x79e5"
+          ],
+          [
+            "0x79e5",
+            "0x79ea"
+          ],
+          [
+            "0x79ea",
+            "0x79ec"
+          ],
+          [
+            "0x79ec",
+            "0x79f0"
+          ],
+          [
+            "0x79f0",
+            "0x79f3"
+          ],
+          [
+            "0x79f3",
+            "0x79f7"
+          ],
+          [
+            "0x79f7",
+            "0x79f9"
+          ]
+        ]
+      }
+    }
+  ],
+  "cleanup_integer_tail": {
+    "stop_pc": "0x7a85",
+    "stop_reason": "before_cleanup_exit_instruction",
+    "events": [],
+    "trace": [
+      [
+        "0x7a65",
+        "0x7a67"
+      ],
+      [
+        "0x7a67",
+        "0x7a69"
+      ],
+      [
+        "0x7a69",
+        "0x7a6b"
+      ],
+      [
+        "0x7a6b",
+        "0x7a6d"
+      ],
+      [
+        "0x7a6d",
+        "0x7a6f"
+      ],
+      [
+        "0x7a6f",
+        "0x7a71"
+      ],
+      [
+        "0x7a71",
+        "0x7a73"
+      ],
+      [
+        "0x7a73",
+        "0x7a75"
+      ],
+      [
+        "0x7a75",
+        "0x7a77"
+      ],
+      [
+        "0x7a77",
+        "0x7a79"
+      ],
+      [
+        "0x7a79",
+        "0x7a7b"
+      ],
+      [
+        "0x7a7b",
+        "0x7a7d"
+      ],
+      [
+        "0x7a7d",
+        "0x7a7f"
+      ],
+      [
+        "0x7a7f",
+        "0x7a81"
+      ],
+      [
+        "0x7a81",
+        "0x7a83"
+      ],
+      [
+        "0x7a83",
+        "0x7a85"
+      ]
+    ]
+  },
+  "argument_word_bit6_consumer": [
+    {
+      "name": "copied_word16_skips",
+      "argument_word": 22,
+      "result": {
+        "stop_pc": "0xffff",
+        "stop_reason": "callback_return",
+        "events": [],
+        "trace": [
+          [
+            "0x5d51",
+            "0x5d56"
+          ],
+          [
+            "0x5d56",
+            "0x5d58"
+          ],
+          [
+            "0x5d58",
+            "0x5d5c"
+          ],
+          [
+            "0x5d5c",
+            "0x5d5f"
+          ],
+          [
+            "0x5d5f",
+            "0x5d64"
+          ],
+          [
+            "0x5d64",
+            "0x5d67"
+          ],
+          [
+            "0x5d67",
+            "0x5d6b"
+          ],
+          [
+            "0x5d6b",
+            "0x5d6e"
+          ],
+          [
+            "0x5d6e",
+            "0x5d70"
+          ],
+          [
+            "0x5d70",
+            "0x5d73"
+          ],
+          [
+            "0x5d73",
+            "0x5d76"
+          ],
+          [
+            "0x5d76",
+            "0x5d78"
+          ],
+          [
+            "0x5d78",
+            "0x5d88"
+          ],
+          [
+            "0x5d88",
+            "0x5d8d"
+          ],
+          [
+            "0x5d8d",
+            "0x5d8f"
+          ],
+          [
+            "0x5d8f",
+            "0x5d92"
+          ],
+          [
+            "0x5d92",
+            "0x5da1"
+          ],
+          [
+            "0x5da1",
+            "0x5da6"
+          ],
+          [
+            "0x5da6",
+            "0x5da8"
+          ],
+          [
+            "0x5da8",
+            "0x5dad"
+          ],
+          [
+            "0x5dad",
+            "0x5db0"
+          ],
+          [
+            "0x5db0",
+            "0x5db4"
+          ],
+          [
+            "0x5db4",
+            "0x5db7"
+          ],
+          [
+            "0x5db7",
+            "0x5db9"
+          ],
+          [
+            "0x5db9",
+            "0xffff"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "selector1_word40_calls",
+      "argument_word": 64,
+      "result": {
+        "stop_pc": "0x1484",
+        "stop_reason": "unexecuted_bit6_selected_service",
+        "events": [],
+        "trace": [
+          [
+            "0x5d51",
+            "0x5d56"
+          ],
+          [
+            "0x5d56",
+            "0x5d58"
+          ],
+          [
+            "0x5d58",
+            "0x5d5c"
+          ],
+          [
+            "0x5d5c",
+            "0x5d5f"
+          ],
+          [
+            "0x5d5f",
+            "0x5d64"
+          ],
+          [
+            "0x5d64",
+            "0x5d67"
+          ],
+          [
+            "0x5d67",
+            "0x5d6b"
+          ],
+          [
+            "0x5d6b",
+            "0x5d6e"
+          ],
+          [
+            "0x5d6e",
+            "0x5d70"
+          ],
+          [
+            "0x5d70",
+            "0x5d73"
+          ],
+          [
+            "0x5d73",
+            "0x5d7c"
+          ],
+          [
+            "0x5d7c",
+            "0x1484"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "continuation_after_unexecuted_1484",
+      "service_return_is_synthetic": 0,
+      "result": {
+        "stop_pc": "0x5c8f",
+        "stop_reason": "unexecuted_next_service",
+        "events": [],
+        "trace": [
+          [
+            "0x5d80",
+            "0x5d84"
+          ],
+          [
+            "0x5d84",
+            "0x5c8f"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "continuation_after_unexecuted_1484",
+      "service_return_is_synthetic": 4660,
+      "result": {
+        "stop_pc": "0xffff",
+        "stop_reason": "callback_return",
+        "events": [],
+        "trace": [
+          [
+            "0x5d80",
+            "0x5d88"
+          ],
+          [
+            "0x5d88",
+            "0x5d8d"
+          ],
+          [
+            "0x5d8d",
+            "0x5d8f"
+          ],
+          [
+            "0x5d8f",
+            "0x5d92"
+          ],
+          [
+            "0x5d92",
+            "0x5d95"
+          ],
+          [
+            "0x5d95",
+            "0x5d99"
+          ],
+          [
+            "0x5d99",
+            "0x5d9c"
+          ],
+          [
+            "0x5d9c",
+            "0x5d9f"
+          ],
+          [
+            "0x5d9f",
+            "0x5da1"
+          ],
+          [
+            "0x5da1",
+            "0x5da6"
+          ],
+          [
+            "0x5da6",
+            "0x5da8"
+          ],
+          [
+            "0x5da8",
+            "0x5dad"
+          ],
+          [
+            "0x5dad",
+            "0x5db0"
+          ],
+          [
+            "0x5db0",
+            "0x5db4"
+          ],
+          [
+            "0x5db4",
+            "0x5db7"
+          ],
+          [
+            "0x5db7",
+            "0x5db9"
+          ],
+          [
+            "0x5db9",
+            "0xffff"
+          ]
+        ]
+      }
+    }
+  ],
+  "cleanup_exit_instruction": {
+    "pc": "0x7a85",
+    "raw": "f802"
+  },
+  "entry_exit_instruction": {
+    "pc": "0xc",
+    "raw": "f802",
+    "reachability": "Not established: normal cleanup exits before its trailing ret and the startup epilogue."
+  },
+  "fwsec_instructions": {
+    "0x6b04": "f430fc",
+    "0x6b07": "dfa0050000",
+    "0x6b0c": "f942",
+    "0x6b0e": "bfff",
+    "0x6b10": "fe4901",
+    "0x6b13": "909914",
+    "0x6b16": "b2c3",
+    "0x6b18": "a09f",
+    "0x6b1a": "b2d1",
+    "0x6b1c": "b3a40006",
+    "0x6b22": "b3b40006",
+    "0x6b28": "c43903",
+    "0x6b2b": "f40b05",
+    "0x6b30": "b2b2",
+    "0x6b32": "c4b903",
+    "0x6b35": "f40b05",
+    "0x6b3a": "c41903",
+    "0x6b3d": "f40b05",
+    "0x6b42": "bfa0",
+    "0x6b44": "b80a080100",
+    "0x6b49": "b804c40100",
+    "0x6b4e": "7e171100",
+    "0x6b52": "e7aa0901",
+    "0x6b56": "b6a408",
+    "0x6b59": "a63a",
+    "0x6b5b": "f40805",
+    "0x6b60": "a61a",
+    "0x6b62": "f40d05",
+    "0x6b67": "bc1390",
+    "0x6b6a": "a69a",
+    "0x6b6c": "f40d05",
+    "0x6b71": "b80ac00100",
+    "0x6b76": "db00000001",
+    "0x6b7b": "ff3bb5",
+    "0x6b7e": "7e711100",
+    "0x6b82": "7ede6600",
+    "0x66de": "f430fc",
+    "0x66e1": "f912",
+    "0x66e3": "d1a0050000",
+    "0x66e8": "bf19",
+    "0x66ea": "fe4001",
+    "0x66ed": "8a182112",
+    "0x66f1": "900008",
+    "0x66f4": "a009",
+    "0x66f6": "7e171100",
+    "0x66fa": "d9ffffff7f",
+    "0x66ff": "ffa9b4",
+    "0x6702": "8a182112",
+    "0x6706": "7e711100",
+    "0x670a": "8a182112",
+    "0x670e": "7e171100",
+    "0x6712": "d900000080",
+    "0x6717": "ffa9b5",
+    "0x671a": "09e0",
+    "0x671c": "8a182112",
+    "0x6720": "fdb904",
+    "0x6723": "f0b503",
+    "0x6726": "7e711100",
+    "0x672a": "bf0f",
+    "0x672c": "bf19",
+    "0x672e": "a6f9",
+    "0x6730": "f40b07",
+    "0x6737": "fb1504",
+    "0x6b86": "3e986b00",
+    "0x6b98": "b31400f2",
+    "0x6b8a": "bf2b",
+    "0x6b8c": "921104",
+    "0x6b8f": "902204",
+    "0x6b92": "b24a",
+    "0x6b94": "7e141000",
+    "0x1014": "dfa0050000",
+    "0x1019": "bfff",
+    "0x101b": "f430fc",
+    "0x101e": "fe4901",
+    "0x1021": "a09f",
+    "0x1023": "8900c101",
+    "0x1027": "fa9a00",
+    "0x102a": "b899000100",
+    "0x102f": "fa9b00",
+    "0x1032": "dff3000080",
+    "0x1037": "b899000202",
+    "0x103c": "fa9f01",
+    "0x103f": "8f00c001",
+    "0x1043": "cff900",
+    "0x1046": "c7994c",
+    "0x1049": "b39001fa",
+    "0x104d": "fe4901",
+    "0x1050": "bf9f",
+    "0x1052": "d9a0050000",
+    "0x1057": "bf99",
+    "0x1059": "a6f9",
+    "0x105b": "f40b07",
+    "0x1062": "f43004",
+    "0x1065": "f800",
+    "0x6b9c": "7e3a6700",
+    "0x673a": "dfa0050000",
+    "0x673f": "bfff",
+    "0x6741": "f430fc",
+    "0x6744": "fe4901",
+    "0x6747": "8afc2112",
+    "0x674b": "bdb4",
+    "0x674d": "a09f",
+    "0x674f": "7e711100",
+    "0x6753": "8a282112",
+    "0x6757": "7e171100",
+    "0x675b": "b6a518",
+    "0x675e": "92aa40",
+    "0x6761": "b0a601",
+    "0x6764": "f40c24",
+    "0x6788": "8a182112",
+    "0x678c": "7e171100",
+    "0x6790": "d9e0ffff7f",
+    "0x6795": "ffa9b4",
+    "0x6798": "8a182112",
+    "0x679c": "f0b502",
+    "0x679f": "7e711100",
+    "0x67a3": "fe4901",
+    "0x67a6": "bf9f",
+    "0x67a8": "d9a0050000",
+    "0x67ad": "bf99",
+    "0x67af": "a6f9",
+    "0x67b1": "f40b07",
+    "0x67b8": "f43004",
+    "0x67bb": "f800",
+    "0x6ba0": "fe4901",
+    "0x6ba3": "909914",
+    "0x6ba6": "bf9f",
+    "0x6ba8": "d9a0050000",
+    "0x6bad": "bf99",
+    "0x6baf": "a6f9",
+    "0x6bb1": "f40b07",
+    "0x6bb8": "fb4504",
+    "0x6767": "4a3c14",
+    "0x676a": "7e171100",
+    "0x676e": "c7aa78",
+    "0x6771": "b3a40015",
+    "0x6775": "8a2c2112",
+    "0x6779": "7e171100",
+    "0x677d": "b2ab",
+    "0x677f": "4a4014",
+    "0x6782": "7e711100",
+    "0x44af": "581f03",
+    "0x44b2": "0940",
+    "0x44b4": "40aa00",
+    "0x44b7": "b51902",
+    "0x44ba": "f1f4feff",
+    "0x44be": "0303",
+    "0x44c0": "751f03",
+    "0x44c3": "3eda4400",
+    "0x44da": "fe4901",
+    "0x44dd": "90994c",
+    "0x44e0": "bf9c",
+    "0x44e2": "0d0c",
+    "0x44e4": "b21b",
+    "0x44e6": "fe4101",
+    "0x44e9": "901118",
+    "0x44ec": "b21a"
+  },
+  "preos_instructions": {
+    "0x169": "891c0000",
+    "0x16d": "589903",
+    "0x170": "f09401",
+    "0x173": "f40b62",
+    "0x1fe": "891c0000",
+    "0x202": "589903",
+    "0x205": "f09401",
+    "0x208": "f40b55",
+    "0x116": "89ac0100",
+    "0x11a": "3d04",
+    "0x11c": "3f92",
+    "0x11e": "813c0100",
+    "0x122": "3e2e0100",
+    "0x12e": "c409ff",
+    "0x131": "2602",
+    "0x133": "f408f3",
+    "0x126": "bc1998",
+    "0x129": "100001",
+    "0x12c": "f995",
+    "0x1d5": "89ae0100",
+    "0x1d9": "3d04",
+    "0x1db": "3f92",
+    "0x1dd": "818c0100",
+    "0x1e1": "3ef60100",
+    "0x1f6": "c409ff",
+    "0x1f9": "2602",
+    "0x1fb": "f408f3",
+    "0x1ee": "bc1998",
+    "0x1f1": "100001",
+    "0x1f4": "f995",
+    "0x6c83": "f800",
+    "0x27b": "f800",
+    "0x25d": "d904140014",
+    "0x262": "bdf4",
+    "0x264": "bf9a",
+    "0x266": "0928",
+    "0x268": "fa9f00",
+    "0x26b": "0f01",
+    "0x26d": "0914",
+    "0x26f": "fa9f00",
+    "0x272": "b6a510",
+    "0x275": "fb31",
+    "0x79bc": "b2a0",
+    "0x79be": "7eff7900",
+    "0x79ff": "bda4",
+    "0x7a01": "f800",
+    "0x79c2": "b3a0000a",
+    "0x79cc": "de04140014",
+    "0x79d1": "bfef",
+    "0x79d3": "95f910",
+    "0x79d6": "f41b0f",
+    "0x79d9": "f1f4ffff",
+    "0x79dd": "940910",
+    "0x79e0": "fd9f05",
+    "0x79e3": "a0e9",
+    "0x79e5": "d918140014",
+    "0x79ea": "bf9f",
+    "0x79ec": "8eff0fff",
+    "0x79f0": "fdfe04",
+    "0x79f3": "f1f50050",
+    "0x79f7": "a09f",
+    "0x5d51": "dd18140014",
+    "0x5d56": "bfdf",
+    "0x5d58": "891c0000",
+    "0x5d5c": "989e02",
+    "0x5d5f": "d9ffff00ff",
+    "0x5d64": "fdf904",
+    "0x5d67": "8900002e",
+    "0x5d6b": "fdf905",
+    "0x5d6e": "a0df",
+    "0x5d70": "f0e440",
+    "0x5d73": "f41b09",
+    "0x5d76": "bda4",
+    "0x5d78": "3e885d00",
+    "0x5d88": "de04140014",
+    "0x5d8d": "bfef",
+    "0x5d8f": "95f910",
+    "0x5d92": "f41b0f",
+    "0x5da1": "de18140014",
+    "0x5da6": "bfe9",
+    "0x5da8": "dfffff00ff",
+    "0x5dad": "fd9f04",
+    "0x5db0": "8f00002f",
+    "0x5db4": "fd9f05",
+    "0x5db7": "a0e9",
+    "0x5db9": "f800",
+    "0x5d7c": "7e841400",
+    "0x5d80": "b3a40008",
+    "0x5d84": "7e8f5c00",
+    "0x5d95": "f1f4ffff",
+    "0x5d99": "94a910",
+    "0x5d9c": "fd9f05",
+    "0x5d9f": "a0e9",
+    "0x7a65": "bd04",
+    "0x7a67": "bd14",
+    "0x7a69": "bd24",
+    "0x7a6b": "bd34",
+    "0x7a6d": "bd44",
+    "0x7a6f": "bd54",
+    "0x7a71": "bd64",
+    "0x7a73": "bd74",
+    "0x7a75": "bd84",
+    "0x7a77": "bd94",
+    "0x7a79": "bda4",
+    "0x7a7b": "bdb4",
+    "0x7a7d": "bdc4",
+    "0x7a7f": "bdd4",
+    "0x7a81": "bde4",
+    "0x7a83": "bdf4"
+  },
+  "address_domains": "Separate FWSEC/PRE_OS IMEM VAs; engine-object/source/stack are synthetic local DMEM. PRI operands and Falcon IO ports are distinct. Destination 0x1c comes from copied PRE_OS interface. Large PRE_OS D[0x140...] operands are not aliased to physical PRI.",
+  "limits": "Interface walk is a file parser cross-checked against retained instructions; upstream firmware load/PIO reads are unexecuted. Writer executes copied control code with synthetic PRI and IO adapters. Capacity 4096 and transport completion/status are fixtures. IO writes are event records, not physical bus emulation. DMEM reconstruction uses documented auto-increment semantics, not observed GPU memory. Callback dispatch stops at first nontrivial init/exit targets; no whole callback sequence completes. A separate bit-6 consumer reaches unexecuted 0x1484; its continuation cases supply explicitly synthetic service returns. Return fragments start after the unexecuted exit callbacks and stop before crypto cleanup. A separate integer-register clearing tail reaches the cleanup exit; crypto, IO and cauth operations before that tail remain unexecuted. The normal copied cleanup exits before returning to the startup epilogue. No whole boot, installed-ROM identity, debug/production equivalence, outage diagnosis, actual HALTED result or recovery method is proven."
+}

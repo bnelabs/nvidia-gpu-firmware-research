@@ -1,0 +1,85 @@
+{
+  "sources": [
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/inc/swref/published/ampere/ga102/dev_falcon_v4.h",
+      "sha256": "42cfc2cfae62b2c2652b3c9d630ef5085e03016dd8ed7dcd30179964aca224ce",
+      "git_blob_sha1": "ff48b61245777fc6e89787d9a2a96cdcfd224dc5",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga102/dev_falcon_v4.h",
+      "excerpts": [
+        {
+          "line_start": 91,
+          "line_end": 105,
+          "text": "#define NV_PFALCON_FALCON_DMEMC(i)                                                                     (0x000001c0+(i)*8) /* RW-4A */\n#define NV_PFALCON_FALCON_DMEMC_OFFS                                                                   7:2            /*       */\n#define NV_PFALCON_FALCON_DMEMC_BLK                                                                    23:8           /*       */\n#define NV_PFALCON_FALCON_DMEMC_AINCW                                                                  24:24          /* RWIVF */\n#define NV_PFALCON_FALCON_DMEMC_AINCW_TRUE                                                             0x00000001     /* RW--V */\n#define NV_PFALCON_FALCON_DMEMC_AINCW_FALSE                                                            0x00000000     /* RW--V */\n#define NV_PFALCON_FALCON_DMEMD(i)                                                                     (0x000001c4+(i)*8) /* RW-4A */\n#define NV_PFALCON_FALCON_DMEMD_DATA                                                                   31:0           /* RWXVF */\n#define NV_PFALCON_FALCON_HWCFG                                                                        0x00000108     /* R--4R */\n#define NV_PFALCON_FALCON_HWCFG_IMEM_SIZE                                                              8:0            /* R--VF */\n#define NV_PFALCON_FALCON_HWCFG2                                                                       0x000000f4     /* R--4R */\n#define NV_PFALCON_FALCON_HWCFG2_RISCV                                                                 10:10          /* R--VF */\n#define NV_PFALCON_FALCON_HWCFG2_RISCV_ENABLE                                                          0x00000001     /* R---V */\n#define NV_PFALCON_FALCON_HWCFG2_MEM_SCRUBBING                                                         12:12          /* R--VF */\n#define NV_PFALCON_FALCON_HWCFG2_MEM_SCRUBBING_DONE                                                    0x00000000     /* R---V */"
+        }
+      ],
+      "compatibility": "Exact GA102 DMEMC/D port offsets and write auto-increment bit 24. This header does not name HWCFG bits 17:9; capacity arithmetic is decoded from copied code."
+    },
+    {
+      "repository": "torvalds/linux",
+      "commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "path": "drivers/gpu/drm/nouveau/nvkm/falcon/v1.c",
+      "sha256": "e70866998b34433a30b7b03a5f614332ac2902cc252bb15aecc3f0cd827bf9c9",
+      "git_blob_sha1": "dd2ddc54ac60a4ff2376ca868641fe14560ded6e",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/falcon/v1.c",
+      "excerpts": [
+        {
+          "line_start": 67,
+          "line_end": 89,
+          "text": "void\nnvkm_falcon_v1_load_dmem(struct nvkm_falcon *falcon, void *data, u32 start,\n\t\t\t u32 size, u8 port)\n{\n\tu8 rem = size % 4;\n\tint i;\n\n\tsize -= rem;\n\n\tnvkm_falcon_wr32(falcon, 0x1c0 + (port * 8), start | (0x1 << 24));\n\tfor (i = 0; i < size / 4; i++)\n\t\tnvkm_falcon_wr32(falcon, 0x1c4 + (port * 8), ((u32 *)data)[i]);\n\n\t/*\n\t * If size is not a multiple of 4, mask the last word to ensure garbage\n\t * does not get written\n\t */\n\tif (rem) {\n\t\tu32 extra = ((u32 *)data)[i];\n\n\t\tnvkm_falcon_wr32(falcon, 0x1c4 + (port * 8),\n\t\t\t\t extra & (BIT(rem * 8) - 1));\n\t}"
+        }
+      ],
+      "compatibility": "Generic Falcon writer uses the same port offsets, control bit and sequential words. Not a GA102 recovery backend or successful card write."
+    },
+    {
+      "repository": "envytools/envytools",
+      "commit": "f102b82381f3f11cee113d16374c87091db039d9",
+      "path": "docs/hw/falcon/proc.rst",
+      "sha256": "ed6a872ea59b47cc38327757372caaeebebcfec2c1967b1adbb3483e3f645493",
+      "git_blob_sha1": "7ccfb74e563433866a25ce2985eb6119f94963ab",
+      "url": "https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/docs/hw/falcon/proc.rst",
+      "excerpts": [
+        {
+          "line_start": 54,
+          "line_end": 85,
+          "text": ".. _falcon-isa-exit:\n\nHalting microcode execution: exit\n---------------------------------\n\nHalts microcode execution, raises EXIT interrupt.\n\nInstructions:\n    ==== ======================== =========\n    Name Description              Subopcode\n    ==== ======================== =========\n    exit Halt microcode execution 2\n    ==== ======================== =========\nInstruction class:\n    unsized\nOperands:\n    [none]\nForms:\n    ============= ======\n    Form          Opcode\n    ============= ======\n    [no operands] f8\n    ============= ======\nOperation:\n    ::\n\n        EXIT;\n\n\n.. _falcon-isa-sleep:\n\nWaiting for interrupts: sleep"
+        }
+      ],
+      "compatibility": "Independent Falcon ISA/data-port comparison. No physical aperture mapping, installed-image or actual HALTED claim."
+    },
+    {
+      "repository": "envytools/envytools",
+      "commit": "f102b82381f3f11cee113d16374c87091db039d9",
+      "path": "docs/hw/falcon/data.rst",
+      "sha256": "03b63751a2b738455c8cc133a740c4a4dae44c4e48b6dc5761442f4724a170f8",
+      "git_blob_sha1": "085eae8ff809ca45516175872f197c0d69d0d61a",
+      "url": "https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/docs/hw/falcon/data.rst",
+      "excerpts": [
+        {
+          "line_start": 248,
+          "line_end": 273,
+          "text": ".. _falcon-io-data:\n\nAccessing data segment through IO\n=================================\n\nOn v3+, the data segment is accessible through normal IO space through\nindex/data reg pairs. The number of available index/data pairs is accessible\nby :ref:`UC_CAPS2 register <falcon-io-uc-caps>`. This number is equal to 4\non PDAEMON, 1 on other engines:\n\nMMIO 0x1c0 + i * 8 / I[0x07000 + i * 0x200]: DATA_INDEX\n  Selects the place in D[] accessed by DATA reg. Bits:\n\n  - bits 2-15: bits 2-15 of the data address to poke\n  - bit 24: write autoincrement flag: if set, every write to corresponding DATA\n    register increments the address by 4\n  - bit 25: read autoincrement flag: like 24, but for reads\n\nMMIO 0x1c4 + i * 8 / I[0x07100 + i * 0x200]: DATA\n  Writes execute ST(32, DATA_INDEX & 0xfffc, value); and increment the address\n  if write autoincrement is enabled. Reads return the result of LD(32,\n  DATA_INDEX & 0xfffc); and increment if read autoincrement is enabled.\n\ni should be less than DATA_PORTS value from\n:ref:`UC_CAPS2 register <falcon-io-uc-caps>`.\n"
+        }
+      ],
+      "compatibility": "Independent Falcon ISA/data-port comparison. No physical aperture mapping, installed-image or actual HALTED claim."
+    }
+  ],
+  "raw_listing_inputs": [
+    {
+      "file": "fwsec.dis",
+      "sha256": "ec97879d6134af73e6f9a61ccdafbbdb8b6922d0a406f4f215100a4b3df6a422"
+    },
+    {
+      "file": "preos.dis",
+      "sha256": "37a6be17eb966ff23016227a9cc399cc89442423dc050838c2cb48ddf499c423"
+    }
+  ],
+  "unresolved": [
+    "Interface ID 0x0e and argument +8 have no imported command/type name.",
+    "PRE_OS startup crypto is excluded; runtime canary is not reconstructed.",
+    "Writer capacity and IO completion/status are synthetic, not incident values.",
+    "IO status loop continues while extracted bits 14:12 equal 1; later status checks are separate.",
+    "Copied PRE_OS exit is Falcon code; actual selected runtime core remains unknown."
+  ]
+}

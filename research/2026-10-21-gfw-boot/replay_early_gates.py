@@ -108,6 +108,9 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         elif op == 0x98:
             size = 3
             putreg(arg & 15, readmem(readreg(arg >> 4) + image[pc+2]*4))
+        elif op == 0xbc and image[pc+2] & 15 == 8:
+            size = 3
+            putreg(image[pc+2] >> 4, readmem(readreg(arg >> 4)+readreg(arg & 15)*4))
         elif op in (0x18, 0x58, 0x3f, 0x7f):
             size = 3 if op in (0x18,0x58) else 2
             width = 2 if op in (0x58,0x7f) else 1
@@ -128,6 +131,11 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             address=readreg(arg >> 4)+(image[pc+2]*2 if op==0x75 else 0)
             value=readreg(arg & 15)
             writesmall(address,value);writesmall(address+1,value>>8)
+        elif op == 0x10:
+            size = 3
+            value = (readreg(arg >> 4)+image[pc+2]) & 255
+            putreg(arg & 15, value)
+            zero = value == 0
         elif op in (0x90, 0x92):
             size = 3
             value = readreg(arg >> 4) + (image[pc+2] if op == 0x90 else -image[pc+2])
@@ -156,9 +164,15 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             value=readreg(arg >> 4)+readreg(arg & 15)
             putreg(image[pc+2] >> 4,value)
             zero=(value & 0xffffffff)==0
-        elif op in (0xa6, 0x66):
+        elif op == 0xb0 and arg & 15 == 6:
+            size = 3
+            left, right = readreg(arg >> 4), image[pc+2]
+            zero = left == right
+            signed_less = (left ^ 0x80000000) < (right ^ 0x80000000)
+            unsigned_below = left < right
+        elif op in (0xa6, 0x66, 0x26):
             size = 2
-            bits = 32 if op == 0xa6 else 16
+            bits = 32 if op == 0xa6 else 16 if op == 0x66 else 8
             left, right = (readreg(arg >> 4) & ((1 << bits)-1),
                            readreg(arg & 15) & ((1 << bits)-1))
             zero = left == right
@@ -223,6 +237,11 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             value=fixture_read(address,io_fixture,io_read_sequences,'Falcon IO')
             putreg(arg & 15,value)
             events.append({'kind':'synthetic_falcon_io_read','address':hex(address),'value':value})
+        elif op == 0xfa and image[pc+2] in (0,1):
+            size = 3
+            events.append({'kind':'synthetic_falcon_io_write',
+                           'address':hex(readreg(arg >> 4)), 'value':readreg(arg & 15),
+                           'instruction':'iowrs' if image[pc+2] else 'iowr'})
         elif op == 0x3e:
             size = 4
             target = int.from_bytes(image[pc+1:pc+4], 'little')
@@ -250,6 +269,16 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         elif op == 0xf9 and arg & 15 == 2:
             size = 2
             for r in range((arg >> 4) + 1):push(readreg(r))
+        elif op == 0xf9 and arg & 15 == 5:
+            size = 2
+            call = readreg(arg >> 4)
+            if call not in calls:raise ValueError(f'unmodeled indirect call {call:x}')
+            push(pc+size)
+            target = call
+        elif op == 0xfb and arg & 15 == 1:
+            size = 2
+            for r in reversed(range((arg >> 4) + 1)):putreg(r, pop())
+            target = pop()
         elif op == 0xfb and arg & 15 == 5:
             size = 3
             for r in reversed(range((arg >> 4) + 1)):putreg(r, pop())
@@ -280,7 +309,8 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
                 raise ValueError(f'unmodeled call {call:x}')
         else:
             raise ValueError(f'unsupported bytes at {pc:x}: {image[pc:pc+6].hex()}')
-        if op not in (0xa6, 0x66):signed_less = unsigned_below = None
+        if op not in (0xa6, 0x66, 0x26) and not (op == 0xb0 and arg & 15 == 6):
+            signed_less = unsigned_below = None
         trace.append({'firmware_imem_va': hex(pc), 'raw': image[pc:pc+size].hex(),
                       'next_pc': hex(pc+size if target is None else target)})
         pc = pc + size if target is None else target
