@@ -46,6 +46,15 @@ DMEM port definitions, generic nouveau transfer code and independent Falcon
 ISA documentation are compared with compatibility limits in the packet.
 
 ## Claim record
+
+The [memory-research review](research/2026-10-22-memory-research/README.md)
+retains selected GeForge, GDDRHammer and GPUBreach files at pinned commits.
+CPU-only utility fixtures preserve map aliases, ambiguous anchor candidates,
+missing bank metadata and failed timing-window outcomes. Official NVIDIA
+580.95.05 queue layout differs from the byte-identical 615.71.09/615.78.08
+MCTP/NVDM headers. Compiled structure offsets are not runtime captures, proof
+of a security fix or a recovery backend. No upstream hardware program ran.
+
 For each finding store:
 - ID and narrow question, competing explanations, and status.
 - Artifact origin/version, SHA-256 and byte length; original bytes remain unchanged.

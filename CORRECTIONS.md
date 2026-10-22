@@ -31,6 +31,15 @@ against physical hardware. See [CONSTITUTION.md](CONSTITUTION.md).
 
 Raw evidence and limits: [boot packet](research/2026-10-21-gfw-boot/README.md).
 
+The supplied GPUBreach queue helper targets a legacy layout corroborated by
+580.95.05 source. Its checksum/sequence/element-count offsets are not members
+of the copied 615 MCTP/NVDM element. Byte-identical nearby 615 queue headers
+establish that format comparison, not a security-fix conclusion or live ABI.
+GeForge anchor scores can tie, and GDDRHammer helpers can label incomplete
+metadata complete or return a delay after a failed stable-window search.
+Do not promote those outputs to observed physical addresses or calibration.
+See the [source review and CPU fixtures](research/2026-10-22-memory-research/README.md).
+
 | Earlier claim | Current disposition | Evidence / next offline step |
 |---|---|---|
 | Read-only means harmless / zero impact | Retracted. Reads may wake hardware, contend or have device-specific effects. No custom hardware probes. | PCI utilities explicitly warn about some broad config reads; [upstream manual](https://github.com/pciutils/pciutils/blob/master/lspci.man). |

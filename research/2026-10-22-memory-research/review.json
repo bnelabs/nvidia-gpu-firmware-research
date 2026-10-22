@@ -1,0 +1,150 @@
+{
+  "checked_source_files": 26,
+  "results": {
+    "retained_map_translation": {
+      "cases": [
+        {
+          "input_synthetic_pa": "0x200000",
+          "translated_va": "0x100000000"
+        },
+        {
+          "input_synthetic_pa": "0x3fffff",
+          "translated_va": "0x1001fffff"
+        },
+        {
+          "input_synthetic_pa": "0x400000",
+          "translated_va": null
+        }
+      ],
+      "window_exclusion_preserved": true,
+      "limits": "Explicit synthetic 2 MiB mapping only; missing mappings stay missing. No board hash, PA acquisition or GA102 runtime mapping is supplied."
+    },
+    "mapping_aliases": {
+      "default_export": {
+        "0x200000": "0x100000000"
+      },
+      "aliases": {
+        "0x200000": [
+          "0x100000000",
+          "0x200000000"
+        ]
+      },
+      "warning": "[WARNING] Detected multiple VAs for the same PA: 0x200000 -> 0x100000000, 0x200000000",
+      "implication": "The default JSON map keeps one VA; retain the alias set separately. This can be legitimate aliasing, not proof of corrupt page tables."
+    },
+    "ambiguous_anchor": {
+      "synthetic_fingerprint_pages": [
+        0,
+        1,
+        2
+      ],
+      "synthetic_observed_pages": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        12
+      ],
+      "equally_matching_candidates": [
+        0,
+        10
+      ],
+      "upstream_stdout": "[align] best candidate: anchor at offset 0 (page 0); matched 2/2 hops\n[align] inferred chunk base PA = 0x40000000 (= T*2MB - anchor_off = 1073741824 - 0)",
+      "upstream_stderr": "",
+      "implication": "Upstream picks the first highest score without reporting this tie. Its inferred PA is not unique evidence and must not become a measured address."
+    },
+    "flip_record_without_bank": {
+      "parsed": [
+        {
+          "bank": null,
+          "row": 7,
+          "byte": 3,
+          "bit": 2,
+          "direction": "0->1",
+          "address": "0x1234"
+        }
+      ],
+      "upstream_summary": {
+        "total": 1,
+        "complete": 1,
+        "partial": 0,
+        "unique": 1
+      },
+      "implication": "Upstream complete status excludes bank/address checks. Preserve missing bank and the source address domain; this fixture proves no physical bit flip."
+    },
+    "no_stable_timing_window": {
+      "input_synthetic": [
+        1,
+        2
+      ],
+      "stable_index": -1,
+      "upstream_fallback_delay": 1001,
+      "implication": "No stable window was found. Retain that outcome instead of treating the numeric fallback as calibrated timing. Comment says index+2000 but implementation uses +1000; acquisition units/range must be checked separately."
+    },
+    "queue_layout_comparison": {
+      "580.95.05": {
+        "fields": {
+          "checkSum": 32,
+          "seqNum": 36,
+          "elemCount": 40,
+          "rpc": 48
+        },
+        "structure_sha256": "83362f33fa128330e8f2a76feff48f56b53b1c6da2946ab4d7d4ab15f2034cd8",
+        "hwasan": false,
+        "limits": "Copied structure compiled with integer aliases and a synthetic 16-byte RPC placeholder. Reported member offsets do not establish full RPC size, runtime queue selection, receiver safety or firmware compatibility."
+      },
+      "615.71.09": {
+        "fields": {
+          "mctpMagic": 0,
+          "mctpPayloadSize": 4,
+          "mctpHeader": 8,
+          "nvdmHeader": 12,
+          "no_cc_size": 16,
+          "no_cc_payload": 24,
+          "cc_tag": 16,
+          "cc_size": 32,
+          "cc_payload": 40
+        },
+        "structure_sha256": "eced56aec44ebc384e43f72d75d69caa006fb6a6b4550e8c2e3d845de82716ed",
+        "hwasan": false,
+        "limits": "Copied structure compiled with integer aliases and a synthetic 16-byte RPC placeholder. Reported member offsets do not establish full RPC size, runtime queue selection, receiver safety or firmware compatibility."
+      },
+      "615.78.08": {
+        "fields": {
+          "mctpMagic": 0,
+          "mctpPayloadSize": 4,
+          "mctpHeader": 8,
+          "nvdmHeader": 12,
+          "no_cc_size": 16,
+          "no_cc_payload": 24,
+          "cc_tag": 16,
+          "cc_size": 32,
+          "cc_payload": 40
+        },
+        "structure_sha256": "eced56aec44ebc384e43f72d75d69caa006fb6a6b4550e8c2e3d845de82716ed",
+        "hwasan": false,
+        "limits": "Copied structure compiled with integer aliases and a synthetic 16-byte RPC placeholder. Reported member offsets do not establish full RPC size, runtime queue selection, receiver safety or firmware compatibility."
+      },
+      "615.71.09_hwasan": {
+        "fields": {
+          "mctpMagic": 0,
+          "mctpPayloadSize": 4,
+          "mctpHeader": 8,
+          "nvdmHeader": 12,
+          "no_cc_size": 24,
+          "no_cc_payload": 32,
+          "cc_tag": 24,
+          "cc_size": 40,
+          "cc_payload": 48
+        },
+        "structure_sha256": "eced56aec44ebc384e43f72d75d69caa006fb6a6b4550e8c2e3d845de82716ed",
+        "hwasan": true,
+        "limits": "Copied structure compiled with integer aliases and a synthetic 16-byte RPC placeholder. Reported member offsets do not establish full RPC size, runtime queue selection, receiver safety or firmware compatibility."
+      },
+      "headers_byte_identical_615_pair": true,
+      "implication": "GPUBreach legacy checksum/sequence/element-count offsets are not fields of the copied 615 MCTP/NVDM element. This format difference alone proves neither vulnerability remediation nor incident causality. Runtime transport, encryption and HWASAN build configuration are unknown."
+    }
+  },
+  "limits": "All utility fixtures and C aliases/structures are CPU-only. No CUDA application, attack, dumper, modifier, setup, live query or original smoke dispatcher ran. Third-party results are leads, not measurements of our GPU. These applications require a running CUDA/driver environment and provide no demonstrated recovery for the retained pre-runtime GFW_BOOT failure."
+}

@@ -59,6 +59,14 @@ run `tests/check.sh` through `scripts/run_cpu_only.sh` before publishing.
 
 ## Earlier telemetry result and next question
 
+The owner also supplied GeForge, GDDRHammer and GPUBreach. Selected sources,
+CPU-only utility checks and a 580-versus-615 queue-format comparison are in the
+[memory-research review](research/2026-10-22-memory-research/README.md).
+Their runtime memory attacks are not a GFW_BOOT recovery method. Reuse file
+formats/analysis only; preserve ambiguous addresses and missing metadata.
+Later protocol work can trace the 615 MCTP/NVDM receiver with synthetic frames.
+The PRE_OS callees above remain the immediate recovery research priority.
+
 The 615.71.09 P-state path is traced through the host shared-data reader, firmware
 writer, internal RM dispatch, Perf table getter and one entry constructor.
 The latest [record-producer analysis](research/2026-10-21-record-producer/README.md)

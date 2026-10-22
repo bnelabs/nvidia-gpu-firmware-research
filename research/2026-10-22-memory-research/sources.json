@@ -1,0 +1,367 @@
+{
+  "acquired_utc_date": "2026-10-22",
+  "files": [
+    {
+      "repository": "stefan1wan/GeForge",
+      "commit": "d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62",
+      "path": "mapping/README.md",
+      "git_blob_sha1": "77cf06a76bc0659ee82b55c1bd7379cae0d7d6f5",
+      "version": null,
+      "retained_file": "vendor/memory-research/GeForge/mapping/README.md",
+      "url": "https://github.com/stefan1wan/GeForge/blob/d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62/mapping/README.md",
+      "sha256": "81366d1bcb55f5287f72d3532c5f2c27cfbe95a963449893aa0f6e5b6d57c851",
+      "bytes": 312
+    },
+    {
+      "repository": "stefan1wan/GeForge",
+      "commit": "d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62",
+      "path": "fuzzer/scripts/gen_layout_1_bank.py",
+      "git_blob_sha1": "1668b4526a616056372d3abdec0f118525a38bc6",
+      "version": null,
+      "retained_file": "vendor/memory-research/GeForge/fuzzer/scripts/gen_layout_1_bank.py",
+      "url": "https://github.com/stefan1wan/GeForge/blob/d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62/fuzzer/scripts/gen_layout_1_bank.py",
+      "sha256": "c57bc77c52a85bc75c4a158068869473b6e5662b639fb17685515e1be84469f3",
+      "bytes": 8613,
+      "excerpts": [
+        {
+          "line_start": 95,
+          "line_end": 112,
+          "text": "def translate_pa(pa: int, pa2va: Dict[str, int],\n                 va_base: int, va_size: int) -> Optional[int]:\n    \"\"\"PA -> VA via the 2MB-base map. Returns None if the bucket isn't\n    mapped or the resulting VA is outside the [va_base, va_base+va_size)\n    window.\"\"\"\n    key = _norm_2mb_key(pa)\n    va_bucket = pa2va.get(key)\n    if va_bucket is None:\n        return None\n    va = va_bucket + (pa & ~MASK_2MB)\n    if va < va_base or va - va_base >= va_size:\n        return None\n    return va\n\n\ndef _emit_one(in_pa_bank: Path, pa2va: Dict[str, int], out_path: Path,\n              va_base: int, va_size: int) -> str:\n    \"\"\"Translate one PA-bank file to its VA-layout output. Returns a one-line summary.\"\"\""
+        }
+      ]
+    },
+    {
+      "repository": "stefan1wan/GeForge",
+      "commit": "d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62",
+      "path": "fuzzer/scripts/extract_PA-VA-2MB-Mapping.py",
+      "git_blob_sha1": "818529fec2c792b341d818e15b9c6c5ca5bd9cab",
+      "version": null,
+      "retained_file": "vendor/memory-research/GeForge/fuzzer/scripts/extract_PA-VA-2MB-Mapping.py",
+      "url": "https://github.com/stefan1wan/GeForge/blob/d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62/fuzzer/scripts/extract_PA-VA-2MB-Mapping.py",
+      "sha256": "bce76f268295f3549b928e440e0ba7a7dadc5c6383002ec8f6056f845e9b1e6e",
+      "bytes": 3697,
+      "excerpts": [
+        {
+          "line_start": 34,
+          "line_end": 51,
+          "text": "            if pa in mapping:\n                if mapping[pa] != va:\n                    print(f\"[WARNING] Detected multiple VAs for the same PA: {pa} -> {mapping[pa]}, {va}\")\n                    collisions[pa].update([mapping[pa], va])\n                    if keep_duplicates:\n                        mapping[pa] = va\n                # If the same mapping, ignore it\n            else:\n                mapping[pa] = va\n\n    if sort_keys:\n        # sort by numeric value (hex), fallback to string sorting\n        try:\n            mapping = OrderedDict(sorted(mapping.items(), key=lambda kv: int(kv[0], 16)))\n        except Exception:\n            mapping = OrderedDict(sorted(mapping.items(), key=lambda kv: kv[0]))\n\n    return mapping, collisions"
+        }
+      ]
+    },
+    {
+      "repository": "stefan1wan/GeForge",
+      "commit": "d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62",
+      "path": "page-anchoring/scripts/align_anchor.py",
+      "git_blob_sha1": "664a3777883eac25ea41496be3416bd60feee8a5",
+      "version": null,
+      "retained_file": "vendor/memory-research/GeForge/page-anchoring/scripts/align_anchor.py",
+      "url": "https://github.com/stefan1wan/GeForge/blob/d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62/page-anchoring/scripts/align_anchor.py",
+      "sha256": "fdac67e018da55b9779783b284631fa1516469564cf2adb20a9942feb1a364e6",
+      "bytes": 3253,
+      "excerpts": [
+        {
+          "line_start": 52,
+          "line_end": 69,
+          "text": "    best = None\n    for cand in online_pages:\n        matched = sum(1 for h in fp_pages if (cand + h) in online_set)\n        if best is None or matched > best[0]:\n            best = (matched, cand)\n\n    if best is None:\n        print(\"[align] no candidate\", file=sys.stderr); sys.exit(2)\n\n    matched, anchor_page = best\n    anchor_off = anchor_page * PAGE\n    print(f\"[align] best candidate: anchor at offset {anchor_off} \"\n          f\"(page {anchor_page}); matched {matched}/{len(fp_pages)} hops\")\n\n    if matched < max(2, len(fp_pages) // 2):\n        print(f\"[align] WARNING: matched only {matched}/{len(fp_pages)} \u2014 \"\n              f\"fingerprint may not be unique enough or the chunk doesn't \"\n              f\"contain the anchor\", file=sys.stderr)"
+        }
+      ]
+    },
+    {
+      "repository": "stefan1wan/GeForge",
+      "commit": "d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62",
+      "path": "tests/smoke.sh",
+      "git_blob_sha1": "dc9abcc845791aa67b95afeb59ccfe8fc1912a94",
+      "version": null,
+      "retained_file": "vendor/memory-research/GeForge/tests/smoke.sh",
+      "url": "https://github.com/stefan1wan/GeForge/blob/d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62/tests/smoke.sh",
+      "sha256": "edf07150bbbbe17f655ff0b701574a0d4d4477595d70cd94cc37d44e60a4413e",
+      "bytes": 6130
+    },
+    {
+      "repository": "stefan1wan/GeForge",
+      "commit": "d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62",
+      "path": "attack/attack-A6000/utils/phy_layout.cuh",
+      "git_blob_sha1": "13bd73af512df52b17fde813e93a0cf62ec2f979",
+      "version": null,
+      "retained_file": "vendor/memory-research/GeForge/attack/attack-A6000/utils/phy_layout.cuh",
+      "url": "https://github.com/stefan1wan/GeForge/blob/d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62/attack/attack-A6000/utils/phy_layout.cuh",
+      "sha256": "a3f69f1962f679ef75e666b7e2475b285621e9c43ce8c7b66fc67e7dd4bc4458",
+      "bytes": 3376
+    },
+    {
+      "repository": "stefan1wan/GeForge",
+      "commit": "d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62",
+      "path": "page-anchoring/README.md",
+      "git_blob_sha1": "8b4cbe9a98041e01b2d18e1c05a1b109d546645b",
+      "version": null,
+      "retained_file": "vendor/memory-research/GeForge/page-anchoring/README.md",
+      "url": "https://github.com/stefan1wan/GeForge/blob/d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62/page-anchoring/README.md",
+      "sha256": "1a30ff5822a1107d5643f46f7c40693af134e487f3bc9036f551b43ba71d977f",
+      "bytes": 2665
+    },
+    {
+      "repository": "heelsec/GDDRHammer",
+      "commit": "30673e5433440fcc39dd27833563a29326b61add",
+      "path": "rowhammer/README.md",
+      "git_blob_sha1": "9a279575c2863b134f44af9a7c77e30670497d48",
+      "version": null,
+      "retained_file": "vendor/memory-research/GDDRHammer/rowhammer/README.md",
+      "url": "https://github.com/heelsec/GDDRHammer/blob/30673e5433440fcc39dd27833563a29326b61add/rowhammer/README.md",
+      "sha256": "01e4d8323d935ac7e6826d394b71e72da7cabab02dd5b9d1f27a9ed080a267b7",
+      "bytes": 2754
+    },
+    {
+      "repository": "heelsec/GDDRHammer",
+      "commit": "30673e5433440fcc39dd27833563a29326b61add",
+      "path": "rowhammer/util/parse_flips.py",
+      "git_blob_sha1": "8a946f8d860d4ee784ebcef4ef01d11ca825ac63",
+      "version": null,
+      "retained_file": "vendor/memory-research/GDDRHammer/rowhammer/util/parse_flips.py",
+      "url": "https://github.com/heelsec/GDDRHammer/blob/30673e5433440fcc39dd27833563a29326b61add/rowhammer/util/parse_flips.py",
+      "sha256": "7faa65f82a4d8c7c1bcff95e777341d42f3cea7b3e16a70dced608a771e18628",
+      "bytes": 7668,
+      "excerpts": [
+        {
+          "line_start": 135,
+          "line_end": 152,
+          "text": "def is_complete(flip: Dict) -> bool:\n    return all(\n        flip.get(k) is not None\n        for k in (\"row\", \"byte\", \"bit\", \"direction\")\n    )\n\n\ndef unique_key(flip: Dict) -> Tuple:\n    return (\n        flip.get(\"bank\"),\n        flip.get(\"row\"),\n        flip.get(\"byte\"),\n        flip.get(\"bit\"),\n        flip.get(\"direction\"),\n    )\n\n\ndef summarize(flips: List[Dict]):"
+        }
+      ]
+    },
+    {
+      "repository": "heelsec/GDDRHammer",
+      "commit": "30673e5433440fcc39dd27833563a29326b61add",
+      "path": "rowhammer/util/process_delays.py",
+      "git_blob_sha1": "9e204cc715bdc1ca1e327dc54889a17397ae8e59",
+      "version": null,
+      "retained_file": "vendor/memory-research/GDDRHammer/rowhammer/util/process_delays.py",
+      "url": "https://github.com/heelsec/GDDRHammer/blob/30673e5433440fcc39dd27833563a29326b61add/rowhammer/util/process_delays.py",
+      "sha256": "5a3d4c74e607c73e97e725f35fbd720e7852a287dcf64ad0764101c09a8ff5cc",
+      "bytes": 5743,
+      "excerpts": [
+        {
+          "line_start": 105,
+          "line_end": 122,
+          "text": "def compute_stable_value(times: List[int]) -> int:\n    if not times:\n        raise ValueError(\"Empty time list\")\n    idx = find_stable_delay_index(times, MIN_NS_DEFAULT, MAX_NS_DEFAULT)\n    print(f\"Stable index found at: {idx}\")\n    if idx < 0:\n        idx = pick_closest_to_target(times, TARGET_NS)\n    # kernel scanned [2000, 4000), so index maps to delay value by +2000\n    stable_value = idx + 1000\n    return int(stable_value)\n\n\ndef collect_delay_files(in_dir: Path) -> List[Path]:\n    files = []\n    for entry in in_dir.iterdir():\n        if not entry.is_file():\n            continue\n        name = entry.name"
+        }
+      ]
+    },
+    {
+      "repository": "heelsec/GDDRHammer",
+      "commit": "30673e5433440fcc39dd27833563a29326b61add",
+      "path": "rowhammer/src/re_gddr/drama_conflict_prober.cuh",
+      "git_blob_sha1": "18d188ae6800d67a48750150832b825c9a557f7f",
+      "version": null,
+      "retained_file": "vendor/memory-research/GDDRHammer/rowhammer/src/re_gddr/drama_conflict_prober.cuh",
+      "url": "https://github.com/heelsec/GDDRHammer/blob/30673e5433440fcc39dd27833563a29326b61add/rowhammer/src/re_gddr/drama_conflict_prober.cuh",
+      "sha256": "0d6e7daeeaa686074e51f847f0895a6649ddb162fb183a65d6aeec286e0da968",
+      "bytes": 3021
+    },
+    {
+      "repository": "heelsec/GDDRHammer",
+      "commit": "30673e5433440fcc39dd27833563a29326b61add",
+      "path": "rowhammer/src/include/rh_utils.cu",
+      "git_blob_sha1": "2fb43cf08d9efc982ca895106612bda841c03f5b",
+      "version": null,
+      "retained_file": "vendor/memory-research/GDDRHammer/rowhammer/src/include/rh_utils.cu",
+      "url": "https://github.com/heelsec/GDDRHammer/blob/30673e5433440fcc39dd27833563a29326b61add/rowhammer/src/include/rh_utils.cu",
+      "sha256": "f1894132cfa9155735d0073d3f14cbb0fa753f0be86187b66520c0f56e328c8a",
+      "bytes": 7836
+    },
+    {
+      "repository": "heelsec/GDDRHammer",
+      "commit": "30673e5433440fcc39dd27833563a29326b61add",
+      "path": "exploit/README.md",
+      "git_blob_sha1": "7763454ee20a7dfe2f3541cc070bd270651237ee",
+      "version": null,
+      "retained_file": "vendor/memory-research/GDDRHammer/exploit/README.md",
+      "url": "https://github.com/heelsec/GDDRHammer/blob/30673e5433440fcc39dd27833563a29326b61add/exploit/README.md",
+      "sha256": "b63d4b319336695165fb446c2248bc3019995958af8ee7eb8ece24f727c1eb72",
+      "bytes": 8675
+    },
+    {
+      "repository": "sith-lab/gpubreach",
+      "commit": "237c5744eea98021e3a5ae4c986c83e3ed5830bd",
+      "path": "src/README.md",
+      "git_blob_sha1": "9c9c7d86f2c15e509245c3a2334691669461860c",
+      "version": null,
+      "retained_file": "vendor/memory-research/gpubreach/src/README.md",
+      "url": "https://github.com/sith-lab/gpubreach/blob/237c5744eea98021e3a5ae4c986c83e3ed5830bd/src/README.md",
+      "sha256": "3527b66d21a7e3b3525c875d78553a0ff1542b8c043f4439f28248ef2853203d",
+      "bytes": 9518
+    },
+    {
+      "repository": "sith-lab/gpubreach",
+      "commit": "237c5744eea98021e3a5ae4c986c83e3ed5830bd",
+      "path": "gpu-tlb/extractor/trans.h",
+      "git_blob_sha1": "f6e7d6cf8e114cba6ee9284f84435b004da461bc",
+      "version": null,
+      "retained_file": "vendor/memory-research/gpubreach/gpu-tlb/extractor/trans.h",
+      "url": "https://github.com/sith-lab/gpubreach/blob/237c5744eea98021e3a5ae4c986c83e3ed5830bd/gpu-tlb/extractor/trans.h",
+      "sha256": "bb692f6e47840990411854b3665d06d143ce4d65c4e70d86d294cfb127422f77",
+      "bytes": 1092
+    },
+    {
+      "repository": "sith-lab/gpubreach",
+      "commit": "237c5744eea98021e3a5ae4c986c83e3ed5830bd",
+      "path": "gpu-tlb/extractor/page.cpp",
+      "git_blob_sha1": "ac7de8dab528696520c6c5fa88e3a8bb9ea88960",
+      "version": null,
+      "retained_file": "vendor/memory-research/gpubreach/gpu-tlb/extractor/page.cpp",
+      "url": "https://github.com/sith-lab/gpubreach/blob/237c5744eea98021e3a5ae4c986c83e3ed5830bd/gpu-tlb/extractor/page.cpp",
+      "sha256": "2b516f8ced44511ea9768a38261d5a737f9d1bf3f0236ddc2d4901d7f7da5cae",
+      "bytes": 2442
+    },
+    {
+      "repository": "sith-lab/gpubreach",
+      "commit": "237c5744eea98021e3a5ae4c986c83e3ed5830bd",
+      "path": "gpu-tlb/extractor/page-tab.cpp",
+      "git_blob_sha1": "d5edd1941a6db49cc27ee3e020200481bdb0777d",
+      "version": null,
+      "retained_file": "vendor/memory-research/gpubreach/gpu-tlb/extractor/page-tab.cpp",
+      "url": "https://github.com/sith-lab/gpubreach/blob/237c5744eea98021e3a5ae4c986c83e3ed5830bd/gpu-tlb/extractor/page-tab.cpp",
+      "sha256": "b687f68dd352465538f5177459574c74504c7fcbd7a35d258f82e7679be8997e",
+      "bytes": 2290
+    },
+    {
+      "repository": "sith-lab/gpubreach",
+      "commit": "237c5744eea98021e3a5ae4c986c83e3ed5830bd",
+      "path": "d2h-tools/cpu-exploit/checksum_helper.h",
+      "git_blob_sha1": "13dcf191847f451e9e3418ef4bd600c6f238932e",
+      "version": null,
+      "retained_file": "vendor/memory-research/gpubreach/d2h-tools/cpu-exploit/checksum_helper.h",
+      "url": "https://github.com/sith-lab/gpubreach/blob/237c5744eea98021e3a5ae4c986c83e3ed5830bd/d2h-tools/cpu-exploit/checksum_helper.h",
+      "sha256": "604b4a37bc28bc8f754214fd635e280aa3ce6bf1a06e88d332bbe542bdb1c1b0",
+      "bytes": 4165,
+      "excerpts": [
+        {
+          "line_start": 80,
+          "line_end": 97,
+          "text": "struct __attribute__((packed)) StatusQueueEntryV2\n{\n    uint8_t header[32];     // 0x00-0x1F\n    uint32_t checkSum;      // 0x20-0x23 (low 32 bits)\n    uint32_t seqNum;        // 0x24-0x27\n    uint32_t elemCount;     // 0x28-0x2B\n    uint32_t reserved;      // 0x2C-0x2F\n    uint32_t rpc_version;   // 0x30-0x33\n    uint32_t rpc_signature; // 0x34-0x37 (\"VRPC\")\n    uint32_t rpc_length;    // 0x38-0x3B\n    uint32_t rpc_messageId; // 0x3C-0x3F\n    uint8_t rpc_data[4032]; // 0x40-0xFFF (4096 - 64 = 4032)\n};\n\nstatic_assert(sizeof(StatusQueueEntryV2) == 4096, \"Entry must be exactly 4KB\");\n\n// Helper: Calculate checksum for a constructed entry\n// Sets checksum field to make overall checksum == 0"
+        }
+      ]
+    },
+    {
+      "repository": "sith-lab/gpubreach",
+      "commit": "237c5744eea98021e3a5ae4c986c83e3ed5830bd",
+      "path": "d2h-tools/cpu-exploit/cpu-exploit.cu",
+      "git_blob_sha1": "fe34746be2962379525a50eb55fe7a491a02e610",
+      "version": null,
+      "retained_file": "vendor/memory-research/gpubreach/d2h-tools/cpu-exploit/cpu-exploit.cu",
+      "url": "https://github.com/sith-lab/gpubreach/blob/237c5744eea98021e3a5ae4c986c83e3ed5830bd/d2h-tools/cpu-exploit/cpu-exploit.cu",
+      "sha256": "7fc7d2249dcdcb0342942c5b102b0681d2939198cf1247b707485c142964b3e4",
+      "bytes": 32062
+    },
+    {
+      "repository": "sith-lab/gpubreach",
+      "commit": "237c5744eea98021e3a5ae4c986c83e3ed5830bd",
+      "path": "d2h-tools/gpu_mem_dumper/scripts/analyze_alloc.py",
+      "git_blob_sha1": "07bbd7bdce7cf8108b9de7e42ff1276f974a1a0c",
+      "version": null,
+      "retained_file": "vendor/memory-research/gpubreach/d2h-tools/gpu_mem_dumper/scripts/analyze_alloc.py",
+      "url": "https://github.com/sith-lab/gpubreach/blob/237c5744eea98021e3a5ae4c986c83e3ed5830bd/d2h-tools/gpu_mem_dumper/scripts/analyze_alloc.py",
+      "sha256": "ca3fa68d4ef1fafa353ede5de7f489d7ed1901757c7b35e5590d5315104f394b",
+      "bytes": 5150
+    },
+    {
+      "repository": "stefan1wan/GeForge",
+      "commit": "d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62",
+      "path": "README.md",
+      "git_blob_sha1": "594e52c76f77afb306fd9180e38d5438bd986a76",
+      "version": null,
+      "retained_file": "vendor/memory-research/GeForge/README.md",
+      "url": "https://github.com/stefan1wan/GeForge/blob/d3d113a5fcb6b1a7154d18467cf3b4e7174e1d62/README.md",
+      "sha256": "60ac70192630a5e8af4ee5243bef56624ca338bf3b87be732a8a8d2711ec65d8",
+      "bytes": 3605
+    },
+    {
+      "repository": "heelsec/GDDRHammer",
+      "commit": "30673e5433440fcc39dd27833563a29326b61add",
+      "path": "README.md",
+      "git_blob_sha1": "833f1f022a7d8fecf55169c9355c829d95d7eba2",
+      "version": null,
+      "retained_file": "vendor/memory-research/GDDRHammer/README.md",
+      "url": "https://github.com/heelsec/GDDRHammer/blob/30673e5433440fcc39dd27833563a29326b61add/README.md",
+      "sha256": "6cfa85705f767a10dbb24c94e90b19b809392c80df08a80ae2e2e10fb7314b92",
+      "bytes": 1617
+    },
+    {
+      "repository": "sith-lab/gpubreach",
+      "commit": "237c5744eea98021e3a5ae4c986c83e3ed5830bd",
+      "path": "README.md",
+      "git_blob_sha1": "4ea997e85dc12857c2760556d18b62c52579851d",
+      "version": null,
+      "retained_file": "vendor/memory-research/gpubreach/README.md",
+      "url": "https://github.com/sith-lab/gpubreach/blob/237c5744eea98021e3a5ae4c986c83e3ed5830bd/README.md",
+      "sha256": "2e80ddf6aea6f495c8615106b0b519c044e1e6d99e998db22cd7cbbfa49943f6",
+      "bytes": 19053
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "2b436058a616676ec888ef3814d1db6b2220f2eb",
+      "path": "src/nvidia/inc/kernel/gpu/gsp/message_queue_priv.h",
+      "git_blob_sha1": "f25a7dfcfd1cf572b7506e86145081104637b992",
+      "version": "580.95.05",
+      "retained_file": "vendor/memory-research/nvidia-580.95.05/message_queue_priv.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/2b436058a616676ec888ef3814d1db6b2220f2eb/src/nvidia/inc/kernel/gpu/gsp/message_queue_priv.h",
+      "sha256": "cbb3aa6001524c75ba3f570dc0e92523f042a293aa6e3779ac00162c100a2980",
+      "bytes": 5006,
+      "excerpts": [
+        {
+          "line_start": 43,
+          "line_end": 51,
+          "text": "typedef struct GSP_MSG_QUEUE_ELEMENT\n{\n    NvU8  authTagBuffer[16];         // Authentication tag buffer.\n    NvU8  aadBuffer[16];             // AAD buffer.\n    NvU32 checkSum;                  // Set to value needed to make checksum always zero.\n    NvU32 seqNum;                    // Sequence number maintained by the message queue.\n    NvU32 elemCount;                 // Number of message queue elements this message has.\n    NV_DECLARE_ALIGNED(rpc_message_header_v rpc, 8);\n} GSP_MSG_QUEUE_ELEMENT;"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/inc/kernel/gpu/gsp/message_queue_priv.h",
+      "git_blob_sha1": "a6d99fdb0cda1fe0ec55a824c074642a7f2a8d22",
+      "version": "615.71.09",
+      "retained_file": "vendor/memory-research/nvidia-615.71.09/message_queue_priv.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/inc/kernel/gpu/gsp/message_queue_priv.h",
+      "sha256": "1092964a631de3af4b0f111be5dd9f04b37c7e7d1e9e7a6871c1da9d577089f3",
+      "bytes": 8917,
+      "excerpts": [
+        {
+          "line_start": 90,
+          "line_end": 121,
+          "text": "typedef struct NV_ABI_STABLE GSP_MSG_QUEUE_ELEMENT\n{\n#define MCTP_MAGIC      0x4D435450   // \"MCTP\"\n#define MCTP_MAGIC_SEEN 0x5345454E   // \"SEEN\"\n    NvU32 mctpMagic;                 // \"MCTP\"\n    NvU32 mctpPayloadSize;           // Size of the full (encrypted?) payload\n    NvU32 mctpHeader;                // MCTP transport header\n    NvU32 nvdmHeader;                // NVDM over MCTP header\n\n#ifdef GSPRM_HWASAN_ENABLE\n    // This is required to align `payload` on a granule-boundary. The specific\n    // alignment has to do with implementation details of shadow memory. For\n    // our purposes, we just need to have it be 16-byte aligned.\n    NvU8 __hwasan_meta_chromatics_padding[8];\n#endif\n    union\n    {\n        struct\n        {\n            GSP_MSG_QUEUE_ENCRYPTION_TAG encryptionTag;\n            NvU32 nvdmPayloadSize;\n            NvU32 reserved;\n            NvU8 payload[];  // vGPU RPC or GMCAPI payload\n        } withEncryption;\n        struct\n        {\n            NvU32 nvdmPayloadSize;\n            NvU32 reserved;\n            NvU8 payload[];  // vGPU RPC or GMCAPI payload\n        } noEncryption;\n    };\n} GSP_MSG_QUEUE_ELEMENT;"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "path": "src/nvidia/inc/kernel/gpu/gsp/message_queue_priv.h",
+      "git_blob_sha1": "a6d99fdb0cda1fe0ec55a824c074642a7f2a8d22",
+      "version": "615.78.08",
+      "retained_file": "vendor/memory-research/nvidia-615.78.08/message_queue_priv.h",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/inc/kernel/gpu/gsp/message_queue_priv.h",
+      "sha256": "1092964a631de3af4b0f111be5dd9f04b37c7e7d1e9e7a6871c1da9d577089f3",
+      "bytes": 8917,
+      "excerpts": [
+        {
+          "line_start": 90,
+          "line_end": 121,
+          "text": "typedef struct NV_ABI_STABLE GSP_MSG_QUEUE_ELEMENT\n{\n#define MCTP_MAGIC      0x4D435450   // \"MCTP\"\n#define MCTP_MAGIC_SEEN 0x5345454E   // \"SEEN\"\n    NvU32 mctpMagic;                 // \"MCTP\"\n    NvU32 mctpPayloadSize;           // Size of the full (encrypted?) payload\n    NvU32 mctpHeader;                // MCTP transport header\n    NvU32 nvdmHeader;                // NVDM over MCTP header\n\n#ifdef GSPRM_HWASAN_ENABLE\n    // This is required to align `payload` on a granule-boundary. The specific\n    // alignment has to do with implementation details of shadow memory. For\n    // our purposes, we just need to have it be 16-byte aligned.\n    NvU8 __hwasan_meta_chromatics_padding[8];\n#endif\n    union\n    {\n        struct\n        {\n            GSP_MSG_QUEUE_ENCRYPTION_TAG encryptionTag;\n            NvU32 nvdmPayloadSize;\n            NvU32 reserved;\n            NvU8 payload[];  // vGPU RPC or GMCAPI payload\n        } withEncryption;\n        struct\n        {\n            NvU32 nvdmPayloadSize;\n            NvU32 reserved;\n            NvU8 payload[];  // vGPU RPC or GMCAPI payload\n        } noEncryption;\n    };\n} GSP_MSG_QUEUE_ELEMENT;"
+        }
+      ]
+    }
+  ],
+  "scope": "Selected files retained under ignored vendor/memory-research, verified against Git blob IDs. Source repositories are inspected as text. Only five reviewed Python file utilities and extracted official C structure definitions run in the CPU-only review. This is not an exhaustive audit of these repositories.",
+  "web_references": [
+    {
+      "url": "https://www.nvidia.com/en-eu/geforce/graphics-cards/30-series/rtx-3090/",
+      "claim": "RTX 3090: 24 GB GDDR6X",
+      "artifact_hash": "Not downloaded; web source only"
+    },
+    {
+      "url": "https://www.nvidia.com/content/PDF/nvidia-ampere-ga-102-gpu-architecture-whitepaper-v2.pdf",
+      "claim": "RTX A6000: GA102, 48 GB GDDR6",
+      "artifact_hash": "Not downloaded; web source only"
+    }
+  ]
+}

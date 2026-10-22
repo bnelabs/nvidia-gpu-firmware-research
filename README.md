@@ -25,6 +25,11 @@ to the bytes and source version used to establish it.
 - **Two nearby releases contain identical GA102 boot components.** The decoded
   PROD GSP boot image and descriptor match byte-for-byte in 615.71.09 and
   615.78.08. [See the comparison](research/2026-10-21-offline/README.md).
+- **Recent GPU memory research offers useful offline analysis tools.** We
+  reviewed GeForge, GDDRHammer and GPUBreach, checked their file utilities, and
+  compared their legacy GSP queue assumptions with 615 source. They provide
+  no demonstrated recovery for this boot failure.
+  [Read the source review](research/2026-10-22-memory-research/README.md).
 
 These findings describe particular binaries and code paths. They do not establish
 complete firmware coverage or the physical origin of every reported value.
