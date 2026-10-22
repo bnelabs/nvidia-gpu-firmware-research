@@ -529,6 +529,80 @@ copied path and is not supplied as a successful synthetic return.
 are included in the regular reproduction command. This resolves the intended
 argument/exit mechanism, not the outage's failed prerequisite or a recovery.
 
-Next: trace PRE_OS `0x1484` and then `0x5c8f`, selected by word `+8` bit 6.
-Keep their data acquisition, validation and execution boundaries explicit.
-Installed-byte identity and debug/production equivalence remain unresolved.
+### The bit-6-selected acquisition and record consumer
+
+The next trace resolves more of those two callees. PRE_OS `0x1484` sets local
+guard byte D[`0x5be`] before acquiring input. An already-set guard returns
+raw `0x2010`. Helper `0x724a` reads D[`0x14118238`] twice and extracts the
+same two fields as FWSEC's earlier helper: first bits 19:8, then bits 31:20.
+Zero leaves the caller's presence byte false; either `0xfff` clears it.
+Two valid nonzero fields supply `first << 12`, `(first << 12) - 0x200`,
+`second << 12`, and presence 1. These arithmetic results still do not
+establish a physical region name or a single atomic snapshot.
+
+Missing input returns `0x2011`. The copied code also contains defensive
+`0x2012` checks for a present input with zero output words. For the selected
+aligned reader path, `0x70e9 -> 0x6f11` copies a 128-byte header into D[`0xa18`].
+The reader rejects a raw source word address above `0x1ffffc` with `0x2e8`;
+thus a synthetically present first field of `0x200` still fails acquisition.
+The lower direct path constructs D[`0x14300000 + raw_offset`]. Upper-window
+and DMA reader modes are retained in raw instructions but not emulated here.
+
+A source-backed correspondence exists: NVIDIA's host PROM reader and
+nouveau's independent PROM reader use `0x300000 + offset`. The exact NVIDIA
+HAL also selects its TU102-named VBIOS extractor for GA102. This comparison
+does not prove the Falcon `0x140...` aperture mapping, actual source contents
+or installed ROM identity. No host reader was invoked.
+
+After the copy, acquisition calls factory `0x4406` with the raw source word
+and copied header word `+4`. Copied factory stores assign method `+0x94` to
+PRE_OS `0x4a76`. Allocation, full factory execution and that method remain
+separate boundaries. A null supplied factory result returns `0x2013`; a
+supplied nonzero method result becomes raw result plus `0x2000`.
+The guard remains set after an input failure, so a second call within the
+same initialized DMEM returns `0x2010`. **This is local state:** startup's BSS
+clear includes the guard; it is not evidence of state surviving a reboot or
+of the card being trapped by this guard.
+
+Consumer `0x5c8f` calls lookup `0x1346` with type 8 and base D[`0xaa0`].
+Copied lookup instructions select the twelve-byte schema at D[`0x2ac`]:
+`52524c01ff00741cfa030000`. Its tag is ASCII `RRL`; its copied format string
+at D[`0x3fa`] is `3s2bwb2w512r2b3d`. Actual argument construction passes
+D[`0x2714`] to unexecuted parser `0x10a8`. The consumer later reads that
+block, but parser success and actual data population are not supplied.
+The acronym and neighboring registers do not prove an expanded name or
+physical repair/reset function.
+
+After an explicitly separated lookup-result boundary, the consumer can skip
+work on an error, a zero header word, zero capacity, zero count or a masked
+index. Otherwise capacity must be `0x200`, count must not exceed it, and
+each 20-byte record's low-five-bit index must be at most 5. Violations reach
+copied traps. For an unmasked index, copied code writes a data word and a
+command word to large D[] operands calculated from the index and bit 5,
+then polls command bit 0 until clear. Bit 8 must then be set, or it traps.
+No timer check occurs inside this loop; outer watchdog behavior is unknown.
+These are synthetic, event-recorded writes only. Exact GA102 register names,
+physical aliases and the operation's purpose remain unresolved.
+
+[preos-bit6-replay.json](preos-bit6-replay.json) retains header-copy, guard,
+lookup, assignment and separated continuation cases, eleven consumer cases,
+and four rejected missing/stalled inputs. It never substitutes a whole
+successful boot. The interpreter executes the copied selected paths with
+explicit source/configuration/canary/object/poll fixtures; absent words are
+rejected. [Raw instructions](preos-bit6-excerpts.dis) and
+[primary/independent source comparisons](preos-bit6-sources.json) accompany it.
+
+[Four-ROM comparison](preos-bit6-comparison.json) confirms identical acquisition
+and consumer code, schema table and type-8 format in the retained GA102
+version family. Board data elsewhere still differs. Reproduce that comparison
+separately, when all four exact copied ROMs are available:
+
+```sh
+bash scripts/run_cpu_only.sh python3 research/2026-10-21-gfw-boot/replay_preos_bit6.py --compare firmware-store/gfw-boot
+```
+
+Next: trace parser `0x10a8` into its assigned object reader `0x485e` and the
+type-8 output at D[`0x2714`]. Keep method `0x4a76`, allocator, acquired bytes
+and current hardware responses explicit where still unexecuted or unknown.
+This narrows the recovery dependency; it does not identify the outage's
+failed prerequisite or establish an additional live recovery operation.

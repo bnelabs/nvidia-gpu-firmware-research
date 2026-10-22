@@ -28,6 +28,11 @@ against physical hardware. See [CONSTITUTION.md](CONSTITUTION.md).
   work in initialization callback `0x5d51`, through unexecuted `0x1484`/`0x5c8f`.
 - PRE_OS cleanup `0x7a14` contains its own `exit` at `0x7a85` before its `ret`.
   Do not assume it returns to startup `0x79fd` or entry's `exit` at `0xc`.
+- PRE_OS input guard D[`0x5be`] is local DMEM state, included in startup's BSS
+  clear. Reproducing a second-call `0x2010` does not show reset-persistent state.
+- Type-8 schema tag `RRL` and a register-handshake loop do not prove a named
+  repair/reset mechanism. The loop's register meanings and physical aliases
+  remain unresolved; zero status can also accompany skipped work.
 
 Raw evidence and limits: [boot packet](research/2026-10-21-gfw-boot/README.md).
 

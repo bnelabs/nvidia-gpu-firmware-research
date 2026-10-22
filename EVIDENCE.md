@@ -45,6 +45,16 @@ Crypto/IO prerequisites and full callback execution are unmodeled. NVIDIA
 DMEM port definitions, generic nouveau transfer code and independent Falcon
 ISA documentation are compared with compatibility limits in the packet.
 
+The bit-6 follow-up executes copied PRE_OS input acquisition and aligned
+header-copy bytes with explicit synthetic data, locates the object method
+assignment `+0x94 -> 0x4a76`, and constructs the type-8 parser arguments from
+the copied `RRL` schema. A separated consumer replay covers capacity/count/
+index checks, masked/empty skips and an untimed local command handshake.
+Missing words and a stalled poll are rejected. Four copied GA102 variants
+share this code/schema. Local guard behavior is not persistent-reset evidence;
+the full object/parser services, actual record data, register meanings and
+outage branch remain unknown. Raw evidence is in the same boot packet.
+
 ## Claim record
 
 The [memory-research review](research/2026-10-22-memory-research/README.md)

@@ -43,8 +43,18 @@ flag selects exit callbacks. Word `+8` bit 6 selects work in last init callback
 Cleanup `0x7a14` contains `exit` at `0x7a85` before its `ret`; do not assume
 it returns to entry `0xc`. Crypto/IO operations and full callbacks remain unknown.
 
-Next: trace PRE_OS `0x1484` and `0x5c8f`, selected by that bit-6 consumer.
-Resolve acquired data and required services before assigning physical functions.
+Follow-up traces `0x1484 -> 0x724a` input-field extraction and the selected
+`0x70e9 -> 0x6f11` 128-byte header copy, with explicit synthetic large-D data.
+It locates factory method assignment `+0x94 -> 0x4a76`; allocator/full factory
+and method remain unexecuted. The input guard D[`0x5be`] is local BSS, not
+reset-persistent proof. Type 8 selects schema tag `RRL`, format
+`3s2bwb2w512r2b3d`, and parser output argument D[`0x2714`]. Consumer `0x5c8f`
+checks capacity/count/index, skips masked/empty cases and polls a command bit
+without a local timer. Exact register purposes and physical aliases are unknown.
+
+Next: trace PRE_OS parser `0x10a8` through assigned reader `0x485e` into the
+type-8 output at D[`0x2714`]. Keep actual acquired bytes, method `0x4a76`,
+allocator and hardware status unknown unless copied evidence resolves them.
 Entry still waits on D[0x14001724] bit 29 before unexecuted callbacks. No whole
 loader/callback success or actual card state is supplied by these replays.
 Keep GPU PRI, Falcon IO/data space, ROM offsets and PCI configuration separate.

@@ -1,0 +1,98 @@
+{
+  "sources": [
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/inc/swref/published/turing/tu102/dev_ext_devices.h",
+      "sha256": "5bd20fe70555e4f1e5c03bd0d67125ecad1214dcd8b74f298ed9c82aff31e619",
+      "git_blob_sha1": "023de16c17c7de9d9649591feff05b02e6b4a877",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/turing/tu102/dev_ext_devices.h",
+      "compatibility": "Turing-named PROM constant, also included by exact-source VBIOS extractor selected for GA102. This does not prove PRE_OS D[0x140...] physical mapping.",
+      "excerpts": [
+        {
+          "line_start": 26,
+          "line_end": 28,
+          "text": "\n#define NV_PROM_DATA(i)                            (0x00300000+(i)) /* RW-1A */\n"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_vbios_tu102.c",
+      "sha256": "6c7e83954146704f6b189bc10bd12dc2a28fcbcd050f4b92c985f65b2c2cda9b",
+      "git_blob_sha1": "4ac7970805d4da1c7f73011032d32736ec3da2ce",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_vbios_tu102.c",
+      "compatibility": "Host driver has byte/word PROM readers; these are source comparison only. No host accessor or firmware service ran.",
+      "excerpts": [
+        {
+          "line_start": 58,
+          "line_end": 86,
+          "text": "/*!\n * Equivalent to GPU_REG_RD08(pGpu, NV_PROM_DATA(offset)), but use GPU_REG_RD08_UNCHECKED\n * to avoid the 0xbadf sanity checking done by the usual register read\n * utilities.\n */\nstatic inline NvU8\ns_promRead08\n(\n    OBJGPU *pGpu,\n    NvU32 offset\n)\n{\n    return GPU_REG_RD08_UNCHECKED(pGpu, NV_PROM_DATA(offset));\n}\n\n/*!\n * Equivalent to GPU_REG_RD32(pGpu, NV_PROM_DATA(offset)), but use GPU_REG_RD32_UNCHECKED\n * to avoid the 0xbadf sanity checking done by the usual register read\n * utilities.\n */\nstatic inline NvU32\ns_promRead32\n(\n    OBJGPU *pGpu,\n    NvU32 offset\n)\n{\n    return GPU_REG_RD32_UNCHECKED(pGpu, NV_PROM_DATA(offset));\n}"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/generated/g_kernel_gsp_nvoc.c",
+      "sha256": "3efc3c328576587dd34924829c9d607ad8515f9ca455ee5ce1e4d6ffafb45673",
+      "git_blob_sha1": "9e8494947172e43e2bd1d973590dc87d61a91529",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_kernel_gsp_nvoc.c",
+      "compatibility": "HAL selection includes GA102 for TU102-named VBIOS extraction. Other variants remain separate.",
+      "excerpts": [
+        {
+          "line_start": 1512,
+          "line_end": 1528,
+          "text": "    if (( ((rmVariantHal_HalVarIdx >> 5) == 0UL) && ((1UL << (rmVariantHal_HalVarIdx & 0x1f)) & 0x00000001UL) )) /* RmVariantHal: VF */ \n    {\n        pThis->__kgspExtractVbiosFromRom__ = &kgspExtractVbiosFromRom_5baef9;\n    }\n    else\n    {\n        if (( ((chipHal_HalVarIdx >> 5) == 3UL) && ((1UL << (chipHal_HalVarIdx & 0x1f)) & 0x0000e000UL) )) /* ChipHal: T234D | T239D | T264D */ \n        {\n            pThis->__kgspExtractVbiosFromRom__ = &kgspExtractVbiosFromRom_5baef9;\n        }\n        else if (( ((chipHal_HalVarIdx >> 5) == 1UL) && ((1UL << (chipHal_HalVarIdx & 0x1f)) & 0x01f0ffe0UL) )) /* ChipHal: TU102 | TU104 | TU106 | TU116 | TU117 | GA100 | GA102 | GA103 | GA104 | GA106 | GA107 | AD102 | AD103 | AD104 | AD106 | AD107 */ \n        {\n            pThis->__kgspExtractVbiosFromRom__ = &kgspExtractVbiosFromRom_TU102;\n        }\n        else\n        {\n            pThis->__kgspExtractVbiosFromRom__ = &kgspExtractVbiosFromRom_395e98;"
+        }
+      ]
+    },
+    {
+      "repository": "torvalds/linux",
+      "commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "path": "drivers/gpu/drm/nouveau/nvkm/subdev/bios/shadowrom.c",
+      "sha256": "20d4fe363b323165a95914a42f2082d2abf5d24be778f92fd10e04430731bb3a",
+      "git_blob_sha1": "39144ceb117b4b42116c420635f29da3960bdee7",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/bios/shadowrom.c",
+      "compatibility": "Independent PROM reader uses 0x300000+offset with a one-MiB bound. It does not establish the Falcon large-D alias, upper window, current ROM contents or a recovery method.",
+      "excerpts": [
+        {
+          "line_start": 27,
+          "line_end": 37,
+          "text": "static u32\nnvbios_prom_read(void *data, u32 offset, u32 length, struct nvkm_bios *bios)\n{\n\tstruct nvkm_device *device = data;\n\tu32 i;\n\tif (offset + length <= 0x00100000) {\n\t\tfor (i = offset; i < offset + length; i += 4)\n\t\t\t*(u32 *)&bios->data[i] = nvkm_rd32(device, 0x300000 + i);\n\t\treturn length;\n\t}\n\treturn 0;"
+        }
+      ]
+    },
+    {
+      "repository": "envytools/envytools",
+      "commit": "f102b82381f3f11cee113d16374c87091db039d9",
+      "path": "docs/hw/falcon/arith.rst",
+      "sha256": "40fdc5419197bb726dd83b6d60501bfce412745f7aab12ad19503bfa9149f0e3",
+      "git_blob_sha1": "52581cf77b8f7bea34543070d56b8dbd1426ba88",
+      "url": "https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/docs/hw/falcon/arith.rst",
+      "compatibility": "Independent Falcon sethi/sign-extension semantics used by bounded schema argument replay; selected encodings only, not whole-ISA validation.",
+      "excerpts": [
+        {
+          "line_start": 361,
+          "line_end": 401,
+          "text": "Loading immediates: mov, sethi\n==============================\n\nmov sets a register to an immediate. sethi sets high 16 bits of a register to\nan immediate, leaving low bits untouched. mov can be thus used to load small\n[16-bit signed] immediates, while mov+sethi can be used to load any 32-bit\nimmediate.\n\nInstructions\n    ===== ================= =========\n    Name  Description       Subopcode\n    ===== ================= =========\n    mov   Load an immediate 7\n    sethi Set high bits     3\n    ===== ================= =========\nInstruction class:\n    unsized\nExecution time:\n    1 cycle\nOperands:\n    DST, SRC\nForms:\n    ======= ======\n    Form    Opcode\n    ======= ======\n    R2, I8  f0\n    R2, I16 f1\n    ======= ======\nImmediates:\n    mov:\n        sign-extended\n    sethi:\n        zero-extended\nOperation:\n    ::\n\n        if (op == mov)\n                DST = SRC;\n        else if (op == sethi)\n                DST = DST & 0xffff | SRC << 16;\n"
+        },
+        {
+          "line_start": 514,
+          "line_end": 547,
+          "text": ".. _falcon-isa-sext:\n\nSign extension: sext\n====================\n\nDoes a sign-extension of low (X+1) bits of a value.  Sets ``s`` and ``z``\nflags according to the result.  The second argument is, after masking to\n5 bits, the bit index (counting from LSB) which contains the new sign bit\n- the result will be equal to the source with all bits higher than that\nreplaced with a copy of the sign bit.\n\nInstructions:\n    ===== =========== =========\n    Name  Description Subopcode\n    ===== =========== =========\n    sext  Sign-extend 2\n    ===== =========== =========\nInstruction class:\n    unsized\nExecution time:\n    1 cycle\nOperands:\n    DST, SRC1, SRC2\nForms:\n    ========== ======\n    Form       Opcode\n    ========== ======\n    R1, R2, I8 c0\n    R2, R2, I8 f0\n    R2, R2, R1 fd\n    R3, R2, R1 ff\n    ========== ======\nImmediates:\n    truncated"
+        }
+      ]
+    }
+  ],
+  "raw_listing_input_sha256": "37a6be17eb966ff23016227a9cc399cc89442423dc050838c2cb48ddf499c423",
+  "comparison": "Four copied GA102 version-family variants have identical acquisition/consumer code and schema bytes; acquired records and runtime state are not compared.",
+  "unresolved": [
+    "No exact public GA102 names were established for D[0x14820c14] or D[0x149001f0+offset]. Do not infer a register purpose from neighborhood or an acronym.",
+    "RRL is copied ASCII; public InfoROM RRL nomenclature is not proof this schema represents the same object.",
+    "PROM constant agreement is a correspondence lead; the large-D physical aperture mapping and actual source-region identity remain unproved.",
+    "Object allocator/factory, method 0x4a76 and parser 0x10a8 remain bounded at explicit service calls.",
+    "A local DMEM guard is not evidence of reset-persistent state."
+  ]
+}

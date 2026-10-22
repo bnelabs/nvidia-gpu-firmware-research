@@ -20,7 +20,8 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         ranges=None, stops=None, register_fixture=None, memory_fixture=None,
         io_fixture=None, store_ranges=None, calls=None, expected_stop_sp=0xe000,
         return_state=False, pri_read_sequences=None, io_read_sequences=None,
-        initial_sp=0xe000):
+        initial_sp=0xe000, dmem_read_sequences=None, record_memory_events=False,
+        instruction_budget=500):
     regs = [None] * 16
     regs[0] = initial_r0
     for index, value in (register_fixture or {}).items():regs[index] = value
@@ -42,6 +43,12 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         regs[index] = value & 0xffffffff
 
     def readmem(address):
+        if address & 3:raise ValueError(f'unmodeled DMEM {address:x}')
+        if dmem_read_sequences is not None and address in dmem_read_sequences:
+            if not dmem_read_sequences[address]:raise ValueError(f'exhausted synthetic DMEM sequence {address:x}')
+            value=dmem_read_sequences[address].pop(0)
+            events.append({'kind':'synthetic_dmem_read','address':hex(address),'value':value})
+            return value
         if address & 3 or address not in memory:
             raise ValueError(f'unmodeled DMEM {address:x}')
         return memory[address]
@@ -68,6 +75,8 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         # Preserve only explicitly supplied neighboring fixture bytes.
         previous=readmem(aligned)
         memory[aligned]=(previous & ~(255<<shift)) | ((value & 255)<<shift)
+        if record_memory_events:
+            events.append({'kind':'dmem_store','address':hex(address),'width':1,'value':value & 255})
 
     def push(value):
         nonlocal sp
@@ -80,7 +89,7 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         sp += 4
         return value
 
-    for _ in range(500):
+    for _ in range(instruction_budget):
         if pc in stops:
             assert sp == expected_stop_sp, (hex(sp), hex(expected_stop_sp))
             result = {'stop_pc': hex(pc), 'stop_reason': stops[pc],
@@ -122,6 +131,14 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             if address & 3 or not any(a <= address and address+4 <= b for a,b in store_ranges):
                 raise ValueError('store outside synthetic stack')
             memory[address] = readreg(arg & 15)
+            if record_memory_events:
+                events.append({'kind':'dmem_store','address':hex(address),'width':4,'value':memory[address]})
+        elif op == 0xb0 and arg & 15 == 1:
+            size=3
+            address=sp+image[pc+2]*4
+            if not any(a<=address and address+4<=b for a,b in store_ranges):
+                raise ValueError('store outside synthetic stack')
+            memory[address]=readreg(arg >> 4)
         elif op in (0x20, 0x35):
             size = 2 if op == 0x20 else 3
             address=readreg(arg >> 4)+(image[pc+2] if op==0x35 else 0)
@@ -147,9 +164,9 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             value=readreg(arg >> 4)+(immediate if image[pc+4]==0 else -immediate)
             putreg(arg & 15,value)
             zero=(value & 0xffffffff)==0
-        elif op == 0xb2:
+        elif op in (0xb2,0x32):
             size = 2
-            putreg(arg & 15, readreg(arg >> 4))
+            putreg(arg & 15, readreg(arg >> 4) & (255 if op==0x32 else 0xffffffff))
         elif op in (0xbd,0x3d,0x7d) and arg & 15 == 4:
             size = 2
             putreg(arg >> 4, 0)
@@ -164,11 +181,12 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             value=readreg(arg >> 4)+readreg(arg & 15)
             putreg(image[pc+2] >> 4,value)
             zero=(value & 0xffffffff)==0
-        elif op == 0xb0 and arg & 15 == 6:
+        elif op in (0xb0,0x30) and arg & 15 == 6:
             size = 3
-            left, right = readreg(arg >> 4), image[pc+2]
+            bits=32 if op==0xb0 else 8
+            left, right = readreg(arg >> 4) & ((1<<bits)-1), image[pc+2]
             zero = left == right
-            signed_less = (left ^ 0x80000000) < (right ^ 0x80000000)
+            signed_less = (left ^ (1<<(bits-1))) < (right ^ (1<<(bits-1)))
             unsigned_below = left < right
         elif op in (0xa6, 0x66, 0x26):
             size = 2
@@ -191,6 +209,17 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             value = readreg(arg >> 4) & image[pc+2]
             putreg(arg & 15, value)
             zero = value == 0
+        elif op == 0xc5:
+            size=3
+            value=readreg(arg >> 4)|image[pc+2]
+            putreg(arg & 15,value)
+            zero=value==0
+        elif op == 0xbc and image[pc+2] & 15 in (2,4):
+            size=3
+            left,right=readreg(arg >> 4),readreg(arg & 15)
+            value=left-right if image[pc+2] & 15==2 else left << (right & 31)
+            putreg(image[pc+2] >> 4,value)
+            zero=(value & 0xffffffff)==0
         elif op in (0xe4,0xe5):
             size=4
             immediate=int.from_bytes(image[pc+2:pc+4],'little')
@@ -203,6 +232,16 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             low,width=immediate & 31,(immediate >> 5)+1
             if low+width>32:raise ValueError('unsupported wide bit extraction')
             putreg(arg & 15,(readreg(arg >> 4)>>low)&((1<<width)-1))
+        elif op == 0xf0 and arg & 15 in (2,3):
+            size=3
+            dst=arg >> 4;immediate=image[pc+2]
+            if arg & 15==2:
+                if immediate>31:raise ValueError('unsupported sign extension')
+                mask=(1<<(immediate+1))-1;sign=1<<immediate
+                value=((readreg(dst)&mask)^sign)-sign
+                zero=value==0
+            else:value=(readreg(dst)&0xffff)|(immediate<<16)
+            putreg(dst,value)
         elif op in (0xf0, 0xf1) and arg & 15 in (4, 5):
             size = 3 if op == 0xf0 else 4
             dst = arg >> 4
@@ -245,11 +284,11 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         elif op == 0x3e:
             size = 4
             target = int.from_bytes(image[pc+1:pc+4], 'little')
-        elif op in (0xf4, 0xf5) and arg in (0x08,0x0b,0x0c,0x0d,0x1b,0x1e):
+        elif op in (0xf4, 0xf5) and arg in (0x08,0x0b,0x0c,0x0d,0x18,0x1b,0x1e):
             size = 3 if op == 0xf4 else 4
-            if arg in (0x08,0x0c,0x0d):
+            if arg in (0x08,0x0c,0x0d,0x18):
                 if unsigned_below is None or zero is None:raise ValueError('unmodeled unsigned comparison')
-                taken=(unsigned_below if arg==0x08 else not(unsigned_below or zero) if arg==0x0c else unsigned_below or zero)
+                taken=(unsigned_below if arg==0x08 else not unsigned_below if arg==0x18 else not(unsigned_below or zero) if arg==0x0c else unsigned_below or zero)
             elif arg == 0x1e:
                 if signed_less is None:raise ValueError('unmodeled signed comparison')
                 taken = signed_less
@@ -309,7 +348,7 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
                 raise ValueError(f'unmodeled call {call:x}')
         else:
             raise ValueError(f'unsupported bytes at {pc:x}: {image[pc:pc+6].hex()}')
-        if op not in (0xa6, 0x66, 0x26) and not (op == 0xb0 and arg & 15 == 6):
+        if op not in (0xa6, 0x66, 0x26) and not (op in (0xb0,0x30) and arg & 15 == 6):
             signed_less = unsigned_below = None
         trace.append({'firmware_imem_va': hex(pc), 'raw': image[pc:pc+size].hex(),
                       'next_pc': hex(pc+size if target is None else target)})
