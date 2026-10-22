@@ -2,6 +2,28 @@
 The constitutional safety rule has priority over completeness. Missing evidence remains
 missing; it is never a reason to probe an uncertain interface on the owner's GPU.
 
+## Xid79 boot investigation — 2026-10-22
+
+The [boot packet](research/2026-10-21-gfw-boot/README.md) records the retained
+GA102 `0x1`/`NV_ERR_NOT_READY` failure, decoded debug-FWSEC bytes, four-ROM
+comparison, bounded restart/step-state replays and a digest-matched record-`0x41`
+payload with its copied consumer. Exact 615.71.09 and nearby 615.78.08 source
+are compared against pinned Linux and independent decoding.
+
+The vendor FLR replay establishes that its boot-readiness error skips a later
+counter cleanup. It does not show our Linux FLR attempt ran that function, that
+the counter was stale, or that clearing it would restore boot. Hardware values,
+getter results, objects and services in the models are synthetic. Installed ROM
+identity, production/debug equivalence and the actual failed prerequisite remain
+unresolved. There is no working no-reboot recovery result. Raw instructions,
+source hashes, address domains and reproduction commands accompany each result.
+No new live GPU operation was used.
+
+The same packet also follows a table into its runtime save/modify/restore logic.
+Copied code constructs the first eight address rows for selector 1 and restores
+saved values in three bounded cases, rejecting absent saved-value memory. This
+is not a recovered table of fixed boot defaults or a complete firmware replay.
+
 ## Claim record
 For each finding store:
 - ID and narrow question, competing explanations, and status.

@@ -1,0 +1,41 @@
+{
+  "nvidia_primary_sources": [
+    {
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_vbios_tu102.c",
+      "sha256": "6c7e83954146704f6b189bc10bd12dc2a28fcbcd050f4b92c985f65b2c2cda9b",
+      "line_start": 44,
+      "line_end": 47,
+      "excerpt": "#define NV_ROM_DIRECTORY_IDENTIFIER     0x44524652  // \"RFRD\"\n\n#define NV_BCRT_HASH_INFO_BASE_CODE_TYPE_VBIOS_BASE   0x00\n#define NV_BCRT_HASH_INFO_BASE_CODE_TYPE_VBIOS_EXT    0xE0"
+    },
+    {
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_vbios_tu102.c",
+      "sha256": "6c7e83954146704f6b189bc10bd12dc2a28fcbcd050f4b92c985f65b2c2cda9b",
+      "line_start": 242,
+      "line_end": 269,
+      "excerpt": "            case 0x03:\n                ifrTotalDataSize = REF_VAL(NV_PBUS_IFR_FMT_FIXED2_TOTAL_DATA_SIZE, fixed2);\n                flashStatusOffset = s_romImgRead32(pSrc, ifrTotalDataSize, &status);\n                romDirectoryOffset = flashStatusOffset + 4096;\n                romDirectorySig = s_romImgRead32(pSrc, romDirectoryOffset, &status);\n                NV_ASSERT_OK_OR_RETURN(status);\n\n                if (romDirectorySig == NV_ROM_DIRECTORY_IDENTIFIER)\n                {\n                    imageOffset = s_romImgRead32(pSrc, romDirectoryOffset + 8, &status);\n                }\n                else\n                {\n                    NV_PRINTF(LEVEL_ERROR, \"Error: ROM Directory not found = 0x%08x.\\n\",\n                              romDirectorySig);\n                    return NV_ERR_INVALID_DATA;\n                }\n                break;\n\n            default:\n                NV_PRINTF(LEVEL_ERROR, \"Error: IFR version not supported = 0x%08x.\\n\",\n                          ifrVersion);\n                return NV_ERR_INVALID_DATA;\n        }\n    }\n\n    NV_ASSERT_OK_OR_RETURN(status);\n    NV_ASSERT_OR_RETURN(NV_IS_ALIGNED(imageOffset, 4), NV_ERR_INVALID_ADDRESS);"
+    },
+    {
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/inc/swref/published/ampere/ga102/dev_nv_pcfg_xve_regmap.h",
+      "sha256": "54921042f0a4957dc8a45bf0498af4f9c488a91e3d579aa723ce692fbe12767f",
+      "line_start": 25,
+      "line_end": 28,
+      "excerpt": "#define __dev_nv_pcfg_xve_regmap_h__\n\n#define NV_PCFG_XVE_REGISTER_MAP_START_OFFSET 0x00088000\n"
+    }
+  ],
+  "firmware_decoder": {
+    "repository": "envytools/envytools",
+    "commit": "f102b82381f3f11cee113d16374c87091db039d9",
+    "arguments": "-m falcon -V fuc6 -F crypt -i -n",
+    "full_linear_listing_sha256": "ec97879d6134af73e6f9a61ccdafbbdb8b6922d0a406f4f215100a4b3df6a422"
+  },
+  "record_format_status": "Raw fields and copied consumers only. Public RFRD and PCI configuration-map definitions corroborate directory signature and PRI address region. They do not name record 0x41, authenticate this image or prove live register values.",
+  "independent_comparison": "Pinned Linux/nouveau/nova sources in boot-comparison-sources.json describe ROM expansion and FWSEC lifecycle. No independent public record-0x41 field schema is established.",
+  "unresolved": [
+    "Installed-byte identity and debug/production semantic equivalence.",
+    "Full signature chain, hardware hash engine and parser state during the failed boot.",
+    "Actual fallback getter value/status and whether this stage was reached."
+  ]
+}

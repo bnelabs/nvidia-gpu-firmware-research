@@ -33,10 +33,37 @@ python3 "$PACKET/replay_fwsec_progress.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > 
 cmp "$GFW_REPLAY_TMP/progress.json" "$PACKET/fwsec-progress-replay.json"
 python3 "$PACKET/replay_early_gates.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/early.json"
 cmp "$GFW_REPLAY_TMP/early.json" "$PACKET/early-gates-replay.json"
+python3 "$PACKET/replay_restart_state.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/restart.json"
+cmp "$GFW_REPLAY_TMP/restart.json" "$PACKET/restart-state-replay.json"
+python3 "$PACKET/map_boot_dependencies.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/dependencies.json"
+cmp "$GFW_REPLAY_TMP/dependencies.json" "$PACKET/boot-dependencies.json"
+python3 "$PACKET/inspect_boot_record.py" "$ROM" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/record.json"
+cmp "$GFW_REPLAY_TMP/record.json" "$PACKET/boot-record-41.json"
+python3 "$PACKET/replay_saved_registers.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/saved.json"
+cmp "$GFW_REPLAY_TMP/saved.json" "$PACKET/saved-registers-replay.json"
+# Every emitted instruction must also agree with the retained decoder listing.
+python3 - "$PACKET" "$GFW_REPLAY_TMP" <<'PY'
+import json,re,sys
+from pathlib import Path
+p,t=map(Path,sys.argv[1:]);listing={}
+for filename in ['secure-boot-main.dis','restart-state-excerpts.dis','saved-registers-excerpts.dis']:
+    for line in (p/filename).read_text().splitlines():
+        m=re.match(r'^([0-9a-f]{8}):\s+((?:[0-9a-f]{2} )*[0-9a-f]{2})\s+',line)
+        if not m:raise ValueError('Bad retained disassembly line')
+        pc=hex(int(m[1],16));raw=bytes.fromhex(m[2]).hex()
+        if pc in listing and listing[pc]!=raw:raise ValueError('Conflicting decoder evidence')
+        listing[pc]=raw
+for filename in ['restart.json','record.json','saved.json']:
+    for pc,raw in json.loads((t/filename).read_text())['instructions'].items():
+        if listing.get(pc)!=raw:raise ValueError('Replay/decoder instruction boundary mismatch')
+PY
 openssl enc -e -aes-128-ecb -K 25EFCDAB896745231032547698BADCFE -nopad \
   -in "$GFW_REPLAY_TMP/decoded-imem.bin" -out "$GFW_REPLAY_TMP/roundtrip.bin"
 cmp "$GFW_REPLAY_TMP/debug-imem.bin" "$GFW_REPLAY_TMP/roundtrip.bin"
 cc -std=c11 -O2 -Wall -Wextra -Werror "$PACKET/replay.c" -o "$GFW_REPLAY_TMP/source-gate"
 "$GFW_REPLAY_TMP/source-gate" > "$GFW_REPLAY_TMP/source-gate.json"
 cmp "$GFW_REPLAY_TMP/source-gate.json" "$PACKET/replay.json"
-printf '%s\n' '30 progress-block, 12 early-gate and six NVIDIA source-gate cases reproduced.'
+cc -std=c11 -O2 -Wall -Wextra -Werror "$PACKET/replay_flr_order.c" -o "$GFW_REPLAY_TMP/flr-order"
+"$GFW_REPLAY_TMP/flr-order" > "$GFW_REPLAY_TMP/flr-order.json"
+cmp "$GFW_REPLAY_TMP/flr-order.json" "$PACKET/flr-source-replay.json"
+printf '%s\n' 'Copied firmware blocks, restart selectors, boot record, conservative CFG and both NVIDIA source replays reproduced.'

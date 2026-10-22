@@ -1,0 +1,9 @@
+[
+{"case":"synthetic_success","all_callbacks_synthetic":true,"status":0,"reset_calls":1,"boot_wait_calls":1,"counter_clear_calls":1,"modeled_delay_us":100000},
+{"case":"gfw_not_ready_55","all_callbacks_synthetic":true,"status":85,"reset_calls":1,"boot_wait_calls":1,"counter_clear_calls":0,"modeled_delay_us":100000},
+{"case":"save_error","all_callbacks_synthetic":true,"status":7,"reset_calls":0,"boot_wait_calls":0,"counter_clear_calls":0,"modeled_delay_us":0},
+{"case":"restore_error","all_callbacks_synthetic":true,"status":8,"reset_calls":1,"boot_wait_calls":0,"counter_clear_calls":0,"modeled_delay_us":100000},
+{"case":"non_gsp_branch","all_callbacks_synthetic":true,"status":86,"reset_calls":1,"boot_wait_calls":0,"counter_clear_calls":0,"modeled_delay_us":100000},
+{"case":"late_vendor_mismatch","all_callbacks_synthetic":true,"status":65535,"reset_calls":1,"boot_wait_calls":1,"counter_clear_calls":1,"modeled_delay_us":100000},
+{"case":"precondition_errors_continue","all_callbacks_synthetic":true,"status":0,"reset_calls":1,"boot_wait_calls":1,"counter_clear_calls":1,"modeled_delay_us":100000}
+]

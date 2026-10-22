@@ -1,0 +1,814 @@
+{
+  "debug_imem_sha256": "dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb",
+  "instructions": {
+    "0x5cde": "8fd08f11",
+    "0x5ce2": "d9848c0000",
+    "0x5ce7": "a09f",
+    "0x5ce9": "df00388200",
+    "0x5cee": "b59f03",
+    "0x5cf1": "4f8000",
+    "0x5cf4": "b59f06",
+    "0x5cf7": "8fa00012",
+    "0x5cfb": "b59f09",
+    "0x5cfe": "8f347f13",
+    "0x5d02": "359a5c",
+    "0x5d05": "b59f0c",
+    "0x5d08": "359a08",
+    "0x5d0b": "359a14",
+    "0x5d0e": "359a20",
+    "0x5d11": "359a2c",
+    "0x5d14": "359a38",
+    "0x5d17": "359a44",
+    "0x5d1a": "359a50",
+    "0x5d1d": "8f240302",
+    "0x5d21": "b59f0f",
+    "0x5d24": "b8ff080500",
+    "0x5d29": "b59f12",
+    "0x5d2c": "92ff0c",
+    "0x5d2f": "b59f15",
+    "0x5d32": "0908",
+    "0x5d34": "d1008e0000",
+    "0x5d39": "2019",
+    "0x5a36": "bf3e",
+    "0x5a38": "c429ff",
+    "0x5a3b": "bc99f0",
+    "0x5a3e": "bcf9f0",
+    "0x5a41": "94f002",
+    "0x5a44": "bce0a0",
+    "0x5a47": "18a909",
+    "0x5a4a": "33900043",
+    "0x5a4e": "98ab01",
+    "0x5a51": "bfaa",
+    "0x5a53": "7e711100",
+    "0x5a57": "bf39",
+    "0x5a59": "bc9090",
+    "0x5a5c": "bf9a",
+    "0x5a5e": "7e171100",
+    "0x5a62": "bf39",
+    "0x5a64": "b2a1",
+    "0x5a66": "bc90b0",
+    "0x5a69": "98b901",
+    "0x5a6c": "a69a",
+    "0x5a6e": "f40b17",
+    "0x5a85": "bf39",
+    "0x5a87": "bc9090",
+    "0x5a8a": "359409",
+    "0x5a71": "bfbb",
+    "0x5a73": "4a6c14",
+    "0x5a76": "7e711100",
+    "0x5a7a": "b21b",
+    "0x5a7c": "4a7014",
+    "0x5a7f": "7e711100"
+  },
+  "address_domains": "PCs are debug Falcon IMEM VAs; table/stack keys are synthetic Falcon data memory; PRI operands are synthetic GPU registers.",
+  "table_stride": 12,
+  "selector_1_prefix_rows": [
+    {
+      "data_address": "0x8c84",
+      "pri_operand": "0x118fd0",
+      "kind_byte": 1,
+      "saved_value_status": "Runtime read by 0x5b2f, not produced by this constructor prefix",
+      "active_byte_status": "Runtime publication at 0x5bbc; fixture zero here is not an observed value"
+    },
+    {
+      "data_address": "0x8c90",
+      "pri_operand": "0x823800",
+      "kind_byte": 1,
+      "saved_value_status": "Runtime read by 0x5b2f, not produced by this constructor prefix",
+      "active_byte_status": "Runtime publication at 0x5bbc; fixture zero here is not an observed value"
+    },
+    {
+      "data_address": "0x8c9c",
+      "pri_operand": "0x80",
+      "kind_byte": 1,
+      "saved_value_status": "Runtime read by 0x5b2f, not produced by this constructor prefix",
+      "active_byte_status": "Runtime publication at 0x5bbc; fixture zero here is not an observed value"
+    },
+    {
+      "data_address": "0x8ca8",
+      "pri_operand": "0x1200a0",
+      "kind_byte": 1,
+      "saved_value_status": "Runtime read by 0x5b2f, not produced by this constructor prefix",
+      "active_byte_status": "Runtime publication at 0x5bbc; fixture zero here is not an observed value"
+    },
+    {
+      "data_address": "0x8cb4",
+      "pri_operand": "0x137f34",
+      "kind_byte": 1,
+      "saved_value_status": "Runtime read by 0x5b2f, not produced by this constructor prefix",
+      "active_byte_status": "Runtime publication at 0x5bbc; fixture zero here is not an observed value"
+    },
+    {
+      "data_address": "0x8cc0",
+      "pri_operand": "0x20324",
+      "kind_byte": 1,
+      "saved_value_status": "Runtime read by 0x5b2f, not produced by this constructor prefix",
+      "active_byte_status": "Runtime publication at 0x5bbc; fixture zero here is not an observed value"
+    },
+    {
+      "data_address": "0x8ccc",
+      "pri_operand": "0x2082c",
+      "kind_byte": 1,
+      "saved_value_status": "Runtime read by 0x5b2f, not produced by this constructor prefix",
+      "active_byte_status": "Runtime publication at 0x5bbc; fixture zero here is not an observed value"
+    },
+    {
+      "data_address": "0x8cd8",
+      "pri_operand": "0x20820",
+      "kind_byte": 1,
+      "saved_value_status": "Runtime read by 0x5b2f, not produced by this constructor prefix",
+      "active_byte_status": "Runtime publication at 0x5bbc; fixture zero here is not an observed value"
+    }
+  ],
+  "constructor_prefix": {
+    "stop_pc": "0x5d3b",
+    "stop_reason": "before_unexecuted_predicate_3dbf",
+    "raw_r1": 36352,
+    "events": [],
+    "trace": [
+      [
+        "0x5cde",
+        "0x5ce2"
+      ],
+      [
+        "0x5ce2",
+        "0x5ce7"
+      ],
+      [
+        "0x5ce7",
+        "0x5ce9"
+      ],
+      [
+        "0x5ce9",
+        "0x5cee"
+      ],
+      [
+        "0x5cee",
+        "0x5cf1"
+      ],
+      [
+        "0x5cf1",
+        "0x5cf4"
+      ],
+      [
+        "0x5cf4",
+        "0x5cf7"
+      ],
+      [
+        "0x5cf7",
+        "0x5cfb"
+      ],
+      [
+        "0x5cfb",
+        "0x5cfe"
+      ],
+      [
+        "0x5cfe",
+        "0x5d02"
+      ],
+      [
+        "0x5d02",
+        "0x5d05"
+      ],
+      [
+        "0x5d05",
+        "0x5d08"
+      ],
+      [
+        "0x5d08",
+        "0x5d0b"
+      ],
+      [
+        "0x5d0b",
+        "0x5d0e"
+      ],
+      [
+        "0x5d0e",
+        "0x5d11"
+      ],
+      [
+        "0x5d11",
+        "0x5d14"
+      ],
+      [
+        "0x5d14",
+        "0x5d17"
+      ],
+      [
+        "0x5d17",
+        "0x5d1a"
+      ],
+      [
+        "0x5d1a",
+        "0x5d1d"
+      ],
+      [
+        "0x5d1d",
+        "0x5d21"
+      ],
+      [
+        "0x5d21",
+        "0x5d24"
+      ],
+      [
+        "0x5d24",
+        "0x5d29"
+      ],
+      [
+        "0x5d29",
+        "0x5d2c"
+      ],
+      [
+        "0x5d2c",
+        "0x5d2f"
+      ],
+      [
+        "0x5d2f",
+        "0x5d32"
+      ],
+      [
+        "0x5d32",
+        "0x5d34"
+      ],
+      [
+        "0x5d34",
+        "0x5d39"
+      ],
+      [
+        "0x5d39",
+        "0x5d3b"
+      ]
+    ],
+    "registers": [
+      85,
+      36352,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      8,
+      1,
+      null,
+      null,
+      null,
+      null,
+      133152
+    ],
+    "memory": {
+      "0x5a0": 324508639,
+      "0x8c84": 1150928,
+      "0x8c88": 0,
+      "0x8c8c": 1,
+      "0x8c90": 8534016,
+      "0x8c94": 0,
+      "0x8c98": 1,
+      "0x8c9c": 128,
+      "0x8ca0": 0,
+      "0x8ca4": 1,
+      "0x8ca8": 1179808,
+      "0x8cac": 0,
+      "0x8cb0": 1,
+      "0x8cb4": 1277748,
+      "0x8cb8": 0,
+      "0x8cbc": 1,
+      "0x8cc0": 131876,
+      "0x8cc4": 0,
+      "0x8cc8": 1,
+      "0x8ccc": 133164,
+      "0x8cd0": 0,
+      "0x8cd4": 1,
+      "0x8cd8": 133152,
+      "0x8cdc": 0,
+      "0x8ce0": 1,
+      "0x8ce4": 0,
+      "0x8ce8": 0,
+      "0x8cec": 0,
+      "0x8cf0": 0,
+      "0x8cf4": 0,
+      "0x8cf8": 0,
+      "0x8cfc": 0,
+      "0x8d00": 0,
+      "0x8d04": 0,
+      "0x8d08": 0,
+      "0x8d0c": 0,
+      "0x8d10": 0,
+      "0x8d14": 0,
+      "0x8d18": 0,
+      "0x8d1c": 0,
+      "0x8d20": 0,
+      "0x8d24": 0,
+      "0x8d28": 0,
+      "0x8d2c": 0,
+      "0x8d30": 0,
+      "0x8d34": 0,
+      "0x8d38": 0,
+      "0x8d3c": 0,
+      "0x8d40": 0,
+      "0x8d44": 0,
+      "0x8d48": 0,
+      "0x8d4c": 0,
+      "0x8d50": 0,
+      "0x8d54": 0,
+      "0x8d58": 0,
+      "0x8d5c": 0,
+      "0x8d60": 0,
+      "0x8d64": 0,
+      "0x8d68": 0,
+      "0x8d6c": 0,
+      "0x8d70": 0,
+      "0x8d74": 0,
+      "0x8d78": 0,
+      "0x8d7c": 0,
+      "0x8d80": 0,
+      "0x8d84": 0,
+      "0x8d88": 0,
+      "0x8d8c": 0,
+      "0x8d90": 0,
+      "0x8d94": 0,
+      "0x8d98": 0,
+      "0x8d9c": 0,
+      "0x8da0": 0,
+      "0x8da4": 0,
+      "0x8da8": 0,
+      "0x8dac": 0,
+      "0x8db0": 0,
+      "0x8db4": 0,
+      "0x8db8": 0,
+      "0x8dbc": 0,
+      "0x8dc0": 0,
+      "0x8dc4": 0,
+      "0x8dc8": 0,
+      "0x8dcc": 0,
+      "0x8dd0": 0,
+      "0x8dd4": 0,
+      "0x8dd8": 0,
+      "0x8ddc": 0,
+      "0x8de0": 0,
+      "0x8de4": 0,
+      "0x8de8": 0,
+      "0x8dec": 0,
+      "0x8df0": 0,
+      "0x8df4": 0,
+      "0x8df8": 0,
+      "0x8dfc": 0,
+      "0x8e00": 8
+    }
+  },
+  "restore_cases_passed": 3,
+  "missing_saved_value_rejected": true,
+  "cases": [
+    {
+      "name": "restore_matches",
+      "saved_value_fixture": 610839776,
+      "readback_fixture": 610839776,
+      "write_fragment": {
+        "stop_pc": "0x5a57",
+        "stop_reason": "after_write_before_readback",
+        "raw_r1": 0,
+        "events": [
+          {
+            "kind": "synthetic_write",
+            "address": "0x118fd0",
+            "value": 610839776
+          }
+        ],
+        "trace": [
+          [
+            "0x5a36",
+            "0x5a38"
+          ],
+          [
+            "0x5a38",
+            "0x5a3b"
+          ],
+          [
+            "0x5a3b",
+            "0x5a3e"
+          ],
+          [
+            "0x5a3e",
+            "0x5a41"
+          ],
+          [
+            "0x5a41",
+            "0x5a44"
+          ],
+          [
+            "0x5a44",
+            "0x5a47"
+          ],
+          [
+            "0x5a47",
+            "0x5a4a"
+          ],
+          [
+            "0x5a4a",
+            "0x5a4e"
+          ],
+          [
+            "0x5a4e",
+            "0x5a51"
+          ],
+          [
+            "0x5a51",
+            "0x5a53"
+          ],
+          [
+            "0x5a53",
+            "0x5a57"
+          ]
+        ],
+        "registers": [
+          0,
+          0,
+          0,
+          57216,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          610839776,
+          null,
+          null,
+          35972,
+          null
+        ],
+        "memory": {
+          "0x5a0": 324508639,
+          "0x8c84": 1150928,
+          "0x8c88": 610839776,
+          "0x8c8c": 257,
+          "0xdf80": 35972
+        }
+      },
+      "result": {
+        "stop_pc": "0x5a8d",
+        "stop_reason": "restored_row_next",
+        "raw_r1": 610839776,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118fd0",
+            "value": 610839776
+          }
+        ],
+        "trace": [
+          [
+            "0x5a57",
+            "0x5a59"
+          ],
+          [
+            "0x5a59",
+            "0x5a5c"
+          ],
+          [
+            "0x5a5c",
+            "0x5a5e"
+          ],
+          [
+            "0x5a5e",
+            "0x5a62"
+          ],
+          [
+            "0x5a62",
+            "0x5a64"
+          ],
+          [
+            "0x5a64",
+            "0x5a66"
+          ],
+          [
+            "0x5a66",
+            "0x5a69"
+          ],
+          [
+            "0x5a69",
+            "0x5a6c"
+          ],
+          [
+            "0x5a6c",
+            "0x5a6e"
+          ],
+          [
+            "0x5a6e",
+            "0x5a85"
+          ],
+          [
+            "0x5a85",
+            "0x5a87"
+          ],
+          [
+            "0x5a87",
+            "0x5a8a"
+          ],
+          [
+            "0x5a8a",
+            "0x5a8d"
+          ]
+        ],
+        "registers": [
+          0,
+          610839776,
+          0,
+          57216,
+          0,
+          null,
+          null,
+          null,
+          null,
+          35972,
+          610839776,
+          35972,
+          null,
+          null,
+          35972,
+          null
+        ],
+        "memory": {
+          "0x5a0": 324508639,
+          "0x8c84": 1150928,
+          "0x8c88": 610839776,
+          "0x8c8c": 1,
+          "0xdf80": 35972
+        }
+      }
+    },
+    {
+      "name": "restore_mismatch",
+      "saved_value_fixture": 610839776,
+      "readback_fixture": 324508639,
+      "write_fragment": {
+        "stop_pc": "0x5a57",
+        "stop_reason": "after_write_before_readback",
+        "raw_r1": 0,
+        "events": [
+          {
+            "kind": "synthetic_write",
+            "address": "0x118fd0",
+            "value": 610839776
+          }
+        ],
+        "trace": [
+          [
+            "0x5a36",
+            "0x5a38"
+          ],
+          [
+            "0x5a38",
+            "0x5a3b"
+          ],
+          [
+            "0x5a3b",
+            "0x5a3e"
+          ],
+          [
+            "0x5a3e",
+            "0x5a41"
+          ],
+          [
+            "0x5a41",
+            "0x5a44"
+          ],
+          [
+            "0x5a44",
+            "0x5a47"
+          ],
+          [
+            "0x5a47",
+            "0x5a4a"
+          ],
+          [
+            "0x5a4a",
+            "0x5a4e"
+          ],
+          [
+            "0x5a4e",
+            "0x5a51"
+          ],
+          [
+            "0x5a51",
+            "0x5a53"
+          ],
+          [
+            "0x5a53",
+            "0x5a57"
+          ]
+        ],
+        "registers": [
+          0,
+          0,
+          0,
+          57216,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          610839776,
+          null,
+          null,
+          35972,
+          null
+        ],
+        "memory": {
+          "0x5a0": 324508639,
+          "0x8c84": 1150928,
+          "0x8c88": 610839776,
+          "0x8c8c": 257,
+          "0xdf80": 35972
+        }
+      },
+      "result": {
+        "stop_pc": "0x5a83",
+        "stop_reason": "readback_mismatch_trap",
+        "raw_r1": 324508639,
+        "events": [
+          {
+            "kind": "synthetic_read",
+            "address": "0x118fd0",
+            "value": 324508639
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x146c",
+            "value": 1150928
+          },
+          {
+            "kind": "synthetic_write",
+            "address": "0x1470",
+            "value": 324508639
+          }
+        ],
+        "trace": [
+          [
+            "0x5a57",
+            "0x5a59"
+          ],
+          [
+            "0x5a59",
+            "0x5a5c"
+          ],
+          [
+            "0x5a5c",
+            "0x5a5e"
+          ],
+          [
+            "0x5a5e",
+            "0x5a62"
+          ],
+          [
+            "0x5a62",
+            "0x5a64"
+          ],
+          [
+            "0x5a64",
+            "0x5a66"
+          ],
+          [
+            "0x5a66",
+            "0x5a69"
+          ],
+          [
+            "0x5a69",
+            "0x5a6c"
+          ],
+          [
+            "0x5a6c",
+            "0x5a6e"
+          ],
+          [
+            "0x5a6e",
+            "0x5a71"
+          ],
+          [
+            "0x5a71",
+            "0x5a73"
+          ],
+          [
+            "0x5a73",
+            "0x5a76"
+          ],
+          [
+            "0x5a76",
+            "0x5a7a"
+          ],
+          [
+            "0x5a7a",
+            "0x5a7c"
+          ],
+          [
+            "0x5a7c",
+            "0x5a7f"
+          ],
+          [
+            "0x5a7f",
+            "0x5a83"
+          ]
+        ],
+        "registers": [
+          0,
+          324508639,
+          0,
+          57216,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          324508639,
+          null,
+          null,
+          35972,
+          null
+        ],
+        "memory": {
+          "0x5a0": 324508639,
+          "0x8c84": 1150928,
+          "0x8c88": 610839776,
+          "0x8c8c": 257,
+          "0xdf80": 35972
+        }
+      }
+    },
+    {
+      "name": "inactive_row_skipped",
+      "result": {
+        "stop_pc": "0x5a8d",
+        "stop_reason": "inactive_row_next",
+        "raw_r1": 0,
+        "events": [],
+        "trace": [
+          [
+            "0x5a36",
+            "0x5a38"
+          ],
+          [
+            "0x5a38",
+            "0x5a3b"
+          ],
+          [
+            "0x5a3b",
+            "0x5a3e"
+          ],
+          [
+            "0x5a3e",
+            "0x5a41"
+          ],
+          [
+            "0x5a41",
+            "0x5a44"
+          ],
+          [
+            "0x5a44",
+            "0x5a47"
+          ],
+          [
+            "0x5a47",
+            "0x5a4a"
+          ],
+          [
+            "0x5a4a",
+            "0x5a8d"
+          ]
+        ],
+        "registers": [
+          0,
+          0,
+          0,
+          57216,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          35972,
+          null,
+          null,
+          null,
+          35972,
+          0
+        ],
+        "memory": {
+          "0x5a0": 324508639,
+          "0x8c84": 1150928,
+          "0x8c88": 610839776,
+          "0x8c8c": 1,
+          "0xdf80": 35972
+        }
+      }
+    }
+  ],
+  "source_decoded_relationship": "Main 0x5737 loads selector 1 before calling 0x59fe. Routine 0x5be3 selects existing table/count pointers. Constructor 0x5c9a fills addresses/kinds. Routine 0x5ab2 reads current register values into row+4 at 0x5b33 and marks row+9 at 0x5bbc after a modifying write/readback. Routine 0x59fe restores row+4 for active rows and clears row+9 only after a matching readback.",
+  "limits": "Constructor prefix only: later predicates and conditional appended rows do not execute. Saved values, active flags, backing memory and readback responses are fixtures, not retained GPU state. Table values are not fixed boot defaults. No full save/modify/restore cycle, trap handler, production equivalence or recovery effectiveness is established."
+}

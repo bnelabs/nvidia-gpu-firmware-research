@@ -54,6 +54,27 @@ def main():
                 decoded=subprocess.check_output(['openssl','enc','-d','-aes-128-ecb','-K','25EFCDAB896745231032547698BADCFE','-nopad'],input=imem)
                 c['decoded_debug_imem_sha256']=sha(decoded)
             row['components'][label]=c
+        # Separate ROM table consumed by copied debug FWSEC, not ucode metadata.
+        assert data[0x5000:0x5008]==b'RFRD\x03\x00\x28\x00'
+        container=struct.unpack_from('<I',data,0x501c)[0]
+        table=container+struct.unpack_from('<I',data,container+0x14)[0]
+        assert data[table:table+3]==b'\x02\x01\x05'
+        count=data[table+13];assert 1<=count<=0x74
+        record_rows=[]
+        for i in range(count):
+            p=table+128+i*52;record=data[p:p+52]
+            assert len(record)==52 and record[0]==2
+            if struct.unpack_from('<H',record,2)[0]&0xfff!=0x41:continue
+            length=struct.unpack_from('<I',record,8)[0]&0xfffff
+            payload=result['expansion_image_file_offset']+struct.unpack_from('<I',record,4)[0]
+            assert length==129 and payload+length<=len(data)
+            blob=data[payload:payload+length]
+            assert hashlib.sha256(blob).digest()==record[20:52]
+            record_rows.append({'file_offset':p,'raw':record.hex(),
+                                'payload_file_offset':payload,'payload_sha256':sha(blob),
+                                'payload_bytes':length,'payload_raw':blob.hex()})
+        assert len(record_rows)==1
+        row['boot_record_41']=record_rows[0]
         rows.append(row)
     equality={}
     for component in ['debug','production']:
@@ -63,7 +84,8 @@ def main():
     print(json.dumps({'address_domain':'All offsets are ROM file offsets; component IMEM/DMEM are separate Falcon-engine domains. Hash equality is byte equality of stored artifacts, not installed/runtime identity.',
                       'version_source':{'commit':'61dcc93722ecb418bb5f2e00923f05b4b8051dd1','path':'src/nvidia/src/kernel/gpu/gsp/kernel_gsp_fwsec.c','lines':'75-88 BIT_DATA_BIOSDATA_BINVER'},
                       'limits':'Same GA102 PCI device ID and nearby VBIOS version family, different board vendors/variants. No chronology inferred from OEM suffix; no production-key decode or proof that every ROM component matches.',
-                      'inputs':rows,'all_four_equal':equality},indent=2))
+                      'inputs':rows,'all_four_equal':equality,
+                      'boot_record_41_all_four_equal':len({(r['boot_record_41']['raw'],r['boot_record_41']['payload_sha256']) for r in rows})==1},indent=2))
 
 
 if __name__=='__main__':main()

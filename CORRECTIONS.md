@@ -3,6 +3,21 @@ These corrections override conflicting historical prose, tables and log entries.
 They were made without accessing a GPU. The owner permits deep offline RE, not experiments
 against physical hardware. See [CONSTITUTION.md](CONSTITUTION.md).
 
+## Boot investigation — 2026-10-22
+
+- A clear descriptor `ENCRYPTED` bit did not prove plaintext IMEM. A reproducible
+  decode exists for the copied debug image; production equivalence is unproved.
+- The Falcon-ucode expansion adjustment is not universal ROM pointer arithmetic.
+  Record `0x41` has a separately digest-matched file mapping.
+- Step-state value 2 can select a different callee, not always skip a step.
+- Missing later counter cleanup does not establish a cause or repair for earlier
+  GFW boot failure. Vendor FLR itself expects GFW completion before that cleanup.
+- `0x5be3` selects saved-state tables; address constructor `0x5c9a` does not
+  produce fixed restore values. `0x59fe` restores values saved from runtime reads
+  by `0x5ab2`. Those values cannot be reconstructed from address rows alone.
+
+Raw evidence and limits: [boot packet](research/2026-10-21-gfw-boot/README.md).
+
 | Earlier claim | Current disposition | Evidence / next offline step |
 |---|---|---|
 | Read-only means harmless / zero impact | Retracted. Reads may wake hardware, contend or have device-specific effects. No custom hardware probes. | PCI utilities explicitly warn about some broad config reads; [upstream manual](https://github.com/pciutils/pciutils/blob/master/lspci.man). |

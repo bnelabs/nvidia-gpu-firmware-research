@@ -137,15 +137,15 @@ production plaintext/key, identified the outage's failed prerequisite, or built
 a working no-reboot reinitialization sequence. Writing `0xff` or deleting the
 driver check would falsely report completion and is not a repair.
 
-The next offline task is to trace the failure exits between the copied debug
-routine's `0x1` and `0x2` writes, and compare the same FWSEC component in another
-nearby GA102 ROM. Retained error data should be used where available; absent
-register state must remain absent. A new live intervention needs an identified
-initialization mechanism and evidence that it applies to this fault.
+The follow-ups below trace more failure exits, restart state and a ROM table
+consumer, and compare four GA102 variants. Absent register state remains absent.
+An additional intervention still needs an identified initialization mechanism
+that applies to this fault.
 
-The server remains in the previously recorded maintenance state: NVIDIA modules
+The last recorded server state was maintenance: NVIDIA modules
 unloaded and GPU inference services stopped; the CPU/tool harness remains
-available. This audit changed no driver, firmware or hardware settings. Existing
+available. No fresh hardware check was performed for this audit. It changed no
+driver, firmware or hardware settings. Existing
 uncommitted work in both repositories was left intact. The host was not rebooted.
 
 
@@ -161,7 +161,7 @@ bash scripts/run_cpu_only.sh bash research/2026-10-21-gfw-boot/reproduce.sh
 
 The script rejects a different ROM, checks every retained parser field, extracts
 the debug IMEM using the parsed table pointer, decodes it in CPU memory, and
-reproduces both replay outputs byte-for-byte. It requires Python 3, OpenSSL and a
+reproduces the replay outputs byte-for-byte. It requires Python 3, OpenSSL and a
 C compiler. The six basic blocks also retain their raw instruction bytes in
 `fwsec-progress-replay.json`. The full exploratory disassembly, original failed
 decode, downloaded ROM and initial parser remain in the separate local incident
@@ -230,8 +230,138 @@ the separate comparison with:
 bash scripts/run_cpu_only.sh python3 research/2026-10-21-gfw-boot/compare_fwsec.py firmware-store/gfw-boot
 ```
 
-Next: trace the remaining preconditions and initialization work between
-`0x4ec5` and the `0x2` update at `0x577a`, following the copied callees and table
-inputs. Prioritize a demonstrated state producer or initialization dependency;
-keep absent runtime values and unnamed fields unresolved. No working additional
-no-reboot recovery intervention is established by this follow-up.
+## Restart dependencies and a concrete boot table — 2026-10-22
+
+The copied debug firmware has restart prerequisites and a separate step-state
+word. The driver also has reset cleanup that the reviewed recovery adapter does
+not perform explicitly. Neither finding identifies the card's missing state.
+
+[restart-state-replay.json](restart-state-replay.json) executes copied bytes for
+23 synthetic cases. At IMEM `0x4dd9`, PRI operand `0x118c6c` bit 0 selects whether
+to preserve the step word at PRI `0x11823c`. When set, the firmware requires
+`0x100ce0 == 0`, the high half of `0x1180f4 == 0`, and `0x1fa800` bit 5 set.
+The accepted branch writes `0x8a000` to the step word at `0x4e20`; rejection
+selects raw `0xb7`. Further entry checks can select `0xba`, `0xb8` or `0xbb`.
+These are raw debug-firmware codes, not host `NV_STATUS` names.
+
+Following the previously mapped checks, Falcon IO `I[0x10200]` bit 20 or PRI
+`0x820434` bit 0 must be set, otherwise raw `0x213` is selected. Another
+conditional path checks PRI `0x1728 & 0x2f800000` and PRI `0x1724` bit 27,
+selecting raw `0x41b` and `0x2aa` on their respective failures. No retained
+values establish which path the card took.
+
+Step state is distinct from progress at PRI `0x118234`. At IMEM `0x500f`, bits
+1:0 of the step word select the body for 0, bypass it for 2, or reach a trap
+boundary for 1/3. Bits 23:22 select different callees for 0 and 2. Thus value 2
+does not universally skip initialization. Trap handling, reset survival and
+production equivalence remain unresolved. `0x8a000` is an observed firmware
+operand, not a proposed live write.
+
+[boot-dependencies.json](boot-dependencies.json) verifies 957 instruction
+encodings. Its conservative graph retains 653 instructions on potential routes
+from `0x4ec5` to the `0x2` block at `0x577a`. Calls are assumed to return;
+traps/returns/exits terminate; branches may take either direction. Structural
+mandatory calls under those assumptions do not prove feasible or successful boot.
+
+### A digest-matched ROM record and its consumer
+
+The parser chain leads to a table at ROM file `0x75d0`. Record ID `0x41` is row
+51 at file `0x80ac`, with a 129-byte payload. Searching every possible 129-byte
+window finds exactly one SHA-256 match for row bytes 20–51: file `0x86b48`,
+digest `35939c300c4216c6a523643b01255a5e6023aa6a84a24b2f43414085c30181b6`.
+That is first type-`0xe0` image start `0x2f600` plus record offset `0x57548`.
+Applying the Falcon-ucode pointer adjustment here selects the wrong bytes.
+This corroborates one file mapping, not signature authenticity or installed bytes.
+
+The payload is byte `0x40` followed by 128 zero bytes: 64 zero halfwords.
+Copied consumer `0x3f7d` requests this record, bounds its size, invokes additional
+validation calls, then copies the count/list around Falcon data addresses
+`D[0x2f12]`/`D[0x2f14]`. The header halfword at `+0x28` is `0x2204`.
+Main `0x51a7..0x51db` compares it with the high halfword of PRI operand `0x88000`.
+A match bypasses the fallback list check. A mismatch conditionally uses that
+list, depending on unresolved getter `0x16fa`; an unmatched enabled fallback
+reaches the raw `0x4c` error boundary.
+
+[boot-record-41.json](boot-record-41.json) preserves the raw bytes, pointer
+arithmetic and seven copied-consumer cases. Supplying reported card ID `0x2204`
+as a synthetic register value takes the primary match. The hash/signature engine,
+full parser, real table publication and getter do not execute in this model;
+their success is not substituted. Official names for this record remain unknown.
+
+All four retained ROM variants have identical record bytes and payload hashes
+([comparison](version-comparison.json)). Those bytes provide no evidence for a
+variant-specific mismatch in this candidate. They cannot exclude a different
+installed image or another failure. Exact NVIDIA source corroborates `RFRD` and
+the PCI configuration-map region, not this record's schema. [Raw consumers](boot-record-excerpts.dis)
+and [source pins](boot-record-sources.json) preserve that distinction.
+
+### Reset cleanup comes after the failed prerequisite
+
+Exact 615.71.09 source parses FWSEC before its GFW readiness gate, but
+`kgspInitRm_IMPL` has no explicit FWSEC-SB retry at that gate. Normal runtime
+bootstrap follows it. FWSEC-SB exists in teardown; that does not prove it can
+safely restart this failed boot. The retained teardown DMA timeout occurred
+before `StartCpu`, so that invocation does not demonstrate FWSEC-SB execution.
+
+The vendor FLR function calls `gpuWaitForGfwBootComplete_HAL` before
+`kbifClearDownstreamReadCounter_HAL`. Its error branch skips cleanup despite a
+nearby comment saying to clear regardless of success. [Seven cases using the
+unmodified source function](flr-source-replay.json) reproduce this ordering with
+synthetic callbacks. This is not proof our rejected Linux FLR attempt ran that code.
+
+Generated HAL dispatch proves GA102 selects the GA100-named cleanup. It uses
+PCI **configuration offset** `0x84c`, field bit 9, not a BAR0 address or firmware
+VA. The reviewed adapter at `ms7d25-gpu-recovery` commit `1983fff` has no explicit
+equivalent stage. Linux's core bridge reset uses a platform hook and waits;
+every platform override, quirk and installed kernel patch has not been audited.
+The five reviewed driver function bodies match between 615.71.09 and 615.78.08.
+
+The vendor ordering expects boot completion **before** counter cleanup. No
+retained counter value or causal evidence shows that clearing it would repair
+the earlier GFW failure. This is an unresolved dependency, not a reset recipe.
+[reset-dependencies.json](reset-dependencies.json) records commits, hashes,
+GA102 dispatch and limits. To reproduce this separate source comparison, place
+the exact source files specified there under ignored `vendor/reset-audit`, then:
+
+```sh
+bash scripts/run_cpu_only.sh python3 research/2026-10-21-gfw-boot/audit_reset_dependencies.py vendor/reset-audit
+```
+
+The regular reproduction command now checks the restart, table-consumer and
+FLR cases and conservative graph too. All register values, getter results,
+entry objects and hardware callbacks in these models are synthetic.
+
+### The table restores saved state; it does not supply boot defaults
+
+Following that table exposed an important distinction. `0x5be3` selects a table
+and count; `0x5c9a` constructs its register addresses. The copied constructor
+prefix for selector 1 produces these first eight PRI operands:
+`0x118fd0`, `0x823800`, `0x80`, `0x1200a0`, `0x137f34`, `0x20324`, `0x2082c`,
+`0x20820`. Later predicates can append rows; the prefix is not the full table.
+These are raw operands, not inferred official register names or live-write targets.
+
+Rows have stride 12. Routine `0x5ab2` reads each register and saves its original
+value at row `+4` (`0x5b2f..0x5b33`), performs a modifying write/readback, and
+marks row `+9` active at `0x5bbc`. Main loads selector 1 at `0x5737` before
+calling `0x59fe`, which restores saved values for active rows. A matching
+readback clears the active byte. A mismatch writes the address and observed
+value through PRI operands `0x146c`/`0x1470`, then reaches a trap at `0x5a83`.
+
+[saved-registers-replay.json](saved-registers-replay.json) executes that
+constructor prefix and three separated restore cases: match, mismatch and
+inactive row. Between write and readback fragments the device response is an
+explicit synthetic input. Missing saved-value memory is rejected, not filled
+with a guessed default. [Raw instructions](saved-registers-excerpts.dis) also
+retain the save/modify routine, selector and remaining constructor branches.
+The full save/modify/restore cycle and hardware trap handling are not emulated.
+
+This is tangible saved-state handling, but it does not recover the card's saved
+values or a cold-start sequence. Treating these addresses as a table of fixed
+initialization values would be wrong. Saved data, active flags and the card's
+execution of these branches remain unknown.
+
+Next: trace mandatory call `0x4653`, immediately after the restore and before
+progress `0x2`. Its entry checks step-word bits 25:24 and can reach `0x279a`,
+`0x37b0`, `0x43a8` and `0x2f6b`. Determine actual inputs, waits and failure
+branches before assigning hardware meanings. No additional live recovery
+mechanism has been established.

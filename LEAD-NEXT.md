@@ -4,7 +4,37 @@ Read AGENTS.md, CONSTITUTION.md, CORRECTIONS.md and EVIDENCE.md first. Preserve
 uncommitted work. Research uses copied files and CPU-only execution; no private
 calls, device reads, tracing, configuration changes or firmware operations.
 
-## Current result
+## Current priority: the remaining recovery dependency
+
+The owner's subsequent request prioritizes the Xid79 outage. Last retained
+recovery restored PCI access but startup reported GFW progress `0x1` and
+`NV_ERR_NOT_READY`. This state was not freshly checked during offline research.
+
+The [boot packet](research/2026-10-21-gfw-boot/README.md) now covers restart
+checks, step selectors, a conservative main-function graph, digest-matched ROM
+record `0x41` and its consumer, plus vendor reset/boot ordering. Counter cleanup
+comes later than boot readiness; do not promote it into a cause or a live fix.
+Debug FWSEC is not proven equivalent to production.
+
+Follow-up proved `0x5be3` selects a table, `0x5c9a` constructs addresses and
+`0x5ab2` saves runtime register values. Consumer `0x59fe` restores those saved
+values and traps on readback mismatch. These are not fixed boot defaults.
+Copied constructor/restore fragments execute with explicit synthetic state;
+the missing saved-value case is rejected.
+
+Next: trace mandatory debug IMEM call `0x4653`, just after restoration and before
+progress `0x2`. It checks step-word bits 25:24 and can reach `0x279a`, `0x37b0`,
+`0x43a8` and `0x2f6b`. Recover actual inputs, waits and failure branches without
+assuming those calls succeed. Keep GPU PRI,
+Falcon IO/data space, ROM file offsets and PCI configuration offsets separate.
+Decoded debug IMEM SHA-256:
+`dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb`.
+
+Acceptance: demonstrate one more required callee's input/wait/failure boundary,
+or its exact unresolved input/service boundary. Reproduce the boot packet and
+run `tests/check.sh` through `scripts/run_cpu_only.sh` before publishing.
+
+## Earlier telemetry result and next question
 
 The 615.71.09 P-state path is traced through the host shared-data reader, firmware
 writer, internal RM dispatch, Perf table getter and one entry constructor.

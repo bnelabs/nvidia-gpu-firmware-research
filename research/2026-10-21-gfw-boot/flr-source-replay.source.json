@@ -1,0 +1,10 @@
+{
+  "nvidia_commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+  "path": "src/nvidia/src/kernel/gpu/bif/arch/turing/kernel_bif_tu102.c",
+  "sha256": "deb0b0aa06023fd73e233e6c727e2fb2a2574ed764b990239605ee18a910a289",
+  "function": "kbifDoFunctionLevelReset_TU102",
+  "start_line": 520,
+  "end_line": 662,
+  "function_text_sha256": "eabaa4eba5aef77518aa671f617c71bef0acb4064120564b0c2f3573099d3552",
+  "boundaries": "Unmodified copied source function. All GPU/PCI calls, identities, properties, statuses and delays are synthetic C adapters; no hardware contact."
+}

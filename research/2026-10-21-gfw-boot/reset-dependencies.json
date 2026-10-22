@@ -1,0 +1,193 @@
+{
+  "versions": {
+    "615.71.09": {
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "functions": {
+        "kbifDoFunctionLevelReset_TU102": {
+          "path": "src/nvidia/src/kernel/gpu/bif/arch/turing/kernel_bif_tu102.c",
+          "source_sha256": "deb0b0aa06023fd73e233e6c727e2fb2a2574ed764b990239605ee18a910a289",
+          "source_bytes": 24662,
+          "function_text_sha256": "eabaa4eba5aef77518aa671f617c71bef0acb4064120564b0c2f3573099d3552",
+          "start_line": 520,
+          "end_line": 662,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bif/arch/turing/kernel_bif_tu102.c"
+        },
+        "kbifClearDownstreamReadCounter_GA100": {
+          "path": "src/nvidia/src/kernel/gpu/bif/arch/ampere/kernel_bif_ga100.c",
+          "source_sha256": "f9f8ff340948e2e52fc529e706ac95810c88b7ec1d9c5d41f2fff8579cdbb478",
+          "source_bytes": 22971,
+          "function_text_sha256": "1099f8f04d273d4e6485bb28da8a5e36333ac2156f7d4d7df006918cdd39b975",
+          "start_line": 668,
+          "end_line": 708,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bif/arch/ampere/kernel_bif_ga100.c"
+        },
+        "kbifDoSecondaryBusHotReset_GM107": {
+          "path": "src/nvidia/src/kernel/gpu/bif/arch/maxwell/kernel_bif_gm107.c",
+          "source_sha256": "8adf51c33580a9cabff61756d29a5ad1b93c4379fa9f70cf7e1c02c747f0e67b",
+          "source_bytes": 51879,
+          "function_text_sha256": "3228cd7094a40d418944ab57ac2138638473f323ed4413ab42b1c87eee326f7e",
+          "start_line": 1557,
+          "end_line": 1615,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/bif/arch/maxwell/kernel_bif_gm107.c"
+        },
+        "kgspInitRm_IMPL": {
+          "path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c",
+          "source_sha256": "ed6d7020a8a1772bc44608178aa13a77a72b8bf0eabe3293c12bc9d2b122c6c9",
+          "source_bytes": 272591,
+          "function_text_sha256": "906d0be21d1614bd5bac73bab442e9935a94eb0093a88ddf5746c9a3947916c2",
+          "start_line": 5520,
+          "end_line": 5842,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c"
+        },
+        "kgspTeardown_TU102": {
+          "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c",
+          "source_sha256": "df312262254d712e8340c2d428bb5869354756f41b7a5758aac2f1825fdf2550",
+          "source_bytes": 47956,
+          "function_text_sha256": "3d4c643a729fd0119bdb5515028a782429b93f2151fe2c6db9c37429fcb3e00d",
+          "start_line": 523,
+          "end_line": 569,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c"
+        }
+      }
+    },
+    "615.78.08": {
+      "commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+      "functions": {
+        "kbifDoFunctionLevelReset_TU102": {
+          "path": "src/nvidia/src/kernel/gpu/bif/arch/turing/kernel_bif_tu102.c",
+          "source_sha256": "deb0b0aa06023fd73e233e6c727e2fb2a2574ed764b990239605ee18a910a289",
+          "source_bytes": 24662,
+          "function_text_sha256": "eabaa4eba5aef77518aa671f617c71bef0acb4064120564b0c2f3573099d3552",
+          "start_line": 520,
+          "end_line": 662,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/bif/arch/turing/kernel_bif_tu102.c"
+        },
+        "kbifClearDownstreamReadCounter_GA100": {
+          "path": "src/nvidia/src/kernel/gpu/bif/arch/ampere/kernel_bif_ga100.c",
+          "source_sha256": "f9f8ff340948e2e52fc529e706ac95810c88b7ec1d9c5d41f2fff8579cdbb478",
+          "source_bytes": 22971,
+          "function_text_sha256": "1099f8f04d273d4e6485bb28da8a5e36333ac2156f7d4d7df006918cdd39b975",
+          "start_line": 668,
+          "end_line": 708,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/bif/arch/ampere/kernel_bif_ga100.c"
+        },
+        "kbifDoSecondaryBusHotReset_GM107": {
+          "path": "src/nvidia/src/kernel/gpu/bif/arch/maxwell/kernel_bif_gm107.c",
+          "source_sha256": "8adf51c33580a9cabff61756d29a5ad1b93c4379fa9f70cf7e1c02c747f0e67b",
+          "source_bytes": 51879,
+          "function_text_sha256": "3228cd7094a40d418944ab57ac2138638473f323ed4413ab42b1c87eee326f7e",
+          "start_line": 1557,
+          "end_line": 1615,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/bif/arch/maxwell/kernel_bif_gm107.c"
+        },
+        "kgspInitRm_IMPL": {
+          "path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c",
+          "source_sha256": "ed6d7020a8a1772bc44608178aa13a77a72b8bf0eabe3293c12bc9d2b122c6c9",
+          "source_bytes": 272591,
+          "function_text_sha256": "906d0be21d1614bd5bac73bab442e9935a94eb0093a88ddf5746c9a3947916c2",
+          "start_line": 5520,
+          "end_line": 5842,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c"
+        },
+        "kgspTeardown_TU102": {
+          "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c",
+          "source_sha256": "df312262254d712e8340c2d428bb5869354756f41b7a5758aac2f1825fdf2550",
+          "source_bytes": 47956,
+          "function_text_sha256": "3d4c643a729fd0119bdb5515028a782429b93f2151fe2c6db9c37429fcb3e00d",
+          "start_line": 523,
+          "end_line": 569,
+          "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c"
+        }
+      }
+    }
+  },
+  "nearby_version_function_text_identical": {
+    "kbifDoFunctionLevelReset_TU102": true,
+    "kbifClearDownstreamReadCounter_GA100": true,
+    "kbifDoSecondaryBusHotReset_GM107": true,
+    "kgspInitRm_IMPL": true,
+    "kgspTeardown_TU102": true
+  },
+  "ga102_dispatch": {
+    "source_chip_hal_index": 43,
+    "mask": "0x1f0fc00",
+    "target": "kbifClearDownstreamReadCounter_GA100",
+    "proof": [
+      {
+        "path": "src/nvidia/generated/g_chips2halspec_nvoc.c",
+        "sha256": "ec0f299b4dffa6160d102e2dc3d7e4db776116354649b676987146c52542548a",
+        "line_start": 45,
+        "line_end": 53,
+        "excerpt": "    else if(arch == 0x17 && impl == 0x0)\n    {\n        pChipHal->__nvoc_HalVarIdx = 42;\n    }\n    // GA102\n    else if(arch == 0x17 && impl == 0x2)\n    {\n        pChipHal->__nvoc_HalVarIdx = 43;\n    }"
+      },
+      {
+        "path": "src/nvidia/generated/g_kernel_bif_nvoc.c",
+        "sha256": "04c50bd6990745831783202e01bc9543a168fc739fe30959394d2457a97aefc8",
+        "line_start": 1496,
+        "line_end": 1505,
+        "excerpt": "    // kbifClearDownstreamReadCounter -- halified (2 hals) body\n    if (( ((chipHal_HalVarIdx >> 5) == 1UL) && ((1UL << (chipHal_HalVarIdx & 0x1f)) & 0x01f0fc00UL) )) /* ChipHal: GA100 | GA102 | GA103 | GA104 | GA106 | GA107 | AD102 | AD103 | AD104 | AD106 | AD107 */ \n    {\n        pThis->__kbifClearDownstreamReadCounter__ = &kbifClearDownstreamReadCounter_GA100;\n    }\n    else\n    {\n        pThis->__kbifClearDownstreamReadCounter__ = &kbifClearDownstreamReadCounter_d44104;\n    }\n"
+      },
+      {
+        "path": "src/common/inc/swref/published/ampere/ga100/dev_nv_xve.h",
+        "sha256": "cbc2bd71663b816fdcaf16a5c3111d341bfab99705fe1f23bbc092c3da34a176",
+        "line_start": 27,
+        "line_end": 33,
+        "excerpt": "#define NV_XVE_LINK_CONTROL_STATUS                     0x00000088 /* RW-4R */\n#define NV_XVE_LINK_CONTROL_STATUS_LINK_SPEED               19:16 /* R--VF */\n#define NV_XVE_DBG0                                                     0x0000084C /* RW-4R */\n#define NV_XVE_DBG0_OUTSTANDING_DOWNSTREAM_READ_CNTR_RESET                     9:9 /* RWCVF */\n#define NV_XVE_DBG0_OUTSTANDING_DOWNSTREAM_READ_CNTR_RESET_TRIGGER      0x00000001 /* -W--T */\n#define NV_XVE_DBG0_OUTSTANDING_DOWNSTREAM_READ_CNTR_RESET_DONE         0x00000000 /* R-C-V */\n#define NV_XVE_DBG0_OUTSTANDING_DOWNSTREAM_READ_CNTR_RESET_PENDING      0x00000001 /* R---V */"
+      },
+      {
+        "path": "src/common/sdk/nvidia/inc/nvstatuscodes.h",
+        "sha256": "4a9a39b51862d21cfa446414135386616a4a4914dd34dc83f98099295fea7b56",
+        "line_start": 27,
+        "line_end": 29,
+        "excerpt": "NV_STATUS_CODE(NV_OK,                                           0x00000000, \"Success\")\nNV_STATUS_CODE(NV_ERR_GENERIC,                                  0x0000FFFF, \"Failure: Generic Error\")\n"
+      },
+      {
+        "path": "src/common/sdk/nvidia/inc/nvstatuscodes.h",
+        "sha256": "4a9a39b51862d21cfa446414135386616a4a4914dd34dc83f98099295fea7b56",
+        "line_start": 114,
+        "line_end": 116,
+        "excerpt": "NV_STATUS_CODE(NV_ERR_NOT_READY,                                0x00000055, \"Generic Error: Not ready\")\nNV_STATUS_CODE(NV_ERR_NOT_SUPPORTED,                            0x00000056, \"Call not supported\")\nNV_STATUS_CODE(NV_ERR_OBJECT_NOT_FOUND,                         0x00000057, \"Requested object not found\")"
+      }
+    ]
+  },
+  "source_decoded_findings": [
+    "FWSEC is parsed before the GFW readiness gate; normal runtime bootstrap follows the gate.",
+    "The selected kgspInitRm source function has no explicit FWSEC-SB preparation fallback at that gate.",
+    "Vendor FLR waits for GFW readiness before downstream-counter cleanup; an error jumps past cleanup. The separate copied-source C replay checks this path.",
+    "The exact-source GA102 dispatch selects the GA100-named counter cleanup. A cross-architecture name alone was not used as evidence.",
+    "FWSEC-SB exists in teardown, but its availability does not prove it can repair an incomplete boot under all hardware states."
+  ],
+  "linux_comparison": {
+    "commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+    "path": "drivers/pci/pci.c",
+    "source_sha256": "1d62a99ba775930197cd32c2c8aba4686642b47462770bb2acaae8f9cb368551",
+    "reviewed_functions": [
+      {
+        "function": "pci_reset_secondary_bus",
+        "start_line": 4907,
+        "end_line": 4923,
+        "text": "void pci_reset_secondary_bus(struct pci_dev *dev)\n{\n\tu16 ctrl;\n\n\tpci_read_config_word(dev, PCI_BRIDGE_CONTROL, &ctrl);\n\tctrl |= PCI_BRIDGE_CTL_BUS_RESET;\n\tpci_write_config_word(dev, PCI_BRIDGE_CONTROL, ctrl);\n\n\t/*\n\t * PCI spec v3.0 7.6.4.2 requires minimum Trst of 1ms.  Double\n\t * this to 2ms to ensure that we meet the minimum requirement.\n\t */\n\tmsleep(2);\n\n\tctrl &= ~PCI_BRIDGE_CTL_BUS_RESET;\n\tpci_write_config_word(dev, PCI_BRIDGE_CONTROL, ctrl);\n}"
+      },
+      {
+        "function": "pci_bridge_secondary_bus_reset",
+        "start_line": 4937,
+        "end_line": 4945,
+        "text": "int pci_bridge_secondary_bus_reset(struct pci_dev *dev)\n{\n\tif (!dev->block_cfg_access)\n\t\tpci_warn_once(dev, \"unlocked secondary bus reset via: %pS\\n\",\n\t\t\t      __builtin_return_address(0));\n\tpcibios_reset_secondary_bus(dev);\n\n\treturn pci_bridge_wait_for_secondary_bus(dev, \"bus reset\");\n}"
+      }
+    ],
+    "limit": "Core bridge reset uses a platform hook and waits for the downstream bus. This is not an audit of every platform override, device quirk or the installed distro kernel."
+  },
+  "reviewed_adapter": {
+    "repository": "bnelabs/ms7d25-gpu-recovery",
+    "commit": "1983fff1e6798652e6f82952f139a5e2186a41f7",
+    "path": "recover.py",
+    "sha256": "70bf0f28bdab0cf828e125a53fc0fc18028eba264b0975cd18ce7b429a9aea74",
+    "scope": "restore_pci restores BARs, optional ReBAR and memory decode; it has no explicit NVIDIA downstream-counter-cleanup stage. No runtime omission is inferred from text search alone."
+  },
+  "unresolved": [
+    "Actual counter value, pending status, causal connection to progress 0x1 and effectiveness of a cleanup intervention.",
+    "Production/debug firmware equivalence and physical survival of the step word across the attempted resets.",
+    "Safe applicability of manually starting FWSEC-SB before the normal boot gate."
+  ],
+  "next_discriminator": "Determine from copied firmware and loader dependencies whether the counter can affect pre-runtime GFW boot; do not assume that a missing later cleanup repairs an earlier boot failure."
+}

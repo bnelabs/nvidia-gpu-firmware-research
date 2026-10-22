@@ -1,0 +1,437 @@
+00003f7d: f5 30 24 ff        C  add $sp -0xdc
+00003f81: df a0 05 00 00        mov $r15 0x5a0
+00003f86: f9 32                 mpush $r3
+00003f88: bf ff                 ld b32 $r15 D[$r15]
+00003f8a: fe 49 01              mov $r9 $sp
+00003f8d: 90 99 e8              add b32 $r9 $r9 0xe8
+00003f90: fe 42 01              mov $r2 $sp
+00003f93: a0 9f                 st b32 D[$r9] $r15
+00003f95: 90 22 13              add b32 $r2 $r2 0x13
+00003f98: 0a 41                 mov $r10 0x41
+00003f9a: b2 2b                 mov b32 $r11 $r2
+00003f9c: 7e 1f a3 00           lcall 0xa31f
+00003fa0: b2 a1                 mov b32 $r1 $r10
+00003fa2: b3 ad 00 e0 00        bra b32 $r10 0x0 ne 0x4082
+00003fa7: 18 2e 08              ld b8 $r14 D[$r2+0x8]
+00003faa: 18 29 09              ld b8 $r9 D[$r2+0x9]
+00003fad: 18 2f 0a              ld b8 $r15 D[$r2+0xa]
+00003fb0: 41 a9 00              mov $r1 0xa9
+00003fb3: f0 e4 ff              and $r14 0xff
+00003fb6: f0 94 ff              and $r9 0xff
+00003fb9: b6 94 08              shl b32 $r9 0x8
+00003fbc: fd 9e 05              or $r9 $r14
+00003fbf: f0 f4 ff              and $r15 0xff
+00003fc2: b6 f4 10              shl b32 $r15 0x10
+00003fc5: fd f9 05              or $r15 $r9
+00003fc8: 89 ff ff 0f           mov $r9 0xfffff
+00003fcc: ff f9 04              and $r0 $r15 $r9
+00003fcf: b1 06 81 00           cmp b32 $r0 0x81
+00003fd3: f5 0c af 00           bra a 0x4082
+00003fd7: 18 2f 04              ld b8 $r15 D[$r2+0x4]
+00003fda: 18 29 05              ld b8 $r9 D[$r2+0x5]
+00003fdd: 18 2e 07              ld b8 $r14 D[$r2+0x7]
+00003fe0: 18 2b 06              ld b8 $r11 D[$r2+0x6]
+00003fe3: f0 f4 ff              and $r15 0xff
+00003fe6: f0 94 ff              and $r9 0xff
+00003fe9: b6 e4 18              shl b32 $r14 0x18
+00003fec: b6 94 08              shl b32 $r9 0x8
+00003fef: fd 9f 05              or $r9 $r15
+00003ff2: f0 b4 ff              and $r11 0xff
+00003ff5: fe 43 01              mov $r3 $sp
+00003ff8: b6 b4 10              shl b32 $r11 0x10
+00003ffb: 90 33 47              add b32 $r3 $r3 0x47
+00003ffe: fd b9 05              or $r11 $r9
+00004001: b2 0c                 mov b32 $r12 $r0
+00004003: ff eb b5              or $r11 $r14 $r11
+00004006: b2 3a                 mov b32 $r10 $r3
+00004008: 4d 81 00              mov $r13 0x81
+0000400b: 7e 71 1d 00           lcall 0x1d71
+0000400f: b2 a1                 mov b32 $r1 $r10
+00004011: b3 a4 00 71           bra b32 $r10 0x0 ne 0x4082
+00004015: 7e 98 a6 00           lcall 0xa698
+00004019: b2 a1                 mov b32 $r1 $r10
+0000401b: b3 a4 00 67           bra b32 $r10 0x0 ne 0x4082
+0000401f: b2 0b                 mov b32 $r11 $r0
+00004021: b2 3a                 mov b32 $r10 $r3
+00004023: b2 0c                 mov b32 $r12 $r0
+00004025: b2 0d                 mov b32 $r13 $r0
+00004027: bd e4                 clear b32 $r14
+00004029: 7e 43 a6 00           lcall 0xa643
+0000402d: b2 a1                 mov b32 $r1 $r10
+0000402f: b3 a4 00 53           bra b32 $r10 0x0 ne 0x4082
+00004033: fe 40 01              mov $r0 $sp
+00004036: 90 00 c8              add b32 $r0 $r0 0xc8
+00004039: b2 0a                 mov b32 $r10 $r0
+0000403b: 7e 07 a6 00           lcall 0xa607
+0000403f: 7e df a5 00           lcall 0xa5df
+00004043: 90 2a 14              add b32 $r10 $r2 0x14
+00004046: b2 0b                 mov b32 $r11 $r0
+00004048: 0c 20                 mov $r12 0x20
+0000404a: 7e 33 0e 00           lcall 0xe33
+0000404e: b3 a4 55 0b           bra b32 $r10 0x55 ne 0x4059
+00004052: 41 ab 00              mov $r1 0xab
+00004055: 3e 82 40 00           lbra 0x4082
+00004059: 3f 3f               B ld b8 $r15 D[$r3]
+0000405b: 31 f6 40 00           cmp b8 $r15 0x40
+0000405f: f4 0d 0a              bra be 0x4069
+00004062: 41 aa 00              mov $r1 0xaa
+00004065: 3e 82 40 00           lbra 0x4082
+00004069: d9 12 2f 00 00      B mov $r9 0x2f12
+0000406e: c4 fc ff              and $r12 $r15 0xff
+00004071: 90 3b 01              add b32 $r11 $r3 0x1
+00004074: bc cc c0              add b32 $r12 $r12 $r12
+00004077: 20 9f                 st b8 D[$r9] $r15
+00004079: da 14 2f 00 00        mov $r10 0x2f14
+0000407e: 7e 0c 12 00           lcall 0x120c
+00004082: fe 49 01            B mov $r9 $sp
+00004085: 90 99 e8              add b32 $r9 $r9 0xe8
+00004088: bf 9f                 ld b32 $r15 D[$r9]
+0000408a: d9 a0 05 00 00        mov $r9 0x5a0
+0000408f: bf 99                 ld b32 $r9 D[$r9]
+00004091: b2 1a                 mov b32 $r10 $r1
+00004093: a6 f9                 cmp b32 $r15 $r9
+00004095: f4 0b 07              bra e 0x409c
+00004098: 7e 51 d6 00           lcall 0xd651
+0000409c: fb 33 dc 00         B mpopaddret $r3 0xdc
+0000a31f: f4 30 c4           C  add $sp -0x3c
+0000a322: df a0 05 00 00        mov $r15 0x5a0
+0000a327: f9 22                 mpush $r2
+0000a329: bf ff                 ld b32 $r15 D[$r15]
+0000a32b: fe 49 01              mov $r9 $sp
+0000a32e: 90 99 44              add b32 $r9 $r9 0x44
+0000a331: b2 b1                 mov b32 $r1 $r11
+0000a333: a0 9f                 st b32 D[$r9] $r15
+0000a335: b3 b4 00 06           bra b32 $r11 0x0 ne 0xa33b
+0000a339: f8 08                 trap 0x0
+0000a33b: 7d 94               B clear b16 $r9
+0000a33d: f0 a4 ff              and $r10 0xff
+0000a340: fe 40 01              mov $r0 $sp
+0000a343: fe 42 01              mov $r2 $sp
+0000a346: 90 00 0e              add b32 $r0 $r0 0xe
+0000a349: 90 22 10              add b32 $r2 $r2 0x10
+0000a34c: 60 09                 st b16 D[$r0] $r9
+0000a34e: b2 0c                 mov b32 $r12 $r0
+0000a350: b2 2b                 mov b32 $r11 $r2
+0000a352: 7e f2 c7 00           lcall 0xc7f2
+0000a356: 7f 00                 ld b16 $r0 D[$r0]
+0000a358: 73 00 00 0b           bra b16 $r0 0x0 e 0xa363
+0000a35c: c2 0a 0f              sext $r10 $r0 0xf
+0000a35f: 3e 6f a3 00           lbra 0xa36f
+0000a363: b2 1a               B mov b32 $r10 $r1
+0000a365: b2 2b                 mov b32 $r11 $r2
+0000a367: 0c 34                 mov $r12 0x34
+0000a369: 7e 0c 12 00           lcall 0x120c
+0000a36d: bd a4                 clear b32 $r10
+0000a36f: fe 49 01            B mov $r9 $sp
+0000a372: 90 99 44              add b32 $r9 $r9 0x44
+0000a375: bf 9f                 ld b32 $r15 D[$r9]
+0000a377: d9 a0 05 00 00        mov $r9 0x5a0
+0000a37c: bf 99                 ld b32 $r9 D[$r9]
+0000a37e: a6 f9                 cmp b32 $r15 $r9
+0000a380: f4 0b 07              bra e 0xa387
+0000a383: 7e 51 d6 00           lcall 0xd651
+0000a387: fb 25 3c            B mpopaddret $r2 0x3c
+0000b18c: f4 30 fc           C  add $sp -0x4
+0000b18f: f9 52                 mpush $r5
+0000b191: b2 d3                 mov b32 $r3 $r13
+0000b193: dd a0 05 00 00        mov $r13 0x5a0
+0000b198: bf dd                 ld b32 $r13 D[$r13]
+0000b19a: b4 40 08              ld b32 $r4 D[$sp+0x20]
+0000b19d: fe 49 01              mov $r9 $sp
+0000b1a0: 90 99 18              add b32 $r9 $r9 0x18
+0000b1a3: a0 9d                 st b32 D[$r9] $r13
+0000b1a5: bd f4                 clear b32 $r15
+0000b1a7: a0 3f                 st b32 D[$r3] $r15
+0000b1a9: a0 ef                 st b32 D[$r14] $r15
+0000b1ab: a0 4f                 st b32 D[$r4] $r15
+0000b1ad: a0 cf                 st b32 D[$r12] $r15
+0000b1af: bf b9                 ld b32 $r9 D[$r11]
+0000b1b1: b2 e2                 mov b32 $r2 $r14
+0000b1b3: b2 c1                 mov b32 $r1 $r12
+0000b1b5: b4 50 09              ld b32 $r5 D[$sp+0x24]
+0000b1b8: b3 9d 30 3c 00        bra b32 $r9 0x30 ne 0xb1f4
+0000b1bd: 98 b9 01              ld b32 $r9 D[$r11+0x4]
+0000b1c0: b3 9d 1c 34 00        bra b32 $r9 0x1c ne 0xb1f4
+0000b1c5: 3e 1b b2 00           lbra 0xb21b
+0000b1c9: 98 b0 03            B ld b32 $r0 D[$r11+0xc]
+0000b1cc: 8e fc ff 1f           mov $r14 0x1ffffc
+0000b1d0: bc ea f2              sub b32 $r15 $r14 $r10
+0000b1d3: 92 f9 38              sub b32 $r9 $r15 0x38
+0000b1d6: a6 09                 cmp b32 $r0 $r9
+0000b1d8: f4 0d 4e              bra be 0xb226
+0000b1db: 3e f4 b1 00           lbra 0xb1f4
+0000b1df: bc ef 92            B sub b32 $r9 $r14 $r15
+0000b1e2: a6 a9                 cmp b32 $r10 $r9
+0000b1e4: f4 0d 6a              bra be 0xb24e
+0000b1e7: 3e f4 b1 00           lbra 0xb1f4
+0000b1eb: ff fc 95            B or $r9 $r15 $r12
+0000b1ee: f0 94 03              and $r9 0x3
+0000b1f1: f4 0b 0c              bra e 0xb1fd
+0000b1f4: 49 06 49            B mov $r9 0x4906
+0000b1f7: 60 59                 st b16 D[$r5] $r9
+0000b1f9: 3e 5b b2 00           lbra 0xb25b
+0000b1fd: bc ad 90            B add b32 $r9 $r10 $r13
+0000b200: a0 39                 st b32 D[$r3] $r9
+0000b202: 98 b9 05              ld b32 $r9 D[$r11+0x14]
+0000b205: bc a9 90              add b32 $r9 $r10 $r9
+0000b208: a0 29                 st b32 D[$r2] $r9
+0000b20a: 98 b9 06              ld b32 $r9 D[$r11+0x18]
+0000b20d: a0 49                 st b32 D[$r4] $r9
+0000b20f: 98 b9 03              ld b32 $r9 D[$r11+0xc]
+0000b212: bc a9 90              add b32 $r9 $r10 $r9
+0000b215: a0 19                 st b32 D[$r1] $r9
+0000b217: 3e 5b b2 00           lbra 0xb25b
+0000b21b: 98 b9 02            B ld b32 $r9 D[$r11+0x8]
+0000b21e: b3 90 00 ab           bra b32 $r9 0x0 e 0xb1c9
+0000b222: 3e f4 b1 00           lbra 0xb1f4
+0000b226: 98 bd 04            B ld b32 $r13 D[$r11+0x10]
+0000b229: 92 f9 1c              sub b32 $r9 $r15 0x1c
+0000b22c: a6 d9                 cmp b32 $r13 $r9
+0000b22e: f4 0c c6              bra a 0xb1f4
+0000b231: b0 d6 1c              cmp b32 $r13 0x1c
+0000b234: f4 0d c0              bra be 0xb1f4
+0000b237: 98 bc 05              ld b32 $r12 D[$r11+0x14]
+0000b23a: 92 f9 80              sub b32 $r9 $r15 0x80
+0000b23d: a6 c9                 cmp b32 $r12 $r9
+0000b23f: f4 0c b5              bra a 0xb1f4
+0000b242: 98 bf 06              ld b32 $r15 D[$r11+0x18]
+0000b245: a6 fe                 cmp b32 $r15 $r14
+0000b247: f4 0d 98              bra be 0xb1df
+0000b24a: 3e f4 b1 00           lbra 0xb1f4
+0000b24e: ff d0 95            B or $r9 $r13 $r0
+0000b251: f0 94 03              and $r9 0x3
+0000b254: f4 0b 97              bra e 0xb1eb
+0000b257: 3e f4 b1 00           lbra 0xb1f4
+0000b25b: fe 49 01            B mov $r9 $sp
+0000b25e: 90 99 18              add b32 $r9 $r9 0x18
+0000b261: bf 9f                 ld b32 $r15 D[$r9]
+0000b263: d9 a0 05 00 00        mov $r9 0x5a0
+0000b268: bf 99                 ld b32 $r9 D[$r9]
+0000b26a: a6 f9                 cmp b32 $r15 $r9
+0000b26c: f4 0b 07              bra e 0xb273
+0000c4df: df a0 05 00 00     C  mov $r15 0x5a0
+0000c4e4: bf ff                 ld b32 $r15 D[$r15]
+0000c4e6: f4 30 fc              add $sp -0x4
+0000c4e9: fe 49 01              mov $r9 $sp
+0000c4ec: b2 ae                 mov b32 $r14 $r10
+0000c4ee: a0 9f                 st b32 D[$r9] $r15
+0000c4f0: bd 94                 clear b32 $r9
+0000c4f2: a0 c9                 st b32 D[$r12] $r9
+0000c4f4: bf bf                 ld b32 $r15 D[$r11]
+0000c4f6: d9 ff ff ff 00        mov $r9 0xffffff
+0000c4fb: fd f9 04              and $r15 $r9
+0000c4fe: 89 02 01 05           mov $r9 0x50102
+0000c502: a6 f9                 cmp b32 $r15 $r9
+0000c504: f5 1b 58 00           bra ne 0xc55c
+0000c508: 98 b9 01              ld b32 $r9 D[$r11+0x4]
+0000c50b: b3 9f 80 00 51 00     bra b32 $r9 0x80 ne 0xc55c
+0000c511: 3e 6e c5 00           lbra 0xc56e
+0000c515: 18 b9 0c            B ld b8 $r9 D[$r11+0xc]
+0000c518: 33 9d 00 44 00        bra b8 $r9 0x0 ne 0xc55c
+0000c51d: 18 b9 0d              ld b8 $r9 D[$r11+0xd]
+0000c520: 31 96 74 00           cmp b8 $r9 0x74
+0000c524: f5 0c 38 00           bra a 0xc55c
+0000c528: 33 99 00 34 00        bra b8 $r9 0x0 e 0xc55c
+0000c52d: 18 b9 0e              ld b8 $r9 D[$r11+0xe]
+0000c530: 33 9d 01 2c 00        bra b8 $r9 0x1 ne 0xc55c
+0000c535: 98 b9 05              ld b32 $r9 D[$r11+0x14]
+0000c538: b1 96 80 00           cmp b32 $r9 0x80
+0000c53c: f4 0c 3d              bra a 0xc579
+0000c53f: 3e 5c c5 00           lbra 0xc55c
+0000c543: 33 99 00 19 00      B bra b8 $r9 0x0 e 0xc55c
+0000c548: 58 b9 0f              ld b16 $r9 D[$r11+0x1e]
+0000c54b: 73 9f 9c 01 11 00     bra b16 $r9 0x19c ne 0xc55c
+0000c551: 3e 8d c5 00           lbra 0xc58d
+0000c555: 58 b9 13            B ld b16 $r9 D[$r11+0x26]
+0000c558: 73 90 2c 40           bra b16 $r9 0x2c e 0xc598
+0000c55c: 49 12 49            B mov $r9 0x4912
+0000c55f: 60 d9                 st b16 D[$r13] $r9
+0000c561: 3e bc c5 00           lbra 0xc5bc
+0000c565: bc ea 90            B add b32 $r9 $r14 $r10
+0000c568: a0 c9                 st b32 D[$r12] $r9
+0000c56a: 3e bc c5 00           lbra 0xc5bc
+0000c56e: 58 b9 04            B ld b16 $r9 D[$r11+0x8]
+0000c571: 73 94 02 eb           bra b16 $r9 0x2 ne 0xc55c
+0000c575: 3e 15 c5 00           lbra 0xc515
+0000c579: b1 96 b4 18         B cmp b32 $r9 0x18b4
+0000c57d: f4 0c df              bra a 0xc55c
+0000c580: 18 b9 1c              ld b8 $r9 D[$r11+0x1c]
+0000c583: 30 96 11              cmp b8 $r9 0x11
+0000c586: f4 0d bd              bra be 0xc543
+0000c589: 3e 5c c5 00           lbra 0xc55c
+0000c58d: 58 b9 12            B ld b16 $r9 D[$r11+0x24]
+0000c590: 73 94 01 cc           bra b16 $r9 0x1 ne 0xc55c
+0000c594: 3e 55 c5 00           lbra 0xc555
+0000c598: 89 ec cb 1f         B mov $r9 0x1fcbec
+0000c59c: a6 e9                 cmp b32 $r14 $r9
+0000c59e: f4 0c be              bra a 0xc55c
+0000c5a1: 98 ba 06              ld b32 $r10 D[$r11+0x18]
+0000c5a4: b1 a6 80 00           cmp b32 $r10 0x80
+0000c5a8: f4 0d b4              bra be 0xc55c
+0000c5ab: b1 a6 10 34           cmp b32 $r10 0x3410
+0000c5af: f4 0c ad              bra a 0xc55c
+0000c5b2: c4 a9 03              and $r9 $r10 0x3
+0000c5b5: f4 0b b0              bra e 0xc565
+0000c5b8: 3e 5c c5 00           lbra 0xc55c
+0000c5bc: fe 49 01            B mov $r9 $sp
+0000c5bf: bf 9f                 ld b32 $r15 D[$r9]
+0000c5c1: d9 a0 05 00 00        mov $r9 0x5a0
+0000c5c6: bf 99                 ld b32 $r9 D[$r9]
+0000c5c8: a6 f9                 cmp b32 $r15 $r9
+0000c5ca: f4 0b 07              bra e 0xc5d1
+0000c5cd: 7e 51 d6 00           lcall 0xd651
+0000c5d1: f4 30 04            B add $sp 0x4
+0000c5d4: f8 00                 ret
+0000c5d6: d9 a0 05 00 00     C  mov $r9 0x5a0
+0000c7f2: f4 30 c8           C  add $sp -0x38
+0000c7f5: d9 08 3d 00 00        mov $r9 0x3d08
+0000c7fa: f9 62                 mpush $r6
+0000c7fc: 18 99 0d              ld b8 $r9 D[$r9+0xd]
+0000c7ff: df a0 05 00 00        mov $r15 0x5a0
+0000c804: bf ff                 ld b32 $r15 D[$r15]
+0000c806: fe 42 01              mov $r2 $sp
+0000c809: 12 99 01              sub b8 $r9 $r9 0x1
+0000c80c: b2 a5                 mov b32 $r5 $r10
+0000c80e: c4 93 ff              and $r3 $r9 0xff
+0000c811: b2 b6                 mov b32 $r6 $r11
+0000c813: fe 49 01              mov $r9 $sp
+0000c816: b2 c4                 mov b32 $r4 $r12
+0000c818: 90 99 50              add b32 $r9 $r9 0x50
+0000c81b: d1 00 72 00 00        mov $r1 0x7200
+0000c820: a0 9f                 st b32 D[$r9] $r15
+0000c822: bd 04                 clear b32 $r0
+0000c824: 90 22 1c              add b32 $r2 $r2 0x1c
+0000c827: 3e 74 c8 00           lbra 0xc874
+0000c82b: 3f 19               B ld b8 $r9 D[$r1]
+0000c82d: 33 94 02 3e           bra b8 $r9 0x2 ne 0xc86b
+0000c831: b2 2a                 mov b32 $r10 $r2
+0000c833: b2 1b                 mov b32 $r11 $r1
+0000c835: 0c 34                 mov $r12 0x34
+0000c837: 7e 6f d6 00           lcall 0xd66f
+0000c83b: 58 29 01              ld b16 $r9 D[$r2+0x2]
+0000c83e: f1 94 ff 0f           and $r9 0xfff
+0000c842: a6 59                 cmp b32 $r5 $r9
+0000c844: f4 1b 11              bra ne 0xc855
+0000c847: b2 6a                 mov b32 $r10 $r6
+0000c849: b2 2b                 mov b32 $r11 $r2
+0000c84b: 0c 34                 mov $r12 0x34
+0000c84d: 7e 0c 12 00           lcall 0x120c
+0000c851: 3e 79 c8 00           lbra 0xc879
+0000c855: 90 11 34            B add b32 $r1 $r1 0x34
+0000c858: a6 03                 cmp b32 $r0 $r3
+0000c85a: f4 1b 0a              bra ne 0xc864
+0000c85d: 49 21 49              mov $r9 0x4921
+0000c860: 3e 6e c8 00           lbra 0xc86e
+0000c864: 90 00 01            B add b32 $r0 $r0 0x1
+0000c867: 3e 74 c8 00           lbra 0xc874
+0000c86b: 49 20 49            B mov $r9 0x4920
+0000c86e: 60 49               B st b16 D[$r4] $r9
+0000c870: 3e 79 c8 00           lbra 0xc879
+0000c874: a6 03               B cmp b32 $r0 $r3
+0000c876: f4 0d b5              bra be 0xc82b
+0000c879: fe 49 01            B mov $r9 $sp
+0000c87c: 90 99 50              add b32 $r9 $r9 0x50
+0000c87f: bf 9f                 ld b32 $r15 D[$r9]
+0000c881: d9 a0 05 00 00        mov $r9 0x5a0
+0000c886: bf 99                 ld b32 $r9 D[$r9]
+0000c888: a6 f9                 cmp b32 $r15 $r9
+0000c88a: f4 0b 07              bra e 0xc891
+0000c88d: 7e 51 d6 00           lcall 0xd651
+0000c891: fb 65 38            B mpopaddret $r6 0x38
+0000cf40: f4 30 a8           C  add $sp -0x58
+0000cf43: d9 a0 05 00 00        mov $r9 0x5a0
+0000cf48: f9 22                 mpush $r2
+0000cf4a: bf 99                 ld b32 $r9 D[$r9]
+0000cf4c: f4 30 fc              add $sp -0x4
+0000cf4f: fe 4f 01              mov $r15 $sp
+0000cf52: 90 ff 64              add b32 $r15 $r15 0x64
+0000cf55: b2 a1                 mov b32 $r1 $r10
+0000cf57: a0 f9                 st b32 D[$r15] $r9
+0000cf59: db 88 3d 00 00        mov $r11 0x3d88
+0000cf5e: 4c 80 19              mov $r12 0x1980
+0000cf61: da 00 72 00 00        mov $r10 0x7200
+0000cf66: 7e 0c 12 00           lcall 0x120c
+0000cf6a: b2 1a                 mov b32 $r10 $r1
+0000cf6c: 7e de aa 00           lcall 0xaade
+0000cf70: 7f 19                 ld b16 $r9 D[$r1]
+0000cf72: 73 94 00 5c           bra b16 $r9 0x0 ne 0xcfce
+0000cf76: fe 42 01              mov $r2 $sp
+0000cf79: 0a 4e                 mov $r10 0x4e
+0000cf7b: 90 22 10              add b32 $r2 $r2 0x10
+0000cf7e: b2 1c                 mov b32 $r12 $r1
+0000cf80: b2 2b                 mov b32 $r11 $r2
+0000cf82: 7e f2 c7 00           lcall 0xc7f2
+0000cf86: 7f 19                 ld b16 $r9 D[$r1]
+0000cf88: 73 94 00 46           bra b16 $r9 0x0 ne 0xcfce
+0000cf8c: 0b 28                 mov $r11 0x28
+0000cf8e: b0 11 00              st b32 D[$sp] $r1
+0000cf91: da 8c 71 00 00        mov $r10 0x718c
+0000cf96: b2 bc                 mov b32 $r12 $r11
+0000cf98: b2 bd                 mov b32 $r13 $r11
+0000cf9a: bd e4                 clear b32 $r14
+0000cf9c: 7e 3b ac 00           lcall 0xac3b
+0000cfa0: 7f 19                 ld b16 $r9 D[$r1]
+0000cfa2: 73 94 00 2c           bra b16 $r9 0x0 ne 0xcfce
+0000cfa6: fe 40 01              mov $r0 $sp
+0000cfa9: 90 00 44              add b32 $r0 $r0 0x44
+0000cfac: b2 0a                 mov b32 $r10 $r0
+0000cfae: 7e a6 ab 00           lcall 0xaba6
+0000cfb2: b2 0a                 mov b32 $r10 $r0
+0000cfb4: 90 2b 14              add b32 $r11 $r2 0x14
+0000cfb7: 0c 20                 mov $r12 0x20
+0000cfb9: 7e 83 12 00           lcall 0x1283
+0000cfbd: b3 a0 00 0d           bra b32 $r10 0x0 e 0xcfca
+0000cfc1: 49 2e 49              mov $r9 0x492e
+0000cfc4: 60 19                 st b16 D[$r1] $r9
+0000cfc6: 3e ce cf 00           lbra 0xcfce
+0000cfca: 7e 09 ac 00         B lcall 0xac09
+0000cfce: fe 49 01            B mov $r9 $sp
+0000cfd1: 90 99 64              add b32 $r9 $r9 0x64
+0000cfd4: bf 9f                 ld b32 $r15 D[$r9]
+0000cfd6: d9 a0 05 00 00        mov $r9 0x5a0
+0000cfdb: bf 99                 ld b32 $r9 D[$r9]
+0000cfdd: a6 f9                 cmp b32 $r15 $r9
+0000cfdf: f4 0b 07              bra e 0xcfe6
+0000cfe2: 7e 51 d6 00           lcall 0xd651
+0000cfe6: f4 30 04            B add $sp 0x4
+0000cfe9: fb 25 58              mpopaddret $r2 0x58
+0000d2ba: f4 30 f8           C  add $sp -0x8
+0000d2bd: d9 a0 05 00 00        mov $r9 0x5a0
+0000d2c2: f9 22                 mpush $r2
+0000d2c4: bf 99                 ld b32 $r9 D[$r9]
+0000d2c6: fe 4f 01              mov $r15 $sp
+0000d2c9: 90 ff 10              add b32 $r15 $r15 0x10
+0000d2cc: b2 b0                 mov b32 $r0 $r11
+0000d2ce: b2 a1                 mov b32 $r1 $r10
+0000d2d0: a0 f9                 st b32 D[$r15] $r9
+0000d2d2: da 08 3d 00 00        mov $r10 0x3d08
+0000d2d7: b2 1b                 mov b32 $r11 $r1
+0000d2d9: 4c 80 00              mov $r12 0x80
+0000d2dc: b2 0d                 mov b32 $r13 $r0
+0000d2de: 7e 15 a2 00           lcall 0xa215
+0000d2e2: 7f 09                 ld b16 $r9 D[$r0]
+0000d2e4: 73 94 00 32           bra b16 $r9 0x0 ne 0xd316
+0000d2e8: fe 42 01              mov $r2 $sp
+0000d2eb: b2 1a                 mov b32 $r10 $r1
+0000d2ed: 90 22 0c              add b32 $r2 $r2 0xc
+0000d2f0: db 08 3d 00 00        mov $r11 0x3d08
+0000d2f5: b2 2c                 mov b32 $r12 $r2
+0000d2f7: b2 0d                 mov b32 $r13 $r0
+0000d2f9: 7e df c4 00           lcall 0xc4df
+0000d2fd: 7f 09                 ld b16 $r9 D[$r0]
+0000d2ff: 73 94 00 17           bra b16 $r9 0x0 ne 0xd316
+0000d303: bf 2c                 ld b32 $r12 D[$r2]
+0000d305: 90 1b 80              add b32 $r11 $r1 0x80
+0000d308: b2 0d                 mov b32 $r13 $r0
+0000d30a: da 88 3d 00 00        mov $r10 0x3d88
+0000d30f: bb cb 02              sub b32 $r12 $r11
+0000d312: 7e 15 a2 00           lcall 0xa215
+0000d316: fe 49 01            B mov $r9 $sp
+0000d319: 90 99 10              add b32 $r9 $r9 0x10
+0000d31c: bf 9f                 ld b32 $r15 D[$r9]
+0000d31e: d9 a0 05 00 00        mov $r9 0x5a0
+0000d323: bf 99                 ld b32 $r9 D[$r9]
+0000d325: a6 f9                 cmp b32 $r15 $r9
+0000d327: f4 0b 07              bra e 0xd32e
+0000d32a: 7e 51 d6 00           lcall 0xd651
+0000d32e: fb 25 08            B mpopaddret $r2 0x8
