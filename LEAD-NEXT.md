@@ -22,13 +22,29 @@ values and traps on readback mismatch. These are not fixed boot defaults.
 Copied constructor/restore fragments execute with explicit synthetic state;
 the missing saved-value case is rejected.
 
-Next: trace mandatory debug IMEM call `0x4653`, just after restoration and before
-progress `0x2`. It checks step-word bits 25:24 and can reach `0x279a`, `0x37b0`,
-`0x43a8` and `0x2f6b`. Recover actual inputs, waits and failure branches without
-assuming those calls succeed. Keep GPU PRI,
-Falcon IO/data space, ROM file offsets and PCI configuration offsets separate.
+Follow-up traced `0x4653` into loader `0x43a8` with selector 1, raw mode `0xaa`,
+and the HALTED wait at `0x669d -> 0x663a`. Exact GA102 headers identify the core
+selector and both Falcon/RISC-V HALTED fields. The timed raw-`0xbc` poll belongs
+to another loader branch. Step bits 25:24 can become 2 even when an opaque loader
+result is an error, so that marker alone does not certify success.
+
+Record `0x2f` and the BIT PRE_OS/PMU entry resolve to the same copied component.
+Four GA102 variants have identical 32,004-byte IMEM but 16 differing DMEM bytes.
+Copied prefixes read those differences; physical meanings remain unknown.
+PRE_OS sets bit 9 at D[0x140205e4], matching the alternate wait's low PRI operand
+and bit. Its physical aperture mapping is unproved here; do not equate domains.
+
+Next: trace parameter publication by loader `0x6b04` into PRE_OS's interface
+(legacy descriptor offset `0xec`) and the PRE_OS conditions that reach a halt.
+Follow the selector-1 `0x40` argument from its actual stores, rather than assigning
+it a command name. PRE_OS entry also waits on D[0x14001724] bit 29 before its
+unexecuted callbacks; preserve that separate dependency. No full loader/callback
+success or actual card state is supplied by the synthetic HALTED cases.
+Keep GPU PRI, Falcon IO/data space, ROM offsets and PCI configuration separate.
 Decoded debug IMEM SHA-256:
 `dee558dc5bbe329bd7ff4d20bc7d7bd0d47d91c1c8d301e759dc6d66348d7ecb`.
+PRE_OS IMEM SHA-256:
+`45ed86ec62e8ceba8fb402e472f5a3ceea206c37c22772e2ef922e78bf89c6fc`.
 
 Acceptance: demonstrate one more required callee's input/wait/failure boundary,
 or its exact unresolved input/service boundary. Reproduce the boot packet and

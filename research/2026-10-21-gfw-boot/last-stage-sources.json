@@ -1,0 +1,211 @@
+{
+  "sources": [
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/inc/swref/published/ampere/ga102/dev_falcon_v4.h",
+      "sha256": "42cfc2cfae62b2c2652b3c9d630ef5085e03016dd8ed7dcd30179964aca224ce",
+      "git_blob_sha1": "ff48b61245777fc6e89787d9a2a96cdcfd224dc5",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga102/dev_falcon_v4.h",
+      "excerpts": [
+        {
+          "line_start": 107,
+          "line_end": 115,
+          "text": "#define NV_PFALCON_FALCON_RM                                                                           0x00000084     /* RW-4R */\n#define NV_PFALCON_FALCON_DEBUGINFO                                                                    0x00000094     /* RW-4R */\n#define NV_PFALCON_FALCON_CPUCTL                                                                       0x00000100     /* RW-4R */\n#define NV_PFALCON_FALCON_CPUCTL_STARTCPU                                                              1:1            /* -WXVF */\n#define NV_PFALCON_FALCON_CPUCTL_STARTCPU_TRUE                                                         0x00000001     /* -W--V */\n#define NV_PFALCON_FALCON_CPUCTL_STARTCPU_FALSE                                                        0x00000000     /* -W--V */\n#define NV_PFALCON_FALCON_CPUCTL_HALTED                                                                4:4            /* R-XVF */\n#define NV_PFALCON_FALCON_CPUCTL_HALTED_TRUE                                                           0x00000001     /* R---V */\n#define NV_PFALCON_FALCON_CPUCTL_ALIAS_EN                                                              6:6            /* RWIVF */"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/inc/swref/published/ampere/ga102/dev_riscv_pri.h",
+      "sha256": "8c3d5a46bfb9d44b3ebfe9e086e146b6340543927f5fe1acdc168c8bbe8741ee",
+      "git_blob_sha1": "c7fdf1b9c97c050868053a527ad6c19bbf32febb",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga102/dev_riscv_pri.h",
+      "excerpts": [
+        {
+          "line_start": 30,
+          "line_end": 39,
+          "text": "#define NV_PRISCV_RISCV_IRQDELEG                                                                       0x00000534     /* RWI4R */\n#define NV_PRISCV_RISCV_RPC                                                                            0x000003ec     /* R--4R */\n#define NV_PRISCV_RISCV_CPUCTL                                                                         0x00000388     /* RWI4R */\n#define NV_PRISCV_RISCV_CPUCTL_ACTIVE_STAT                                                             7:7            /* R-IVF */\n#define NV_PRISCV_RISCV_CPUCTL_ACTIVE_STAT_ACTIVE                                                      0x00000001     /* R---V */\n#define NV_PRISCV_RISCV_CPUCTL_HALTED                                                                  4:4            /* R-IVF */\n#define NV_PRISCV_RISCV_ICD_CMD                                                                        0x000003d0     /* RW-4R */\n#define NV_PRISCV_RISCV_ICD_ADDR0                                                                      0x000003d4     /* RW-4R */\n#define NV_PRISCV_RISCV_ICD_ADDR1                                                                      0x000003d8     /* RW-4R */\n#define NV_PRISCV_RISCV_ICD_RDATA0                                                                     0x000003e4     /* R--4R */"
+        },
+        {
+          "line_start": 53,
+          "line_end": 62,
+          "text": "#define NV_PRISCV_RISCV_PRIV_ERR_ADDR_HI                                                               0x0000050c     /* R-I4R */\n#define NV_PRISCV_RISCV_HUB_ERR_STAT                                                                   0x00000510     /* RWI4R */\n#define NV_PRISCV_RISCV_BCR_CTRL                                                                       0x00000668     /* RWI4R */\n#define NV_PRISCV_RISCV_BCR_CTRL_VALID                                                                 0:0            /* R-IVF */\n#define NV_PRISCV_RISCV_BCR_CTRL_VALID_TRUE                                                            0x00000001     /* R---V */\n#define NV_PRISCV_RISCV_BCR_CTRL_VALID_FALSE                                                           0x00000000     /* R-I-V */\n#define NV_PRISCV_RISCV_BCR_CTRL_CORE_SELECT                                                           4:4            /* RWIVF */\n#define NV_PRISCV_RISCV_BCR_CTRL_CORE_SELECT_FALCON                                                    0x00000000     /* RWI-V */\n#define NV_PRISCV_RISCV_BCR_CTRL_CORE_SELECT_RISCV                                                     0x00000001     /* RW--V */\n#define NV_PRISCV_RISCV_BCR_CTRL_BRFETCH                                                               8:8            /* RWIVF */"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/inc/swref/published/ampere/ga102/dev_gc6_island.h",
+      "sha256": "4c9d9be20c394e1d70316fcdde9b7c5554638e53033f0fa57762a8050cd3e0bf",
+      "git_blob_sha1": "3170e8b511ed36756aa4a150fea2c6d9dd63fee0",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/ampere/ga102/dev_gc6_island.h",
+      "excerpts": [
+        {
+          "line_start": 31,
+          "line_end": 34,
+          "text": "#define NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK_READ_PROTECTION_LEVEL0_DISABLE      0x00000000 /*       */\n#define NV_PGC6_AON_SECURE_SCRATCH_GROUP_03(i)                                          (0x00118214+(i)*4) /* RW-4A */\n#define NV_PGC6_AON_SECURE_SCRATCH_GROUP_05(i)                                          (0x00118234+(i)*4) /* RW-4A */\n#define NV_PGC6_AON_SECURE_SCRATCH_GROUP_42                                                     0x001183a4 /* RW-4R */"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/common/inc/swref/published/turing/tu102/dev_bus.h",
+      "sha256": "58d106d908a1b56a99b10075744067b15be95d0973ae4b4c9a50e914843cdd44",
+      "git_blob_sha1": "b2b711ff7b21c68d39b0402eea604fae87c4adaf",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/common/inc/swref/published/turing/tu102/dev_bus.h",
+      "excerpts": [
+        {
+          "line_start": 26,
+          "line_end": 29,
+          "text": "\n#define NV_PBUS_VBIOS_SCRATCH(i)                  (0x00001400+(i)*4) /*       */\n#define NV_PBUS_SW_SCRATCH(i)                     (0x00001400+(i)*4) /* RW-4A */\n"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp_fwsec.c",
+      "sha256": "67ef9df6a3653644899f69df5e135b1f64d365b22b1cd1676991d7ebc606fed5",
+      "git_blob_sha1": "984d9b9d4053e2bdd22df2fb3cf6d11596908f8c",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/kernel_gsp_fwsec.c",
+      "excerpts": [
+        {
+          "line_start": 191,
+          "line_end": 196,
+          "text": "typedef union\n{\n    // v1 is unused on platforms supported by GSP-RM\n    FALCON_UCODE_DESC_V2  v2;\n    FALCON_UCODE_DESC_V3  v3;\n} FALCON_UCODE_DESC_UNION;"
+        }
+      ]
+    },
+    {
+      "repository": "NVIDIA/open-gpu-kernel-modules",
+      "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1",
+      "path": "src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c",
+      "sha256": "df312262254d712e8340c2d428bb5869354756f41b7a5758aac2f1825fdf2550",
+      "git_blob_sha1": "ec75de125e84422f8ba5f4bf50943efd94e6e976",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c",
+      "excerpts": [
+        {
+          "line_start": 514,
+          "line_end": 523,
+          "text": " * Teardown remaining GSP state after GSP-RM unloads.\n *\n * For pre-Hopper, this involves running FWSEC-SB to put back pre-OS apps and\n * Booter Unload to teardown WPR2.\n *\n * @param[in]   pGpu            GPU object pointer\n * @param[in]   pKernelGsp      GSP object pointer\n * @param[in]   unloadMode      GSP unload mode\n */\nNV_STATUS"
+        },
+        {
+          "line_start": 545,
+          "line_end": 554,
+          "text": "        NV_ASSERT((status == NV_OK) || (status == NV_ERR_GPU_IN_FULLCHIP_RESET));\n\n        // Invoke FWSEC-SB to put back PreOsApps during driver unload\n        status = kgspPrepareForFwsecSb_HAL(pGpu, pKernelGsp, pKernelGsp->pFwsecUcode, &preparedCmd);\n        if (status != NV_OK)\n        {\n            NV_PRINTF(LEVEL_ERROR, \"failed to prepare for FWSEC-SB for PreOsApps during driver unload: 0x%x\\n\", status);\n            NV_ASSERT_FAILED(\"FWSEC-SB prep failed\");\n        }\n        else"
+        }
+      ]
+    },
+    {
+      "repository": "envytools/envytools",
+      "commit": "f102b82381f3f11cee113d16374c87091db039d9",
+      "path": "nvbios/bios.h",
+      "sha256": "2fc96c03daff9e2762d9225e411e5d387525aa73b5af94c94153c2bd5c849a56",
+      "git_blob_sha1": "4ccbd402bfa7811dc9c1af8ea1d52210c01b1e65",
+      "url": "https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/nvbios/bios.h",
+      "excerpts": [
+        {
+          "line_start": 1710,
+          "line_end": 1737,
+          "text": "struct envy_bios_p_falcon_ucode_desc {\n\tuint32_t offset;\n\tuint8_t valid;\n\tuint32_t stored_size;\n\tuint32_t uncompressed_size;\n\tuint32_t virtual_entry;\n\tuint32_t interface_offset;\n\tuint32_t imem_phys_base;\n\tuint32_t imem_load_size;\n\tuint32_t imem_virt_base;\n\tuint32_t imem_sec_base;\n\tuint32_t imem_sec_size;\n\tuint32_t dmem_offset;\n\tuint32_t dmem_phys_base;\n\tuint32_t dmem_load_size;\n};\n\nenum envy_bios_p_falcon_ucode_application_id {\n\tENVY_BIOS_FALCON_UCODE_APPLICATION_ID_PRE_OS  = 0x01,\n\tENVY_BIOS_FALCON_UCODE_APPLICATION_ID_DEVINIT = 0x04,\n};\n\nenum envy_bios_p_falcon_ucode_target_id {\n\tENVY_BIOS_FALCON_UCODE_TARGET_ID_PMU = 0x01,\n};\n\nstruct envy_bios_p_falcon_ucode_entry {\n\tuint16_t offset;"
+        }
+      ]
+    },
+    {
+      "repository": "envytools/envytools",
+      "commit": "f102b82381f3f11cee113d16374c87091db039d9",
+      "path": "nvbios/p.c",
+      "sha256": "43371ca314ccbca5a76212d54ff7e76130ebb4984a19bfed84fcdd43bac2f401",
+      "git_blob_sha1": "5df011b408bc4b4160ba5da678744d5c1748bbbe",
+      "url": "https://github.com/envytools/envytools/blob/f102b82381f3f11cee113d16374c87091db039d9/nvbios/p.c",
+      "excerpts": [
+        {
+          "line_start": 128,
+          "line_end": 140,
+          "text": "static struct enum_val falcon_ucode_application_id_types[] = {\n\t{ ENVY_BIOS_FALCON_UCODE_APPLICATION_ID_PRE_OS,\t\"PRE_OS\" },\n\t{ ENVY_BIOS_FALCON_UCODE_APPLICATION_ID_DEVINIT,\"DEVINIT\" },\n\t{ 0 },\n};\n\nstatic struct enum_val falcon_ucode_target_id_types[] = {\n\t{ ENVY_BIOS_FALCON_UCODE_TARGET_ID_PMU,\t\"PMU\" },\n\t{ 0 },\n};\n\nint\nenvy_bios_parse_p_falcon_ucode(struct envy_bios *bios)"
+        }
+      ]
+    },
+    {
+      "repository": "torvalds/linux",
+      "commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "retained_file": "linux-pmu-base.c",
+      "git_blob_sha1": "8f2f50ad4ded1f5026c016391b2618e13523c03e",
+      "sha256": "822bc80f760a5e329bde3cff7460e3f6647d080ba6d1d7f1ba6daf2a6518fcaa",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/pmu/base.c",
+      "excerpts": [
+        {
+          "line_start": 140,
+          "line_end": 151,
+          "text": "\t\treturn PTR_ERR(fwif);\n\n\tpmu->func = fwif->func;\n\n\tret = nvkm_falcon_ctor(pmu->func->flcn, &pmu->subdev, pmu->subdev.name,\n\t\t\t       0x10a000, &pmu->falcon);\n\tif (ret)\n\t\treturn ret;\n\n\tif ((ret = nvkm_falcon_qmgr_new(&pmu->falcon, &pmu->qmgr)) ||\n\t    (ret = nvkm_falcon_cmdq_new(pmu->qmgr, \"hpq\", &pmu->hpq)) ||\n\t    (ret = nvkm_falcon_cmdq_new(pmu->qmgr, \"lpq\", &pmu->lpq)) ||"
+        }
+      ]
+    },
+    {
+      "repository": "torvalds/linux",
+      "commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "retained_file": "linux-bios-pmu.c",
+      "git_blob_sha1": "49e2664a734cba4d6592a28164bf44b0b0584958",
+      "sha256": "3f55b85a1e01cb1dc4e59b0d8d68bf6c9f2625046c5d251f283b3905ce41df41",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/bios/pmu.c",
+      "excerpts": [
+        {
+          "line_start": 75,
+          "line_end": 102,
+          "text": "nvbios_pmuRm(struct nvkm_bios *bios, u8 type, struct nvbios_pmuR *info)\n{\n\tstruct nvbios_pmuE pmuE;\n\tu8  ver, hdr, idx = 0;\n\tu32 data;\n\tmemset(info, 0x00, sizeof(*info));\n\twhile ((data = nvbios_pmuEp(bios, idx++, &ver, &hdr, &pmuE))) {\n\t\tif (pmuE.type == type && (data = pmuE.data)) {\n\t\t\tinfo->init_addr_pmu = nvbios_rd32(bios, data + 0x08);\n\t\t\tinfo->args_addr_pmu = nvbios_rd32(bios, data + 0x0c);\n\t\t\tinfo->boot_addr     = data + 0x30;\n\t\t\tinfo->boot_addr_pmu = nvbios_rd32(bios, data + 0x10) +\n\t\t\t\t\t      nvbios_rd32(bios, data + 0x18);\n\t\t\tinfo->boot_size     = nvbios_rd32(bios, data + 0x1c) -\n\t\t\t\t\t      nvbios_rd32(bios, data + 0x18);\n\t\t\tinfo->code_addr     = info->boot_addr + info->boot_size;\n\t\t\tinfo->code_addr_pmu = info->boot_addr_pmu +\n\t\t\t\t\t      info->boot_size;\n\t\t\tinfo->code_size     = nvbios_rd32(bios, data + 0x20);\n\t\t\tinfo->data_addr     = data + 0x30 +\n\t\t\t\t\t      nvbios_rd32(bios, data + 0x24);\n\t\t\tinfo->data_addr_pmu = nvbios_rd32(bios, data + 0x28);\n\t\t\tinfo->data_size     = nvbios_rd32(bios, data + 0x2c);\n\t\t\treturn true;\n\t\t}\n\t}\n\treturn false;\n}"
+        }
+      ]
+    },
+    {
+      "repository": "torvalds/linux",
+      "commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "retained_file": "linux-devinit-gm200.c",
+      "git_blob_sha1": "f30718d7e61af0457b719732ebf6b4117e1cdc0a",
+      "sha256": "f3104d5d4119d0e6935e688e83396d04e7381d21971af462ca17f9df447bf192",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gm200.c",
+      "excerpts": [
+        {
+          "line_start": 115,
+          "line_end": 123,
+          "text": "gm200_devinit_preos(struct nv50_devinit *init, bool post)\n{\n\t/* Optional: Execute PRE_OS application on PMU, which should at\n\t * least take care of fans until a full PMU has been loaded.\n\t */\n\tpmu_load(init, 0x01, post, NULL, NULL);\n}\n\nint"
+        }
+      ]
+    },
+    {
+      "repository": "torvalds/linux",
+      "commit": "7d0a66e4bb9081d75c82ec4957c50034cb0ea449",
+      "retained_file": "linux-device-base.c",
+      "git_blob_sha1": "3375a59ebf1a4af73daf4c029605a10a7721c725",
+      "sha256": "31aa26b0bdf1eb6ff2f1f5e1774a77026cbba2795a54bc8a3133740cdceb38bc",
+      "url": "https://github.com/torvalds/linux/blob/7d0a66e4bb9081d75c82ec4957c50034cb0ea449/drivers/gpu/drm/nouveau/nvkm/engine/device/base.c",
+      "excerpts": [
+        {
+          "line_start": 2535,
+          "line_end": 2563,
+          "text": "nv172_chipset = {\n\t.name = \"GA102\",\n\t.acr      = { 0x00000001, ga102_acr_new },\n\t.bar      = { 0x00000001, tu102_bar_new },\n\t.bios     = { 0x00000001, nvkm_bios_new },\n\t.devinit  = { 0x00000001, ga100_devinit_new },\n\t.fault    = { 0x00000001, tu102_fault_new },\n\t.fb       = { 0x00000001, ga102_fb_new },\n\t.gpio     = { 0x00000001, ga102_gpio_new },\n\t.gsp      = { 0x00000001, ga102_gsp_new },\n\t.i2c      = { 0x00000001, gm200_i2c_new },\n\t.imem     = { 0x00000001, nv50_instmem_new },\n\t.ltc      = { 0x00000001, ga102_ltc_new },\n\t.mc       = { 0x00000001, ga100_mc_new },\n\t.mmu      = { 0x00000001, tu102_mmu_new },\n\t.pci      = { 0x00000001, gp100_pci_new },\n\t.privring = { 0x00000001, gm200_privring_new },\n\t.timer    = { 0x00000001, gk20a_timer_new },\n\t.top      = { 0x00000001, ga100_top_new },\n\t.vfn      = { 0x00000001, ga100_vfn_new },\n\t.ce       = { 0x0000001f, ga102_ce_new },\n\t.disp     = { 0x00000001, ga102_disp_new },\n\t.dma      = { 0x00000001, gv100_dma_new },\n\t.fifo     = { 0x00000001, ga102_fifo_new },\n\t.gr       = { 0x00000001, ga102_gr_new },\n\t.nvdec    = { 0x00000003, ga102_nvdec_new },\n\t.sec2     = { 0x00000001, ga102_sec2_new },\n};\n"
+        }
+      ]
+    }
+  ],
+  "claims": [
+    "Exact GA102 headers name BCR_CTRL core select at +0x668 bit 4, Falcon CPUCTL at +0x100 bit 4 HALTED, and RISC-V CPUCTL at +0x388 bit 4 HALTED.",
+    "Envytools names application 1 PRE_OS and target 1 PMU, and exposes the twelve legacy descriptor fields. The copied ROM record and BIT pointer independently resolve to the same descriptor.",
+    "NVIDIA FWSEC parser says legacy v1 is unused by that GSP-RM parser; this does not mean every VBIOS component uses the FWSEC v3 format.",
+    "Nouveau corroborates the PMU base and PRE_OS application convention on its older path, but the pinned GA102 chip table does not instantiate a PMU subdevice. Its GM200 path is not asserted as a GA102 recovery backend."
+  ],
+  "unresolved": [
+    "Actual physical mapping of the PRE_OS D[0x140...] operands to GPU PRI, and host accessibility/privilege.",
+    "Installed-byte identity, production/debug equivalence, current core selection and HALTED status.",
+    "Whether the failed boot reached this branch. The retained GSP halt-success/progress-1 result is not evidence of an ongoing nested PMU wait.",
+    "Physical meanings and runtime modification of the 16 differing PRE_OS data bytes."
+  ],
+  "decoder": {
+    "commit": "f102b82381f3f11cee113d16374c87091db039d9",
+    "command": "envydis -m falcon -V fuc6 -F crypt -i -n preos-imem.bin",
+    "selected_instruction_scope": "Compatible selected instruction encodings, not proof every linear decoded byte is executable code."
+  }
+}

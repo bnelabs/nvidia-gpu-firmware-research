@@ -15,6 +15,14 @@ against physical hardware. See [CONSTITUTION.md](CONSTITUTION.md).
 - `0x5be3` selects saved-state tables; address constructor `0x5c9a` does not
   produce fixed restore values. `0x59fe` restores values saved from runtime reads
   by `0x5ab2`. Those values cannot be reconstructed from address rows alone.
+- In final callee `0x4653`, step bits 25:24 can be marked 2 even after a supplied
+  loader error. Marker 2 is not sufficient proof of successful initialization.
+- Loader selector 1 chooses raw mode `0xaa` and the core HALTED wait. The timed
+  `0x205e4` poll/raw `0xbc` belongs to an alternate branch; it is not the selected
+  wait merely because it is nearby in the same function.
+- PRE_OS D[0x140205e4] and FWSEC PRI `0x205e4` remain distinct address domains.
+  Their matching low operand and bit are a correspondence lead, not a proved
+  GA102 aperture mapping, host-access contract or live measurement.
 
 Raw evidence and limits: [boot packet](research/2026-10-21-gfw-boot/README.md).
 

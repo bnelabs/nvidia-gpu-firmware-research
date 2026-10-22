@@ -1,0 +1,823 @@
+{
+  "inputs": [
+    {
+      "file": "msi-3090-F4-candidate.rom",
+      "rom_sha256": "6dd01dee331f4d0faf5dbd8bc58e31dd58eb88c7d403c7f7ae13e412927e8711",
+      "record_index": 44,
+      "record_file_offset": 32576,
+      "record_raw": "02022f0054560000f08200e001020000000000004911e19f4f57ab12e708116ad51c0e64823f12f8ebb4ad4562fdd989418e2d0c",
+      "payload_file_offset": 216148,
+      "payload_bytes": 33520,
+      "payload_sha256": "4911e19f4f57ab12e708116ad51c0e64823f12f8ebb4ad4562fdd989418e2d0c",
+      "bit_entry_raw": "010154540100",
+      "bit_descriptor_pointer_raw": 87124,
+      "bit_resolved_descriptor_file_offset": 216148,
+      "legacy_descriptor_raw": "c0820000c082000000000000ec00000000000000047d0000000000000000000000000000047d000000000000bc050000",
+      "legacy_descriptor": {
+        "stored_size": 33472,
+        "uncompressed_size": 33472,
+        "virtual_entry": 0,
+        "interface_offset": 236,
+        "imem_phys_base": 0,
+        "imem_load_size": 32004,
+        "imem_virt_base": 0,
+        "imem_sec_base": 0,
+        "imem_sec_size": 0,
+        "dmem_offset": 32004,
+        "dmem_phys_base": 0,
+        "dmem_load_size": 1468
+      },
+      "imem_file_offset": 216196,
+      "imem_sha256": "45ed86ec62e8ceba8fb402e472f5a3ceea206c37c22772e2ef922e78bf89c6fc",
+      "dmem_file_offset": 248200,
+      "dmem_sha256": "43ce5dd0047975c5f707d7b901abbed364dd9b45bbb5247a6cd8ba4571b051bd",
+      "copied_data_prefix_reads": [
+        {
+          "pc": "0x2b0",
+          "stop": "0x2cc",
+          "entry_register_fixture": "no additional initialized registers",
+          "copied_data_register_results": {
+            "r15": 917,
+            "r14": 917,
+            "r13": 65025,
+            "r12": 65025,
+            "r11": 9175,
+            "r10": 9175,
+            "r0": 65536,
+            "r9": 65536
+          },
+          "trace": [
+            {
+              "firmware_imem_va": "0x2b0",
+              "raw": "898c0500",
+              "next_pc": "0x2b4"
+            },
+            {
+              "firmware_imem_va": "0x2b4",
+              "raw": "589f0a",
+              "next_pc": "0x2b7"
+            },
+            {
+              "firmware_imem_va": "0x2b7",
+              "raw": "589e14",
+              "next_pc": "0x2ba"
+            },
+            {
+              "firmware_imem_va": "0x2ba",
+              "raw": "589d0b",
+              "next_pc": "0x2bd"
+            },
+            {
+              "firmware_imem_va": "0x2bd",
+              "raw": "589c15",
+              "next_pc": "0x2c0"
+            },
+            {
+              "firmware_imem_va": "0x2c0",
+              "raw": "989b03",
+              "next_pc": "0x2c3"
+            },
+            {
+              "firmware_imem_va": "0x2c3",
+              "raw": "989a08",
+              "next_pc": "0x2c6"
+            },
+            {
+              "firmware_imem_va": "0x2c6",
+              "raw": "989004",
+              "next_pc": "0x2c9"
+            },
+            {
+              "firmware_imem_va": "0x2c9",
+              "raw": "989909",
+              "next_pc": "0x2cc"
+            }
+          ]
+        },
+        {
+          "pc": "0x46b",
+          "stop": "0x47d",
+          "entry_register_fixture": "r0=0x58c from copied instruction 0x465; intervening canary store excluded",
+          "copied_data_register_results": {
+            "r9": 9175,
+            "r15": 9175,
+            "r14": 9175,
+            "r13": 9175,
+            "r12": 65536,
+            "r11": 65536
+          },
+          "trace": [
+            {
+              "firmware_imem_va": "0x46b",
+              "raw": "980902",
+              "next_pc": "0x46e"
+            },
+            {
+              "firmware_imem_va": "0x46e",
+              "raw": "980f07",
+              "next_pc": "0x471"
+            },
+            {
+              "firmware_imem_va": "0x471",
+              "raw": "980e03",
+              "next_pc": "0x474"
+            },
+            {
+              "firmware_imem_va": "0x474",
+              "raw": "980d08",
+              "next_pc": "0x477"
+            },
+            {
+              "firmware_imem_va": "0x477",
+              "raw": "980c04",
+              "next_pc": "0x47a"
+            },
+            {
+              "firmware_imem_va": "0x47a",
+              "raw": "980b09",
+              "next_pc": "0x47d"
+            }
+          ]
+        }
+      ],
+      "dmem_byte_differences_from_msi": [],
+      "changed_bytes": 0
+    },
+    {
+      "file": "evga-3090-94.02.42.00.0B.rom",
+      "rom_sha256": "4ef3c1ab655035a370ea2e0db88d244e17a007fe9cc45c8bdaf2876062942bb5",
+      "record_index": 44,
+      "record_file_offset": 32576,
+      "record_raw": "02022f0054560000f08200e00102000000000000a22f7dd7e6f1f1ee000ac4bdf66619e98c9ce2fd0cd9b4eddbb6833e43972d63",
+      "payload_file_offset": 216148,
+      "payload_bytes": 33520,
+      "payload_sha256": "a22f7dd7e6f1f1ee000ac4bdf66619e98c9ce2fd0cd9b4eddbb6833e43972d63",
+      "bit_entry_raw": "010154540100",
+      "bit_descriptor_pointer_raw": 87124,
+      "bit_resolved_descriptor_file_offset": 216148,
+      "legacy_descriptor_raw": "c0820000c082000000000000ec00000000000000047d0000000000000000000000000000047d000000000000bc050000",
+      "legacy_descriptor": {
+        "stored_size": 33472,
+        "uncompressed_size": 33472,
+        "virtual_entry": 0,
+        "interface_offset": 236,
+        "imem_phys_base": 0,
+        "imem_load_size": 32004,
+        "imem_virt_base": 0,
+        "imem_sec_base": 0,
+        "imem_sec_size": 0,
+        "dmem_offset": 32004,
+        "dmem_phys_base": 0,
+        "dmem_load_size": 1468
+      },
+      "imem_file_offset": 216196,
+      "imem_sha256": "45ed86ec62e8ceba8fb402e472f5a3ceea206c37c22772e2ef922e78bf89c6fc",
+      "dmem_file_offset": 248200,
+      "dmem_sha256": "a88ba23eebbfc50e31257b3122cea348365bc73a453dd48fde6fb21431198395",
+      "copied_data_prefix_reads": [
+        {
+          "pc": "0x2b0",
+          "stop": "0x2cc",
+          "entry_register_fixture": "no additional initialized registers",
+          "copied_data_register_results": {
+            "r15": 394,
+            "r14": 394,
+            "r13": 65432,
+            "r12": 65432,
+            "r11": 13107,
+            "r10": 0,
+            "r0": 65536,
+            "r9": 65536
+          },
+          "trace": [
+            {
+              "firmware_imem_va": "0x2b0",
+              "raw": "898c0500",
+              "next_pc": "0x2b4"
+            },
+            {
+              "firmware_imem_va": "0x2b4",
+              "raw": "589f0a",
+              "next_pc": "0x2b7"
+            },
+            {
+              "firmware_imem_va": "0x2b7",
+              "raw": "589e14",
+              "next_pc": "0x2ba"
+            },
+            {
+              "firmware_imem_va": "0x2ba",
+              "raw": "589d0b",
+              "next_pc": "0x2bd"
+            },
+            {
+              "firmware_imem_va": "0x2bd",
+              "raw": "589c15",
+              "next_pc": "0x2c0"
+            },
+            {
+              "firmware_imem_va": "0x2c0",
+              "raw": "989b03",
+              "next_pc": "0x2c3"
+            },
+            {
+              "firmware_imem_va": "0x2c3",
+              "raw": "989a08",
+              "next_pc": "0x2c6"
+            },
+            {
+              "firmware_imem_va": "0x2c6",
+              "raw": "989004",
+              "next_pc": "0x2c9"
+            },
+            {
+              "firmware_imem_va": "0x2c9",
+              "raw": "989909",
+              "next_pc": "0x2cc"
+            }
+          ]
+        },
+        {
+          "pc": "0x46b",
+          "stop": "0x47d",
+          "entry_register_fixture": "r0=0x58c from copied instruction 0x465; intervening canary store excluded",
+          "copied_data_register_results": {
+            "r9": 13107,
+            "r15": 0,
+            "r14": 13107,
+            "r13": 0,
+            "r12": 65536,
+            "r11": 65536
+          },
+          "trace": [
+            {
+              "firmware_imem_va": "0x46b",
+              "raw": "980902",
+              "next_pc": "0x46e"
+            },
+            {
+              "firmware_imem_va": "0x46e",
+              "raw": "980f07",
+              "next_pc": "0x471"
+            },
+            {
+              "firmware_imem_va": "0x471",
+              "raw": "980e03",
+              "next_pc": "0x474"
+            },
+            {
+              "firmware_imem_va": "0x474",
+              "raw": "980d08",
+              "next_pc": "0x477"
+            },
+            {
+              "firmware_imem_va": "0x477",
+              "raw": "980c04",
+              "next_pc": "0x47a"
+            },
+            {
+              "firmware_imem_va": "0x47a",
+              "raw": "980b09",
+              "next_pc": "0x47d"
+            }
+          ]
+        }
+      ],
+      "dmem_byte_differences_from_msi": [
+        {
+          "offset": "0x594",
+          "msi_raw": 215,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x595",
+          "msi_raw": 35,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x598",
+          "msi_raw": 215,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x599",
+          "msi_raw": 35,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x5a0",
+          "msi_raw": 149,
+          "this_raw": 138
+        },
+        {
+          "offset": "0x5a1",
+          "msi_raw": 3,
+          "this_raw": 1
+        },
+        {
+          "offset": "0x5a2",
+          "msi_raw": 1,
+          "this_raw": 152
+        },
+        {
+          "offset": "0x5a3",
+          "msi_raw": 254,
+          "this_raw": 255
+        },
+        {
+          "offset": "0x5a8",
+          "msi_raw": 215,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5a9",
+          "msi_raw": 35,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5ac",
+          "msi_raw": 215,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5ad",
+          "msi_raw": 35,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5b4",
+          "msi_raw": 149,
+          "this_raw": 138
+        },
+        {
+          "offset": "0x5b5",
+          "msi_raw": 3,
+          "this_raw": 1
+        },
+        {
+          "offset": "0x5b6",
+          "msi_raw": 1,
+          "this_raw": 152
+        },
+        {
+          "offset": "0x5b7",
+          "msi_raw": 254,
+          "this_raw": 255
+        }
+      ],
+      "changed_bytes": 16
+    },
+    {
+      "file": "evga-3090-94.02.42.00.0F.rom",
+      "rom_sha256": "4a04d081631e22697b3a07ce6e605747b37bcc77f6435aa7200d89c91de21ace",
+      "record_index": 44,
+      "record_file_offset": 32576,
+      "record_raw": "02022f0054560000f08200e00102000000000000a22f7dd7e6f1f1ee000ac4bdf66619e98c9ce2fd0cd9b4eddbb6833e43972d63",
+      "payload_file_offset": 216148,
+      "payload_bytes": 33520,
+      "payload_sha256": "a22f7dd7e6f1f1ee000ac4bdf66619e98c9ce2fd0cd9b4eddbb6833e43972d63",
+      "bit_entry_raw": "010154540100",
+      "bit_descriptor_pointer_raw": 87124,
+      "bit_resolved_descriptor_file_offset": 216148,
+      "legacy_descriptor_raw": "c0820000c082000000000000ec00000000000000047d0000000000000000000000000000047d000000000000bc050000",
+      "legacy_descriptor": {
+        "stored_size": 33472,
+        "uncompressed_size": 33472,
+        "virtual_entry": 0,
+        "interface_offset": 236,
+        "imem_phys_base": 0,
+        "imem_load_size": 32004,
+        "imem_virt_base": 0,
+        "imem_sec_base": 0,
+        "imem_sec_size": 0,
+        "dmem_offset": 32004,
+        "dmem_phys_base": 0,
+        "dmem_load_size": 1468
+      },
+      "imem_file_offset": 216196,
+      "imem_sha256": "45ed86ec62e8ceba8fb402e472f5a3ceea206c37c22772e2ef922e78bf89c6fc",
+      "dmem_file_offset": 248200,
+      "dmem_sha256": "a88ba23eebbfc50e31257b3122cea348365bc73a453dd48fde6fb21431198395",
+      "copied_data_prefix_reads": [
+        {
+          "pc": "0x2b0",
+          "stop": "0x2cc",
+          "entry_register_fixture": "no additional initialized registers",
+          "copied_data_register_results": {
+            "r15": 394,
+            "r14": 394,
+            "r13": 65432,
+            "r12": 65432,
+            "r11": 13107,
+            "r10": 0,
+            "r0": 65536,
+            "r9": 65536
+          },
+          "trace": [
+            {
+              "firmware_imem_va": "0x2b0",
+              "raw": "898c0500",
+              "next_pc": "0x2b4"
+            },
+            {
+              "firmware_imem_va": "0x2b4",
+              "raw": "589f0a",
+              "next_pc": "0x2b7"
+            },
+            {
+              "firmware_imem_va": "0x2b7",
+              "raw": "589e14",
+              "next_pc": "0x2ba"
+            },
+            {
+              "firmware_imem_va": "0x2ba",
+              "raw": "589d0b",
+              "next_pc": "0x2bd"
+            },
+            {
+              "firmware_imem_va": "0x2bd",
+              "raw": "589c15",
+              "next_pc": "0x2c0"
+            },
+            {
+              "firmware_imem_va": "0x2c0",
+              "raw": "989b03",
+              "next_pc": "0x2c3"
+            },
+            {
+              "firmware_imem_va": "0x2c3",
+              "raw": "989a08",
+              "next_pc": "0x2c6"
+            },
+            {
+              "firmware_imem_va": "0x2c6",
+              "raw": "989004",
+              "next_pc": "0x2c9"
+            },
+            {
+              "firmware_imem_va": "0x2c9",
+              "raw": "989909",
+              "next_pc": "0x2cc"
+            }
+          ]
+        },
+        {
+          "pc": "0x46b",
+          "stop": "0x47d",
+          "entry_register_fixture": "r0=0x58c from copied instruction 0x465; intervening canary store excluded",
+          "copied_data_register_results": {
+            "r9": 13107,
+            "r15": 0,
+            "r14": 13107,
+            "r13": 0,
+            "r12": 65536,
+            "r11": 65536
+          },
+          "trace": [
+            {
+              "firmware_imem_va": "0x46b",
+              "raw": "980902",
+              "next_pc": "0x46e"
+            },
+            {
+              "firmware_imem_va": "0x46e",
+              "raw": "980f07",
+              "next_pc": "0x471"
+            },
+            {
+              "firmware_imem_va": "0x471",
+              "raw": "980e03",
+              "next_pc": "0x474"
+            },
+            {
+              "firmware_imem_va": "0x474",
+              "raw": "980d08",
+              "next_pc": "0x477"
+            },
+            {
+              "firmware_imem_va": "0x477",
+              "raw": "980c04",
+              "next_pc": "0x47a"
+            },
+            {
+              "firmware_imem_va": "0x47a",
+              "raw": "980b09",
+              "next_pc": "0x47d"
+            }
+          ]
+        }
+      ],
+      "dmem_byte_differences_from_msi": [
+        {
+          "offset": "0x594",
+          "msi_raw": 215,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x595",
+          "msi_raw": 35,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x598",
+          "msi_raw": 215,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x599",
+          "msi_raw": 35,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x5a0",
+          "msi_raw": 149,
+          "this_raw": 138
+        },
+        {
+          "offset": "0x5a1",
+          "msi_raw": 3,
+          "this_raw": 1
+        },
+        {
+          "offset": "0x5a2",
+          "msi_raw": 1,
+          "this_raw": 152
+        },
+        {
+          "offset": "0x5a3",
+          "msi_raw": 254,
+          "this_raw": 255
+        },
+        {
+          "offset": "0x5a8",
+          "msi_raw": 215,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5a9",
+          "msi_raw": 35,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5ac",
+          "msi_raw": 215,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5ad",
+          "msi_raw": 35,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5b4",
+          "msi_raw": 149,
+          "this_raw": 138
+        },
+        {
+          "offset": "0x5b5",
+          "msi_raw": 3,
+          "this_raw": 1
+        },
+        {
+          "offset": "0x5b6",
+          "msi_raw": 1,
+          "this_raw": 152
+        },
+        {
+          "offset": "0x5b7",
+          "msi_raw": 254,
+          "this_raw": 255
+        }
+      ],
+      "changed_bytes": 16
+    },
+    {
+      "file": "evga-3090-94.02.42.00.44.rom",
+      "rom_sha256": "42dd161e7cc6c55d8fb2b8085f55216bcdb568f06e8a86af1e403079c23f7533",
+      "record_index": 44,
+      "record_file_offset": 32576,
+      "record_raw": "02022f0054560000f08200e00102000000000000f75a5ee1a149efdd50e63e0ae6566b715648cf42c43b9e4281706e00b3bb0a45",
+      "payload_file_offset": 216148,
+      "payload_bytes": 33520,
+      "payload_sha256": "f75a5ee1a149efdd50e63e0ae6566b715648cf42c43b9e4281706e00b3bb0a45",
+      "bit_entry_raw": "010154540100",
+      "bit_descriptor_pointer_raw": 87124,
+      "bit_resolved_descriptor_file_offset": 216148,
+      "legacy_descriptor_raw": "c0820000c082000000000000ec00000000000000047d0000000000000000000000000000047d000000000000bc050000",
+      "legacy_descriptor": {
+        "stored_size": 33472,
+        "uncompressed_size": 33472,
+        "virtual_entry": 0,
+        "interface_offset": 236,
+        "imem_phys_base": 0,
+        "imem_load_size": 32004,
+        "imem_virt_base": 0,
+        "imem_sec_base": 0,
+        "imem_sec_size": 0,
+        "dmem_offset": 32004,
+        "dmem_phys_base": 0,
+        "dmem_load_size": 1468
+      },
+      "imem_file_offset": 216196,
+      "imem_sha256": "45ed86ec62e8ceba8fb402e472f5a3ceea206c37c22772e2ef922e78bf89c6fc",
+      "dmem_file_offset": 248200,
+      "dmem_sha256": "eb1c8b5231f7e0ed6fb750bf653a0afde801808516fc1e973c91f0253265116d",
+      "copied_data_prefix_reads": [
+        {
+          "pc": "0x2b0",
+          "stop": "0x2cc",
+          "entry_register_fixture": "no additional initialized registers",
+          "copied_data_register_results": {
+            "r15": 394,
+            "r14": 533,
+            "r13": 65431,
+            "r12": 65302,
+            "r11": 13107,
+            "r10": 0,
+            "r0": 65536,
+            "r9": 65536
+          },
+          "trace": [
+            {
+              "firmware_imem_va": "0x2b0",
+              "raw": "898c0500",
+              "next_pc": "0x2b4"
+            },
+            {
+              "firmware_imem_va": "0x2b4",
+              "raw": "589f0a",
+              "next_pc": "0x2b7"
+            },
+            {
+              "firmware_imem_va": "0x2b7",
+              "raw": "589e14",
+              "next_pc": "0x2ba"
+            },
+            {
+              "firmware_imem_va": "0x2ba",
+              "raw": "589d0b",
+              "next_pc": "0x2bd"
+            },
+            {
+              "firmware_imem_va": "0x2bd",
+              "raw": "589c15",
+              "next_pc": "0x2c0"
+            },
+            {
+              "firmware_imem_va": "0x2c0",
+              "raw": "989b03",
+              "next_pc": "0x2c3"
+            },
+            {
+              "firmware_imem_va": "0x2c3",
+              "raw": "989a08",
+              "next_pc": "0x2c6"
+            },
+            {
+              "firmware_imem_va": "0x2c6",
+              "raw": "989004",
+              "next_pc": "0x2c9"
+            },
+            {
+              "firmware_imem_va": "0x2c9",
+              "raw": "989909",
+              "next_pc": "0x2cc"
+            }
+          ]
+        },
+        {
+          "pc": "0x46b",
+          "stop": "0x47d",
+          "entry_register_fixture": "r0=0x58c from copied instruction 0x465; intervening canary store excluded",
+          "copied_data_register_results": {
+            "r9": 13107,
+            "r15": 0,
+            "r14": 13107,
+            "r13": 0,
+            "r12": 65536,
+            "r11": 65536
+          },
+          "trace": [
+            {
+              "firmware_imem_va": "0x46b",
+              "raw": "980902",
+              "next_pc": "0x46e"
+            },
+            {
+              "firmware_imem_va": "0x46e",
+              "raw": "980f07",
+              "next_pc": "0x471"
+            },
+            {
+              "firmware_imem_va": "0x471",
+              "raw": "980e03",
+              "next_pc": "0x474"
+            },
+            {
+              "firmware_imem_va": "0x474",
+              "raw": "980d08",
+              "next_pc": "0x477"
+            },
+            {
+              "firmware_imem_va": "0x477",
+              "raw": "980c04",
+              "next_pc": "0x47a"
+            },
+            {
+              "firmware_imem_va": "0x47a",
+              "raw": "980b09",
+              "next_pc": "0x47d"
+            }
+          ]
+        }
+      ],
+      "dmem_byte_differences_from_msi": [
+        {
+          "offset": "0x594",
+          "msi_raw": 215,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x595",
+          "msi_raw": 35,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x598",
+          "msi_raw": 215,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x599",
+          "msi_raw": 35,
+          "this_raw": 51
+        },
+        {
+          "offset": "0x5a0",
+          "msi_raw": 149,
+          "this_raw": 138
+        },
+        {
+          "offset": "0x5a1",
+          "msi_raw": 3,
+          "this_raw": 1
+        },
+        {
+          "offset": "0x5a2",
+          "msi_raw": 1,
+          "this_raw": 151
+        },
+        {
+          "offset": "0x5a3",
+          "msi_raw": 254,
+          "this_raw": 255
+        },
+        {
+          "offset": "0x5a8",
+          "msi_raw": 215,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5a9",
+          "msi_raw": 35,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5ac",
+          "msi_raw": 215,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5ad",
+          "msi_raw": 35,
+          "this_raw": 0
+        },
+        {
+          "offset": "0x5b4",
+          "msi_raw": 149,
+          "this_raw": 21
+        },
+        {
+          "offset": "0x5b5",
+          "msi_raw": 3,
+          "this_raw": 2
+        },
+        {
+          "offset": "0x5b6",
+          "msi_raw": 1,
+          "this_raw": 22
+        },
+        {
+          "offset": "0x5b7",
+          "msi_raw": 254,
+          "this_raw": 255
+        }
+      ],
+      "changed_bytes": 16
+    }
+  ],
+  "same_imem_all_four": true,
+  "same_dmem_all_four": false,
+  "same_legacy_descriptor_all_four": true,
+  "limits": "Same GA102 version family, differing board variants, no chronology inferred. Changed data is consumed by copied instruction prefixes; physical field meanings and runtime values remain unknown. No replacement firmware or recovery method is implied."
+}

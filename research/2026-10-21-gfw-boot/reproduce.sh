@@ -41,21 +41,39 @@ python3 "$PACKET/inspect_boot_record.py" "$ROM" "$GFW_REPLAY_TMP/decoded-imem.bi
 cmp "$GFW_REPLAY_TMP/record.json" "$PACKET/boot-record-41.json"
 python3 "$PACKET/replay_saved_registers.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/saved.json"
 cmp "$GFW_REPLAY_TMP/saved.json" "$PACKET/saved-registers-replay.json"
+python3 "$PACKET/replay_last_stage.py" "$GFW_REPLAY_TMP/decoded-imem.bin" > "$GFW_REPLAY_TMP/last.json"
+cmp "$GFW_REPLAY_TMP/last.json" "$PACKET/last-stage-replay.json"
+python3 "$PACKET/inspect_preos.py" "$ROM" > "$GFW_REPLAY_TMP/preos.json"
+cmp "$GFW_REPLAY_TMP/preos.json" "$PACKET/preos-component.json"
 # Every emitted instruction must also agree with the retained decoder listing.
-python3 - "$PACKET" "$GFW_REPLAY_TMP" <<'PY'
+python3 - "$PACKET" "$GFW_REPLAY_TMP" "$ROM" <<'PY'
 import json,re,sys
 from pathlib import Path
-p,t=map(Path,sys.argv[1:]);listing={}
-for filename in ['secure-boot-main.dis','restart-state-excerpts.dis','saved-registers-excerpts.dis']:
+p,t,rom=map(Path,sys.argv[1:]);listing={}
+image=(t/'decoded-imem.bin').read_bytes()
+for filename in ['secure-boot-main.dis','restart-state-excerpts.dis','saved-registers-excerpts.dis','last-stage-excerpts.dis']:
     for line in (p/filename).read_text().splitlines():
         m=re.match(r'^([0-9a-f]{8}):\s+((?:[0-9a-f]{2} )*[0-9a-f]{2})\s+',line)
         if not m:raise ValueError('Bad retained disassembly line')
         pc=hex(int(m[1],16));raw=bytes.fromhex(m[2]).hex()
+        offset=int(pc,16)
+        if image[offset:offset+len(bytes.fromhex(raw))].hex()!=raw:raise ValueError('Retained listing/image mismatch')
         if pc in listing and listing[pc]!=raw:raise ValueError('Conflicting decoder evidence')
         listing[pc]=raw
-for filename in ['restart.json','record.json','saved.json']:
+for filename in ['restart.json','record.json','saved.json','last.json']:
     for pc,raw in json.loads((t/filename).read_text())['instructions'].items():
         if listing.get(pc)!=raw:raise ValueError('Replay/decoder instruction boundary mismatch')
+preos=json.loads((t/'preos.json').read_text());component=preos['component']
+start=component['imem_file_offset'];size=component['legacy_descriptor']['imem_load_size']
+image=rom.read_bytes()[start:start+size];listing={}
+for line in (p/'preos-excerpts.dis').read_text().splitlines():
+    m=re.match(r'^([0-9a-f]{8}):\s+((?:[0-9a-f]{2} )*[0-9a-f]{2})\s+',line)
+    if not m:raise ValueError('Bad PRE_OS listing line')
+    pc=int(m[1],16);raw=bytes.fromhex(m[2])
+    if image[pc:pc+len(raw)]!=raw:raise ValueError('PRE_OS listing/image mismatch')
+    listing[hex(pc)]=raw.hex()
+for pc,raw in preos['instructions'].items():
+    if listing.get(pc)!=raw:raise ValueError('PRE_OS replay/decoder boundary mismatch')
 PY
 openssl enc -e -aes-128-ecb -K 25EFCDAB896745231032547698BADCFE -nopad \
   -in "$GFW_REPLAY_TMP/decoded-imem.bin" -out "$GFW_REPLAY_TMP/roundtrip.bin"

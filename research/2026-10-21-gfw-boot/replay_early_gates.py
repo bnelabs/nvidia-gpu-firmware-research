@@ -19,7 +19,8 @@ STOPS = {0x4ec5: 'next_boot_precondition', 0x58ed: 'error_tail',
 def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         ranges=None, stops=None, register_fixture=None, memory_fixture=None,
         io_fixture=None, store_ranges=None, calls=None, expected_stop_sp=0xe000,
-        return_state=False):
+        return_state=False, pri_read_sequences=None, io_read_sequences=None,
+        initial_sp=0xe000):
     regs = [None] * 16
     regs[0] = initial_r0
     for index, value in (register_fixture or {}).items():regs[index] = value
@@ -29,7 +30,7 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
     stops = STOPS if stops is None else stops
     calls = (0x45b, 0x3d1a, 0x3f1c) if calls is None else calls
     store_ranges = [(0xdf00, 0xe000)] if store_ranges is None else store_ranges
-    pc, sp, zero, signed_less = start_pc, 0xe000, None, None
+    pc, sp, zero, signed_less, unsigned_below = start_pc, initial_sp, None, None, None
     trace, events = [], []
 
     def readreg(index):
@@ -51,6 +52,14 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             pos = address + byte
             value |= ((readmem(pos & ~3) >> ((pos & 3)*8)) & 255) << (byte*8)
         return value
+
+    def fixture_read(address, fixed, sequences, domain):
+        if sequences is not None and address in sequences:
+            if not sequences[address]:raise ValueError(f'exhausted synthetic {domain} sequence {address:x}')
+            return sequences[address].pop(0)
+        if fixed is None or address not in fixed:
+            raise ValueError(f'missing synthetic {domain} value {address:x}')
+        return fixed[address]
 
     def writesmall(address, value):
         if not any(a <= address and address+1 <= b for a,b in store_ranges):
@@ -99,10 +108,11 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         elif op == 0x98:
             size = 3
             putreg(arg & 15, readmem(readreg(arg >> 4) + image[pc+2]*4))
-        elif op in (0x18, 0x3f, 0x7f):
-            size = 3 if op == 0x18 else 2
-            address = readreg(arg >> 4) + (image[pc+2] if op == 0x18 else 0)
-            putreg(arg & 15, readsmall(address, 2 if op == 0x7f else 1))
+        elif op in (0x18, 0x58, 0x3f, 0x7f):
+            size = 3 if op in (0x18,0x58) else 2
+            width = 2 if op in (0x58,0x7f) else 1
+            address = readreg(arg >> 4) + (image[pc+2]*width if size==3 else 0)
+            putreg(arg & 15, readsmall(address, width))
         elif op in (0xa0, 0xb5):
             size = 2 if op == 0xa0 else 3
             address = readreg(arg >> 4) + (image[pc+2]*4 if op == 0xb5 else 0)
@@ -113,23 +123,34 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             size = 2 if op == 0x20 else 3
             address=readreg(arg >> 4)+(image[pc+2] if op==0x35 else 0)
             writesmall(address,readreg(arg & 15))
+        elif op in (0x60,0x75):
+            size=2 if op==0x60 else 3
+            address=readreg(arg >> 4)+(image[pc+2]*2 if op==0x75 else 0)
+            value=readreg(arg & 15)
+            writesmall(address,value);writesmall(address+1,value>>8)
         elif op in (0x90, 0x92):
             size = 3
             value = readreg(arg >> 4) + (image[pc+2] if op == 0x90 else -image[pc+2])
             putreg(arg & 15, value)
             zero = (value & 0xffffffff) == 0
-        elif op == 0xb8 and image[pc+4] == 0:
+        elif op == 0xb8 and image[pc+4] in (0,2):
             size=5
-            value=readreg(arg >> 4)+int.from_bytes(image[pc+2:pc+4],'little')
+            immediate=int.from_bytes(image[pc+2:pc+4],'little')
+            value=readreg(arg >> 4)+(immediate if image[pc+4]==0 else -immediate)
             putreg(arg & 15,value)
             zero=(value & 0xffffffff)==0
         elif op == 0xb2:
             size = 2
             putreg(arg & 15, readreg(arg >> 4))
-        elif op == 0xbd and arg & 15 == 4:
+        elif op in (0xbd,0x3d,0x7d) and arg & 15 == 4:
             size = 2
             putreg(arg >> 4, 0)
             zero = True
+        elif op == 0xbb and image[pc+2]==2:
+            size=3
+            value=readreg(arg >> 4)-readreg(arg & 15)
+            putreg(arg >> 4,value)
+            zero=(value & 0xffffffff)==0
         elif op == 0xbc and image[pc+2] & 15 == 0:
             size=3
             value=readreg(arg >> 4)+readreg(arg & 15)
@@ -142,6 +163,7 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
                            readreg(arg & 15) & ((1 << bits)-1))
             zero = left == right
             signed_less = (left ^ (1 << (bits-1))) < (right ^ (1 << (bits-1)))
+            unsigned_below = left < right
         elif op in (0xff, 0xfd):
             size = 3
             sub = image[pc+2] & 15
@@ -155,6 +177,18 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             value = readreg(arg >> 4) & image[pc+2]
             putreg(arg & 15, value)
             zero = value == 0
+        elif op in (0xe4,0xe5):
+            size=4
+            immediate=int.from_bytes(image[pc+2:pc+4],'little')
+            value=(readreg(arg >> 4)&immediate if op==0xe4 else readreg(arg >> 4)|immediate)
+            putreg(arg & 15,value)
+            zero=value==0
+        elif op == 0xe7:
+            size=4
+            immediate=int.from_bytes(image[pc+2:pc+4],'little')
+            low,width=immediate & 31,(immediate >> 5)+1
+            if low+width>32:raise ValueError('unsupported wide bit extraction')
+            putreg(arg & 15,(readreg(arg >> 4)>>low)&((1<<width)-1))
         elif op in (0xf0, 0xf1) and arg & 15 in (4, 5):
             size = 3 if op == 0xf0 else 4
             dst = arg >> 4
@@ -186,16 +220,18 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
         elif op == 0xcf and image[pc+2] == 0:
             size = 3
             address = readreg(arg >> 4)
-            if io_fixture is None or address not in io_fixture:
-                raise ValueError(f'missing synthetic Falcon IO value {address:x}')
-            putreg(arg & 15, io_fixture[address])
-            events.append({'kind':'synthetic_falcon_io_read','address':hex(address),'value':io_fixture[address]})
+            value=fixture_read(address,io_fixture,io_read_sequences,'Falcon IO')
+            putreg(arg & 15,value)
+            events.append({'kind':'synthetic_falcon_io_read','address':hex(address),'value':value})
         elif op == 0x3e:
             size = 4
             target = int.from_bytes(image[pc+1:pc+4], 'little')
-        elif op in (0xf4, 0xf5) and arg in (0x0b, 0x1b, 0x1e):
+        elif op in (0xf4, 0xf5) and arg in (0x08,0x0b,0x0c,0x0d,0x1b,0x1e):
             size = 3 if op == 0xf4 else 4
-            if arg == 0x1e:
+            if arg in (0x08,0x0c,0x0d):
+                if unsigned_below is None or zero is None:raise ValueError('unmodeled unsigned comparison')
+                taken=(unsigned_below if arg==0x08 else not(unsigned_below or zero) if arg==0x0c else unsigned_below or zero)
+            elif arg == 0x1e:
                 if signed_less is None:raise ValueError('unmodeled signed comparison')
                 taken = signed_less
             else:
@@ -227,8 +263,7 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
             if call in (0x1117, 0x1171):
                 address = readreg(10)
                 if call == 0x1117:
-                    if address not in pri:raise ValueError(f'missing synthetic PRI value {address:x}')
-                    value = pri[address]
+                    value=fixture_read(address,pri,pri_read_sequences,'PRI')
                     putreg(10, value)
                     events.append({'kind': 'synthetic_read', 'address': hex(address), 'value': value})
                 else:
@@ -245,7 +280,7 @@ def run(image, pri, initial_r0=0x55, *, start_pc=0x4e87,
                 raise ValueError(f'unmodeled call {call:x}')
         else:
             raise ValueError(f'unsupported bytes at {pc:x}: {image[pc:pc+6].hex()}')
-        if op not in (0xa6, 0x66):signed_less = None
+        if op not in (0xa6, 0x66):signed_less = unsigned_below = None
         trace.append({'firmware_imem_va': hex(pc), 'raw': image[pc:pc+size].hex(),
                       'next_pc': hex(pc+size if target is None else target)})
         pc = pc + size if target is None else target

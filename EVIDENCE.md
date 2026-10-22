@@ -24,6 +24,17 @@ Copied code constructs the first eight address rows for selector 1 and restores
 saved values in three bounded cases, rejecting absent saved-value memory. This
 is not a recovered table of fixed boot defaults or a complete firmware replay.
 
+The next follow-up resolves final pre-progress-2 call `0x4653` to a selector-1
+PRE_OS loader branch and core HALTED wait. It separately retains the alternate
+raw-`0xbc` timed poll and verifies why selector 1 bypasses it. GA102 header offsets
+and bits match the copied core-selection logic. A supplied loader error can
+still mark step bits 25:24 as 2; the step marker is not a success certificate.
+Record `0x2f` and a BIT pointer identify one 33,520-byte copied PRE_OS component.
+Four same-family ROMs have identical code and 16 differing data bytes, consumed
+by copied reader prefixes. Large PRE_OS data operands are not silently relabeled
+as PRI addresses. No synthetic timeout, HALTED result or copied image is an
+observation of this outage or permission to reload firmware.
+
 ## Claim record
 For each finding store:
 - ID and narrow question, competing explanations, and status.

@@ -360,8 +360,113 @@ values or a cold-start sequence. Treating these addresses as a table of fixed
 initialization values would be wrong. Saved data, active flags and the card's
 execution of these branches remain unknown.
 
-Next: trace mandatory call `0x4653`, immediately after the restore and before
-progress `0x2`. Its entry checks step-word bits 25:24 and can reach `0x279a`,
-`0x37b0`, `0x43a8` and `0x2f6b`. Determine actual inputs, waits and failure
-branches before assigning hardware meanings. No additional live recovery
-mechanism has been established.
+## The final call before progress `0x2`
+
+The next trace reaches another firmware component and a specific completion
+condition. In the copied debug code, the selected loader branch waits for a
+secondary core to halt. This advances the software dependency map; it does not
+show that this was the failed prerequisite on the card.
+
+At `0x4653`, step-word bits 25:24 select execution for 0, a bypass for 2, or a
+trap boundary for 1/3. Helper `0x279a` reads PRI `0x118238` twice, extracting
+bits 19:8 from the first read and 31:20 from the second. A field of `0xfff`
+clears a presence byte; a zero field leaves its caller-initialized zero intact.
+With two nonzero, non-`0xfff` fields, it supplies three words:
+`first << 12`, `(first << 12) - 0x200`, and `second << 12`, then sets presence.
+These arithmetic operations do not establish physical address meanings. A
+synthetic two-snapshot case demonstrates that the two fields need not come
+from one atomic read.
+
+When presence is false, the caller updates low scratch bits at PRI `0x1418`.
+Otherwise it uses further scratch conditions and may invoke `0x43a8(1)`.
+The selector-1 branch places raw `0x40` in a local argument record and chooses
+raw mode `0xaa`. Its later branch selects wait `0x669d`, whose helper `0x663a`
+checks a core-selection register and then a HALTED field:
+
+| Copied PRI operand | Source-backed meaning in this constructed engine descriptor |
+| --- | --- |
+| `0x10b668`, bit 4 | `BCR_CTRL.CORE_SELECT`, Falcon = 0, RISC-V = 1 |
+| `0x10a100`, bit 4 | Selected Falcon `CPUCTL.HALTED` |
+| `0x10b388`, bit 4 | Selected RISC-V `CPUCTL.HALTED` |
+
+The copied descriptor constructor `0x615f(1)` supplies bases `0x10a000` and
+`0x10b000`; exact GA102 headers corroborate the offsets and fields. The wait
+loops while HALTED is clear. No timer check occurs inside these two copied
+routines; that does not exclude an outer watchdog or other unmodeled behavior.
+Synthetic never-halted input exhausts the interpreter budget, not an invented
+firmware timeout status.
+
+The nearby timed wait at `0x4532..0x456c` is a **different branch**, selected by
+raw mode `0x55`. It polls PRI `0x205e4` bit 9 and compares a wrapping 32-bit
+Falcon-IO counter delta against raw `0x08000000`. A delta greater than that
+threshold selects raw `0xbc`; equality is accepted. The check can reject a late
+ready bit before testing it. Counter frequency and time units are unknown.
+Selector 1 chooses `0xaa`, so proximity in the same loader is not evidence
+that this timed poll explains the selected call or the retained failure.
+
+[last-stage-replay.json](last-stage-replay.json) retains 22 call/branch cases,
+six alternate-wait cases and three rejected incomplete/stalled fixtures.
+The full loader does not execute. Its result is supplied only in explicitly
+separated continuation cases. Those cases establish a diagnostic limit: the
+caller marks step bits 25:24 as 2 even when the supplied loader result is an
+error, then returns that error. A marker of 2 alone is not proof of success.
+
+### The loader's copied PRE_OS component
+
+Loader `0x43a8` requests record `0x2f`. In the candidate ROM, that is row 44,
+file `0x7f40`; its offset and SHA-256 resolve a 33,520-byte payload at file
+`0x34c54`. Independently, the BIT entry with application 1 / target 1 resolves
+to the same file location using its own pointer adjustment. Envytools names
+those IDs `PRE_OS` and `PMU`; pinned nouveau source corroborates the older
+PRE_OS convention and PMU base. This is a matched copied component, not a
+newly inferred FWSEC application name.
+
+The payload uses a 48-byte legacy descriptor, followed by 32,004 IMEM bytes and
+1,468 DMEM bytes. Entry/IMEM/DMEM bases are zero; the interface offset is `0xec`.
+Its IMEM SHA-256 is
+`45ed86ec62e8ceba8fb402e472f5a3ceea206c37c22772e2ef922e78bf89c6fc`.
+It is separate from the decoded debug FWSEC image and has never been loaded
+onto hardware by this research. The public NVIDIA FWSEC parser's comment that
+it does not use v1 does not imply that all other VBIOS applications use v3.
+
+[preos-comparison.json](preos-comparison.json) compares all four retained GA102
+variants. Their legacy descriptors and IMEM match exactly. Compared with MSI
+F4, each EVGA variant differs in 16 DMEM bytes between offsets `0x594` and
+`0x5b7`; EVGA `.0B` and `.0F` match each other, while `.44` differs from them.
+Copied reader prefixes at PRE_OS IMEM `0x2b0` and `0x46b` consume those data
+locations. The report retains raw differences and register results, without
+assigning voltage, fan, clock or other physical meanings to plausible values.
+
+The new PRE_OS decode also exposes a candidate completion-bit producer. At
+PRE_OS IMEM `0x136..0x14e`, code clears bit 9 of **D[0x140205e4]** and checks
+readback. After an unexecuted IO predicate, `0x15c..0x169` sets bit 9 there.
+Eleven bounded cases in [preos-component.json](preos-component.json) cover
+those operations and an entry wait on **D[0x14001724]** bit 29. That entry wait
+precedes unexecuted initialization callbacks.
+
+The low operand/bit corresponds to the alternate FWSEC poll, but a primary
+GA102 definition establishing the `0x140...` aperture mapping was not obtained.
+The replay keeps these large Falcon data operands separate from GPU PRI;
+it does not silently alias them or infer host access. Full callback execution,
+actual completion and the physical mapping remain unresolved.
+
+[Raw FWSEC](last-stage-excerpts.dis), [raw PRE_OS](preos-excerpts.dis), and
+[source commits, hashes and compatibility limits](last-stage-sources.json)
+accompany these interpretations. Nouveau's inspected GA102 chip table omits
+a PMU constructor, so its older GM200 code is a comparison, not an asserted
+GA102 recovery backend. The retained host GSP halt-success/progress-1 result
+does not demonstrate an ongoing nested PMU wait or identify one of our cases.
+
+The regular reproduction command checks both new replays and their raw
+instruction encodings. With all four exact ROMs present, reproduce the separate
+component comparison with:
+
+```sh
+bash scripts/run_cpu_only.sh python3 research/2026-10-21-gfw-boot/inspect_preos.py --compare firmware-store/gfw-boot
+```
+
+Next: trace loader parameter publication at `0x6b04` into PRE_OS's interface,
+then the PRE_OS conditions that reach a halt. Follow the actual raw `0x40`
+argument stores before assigning it a command name. Missing runtime inputs,
+installed-byte identity and debug/production equivalence remain missing; this
+work establishes no additional live recovery operation.
